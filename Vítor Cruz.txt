@@ -5,3 +5,5 @@ Tenho 7 anos de experiência no desenvolvimento de sistemas de detecção, alarme e
 
 
 Estou cursando a disciplina CE-237 como aluno ouvinte para conhecer melhor o ITA e estudar a possibilidade de realizar a minha pós-graduação na instituição.
+
+*Adicionando uma linha ao arquivo para gerar um conflito de merge.
