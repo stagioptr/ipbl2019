@@ -1,4 +1,8 @@
-Primeiro Commit STAGIOP-TR - Roberto Carlos.
-Branch created
+file
+is
+modified
+to generate
+a conflict
+Changing the file
 File modified to merge
 
