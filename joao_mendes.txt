@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Teste - Com conlflito
+=======
+Teste - Com conflito
+>>>>>>> joao01
