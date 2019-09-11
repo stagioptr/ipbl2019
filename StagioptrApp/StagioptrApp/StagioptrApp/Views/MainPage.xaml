@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:pages="clr-namespace:StagioptrApp.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="StagioptrApp.Views.MainPage">
+  <!--Pages can be added as references or inline-->
+    <NavigationPage Title="Pacientes">
+        <x:Arguments>
+            <pages:PacientesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage>
+        <x:Arguments>
+            <ContentPage Title="Tab 2">
+                <Label>Page2</Label>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage>
+        <x:Arguments>
+            <ContentPage Title="Tab 3">
+                <Label>Page3</Label>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
