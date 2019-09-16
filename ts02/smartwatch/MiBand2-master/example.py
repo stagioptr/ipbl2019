@@ -46,13 +46,13 @@ if args.standard:
     time.sleep(8)
     print ('OFF')
     band.send_alert(ALERT_TYPES.NONE)
+    print ('Heart rate oneshot:', band.get_heart_rate_one_time())
     print ('Soft revision:',band.get_revision())
     print ('Hardware revision:',band.get_hrdw_revision())
     print ('Serial:',band.get_serial())
     print ('Battery:', band.get_battery_info())
     print ('Time:', band.get_current_time())
     print ('Steps:', band.get_steps())
-    print ('Heart rate oneshot:', band.get_heart_rate_one_time())
    
 if args.set_current_time:
     now = datetime.now()
