@@ -22,7 +22,7 @@ def init(mac, kafka, interval):
 def getHeartRate(band):
   from datetime import datetime
   data = {
-    time: datetime.now().strftime("%Y%m%dT%H%M%S")
+    time: datetime.now().strftime("%Y%m%dT%H%M%S"),
     value: band.get_heart_rate_one_time()
   }
   return data
