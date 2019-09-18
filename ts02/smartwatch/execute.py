@@ -18,7 +18,7 @@ def init(mac, kafka, interval):
   while True:
     message = getHeartRate(band)
     sendMessage(kafka, message)
-    time.sleep(interval)
+    time.sleep(float(interval))
 
 
 def getHeartRate(band):
