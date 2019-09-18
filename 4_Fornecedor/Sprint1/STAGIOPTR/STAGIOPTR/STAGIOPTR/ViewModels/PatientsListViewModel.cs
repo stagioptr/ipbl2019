@@ -10,7 +10,7 @@ namespace STAGIOPTR.ViewModels
         private ObservableCollection<Patient> _patients;
         DatabaseConnection database = new DatabaseConnection();
 
-        public Command<Patient> ShowPatientCommand { get; }
+        public Command AddPatientCommand { get; }
 
         public ObservableCollection<Patient> Patients
         {
@@ -22,7 +22,7 @@ namespace STAGIOPTR.ViewModels
         {
             _patients = new ObservableCollection<Patient>();
             this.Load();
-            ShowPatientCommand = new Command<Patient>(ExecuteShowPatientCommand);
+            AddPatientCommand = new Command(ExecuteAddPatientCommand);
         }
 
         public void Load()
@@ -34,7 +34,12 @@ namespace STAGIOPTR.ViewModels
             }
         }
 
-        private async void ExecuteShowPatientCommand(Patient Patient)
+        private async void ExecuteAddPatientCommand()
+        {
+            await PushAsync<PatientAddViewModel>();
+        }
+
+        private async void ExecuteAlterPatientCommand(Patient Patient)
         {
             await PushAsync<PatientViewModel>(Patient);
         }

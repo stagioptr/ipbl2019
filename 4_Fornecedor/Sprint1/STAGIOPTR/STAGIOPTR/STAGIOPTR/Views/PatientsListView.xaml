@@ -7,7 +7,7 @@
              x:Class="STAGIOPTR.Views.PatientsListView"
              Title="STAGIOP-TR">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="ADD"/>
+        <ToolbarItem Text="ADD" Command="{Binding AddPatientCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -21,6 +21,10 @@
                             <StackLayout Orientation="Vertical">
                                 <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
                             </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Alterar" Command="{Binding }" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Excluir" IsDestructive="true" Command="{Binding }" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate> 
                 </ListView.ItemTemplate>

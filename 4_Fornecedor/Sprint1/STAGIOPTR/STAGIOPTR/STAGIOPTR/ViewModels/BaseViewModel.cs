@@ -45,7 +45,7 @@ namespace STAGIOPTR.ViewModels
             var viewModelType = typeof(TViewModel);
             var viewModelTypeName = viewModelType.Name;
             var viewModelWordLength = "ViewModel".Length;
-            var viewTypeName = $"STAGIOPTR.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}View";
+            var viewTypeName = $"STAGIOPTR.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}View";
             var viewType = Type.GetType(viewTypeName);
 
             var page = Activator.CreateInstance(viewType) as Page;
@@ -65,7 +65,7 @@ namespace STAGIOPTR.ViewModels
             var viewModelType = typeof(TViewModel);
             var viewModelTypeName = viewModelType.Name;
             var viewModelWordLength = "ViewModel".Length;
-            var viewTypeName = $"STAGIOPTR.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}View";
+            var viewTypeName = $"STAGIOPTR.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}View";
             var viewType = Type.GetType(viewTypeName);
 
             var page = Activator.CreateInstance(viewType) as Page;
