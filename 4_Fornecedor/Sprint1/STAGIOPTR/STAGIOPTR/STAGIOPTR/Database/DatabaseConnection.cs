@@ -1,4 +1,4 @@
-﻿    using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using STAGIOPTR.Models;
 using SQLite;
 using System.Collections.Generic;
@@ -18,6 +18,7 @@ namespace STAGIOPTR.Database
             _connection.CreateTable<Address>();
             _connection.CreateTable<Food>();
             _connection.CreateTable<Feeding>();
+            _connection.CreateTable<Sleep>();
         }
 
         public void InsertPatients(Patient Patient)
