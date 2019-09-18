@@ -23,8 +23,8 @@ def init(mac, kafka, interval):
 
 def getHeartRate(band):
   data = {
-    time: datetime.now().strftime("%Y%m%dT%H%M%S"),
-    value: band.get_heart_rate_one_time()
+    'time': datetime.now().strftime("%Y%m%dT%H%M%S"),
+    'value': band.get_heart_rate_one_time()
   }
   return data
 
@@ -37,4 +37,5 @@ def sendMessage(kafka, message):
 
 
 if __name__ == '__main__':
+  print(args)
   init(args.mac, args.kafka, args.interval)
