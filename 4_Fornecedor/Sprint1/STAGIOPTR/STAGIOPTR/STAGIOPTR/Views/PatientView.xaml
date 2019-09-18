@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.PatientView">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Dados do Paciente"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nome:" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="Data de Nasc:" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="Gênero:" Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="João" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="15/09/2019" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="Masculino" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
