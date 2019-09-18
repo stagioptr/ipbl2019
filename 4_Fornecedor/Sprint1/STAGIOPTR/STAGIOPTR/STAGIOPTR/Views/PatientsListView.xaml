@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STAGIOPTR.Views.PatientsListView"
-             Title="STAGIOP-TR">
+             x:Class="STAGIOPTR.Views.PatientsListView">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="ADD" Command="{Binding AddPatientCommand}"/>
     </ContentPage.ToolbarItems>
