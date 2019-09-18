@@ -30,6 +30,9 @@ def getHeartRate(band):
 
 
 def sendMessage(kafka, message):
+  import json
+  from pprint import pprint
+  pprint(json.dumps(message))
   pass
 
 
