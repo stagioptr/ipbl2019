@@ -16,8 +16,6 @@
                 FontAttributes="Bold"
                 FontSize="50"
                 TextColor="Black"/>
-            <Image Source="{STAGIOPTR.Images.alert2.png}"
-                  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
