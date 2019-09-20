@@ -5,12 +5,15 @@ using Xamarin.Forms.Xaml;
 namespace STAGIOPTR.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PatientUpdateView : ContentPage
+    public partial class LoginView : ContentPage
     {
-        public PatientUpdateView()
+        private LoginViewModel _viewModel;
+
+        public LoginView()
         {
             InitializeComponent();
+            _viewModel = new LoginViewModel();
+            BindingContext = _viewModel;
         }
-
     }
 }

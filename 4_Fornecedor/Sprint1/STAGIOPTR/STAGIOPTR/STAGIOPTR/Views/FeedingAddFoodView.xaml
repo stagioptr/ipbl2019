@@ -4,22 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STAGIOPTR.Views.PatientFeedingView"
-             Title="Registro de Alimentação">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="ADD" Command="{Binding AddFeedingCommand}"/>
-    </ContentPage.ToolbarItems>
+             x:Class="STAGIOPTR.Views.FeedingAddFoodView">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="15">
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Feedings}">
+                ItemsSource="{Binding Foods}"
+                SelectedItem="{Binding FoodSelected}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding FoodTime}" Detail="{Binding Food}" TextColor="Indigo" DetailColor="Blue"/>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Próximo" Command="{Binding SelectItemVerify}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

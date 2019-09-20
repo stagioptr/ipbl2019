@@ -1,4 +1,5 @@
 ﻿using STAGIOPTR.ViewModels;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,8 +20,13 @@ namespace STAGIOPTR.Views
         {
             if(e.SelectedItem != null)
             {
-                
+                _viewModel.ShowPatientCommand.Execute(e.SelectedItem);
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            this._viewModel.LoadAsync();
         }
     }
 }

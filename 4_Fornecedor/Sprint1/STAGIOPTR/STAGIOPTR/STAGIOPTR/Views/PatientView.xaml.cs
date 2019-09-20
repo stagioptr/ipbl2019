@@ -7,11 +7,10 @@ namespace STAGIOPTR.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PatientView : ContentPage
     {
-        private readonly PatientViewModel _viewModel;
         public PatientView()
         {
             InitializeComponent();
-            BindingContext = _viewModel;
         }
+
     }
 }

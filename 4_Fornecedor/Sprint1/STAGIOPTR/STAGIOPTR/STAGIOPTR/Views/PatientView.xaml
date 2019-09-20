@@ -4,32 +4,84 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STAGIOPTR.Views.PatientView">
+             x:Class="STAGIOPTR.Views.PatientView"
+             Title="{Binding Patient.Name}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="EDIT" Command="{Binding AlterPatientCommand}"/>
+        <ToolbarItem Text="DEL" Command="{Binding DelPatientCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout>
-                <Label Text="Dados do Paciente"/>
+        <StackLayout Padding="15">
+            <Frame CornerRadius="10" BorderColor="Indigo" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="Nome:" Grid.Row="0" Grid.Column="0"/>
-                    <Label Text="Data de Nasc:" Grid.Row="1" Grid.Column="0"/>
-                    <Label Text="Gênero:" Grid.Row="2" Grid.Column="0"/>
-                    <Label Text="João" Grid.Row="0" Grid.Column="1"/>
-                    <Label Text="15/09/2019" Grid.Row="1" Grid.Column="1"/>
-                    <Label Text="Masculino" Grid.Row="2" Grid.Column="1"/>
+                    <Label VerticalOptions="Center" Text="Nome:" Grid.Row="0" Grid.Column="0"/>
+                    <Label VerticalOptions="Center" Text="Data de Nasc:" Grid.Row="1" Grid.Column="0"/>
+                    <Label VerticalOptions="Center" Text="E-mail:" Grid.Row="2" Grid.Column="0"/>
+                    <Label VerticalOptions="Center" Text="Tipo Sanguíneo:" Grid.Row="3" Grid.Column="0"/>
+                    <Label VerticalOptions="Center" Text="Gênero:" Grid.Row="4" Grid.Column="0"/>
+                    <Label Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.Birthdate}" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.Email}" Grid.Row="2" Grid.Column="1"/>
+                    <Label  Text="{Binding Patient.BloodType}" Grid.Row="3" Grid.Column="1"/>
+                    <Label  Text="{Binding Patient.Gender}" Grid.Row="4" Grid.Column="1"/>
                 </Grid>
-            </StackLayout>
-            <StackLayout>
-                
-            </StackLayout>
+            </Frame>
+            <Frame CornerRadius="10" BorderColor="Indigo" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Command="{Binding ShowFeedingCommand}" CornerRadius="10" Source="food.png" BackgroundColor="Indigo" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <Label Text="Alimentação" TextColor="Indigo" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Ultima: " Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Frame CornerRadius="10" BorderColor="Indigo" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Command="{Binding ShowSleepCommand}" CornerRadius="10" Source="nightstay.png" BackgroundColor="Indigo" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <Label Text="Qualidade de sono" TextColor="Indigo" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Frame CornerRadius="10" BorderColor="Indigo" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Command="{Binding ShowEmotionalCommand}" CornerRadius="10" Source="mood.png" BackgroundColor="Indigo" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <Label Text="Emocional" TextColor="Indigo" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

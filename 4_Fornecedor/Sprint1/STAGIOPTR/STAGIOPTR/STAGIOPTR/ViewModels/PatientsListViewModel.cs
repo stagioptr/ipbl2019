@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using STAGIOPTR.Database;
 using Xamarin.Forms;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace STAGIOPTR.ViewModels
 {
@@ -12,6 +14,8 @@ namespace STAGIOPTR.ViewModels
 
         public Command AddPatientCommand { get; }
 
+        public Command<Patient> ShowPatientCommand { get; }
+
         public ObservableCollection<Patient> Patients
         {
             get { return _patients; }
@@ -21,13 +25,20 @@ namespace STAGIOPTR.ViewModels
         public PatientsListViewModel()
         {
             _patients = new ObservableCollection<Patient>();
-            this.Load();
+            this.LoadAsync();
             AddPatientCommand = new Command(ExecuteAddPatientCommand);
+            ShowPatientCommand = new Command<Patient>(ExecuteShowPatientCommand);
         }
 
-        public void Load()
+        private async void ExecuteShowPatientCommand(Patient patient)
         {
-            var patients = database.ListPatients();
+            await PushAsync<PatientViewModel>(patient);
+        }
+
+        public override async Task LoadAsync()
+        {
+            var patients = await database.ListPatients();
+            this.Patients.Clear();
             foreach (var patient in patients)
             {
                 this.Patients.Add(patient);

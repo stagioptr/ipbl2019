@@ -25,10 +25,11 @@
                 <Label Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
                 <Label Text="{Binding Patient.Birthdate}" Grid.Row="1" Grid.Column="1"/>
                 <Label Text="{Binding Patient.Email}" Grid.Row="2" Grid.Column="1"/>
-                <Label  Text="{Binding Patient.BloodType}" Grid.Row="3" Grid.Column="1"/>
-                <Entry  Text="{Binding Patient.Genre}" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="{Binding Patient.BloodType}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{Binding Patient.Gender}" Grid.Row="4" Grid.Column="1" />
             </Grid>
-            <Button Text="CADASTRAR" Command="{Binding UpdatePatientCommand}"/>
+            <Label Text="TEM CERTEZA QUE DESEJA DELETAR O PACIENTE ?"/>
+            <Button Text="DELETAR" Command="{Binding DeletePatientCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,7 @@
 ﻿using STAGIOPTR.Models;
 using STAGIOPTR.Database;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace STAGIOPTR.ViewModels
 {
@@ -25,6 +26,7 @@ namespace STAGIOPTR.ViewModels
         public void ExecuteAddPatientCommand()
         {
             this.database.InsertPatients(this.Patient);
+            Application.Current.MainPage.Navigation.PopAsync();
         }
 
     }

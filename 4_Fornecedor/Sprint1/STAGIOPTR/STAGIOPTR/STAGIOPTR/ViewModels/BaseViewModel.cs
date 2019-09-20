@@ -78,6 +78,10 @@ namespace STAGIOPTR.ViewModels
 
             await Application.Current.MainPage.Navigation.PushModalAsync(page);
         }
+        public virtual Task LoadAsync()
+        {
+            return Task.FromResult(0);
+        }
 
     }
 }

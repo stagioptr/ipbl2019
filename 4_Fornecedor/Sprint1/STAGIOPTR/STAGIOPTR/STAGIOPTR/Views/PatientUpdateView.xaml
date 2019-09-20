@@ -25,7 +25,7 @@
                 <Entry Placeholder="Nome" Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
                 <Entry Placeholder="Data de Nasc" Text="{Binding Patient.Birthdate}" Grid.Row="1" Grid.Column="1"/>
                 <Entry Placeholder="E-mail" Text="{Binding Patient.Email}" Grid.Row="2" Grid.Column="1"/>
-                <Picker x:Name="BloodType" Title="Tipo Sanguíneo" Grid.Row="3" Grid.Column="1">
+                <Picker Title="Tipo Sanguíneo" SelectedItem="{Binding Patient.BloodType}" Grid.Row="3" Grid.Column="1">
                     <Picker.Items>
                         <x:String>A +</x:String>
                         <x:String>A -</x:String>
@@ -37,9 +37,14 @@
                         <x:String>O -</x:String>
                     </Picker.Items>
                 </Picker>
-                <Entry Placeholder="Gênero" Text="{Binding Patient.Genre}" Grid.Row="4" Grid.Column="1"/>
+                <Picker Title="Gênero" SelectedItem="{Binding Patient.Gender}" Grid.Row="4" Grid.Column="1" >
+                    <Picker.Items>
+                        <x:String>Masculino</x:String>
+                        <x:String>Feminino</x:String>
+                    </Picker.Items>
+                </Picker>
             </Grid>
-            <Button Text="CADASTRAR" Command="{Binding UpdatePatientCommand}"/>
+            <Button Text="ALTERAR" Command="{Binding UpdatePatientCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

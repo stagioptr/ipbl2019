@@ -4,19 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STAGIOPTR.Views.PatientFeedingView"
-             Title="Registro de Alimentação">
+             x:Class="STAGIOPTR.Views.FoodsListView">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="ADD" Command="{Binding AddFeedingCommand}"/>
+        <ToolbarItem Command="{Binding AddFoodCommand}" Text="ADD"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Feedings}">
+                ItemsSource="{Binding Foods}"
+                ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding FoodTime}" Detail="{Binding Food}" TextColor="Indigo" DetailColor="Blue"/>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir" IsDestructive="true" Clicked="DeleteAction" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

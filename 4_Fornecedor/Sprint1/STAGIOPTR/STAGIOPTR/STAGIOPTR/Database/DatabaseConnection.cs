@@ -1,7 +1,10 @@
-﻿using Xamarin.Forms;
+﻿using SQLite;
 using STAGIOPTR.Models;
-using SQLite;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace STAGIOPTR.Database
 {
@@ -21,6 +24,7 @@ namespace STAGIOPTR.Database
             _connection.CreateTable<Sleep>();
         }
 
+        // CRUD PATIENTS
         public void InsertPatients(Patient Patient)
         {
             _connection.Insert(Patient);
@@ -36,7 +40,7 @@ namespace STAGIOPTR.Database
             _connection.Delete(Patient);
         }
 
-        public List<Patient> ListPatients()
+        public async Task<List<Patient>> ListPatients()
         {
             return _connection.Table<Patient>().ToList();
         }
@@ -48,6 +52,51 @@ namespace STAGIOPTR.Database
         public Patient getPatientPerId(int Id)
         {
             return _connection.Table<Patient>().Where(a => a.Id == Id).FirstOrDefault();
+        }
+
+        public Patient getPatientPerEmail(string Email)
+        {
+            return _connection.Table<Patient>().Where(a => a.Email == Email).FirstOrDefault();
+        }
+        
+        // CRUD FOODS
+        public void InsertFood(Food Food)
+        {
+            _connection.Insert(Food);
+        }
+
+        public void UpdateFood(Food Food)
+        {
+            _connection.Update(Food);
+        }
+
+        public void DeleteFood(Food Food)
+        {
+            _connection.Delete(Food);
+        }
+
+        public async Task<List<Food>> ListFood()
+        {
+            return _connection.Table<Food>().ToList();
+        }
+        public List<Food> SearchFood(string word)
+        {
+            return _connection.Table<Food>().Where(a => a.Name.Contains(word)).ToList();
+        }
+
+        public Food getFoodPerId(int Id)
+        {
+            return _connection.Table<Food>().Where(a => a.Id == Id).FirstOrDefault();
+        }
+
+        // Feeding
+        public void InsertFeeding(Feeding Feeding)
+        {
+            _connection.Insert(Feeding);
+        }
+        public async Task<List<Feeding>> ListFeeding()
+        {
+            return _connection.Table<Feeding>().Where(a=> a.IdPatient == Id).ToList();
         }
     }
 }

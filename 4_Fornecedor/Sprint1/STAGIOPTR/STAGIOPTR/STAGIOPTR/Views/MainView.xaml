@@ -8,6 +8,7 @@
              x:Class="STAGIOPTR.Views.MainView"
              Title="STAGIOP-TR">
     <TabbedPage.Children>
-        <views:PatientsListView Title="Pacientes"/>
+        <views:PatientsListView Title="Pacientes" IconImageSource="details.png"/>
+        <views:FoodsListView Title="Alimentos" IconImageSource="food.png"/>
     </TabbedPage.Children>
 </TabbedPage>

@@ -32,6 +32,7 @@ namespace STAGIOPTR.ViewModels
         public void ExecuteDeletePatientCommand()
         {
             this.database.DeletePatient(this.Patient);
+            Application.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

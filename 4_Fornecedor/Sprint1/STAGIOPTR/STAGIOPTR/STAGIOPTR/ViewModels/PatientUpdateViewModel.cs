@@ -32,6 +32,7 @@ namespace STAGIOPTR.ViewModels
         public void ExecuteUpdatePatientCommand()
         {
             this.database.UpdatePatient(this.Patient);
+            Application.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

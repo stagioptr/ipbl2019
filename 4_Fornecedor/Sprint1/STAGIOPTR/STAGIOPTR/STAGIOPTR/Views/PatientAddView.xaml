@@ -4,12 +4,50 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STAGIOPTR.Views.PatientAddView">
+             x:Class="STAGIOPTR.Views.PatientAddView"
+             Title="Novo Cadastro">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Center" Text="Nome:" Grid.Row="0" Grid.Column="0"/>
+                <Label VerticalOptions="Center" Text="Data de Nasc:" Grid.Row="1" Grid.Column="0"/>
+                <Label VerticalOptions="Center" Text="Tipo Sanguíneo:" Grid.Row="2" Grid.Column="0"/>
+                <Label VerticalOptions="Center" Text="Gênero:" Grid.Row="3" Grid.Column="0"/>
+                <Label VerticalOptions="Center" Text="Email:" Grid.Row="4" Grid.Column="0"/>
+                <Entry Placeholder="Nome" Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
+                <Entry Placeholder="Data de Nasc" Text="{Binding Patient.Birthdate}" Grid.Row="1" Grid.Column="1"/>
+                <Picker Title="Tipo Sanguíneo" SelectedIndexChanged="PickerBloodType_SelectedIndexChanged" SelectedItem="{Binding Patient.BloodType}" Grid.Row="2" Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>A +</x:String>
+                        <x:String>A -</x:String>
+                        <x:String>B +</x:String>
+                        <x:String>B -</x:String>
+                        <x:String>AB +</x:String>
+                        <x:String>AB -</x:String>
+                        <x:String>O +</x:String>
+                        <x:String>O -</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Picker Title="Gênero" SelectedIndexChanged="PickerGender_SelectedIndexChanged" SelectedItem="{Binding Patient.Gender}" Grid.Row="3" Grid.Column="1" >
+                    <Picker.Items>
+                        <x:String> Masculino </x:String>
+                        <x:String> Feminino </x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry Placeholder="Email" Text="{Binding Patient.Email}" Grid.Row="4" Grid.Column="1"/>
+            </Grid>
+            <Button Text="CADASTRAR" Command="{Binding AddPatientCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

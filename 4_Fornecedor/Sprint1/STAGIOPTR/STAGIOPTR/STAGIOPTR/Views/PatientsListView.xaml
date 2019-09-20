@@ -20,10 +20,6 @@
                             <StackLayout Orientation="Vertical">
                                 <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
                             </StackLayout>
-                            <ViewCell.ContextActions>
-                                <MenuItem Text="Alterar" Command="{Binding }" CommandParameter="{Binding .}"/>
-                                <MenuItem Text="Excluir" IsDestructive="true" Command="{Binding }" CommandParameter="{Binding .}"/>
-                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate> 
                 </ListView.ItemTemplate>
