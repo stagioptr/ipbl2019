@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System;
 
 namespace STAGIOPTR.Views
 {
@@ -15,7 +16,10 @@ namespace STAGIOPTR.Views
             _viewModel = new PatientsListViewModel();
             BindingContext = _viewModel;
         }
-
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SOSButtonView());
+        }
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if(e.SelectedItem != null)
