@@ -96,7 +96,7 @@ namespace STAGIOPTR.Database
         }
         public async Task<List<Feeding>> ListFeeding()
         {
-            return _connection.Table<Feeding>().Where(a=> a.IdPatient == Id).ToList();
+            return _connection.Table<Feeding>().ToList();
         }
     }
 }

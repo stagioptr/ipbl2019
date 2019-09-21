@@ -7,7 +7,6 @@
              x:Class="STAGIOPTR.Views.PatientsListView">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="ADD" Command="{Binding AddPatientCommand}"/>
-        <ToolbarItem Text="SOS" Clicked="Button_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
