@@ -82,6 +82,7 @@
                     <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </Frame>
+            <Button Text="HELP ME PLEASE ! ! !" CornerRadius="10" BackgroundColor="Red" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

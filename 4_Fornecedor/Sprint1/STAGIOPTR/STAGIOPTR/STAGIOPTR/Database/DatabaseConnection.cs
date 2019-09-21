@@ -98,5 +98,21 @@ namespace STAGIOPTR.Database
         {
             return _connection.Table<Feeding>().ToList();
         }
+
+        //SLEEP
+        public void InsertSleep(Sleep Sleep)
+        {
+            _connection.Insert(Sleep);
+        }
+
+        public List<Sleep> getSleepPerId(int Id)
+        {
+            return _connection.Table<Sleep>().Where(a => a.IdPatient == Id).ToList();
+        }
+        //EMOTIONAL
+        public List<Emotional> getEmotionalPerId(int Id)
+        {
+            return _connection.Table<Emotional>().Where(a => a.IdPatient == Id).ToList();
+        }
     }
 }

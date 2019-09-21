@@ -7,10 +7,16 @@
              x:Class="STAGIOPTR.Views.PatientEmotionalView"
              Title="Registro Emocional">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15">
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Emotionals}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Quality}" Detail="{Binding EmotionalTime}" TextColor="Indigo" DetailColor="Blue"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
