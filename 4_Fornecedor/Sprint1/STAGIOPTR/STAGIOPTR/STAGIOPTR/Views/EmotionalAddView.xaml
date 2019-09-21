@@ -18,10 +18,9 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label VerticalOptions="Center" Text="Inicio:" Grid.Row="0" Grid.Column="0"/>
-                <Label VerticalOptions="Center" Text="Duração:" Grid.Row="1" Grid.Column="0"/>
-                <Label VerticalOptions="Center" Text="Qualidade:" Grid.Row="2" Grid.Column="0"/>
-                <Entry Placeholder="Nome" Text="{Binding Emotional.SleepTime}" Grid.Row="0" Grid.Column="1"/>
-                <Picker Title="Tipo Sanguíneo" SelectedItem="{Binding Emotional.Quality}" Grid.Row="3" Grid.Column="1">
+                <Label VerticalOptions="Center" Text="Qualidade:" Grid.Row="1" Grid.Column="0"/>
+                <Entry Placeholder="Inicio" Text="{Binding Emotional.SleepTime}" Grid.Row="0" Grid.Column="1"/>
+                <Picker Title="Qualidade" SelectedItem="{Binding Emotional.Quality}" Grid.Row="1" Grid.Column="1">
                     <Picker.Items>
                         <x:String>ÓTIMO</x:String>
                         <x:String>BOM</x:String>

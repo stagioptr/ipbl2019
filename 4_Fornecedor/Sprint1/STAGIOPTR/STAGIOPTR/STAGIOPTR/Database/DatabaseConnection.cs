@@ -22,6 +22,7 @@ namespace STAGIOPTR.Database
             _connection.CreateTable<Food>();
             _connection.CreateTable<Feeding>();
             _connection.CreateTable<Sleep>();
+            _connection.CreateTable<Emotional>();
         }
 
         // CRUD PATIENTS
@@ -105,14 +106,20 @@ namespace STAGIOPTR.Database
             _connection.Insert(Sleep);
         }
 
-        public List<Sleep> getSleepPerId(int Id)
+        public async Task<List<Sleep>> getSleep()
         {
-            return _connection.Table<Sleep>().Where(a => a.IdPatient == Id).ToList();
+            return _connection.Table<Sleep>().ToList();
         }
         //EMOTIONAL
-        public List<Emotional> getEmotionalPerId(int Id)
+
+        public void InsertEmotional(Emotional Emotional)
         {
-            return _connection.Table<Emotional>().Where(a => a.IdPatient == Id).ToList();
+            _connection.Insert(Emotional);
+        }
+
+        public async Task<List<Emotional>> getEmotional()
+        {
+            return _connection.Table<Emotional>().ToList();
         }
     }
 }

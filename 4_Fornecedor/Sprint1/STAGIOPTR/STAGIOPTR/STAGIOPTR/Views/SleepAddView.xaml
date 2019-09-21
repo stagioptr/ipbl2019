@@ -20,9 +20,9 @@
                 <Label VerticalOptions="Center" Text="Inicio:" Grid.Row="0" Grid.Column="0"/>
                 <Label VerticalOptions="Center" Text="Duração:" Grid.Row="1" Grid.Column="0"/>
                 <Label VerticalOptions="Center" Text="Qualidade:" Grid.Row="2" Grid.Column="0"/>
-                <Entry Placeholder="Nome" Text="{Binding Sleep.SleepTime}" Grid.Row="0" Grid.Column="1"/>
-                <Entry Placeholder="Data de Nasc" Text="{Binding Sleep.Duration}" Grid.Row="1" Grid.Column="1"/>
-                <Picker Title="Tipo Sanguíneo" SelectedItem="{Binding Sleep.Quality}" Grid.Row="3" Grid.Column="1">
+                <Entry Placeholder="Inicio" Text="{Binding Sleep.SleepTime}" Grid.Row="0" Grid.Column="1"/>
+                <Entry Placeholder="Duração" Text="{Binding Sleep.Duration}" Grid.Row="1" Grid.Column="1"/>
+                <Picker Title="Qualidade" SelectedItem="{Binding Sleep.Quality}" Grid.Row="2" Grid.Column="1">
                     <Picker.Items>
                         <x:String>ÓTIMO</x:String>
                         <x:String>BOM</x:String>

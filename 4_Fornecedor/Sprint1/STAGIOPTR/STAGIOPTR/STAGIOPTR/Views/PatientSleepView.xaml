@@ -6,11 +6,14 @@
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.PatientSleepView"
              Title="Registro de Qualidade de Sono">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ADD" Command="{Binding AddSleepCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="15">
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Sleeps}">
+                ItemsSource="{Binding Sleep}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Quality}" Detail="{Binding SleepTime}" TextColor="Indigo" DetailColor="Blue"/>
