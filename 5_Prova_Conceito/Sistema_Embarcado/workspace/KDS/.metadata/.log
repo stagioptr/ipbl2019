@@ -462,3 +462,58 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.cdt.core 1 0 2019-10-04 16:58:12.972
 !MESSAGE Indexed 'integracao' (49 sources, 127 headers) in 2,72 sec: 9.593 declarations; 26.324 references; 0 unresolved inclusions; 92 syntax errors; 533 unresolved names (1,5%)
+!SESSION 2019-10-04 18:48:20.004 -----------------------------------------------
+eclipse.buildId=3.2.0.201603041649
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Framework arguments:  -product com.somniumtech.branding.kds.ide -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.somniumtech.branding.kds.ide -showlocation
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2019-10-04 18:48:34.247
+!MESSAGE External elements location C:\Freescale\KDS_v3\eclipse\ProcessorExpert\BoardConfigurations/wizard_data does not exist
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-04 18:48:34.528
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vcruz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.freescale.processorexpert.core 4 0 2019-10-04 19:00:41.216
+!MESSAGE PExCore: Invalid ID of the project component (fsl_lptmr_hal).
+
+!ENTRY com.freescale.processorexpert.core 4 0 2019-10-04 19:00:48.776
+!MESSAGE java.util.zip.ZipException: error in opening zip file
+!STACK 0
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(Unknown Source)
+	at java.util.zip.ZipFile.<init>(Unknown Source)
+	at com.processorexpert.core.internal.ComponentHeaderCacheProvider.readArchive(ComponentHeaderCacheProvider.java:91)
+	at com.processorexpert.core.internal.ComponentHeaderCacheProvider.<init>(ComponentHeaderCacheProvider.java:75)
+	at com.processorexpert.core.repositories.internal.AComponentRepository.getComponentHeaderCacheProvider(AComponentRepository.java:108)
+	at com.processorexpert.core.repositories.internal.AComponentReference.loadComponentHeader(AComponentReference.java:261)
+	at com.processorexpert.core.repositories.internal.AComponentReference.getComponentHeader(AComponentReference.java:218)
+	at com.processorexpert.core.cpu.CDB.getSupportedDevices(CDB.java:339)
+	at com.processorexpert.core.client.ServiceConfig.getSupportedDevices(ServiceConfig.java:63)
+	at com.processorexpert.core.db.CpuDBInformation.createOnlineMapOfSupportedComponents(CpuDBInformation.java:294)
+	at com.processorexpert.core.db.CpuDBInformation.createCompleteMapOfSupportedComponents(CpuDBInformation.java:377)
+	at com.processorexpert.core.db.CpuDBInformation.updateForAllComponents(CpuDBInformation.java:538)
+	at com.processorexpert.ui.selector.views.BeanSelectorView$18.run(BeanSelectorView.java:1437)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.freescale.processorexpert.core 4 0 2019-10-04 19:00:48.823
+!MESSAGE java.util.zip.ZipException: error in opening zip file
+!STACK 0
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(Unknown Source)
+	at java.util.zip.ZipFile.<init>(Unknown Source)
+	at com.processorexpert.core.internal.ComponentHeaderCacheProvider.readArchive(ComponentHeaderCacheProvider.java:91)
+	at com.processorexpert.core.internal.ComponentHeaderCacheProvider.<init>(ComponentHeaderCacheProvider.java:75)
+	at com.processorexpert.core.repositories.internal.AComponentRepository.getComponentHeaderCacheProvider(AComponentRepository.java:108)
+	at com.processorexpert.core.repositories.internal.AComponentReference.loadComponentHeader(AComponentReference.java:261)
+	at com.processorexpert.core.repositories.internal.AComponentReference.getComponentHeader(AComponentReference.java:218)
+	at com.processorexpert.ui.selector.views.BeanSelectorView$ComponentHeaderLoadingJob.run(BeanSelectorView.java:2313)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
