@@ -22,7 +22,11 @@ Generated_Code/osa1.o: ../Generated_Code/osa1.c ../Generated_Code/osa1.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/system/inc/fsl_interrupt_manager.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h \
- N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h
+ N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/hal/inc/fsl_i2c_hal.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_master_driver.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h
 
 ../Generated_Code/osa1.h:
 
@@ -75,3 +79,11 @@ N:/Sensores/acelerometro/KDS/SDK/platform/system/inc/fsl_interrupt_manager.h:
 N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h:
 
 N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/hal/inc/fsl_i2c_hal.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_master_driver.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h:

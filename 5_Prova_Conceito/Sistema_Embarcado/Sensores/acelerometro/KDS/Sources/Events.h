@@ -34,11 +34,35 @@
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
+#include "i2cCom1.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif 
 
+
+#ifdef i2cCom1_IDX
+/*
+** ===================================================================
+**     Interrupt handler : I2C1_IRQHandler
+**
+**     Description :
+**         User interrupt service routine. 
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void I2C1_IRQHandler(void);
+#else
+  /* This IRQ handler is not used by i2cCom1 component. The purpose may be
+   * that the component has been removed or disabled. It is recommended to 
+   * remove this handler because Processor Expert cannot modify it according to 
+   * possible new request (e.g. in case that another component uses this
+   * interrupt vector). */
+  #warning This IRQ handler is not used by i2cCom1 component.\
+           It is recommended to remove this because Processor Expert cannot\
+           modify it according to possible new request.
+#endif
 
 /* END Events */
 

@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-04, 19:09, # CodeGen: 0
+**     Date/Time   : 2019-10-04, 19:52, # CodeGen: 1
 **     Abstract    :
 **
 **     Settings    :
@@ -976,6 +976,42 @@
 #include "pin_init.h"
 
 
+/*FUNCTION**********************************************************************
+*
+* Function Name : init_i2c_pins
+* Description   : I2C method sets registers according routing settings.
+* Call this method code to route desired pins.
+*END**************************************************************************/
+void init_i2c_pins(uint32_t instance)
+{
+  switch(instance) {    
+    case I2C1_IDX:                      /* I2C1_IDX */
+      /* Affects PORTE_PCR1 register */
+      PORT_HAL_SetMuxMode(PORTE,1UL,kPortMuxAlt6);
+      /* Affects PORTE_PCR0 register */
+      PORT_HAL_SetMuxMode(PORTE,0UL,kPortMuxAlt6);
+      break;
+    default:
+      break;
+  }
+}
+/*FUNCTION**********************************************************************
+*
+* Function Name : deinit_i2c_pins
+* Description   : I2C method sets registers according routing settings.
+* Call this method code to disable routing of desired pins.
+*END**************************************************************************/
+void deinit_i2c_pins(uint32_t instance)
+{
+  switch(instance) {    
+    case I2C1_IDX:                      /* I2C1_IDX */
+      PORT_HAL_SetMuxMode(PORTE,1UL,kPortPinDisabled);
+      PORT_HAL_SetMuxMode(PORTE,0UL,kPortPinDisabled);
+      break;
+    default:
+      break;
+  }
+}
 
 /*FUNCTION**********************************************************************
 *

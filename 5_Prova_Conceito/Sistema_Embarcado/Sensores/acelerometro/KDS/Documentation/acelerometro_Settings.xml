@@ -175,5 +175,19 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+  <Bean name="i2cCom1" type="fsl_i2c">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="i2cCom1" />
+      <Device v="I2C1" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

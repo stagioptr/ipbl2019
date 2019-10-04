@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-04, 19:09, # CodeGen: 0
+**     Date/Time   : 2019-10-04, 19:52, # CodeGen: 1
 **     Abstract    :
 **
 **     Settings    :
@@ -107,6 +107,11 @@ void Common_Init(void)
 void Components_Init(void)
 {
 
+  /*! i2cCom1 Auto initialization start */
+  I2C_DRV_MasterInit(i2cCom1_IDX, &i2cCom1_MasterState);
+  I2C_DRV_MasterSetBaudRate(i2cCom1_IDX, &i2cCom1_MasterConfig0);
+  /*! i2cCom1 Auto initialization end */
+  
 }
 #endif /* CPU_COMPONENTS_INIT */
 

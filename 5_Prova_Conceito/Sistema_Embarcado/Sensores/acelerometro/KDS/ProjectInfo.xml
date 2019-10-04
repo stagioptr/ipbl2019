@@ -42,11 +42,12 @@
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\system\src\clock\MKL25Z4\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\system\inc\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\osa\inc\</Path>
+      <Path>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\inc\</Path>
+      <Path>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\inc\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\CMSIS\Include\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\include\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\src\</Path>
-      <Path>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\inc\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Sensores\acelerometro\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Sensores\acelerometro\KDS\Sources\</Path>
@@ -56,7 +57,9 @@
       <Path>N:\Sensores\acelerometro\KDS\Generated_Code\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\</Path>
+      <Path>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\i2c\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\rtc\</Path>
+      <Path>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\i2c\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\lpsci\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\mcg\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\osc\</Path>
@@ -79,11 +82,17 @@
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\clockMan1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\hardware_init.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\i2cCom1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\osa1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\pin_init.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\startup.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_common.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_master_driver.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_shared_function.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_slave_driver.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\src\rtc\fsl_rtc_common.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\i2c\fsl_i2c_hal.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\lpsci\fsl_lpsci_hal.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\mcg\fsl_mcg_hal.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\src\mcg\fsl_mcg_hal_modes.c</PathName>
@@ -110,6 +119,7 @@
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\clockMan1.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\i2cCom1.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\osa1.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\pin_init.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\CMSIS\Include\arm_common_tables.h</PathName>
@@ -125,6 +135,10 @@
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\include\fsl_bitaccess.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\fsl_device_registers.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\startup.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\inc\fsl_i2c_master_driver.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\inc\fsl_i2c_shared_function.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\drivers\inc\fsl_i2c_slave_driver.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\inc\fsl_i2c_hal.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\inc\fsl_lpsci_hal.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\inc\fsl_mcg_hal.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\hal\inc\fsl_mcg_hal_modes.h</PathName>
