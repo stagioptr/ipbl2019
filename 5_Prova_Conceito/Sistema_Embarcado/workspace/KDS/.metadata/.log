@@ -1,0 +1,348 @@
+!SESSION 2019-10-03 17:29:31.392 -----------------------------------------------
+eclipse.buildId=3.2.0.201603041649
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Framework arguments:  -product com.somniumtech.branding.kds.ide -product com.somniumtech.branding.kds.ide -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.somniumtech.branding.kds.ide -data C:\Repositorio_ITA\ipbl2019\5_Prova_Conceito\Sistema_Embarcado\workspace\KDS -product com.somniumtech.branding.kds.ide -showlocation
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2019-10-03 17:29:38.922
+!MESSAGE External elements location C:\Freescale\KDS_v3\eclipse\ProcessorExpert\BoardConfigurations/wizard_data does not exist
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-03 17:29:38.922
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vcruz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2019-10-03 17:29:56.152
+!MESSAGE External elements location C:\Freescale\KDS_v3\eclipse\ProcessorExpert\BoardConfigurations/wizard_data does not exist
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-10-03 17:31:17.959
+!MESSAGE Indexed 'integracao' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-10-03 18:01:07.162
+!MESSAGE Request monitor: 'Sequence "", result for executing step #0 = Status CANCEL: unknown code=1  null' resulted in a cancel status: Status CANCEL: unknown code=1  null, even though the request is not set to cancel.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-10-03 18:01:07.162
+!MESSAGE Request monitor: 'Sequence "Initializing debugger services", result for executing step #0 = Status CANCEL: unknown code=1  null' resulted in a cancel status: Status CANCEL: unknown code=1  null, even though the request is not set to cancel.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-10-03 18:01:07.162
+!MESSAGE Request monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@2df837): Status CANCEL: unknown code=1  null' resulted in a cancel status: Status CANCEL: unknown code=1  null, even though the request is not set to cancel.
+
+!ENTRY com.pemicro.debug.gdbjtag.pne 4 5012 2019-10-03 18:01:07.162
+!MESSAGE Error in services launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:582)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.access$4(Sequence.java:574)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:431)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:425)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:388)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:313)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+!SUBENTRY 1 unknown 8 1 2019-10-03 18:01:07.162
+!MESSAGE 
+
+!ENTRY org.eclipse.ui 4 0 2019-10-04 09:23:45.751
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:476)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:348)
+	at org.eclipse.swt.widgets.Text.getText(Text.java:1351)
+	at org.eclipse.ui.internal.quickaccess.QuickAccessContents$4$1.run(QuickAccessContents.java:579)
+	at org.eclipse.swt.widgets.Display.runTimer(Display.java:4273)
+	at org.eclipse.swt.widgets.Display.messageProc(Display.java:3360)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.e4.ui.workbench.swt 4 2 2019-10-04 10:45:34.807
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.e4.ui.workbench.swt".
+!STACK 0
+org.eclipse.e4.core.di.InjectionException: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:62)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.disposed(InjectorImpl.java:390)
+	at org.eclipse.e4.core.internal.di.Requestor.disposed(Requestor.java:143)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:76)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:107)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.handleInvalid(TrackableComputationExt.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.dispose(EclipseContext.java:175)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.clearContext(PartRenderingEngine.java:974)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:954)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$3(PartRenderingEngine.java:862)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$8.run(PartRenderingEngine.java:857)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:841)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1937)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1560)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+	at org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:1155)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1137)
+	at org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1079)
+	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1410)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1407)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1380)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1556)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+	at org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1603)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:521)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$11.shellClosed(WBWRenderer.java:563)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1696)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4612)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:476)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:348)
+	at org.eclipse.swt.widgets.Shell.getSize(Shell.java:1092)
+	at org.eclipse.ui.internal.quickaccess.SearchField.storeDialog(SearchField.java:580)
+	at org.eclipse.ui.internal.quickaccess.SearchField.dispose(SearchField.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	... 88 more
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2019-10-04 10:45:34.823
+!MESSAGE Exception occurred while unrendering: org.eclipse.e4.ui.model.application.ui.basic.impl.TrimmedWindowImpl@2f9992 (elementId: IDEWindow, tags: [topLevel, shellMaximized], contributorURI: platform:/plugin/org.eclipse.ui.workbench) (widget: null, renderer: null, toBeRendered: true, onTop: false, visible: true, containerData: null, accessibilityPhrase: null) (label: %trimmedwindow.label.eclipseSDK, iconURI: null, tooltip: null, context: null, variables: [], x: 19, y: -8, width: 1024, height: 744)
+!STACK 0
+org.eclipse.e4.core.di.InjectionException: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:62)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.disposed(InjectorImpl.java:390)
+	at org.eclipse.e4.core.internal.di.Requestor.disposed(Requestor.java:143)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:76)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:107)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.handleInvalid(TrackableComputationExt.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.dispose(EclipseContext.java:175)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.clearContext(PartRenderingEngine.java:974)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:954)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$3(PartRenderingEngine.java:862)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$8.run(PartRenderingEngine.java:857)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:841)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1937)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1560)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+	at org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:1155)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1137)
+	at org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1079)
+	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1410)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1407)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1380)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1556)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+	at org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1603)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:521)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$11.shellClosed(WBWRenderer.java:563)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1696)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4612)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+Caused by: org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4441)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:476)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:348)
+	at org.eclipse.swt.widgets.Shell.getSize(Shell.java:1092)
+	at org.eclipse.ui.internal.quickaccess.SearchField.storeDialog(SearchField.java:580)
+	at org.eclipse.ui.internal.quickaccess.SearchField.dispose(SearchField.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	... 88 more
+!SESSION 2019-10-04 11:12:07.014 -----------------------------------------------
+eclipse.buildId=3.2.0.201603041649
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Framework arguments:  -product com.somniumtech.branding.kds.ide -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.somniumtech.branding.kds.ide -showlocation
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-04 11:12:20.413
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vcruz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2019-10-04 11:12:20.954
+!MESSAGE External elements location C:\Freescale\KDS_v3\eclipse\ProcessorExpert\BoardConfigurations/wizard_data does not exist
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-10-04 11:14:57.855
+!MESSAGE Indexed 'integracao' (49 sources, 127 headers) in 3,43 sec: 9.593 declarations; 26.324 references; 0 unresolved inclusions; 92 syntax errors; 533 unresolved names (1,5%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-10-04 11:18:47.193
+!MESSAGE Indexed 'integracao' (49 sources, 127 headers) in 2,71 sec: 9.593 declarations; 26.324 references; 0 unresolved inclusions; 92 syntax errors; 533 unresolved names (1,5%)
+!SESSION 2019-10-04 16:07:37.136 -----------------------------------------------
+eclipse.buildId=3.2.0.201603041649
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Framework arguments:  -product com.somniumtech.branding.kds.ide -showlocation
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.somniumtech.branding.kds.ide -showlocation
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-04 16:08:28.773
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vcruz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2019-10-04 16:08:29.188
+!MESSAGE External elements location C:\Freescale\KDS_v3\eclipse\ProcessorExpert\BoardConfigurations/wizard_data does not exist
