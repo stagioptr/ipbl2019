@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-04, 19:09, # CodeGen: 0
+**     Date/Time   : 2019-10-04, 19:52, # CodeGen: 1
 **     Abstract    :
 **
 **     Settings    :
@@ -78,6 +78,10 @@
 #include "fsl_interrupt_manager.h"
 #include "fsl_os_abstraction.h"
 #include "osa1.h"
+#include "fsl_i2c_hal.h"
+#include "fsl_i2c_master_driver.h"
+#include "fsl_i2c_slave_driver.h"
+#include "fsl_i2c_shared_function.h"
 #include <assert.h>
 
 #ifdef __cplusplus

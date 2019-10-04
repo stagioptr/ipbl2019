@@ -45,11 +45,11 @@
 			</tr>
 			<tr>
 				<td>1</td><td>PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA</td><td>J2_18</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#AFFF8E'>I2C1</td><td bgcolor='#AFFF8E'>i2c_sda</td><td bgcolor='#AFFF8E'>alt6</td><td bgcolor='#AFFF8E'>Input/Output</td>
 			</tr>
 			<tr>
 				<td>2</td><td>PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL</td><td>J2_20</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#AFFF8E'>I2C1</td><td bgcolor='#AFFF8E'>i2c_sclk</td><td bgcolor='#AFFF8E'>alt6</td><td bgcolor='#AFFF8E'>Input/Output</td>
 			</tr>
 			<tr>
 				<td>3</td><td>PTE2/SPI1_SCK</td><td>J9_9</td>
@@ -1338,11 +1338,11 @@
 			</tr>
 			<tr>
 				<td>1</td><td>PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA</td><td>J2_18</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#AFFF8E'>I2C1</td><td bgcolor='#AFFF8E'>i2c_sda</td><td bgcolor='#AFFF8E'>alt6</td><td bgcolor='#AFFF8E'>Input/Output</td>
 			</tr>
 			<tr>
 				<td>2</td><td>PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL</td><td>J2_20</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#AFFF8E'>I2C1</td><td bgcolor='#AFFF8E'>i2c_sclk</td><td bgcolor='#AFFF8E'>alt6</td><td bgcolor='#AFFF8E'>Input/Output</td>
 			</tr>
 			<tr>
 				<td>3</td><td>PTE2/SPI1_SCK</td><td>J9_9</td>

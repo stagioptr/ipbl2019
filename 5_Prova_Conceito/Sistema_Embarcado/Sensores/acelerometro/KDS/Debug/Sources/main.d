@@ -25,10 +25,16 @@ Sources/main.o: ../Sources/main.c \
  N:/Sensores/acelerometro/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h \
- N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h ../Sources/Events.h \
+ N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/hal/inc/fsl_i2c_hal.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_master_driver.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h \
+ N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h \
+ ../Sources/Events.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/pin_init.h \
- N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h
+ N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h \
+ N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h
 
 N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h:
 
@@ -84,6 +90,14 @@ N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h:
 
+N:/Sensores/acelerometro/KDS/SDK/platform/hal/inc/fsl_i2c_hal.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_master_driver.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h:
+
+N:/Sensores/acelerometro/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h:
+
 ../Sources/Events.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h:
@@ -91,3 +105,5 @@ N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h:
 N:/Sensores/acelerometro/KDS/Generated_Code/pin_init.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h:
+
+N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h:
