@@ -36,6 +36,7 @@ Static_Code/System/PE_low_level_init.o: \
  N:/Sensores/acelerometro/KDS/Generated_Code/pin_init.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h \
+ N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/board.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/pin_init.h
 
@@ -110,6 +111,8 @@ N:/Sensores/acelerometro/KDS/Generated_Code/pin_init.h:
 N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h:
+
+N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/board.h:
 

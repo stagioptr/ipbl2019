@@ -74,12 +74,14 @@
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\src\</Path>
       <Path>N:\Sensores\acelerometro\KDS\Sources\</Path>
       <Path>N:\Sensores\acelerometro\KDS\Static_Code\System\</Path>
+      <Path>N:\Sensores\acelerometro\KDS\driver_code\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\gcc\</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
     <GeneratedCs>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Task1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\clockMan1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\hardware_init.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\i2cCom1.c</PathName>
@@ -111,12 +113,15 @@
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\src\print_scan.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\Events.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\main.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Sources\os_tasks.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Static_Code\System\PE_low_level_init.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\driver_code\mpu6050.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Task1.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\clockMan1.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\i2cCom1.h</PathName>
@@ -157,6 +162,9 @@
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\inc\fsl_misc_utilities.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\utilities\src\print_scan.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\Events.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Sources\os_tasks.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\driver_code\Template\mpu6050_port.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\driver_code\mpu6050.h</PathName>
     </GeneratedHs>
     <GeneratedASMs>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\gcc\startup_MKL25Z4.S</PathName>

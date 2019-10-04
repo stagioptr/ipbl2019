@@ -1,5 +1,5 @@
-Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
- N:/Sensores/acelerometro/KDS/Sources/Events.h \
+Generated_Code/Task1.o: ../Generated_Code/Task1.c \
+ N:/Sensores/acelerometro/KDS/Sources/os_tasks.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/devices/fsl_device_registers.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  N:/Sensores/acelerometro/KDS/SDK/platform/CMSIS/Include/core_cm0plus.h \
@@ -35,9 +35,9 @@ Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
  N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h \
- ../Generated_Code/i2cCom1.h
+ ../Generated_Code/Task1.h
 
-N:/Sensores/acelerometro/KDS/Sources/Events.h:
+N:/Sensores/acelerometro/KDS/Sources/os_tasks.h:
 
 N:/Sensores/acelerometro/KDS/SDK/platform/devices/fsl_device_registers.h:
 
@@ -109,4 +109,4 @@ N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h:
 
-../Generated_Code/i2cCom1.h:
+../Generated_Code/Task1.h:

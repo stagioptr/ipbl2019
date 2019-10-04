@@ -26,6 +26,7 @@ S_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+driver_code \
 Static_Code/System \
 Sources \
 SDK/platform/utilities/src \

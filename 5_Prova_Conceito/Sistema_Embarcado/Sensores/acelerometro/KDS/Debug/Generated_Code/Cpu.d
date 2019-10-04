@@ -34,7 +34,9 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c ../Generated_Code/Cpu.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/i2cCom1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h \
  N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h \
- N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h
+ N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h \
+ N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h \
+ N:/Sensores/acelerometro/KDS/Sources/os_tasks.h
 
 ../Generated_Code/Cpu.h:
 
@@ -111,3 +113,7 @@ N:/Sensores/acelerometro/KDS/Generated_Code/clockMan1.h:
 N:/Sensores/acelerometro/KDS/Generated_Code/osa1.h:
 
 N:/Sensores/acelerometro/KDS/Generated_Code/Cpu.h:
+
+N:/Sensores/acelerometro/KDS/Generated_Code/Task1.h:
+
+N:/Sensores/acelerometro/KDS/Sources/os_tasks.h:

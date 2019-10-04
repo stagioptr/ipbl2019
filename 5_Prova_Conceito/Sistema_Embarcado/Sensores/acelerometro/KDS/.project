@@ -30,6 +30,13 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>driver_code</name>
+			<type>2</type>
+			<location>N:/Sensores/acelerometro/driver_code</location>
+		</link>
+	</linkedResources>
 	<variableList>
 		<variable>
 			<name>PROJECT_KSDK_PATH</name>

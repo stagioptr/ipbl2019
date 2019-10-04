@@ -1,31 +1,31 @@
 /* ###################################################################
-**     Filename    : Events.c
+**     Filename    : os_tasks.c
 **     Project     : acelerometro
 **     Processor   : MKL25Z128VLK4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-04, 19:09, # CodeGen: 0
+**     Date/Time   : 2019-10-04, 20:42, # CodeGen: 3
 **     Abstract    :
 **         This is user's event module.
 **         Put your event handler code here.
 **     Settings    :
 **     Contents    :
-**         No public methods
+**         Task1_task - void Task1_task(os_task_param_t task_init_data);
 **
 ** ###################################################################*/
 /*!
-** @file Events.c
+** @file os_tasks.c
 ** @version 01.00
 ** @brief
 **         This is user's event module.
 **         Put your event handler code here.
 */         
 /*!
-**  @addtogroup Events_module Events module documentation
+**  @addtogroup os_tasks_module os_tasks module documentation
 **  @{
 */         
-/* MODULE Events */
+/* MODULE os_tasks */
 
 #include "Cpu.h"
 #include "Events.h"
@@ -37,35 +37,40 @@ extern "C" {
 
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-
-#ifdef i2cCom1_IDX
+#include "mpu6050.h"
 /*
 ** ===================================================================
-**     Interrupt handler : I2C1_IRQHandler
-**
-**     Description :
-**         User interrupt service routine. 
-**     Parameters  : None
-**     Returns     : Nothing
+**     Callback    : Task1_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
 ** ===================================================================
 */
-void I2C1_IRQHandler(void)
+void Task1_task(os_task_param_t task_init_data)
 {
-  I2C_DRV_IRQHandler(i2cCom1_IDX);
-  /* Write your code here ... */
-}
-#else
-  /* This IRQ handler is not used by i2cCom1 component. The purpose may be
-   * that the component has been removed or disabled. It is recommended to 
-   * remove this handler because Processor Expert cannot modify it according to 
-   * possible new request (e.g. in case that another component uses this
-   * interrupt vector). */
-  #warning This IRQ handler is not used by i2cCom1 component.\
-           It is recommended to remove this because Processor Expert cannot\
-           modify it according to possible new request.
+  /* Write your local variable definition here */
+  
+#ifdef PEX_USE_RTOS
+  while (1) {
 #endif
+    /* Write your code here ... */
+    
+    
+    OSA_TimeDelay(10);                 /* Example code (for task release) */
+   
+    if (mpu6050_init() == 0){
+    	while(1);
+    }
+    
+    
+    
+#ifdef PEX_USE_RTOS   
+  }
+#endif    
+}
 
-/* END Events */
+/* END os_tasks */
 
 #ifdef __cplusplus
 }  /* extern "C" */

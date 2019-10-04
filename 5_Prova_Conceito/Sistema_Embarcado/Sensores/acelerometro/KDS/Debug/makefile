@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include driver_code/subdir.mk
 -include Static_Code/System/subdir.mk
 -include Sources/subdir.mk
 -include SDK/platform/utilities/src/subdir.mk
