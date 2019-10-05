@@ -58,8 +58,9 @@ void Task1_task(os_task_param_t task_init_data)
     
     
     OSA_TimeDelay(10);                 /* Example code (for task release) */
-   
-    if (mpu6050_init() == 0){
+
+    // Mexi no seu código aqui!!!!
+    if (mpu6050_init() == 1){
     	while(1);
     }
     
