@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.PatientDeleteView">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame CornerRadius="10" BorderColor="{StaticResource Primary}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalOptions="Center" Text="Nome:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="CPF:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Data de Nasc:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="E-mail:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Tipo Sanguíneo:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Gênero:" Grid.Row="5" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Telefone:" Grid.Row="6" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.CPF}" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.Birthdate, StringFormat='{0:dd/MM/yyyy}'}" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.Email}" Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.BloodType}" Grid.Row="4" Grid.Column="1"/>
+                    <Label Text="{Binding Patient.Gender}" Grid.Row="5" Grid.Column="1" />
+                    <Label Text="{Binding Patient.EmergencyPhone}" Grid.Row="6" Grid.Column="1" />
+                </Grid>
+            </Frame>
+            <Label HorizontalOptions="CenterAndExpand" Text="TEM CERTEZA QUE DESEJA DELETAR O PACIENTE ?"/>
+            <Button Text="DELETAR" Command="{Binding DeletePatientCommand}" Style="{StaticResource ButtonDanger}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

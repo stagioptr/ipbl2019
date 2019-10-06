@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.PatientEmotionalView"
+             xmlns:converter="clr-namespace:STAGIOPTR.Converters"
+             Title="Registro Emocional">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:QualifyConverter x:Key="QualifyConverter"/>
+            <converter:QualifyColorConverter x:Key="QualifyColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ADD" Command="{Binding AddEmotionalCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Emotional}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ImageButton CornerRadius="10" Grid.RowSpan="2"
+                               Source="{Binding Quality, Converter={StaticResource QualifyConverter}}"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60" 
+                               BackgroundColor="{Binding Quality, Converter={StaticResource QualifyColorConverter}}"/>
+                                <Label Grid.Column="1"
+                               Text="{Binding Quality}"
+                               TextColor="{Binding Quality, Converter={StaticResource QualifyColorConverter}}"
+                               FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding EmotionalTime, StringFormat='{0:dd/MM/yyyy hh:mm}'}"
+                               VerticalOptions="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
