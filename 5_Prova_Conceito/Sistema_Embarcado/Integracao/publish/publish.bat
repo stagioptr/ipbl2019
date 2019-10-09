@@ -11,14 +11,14 @@ if not exist version.ver (
 	)> version.ver 
 )
 
-echo Digite um comentario para a nova versao do projeto: & echo.
-
-set /p texto=Comentario:
-
 < version.ver (
 	set /p projectName=
 	set /p projectVersion=
 )
+
+echo Digite um comentario para a versao %projectVersion% do projeto %projectName%: & echo.
+
+set /p texto=Comentario:
 
 if exist publish_log.txt (
 	(

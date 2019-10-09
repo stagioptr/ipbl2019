@@ -18,14 +18,14 @@ if not exist version.ver (
 	)> version.ver 
 )
 
-echo Digite um comentario para a nova versao do driver: & echo.
-
-set /p texto=Comentario:
-
 < version.ver (
 	set /p driverName=
 	set /p driverVersion=
 )
+
+echo Digite um comentario para a versao %driverVersion% do driver %driverName%: & echo.
+
+set /p texto=Comentario:
 
 if exist publish_log.txt (
 	(
