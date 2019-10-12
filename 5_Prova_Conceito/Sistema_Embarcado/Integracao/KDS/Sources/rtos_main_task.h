@@ -39,6 +39,7 @@
 #include "rtcTimer1.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
+#include "Sensor.h"
 
 #ifdef __cplusplus
 extern "C" {

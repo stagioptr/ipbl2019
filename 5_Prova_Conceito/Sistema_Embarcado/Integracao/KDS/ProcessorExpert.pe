@@ -3,7 +3,7 @@
   <Header>
     <Name>integracao</Name>
     <SavedBy>vcruz</SavedBy>
-    <ModificationStamp>9</ModificationStamp>
+    <ModificationStamp>10</ModificationStamp>
     <Date>2019-10-03</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>24</ProjectCompNumb>
+    <ProjectCompNumb>25</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -18220,48 +18220,40 @@
               <ReadOnly>true</ReadOnly>
               <UserReadOnly>true</UserReadOnly>
               <Value>fsl_lptmr_hal1</Value>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
             </ItemState>
             <ItemState>
               <ItemSymbol>PeriphDevice</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <Value />
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <SharedPrphMode>false</SharedPrphMode>
             </ItemState>
             <ItemState>
               <ItemSymbol>CompVersion</ItemSymbol>
               <Value>1.3.0</Value>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
             </ItemState>
             <ItemState>
               <ItemSymbol>VersionSpecificItem</ItemSymbol>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <ListItemCount>1</ListItemCount>
             </ItemState>
             <ItemState>
               <ItemSymbol>DefaultMainProperty</ItemSymbol>
               <Value>load sdk verison failed</Value>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
             </ItemState>
           </Properties>
           <Methods>
             <ItemState>
               <ItemSymbol>SdkSpecificMethods</ItemSymbol>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <ListItemCount>1</ListItemCount>
             </ItemState>
             <ItemState>
               <ItemSymbol>fsl_lptmr_halgroup</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
             </ItemState>
             <ItemState>
               <ItemSymbol>LPTMR_HAL_Enable</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18271,7 +18263,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_Disable</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18281,7 +18272,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_ClearIntFlag</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18291,7 +18281,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_IsIntPending</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18301,7 +18290,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_SetIntCmd</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18311,7 +18299,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_SetTimerWorkingMode</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18321,7 +18308,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_SetPrescalerMode</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18331,7 +18317,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_SetCompareValue</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18341,7 +18326,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_GetCompareValue</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18351,7 +18335,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_GetCounterValue</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -18361,7 +18344,6 @@
             <ItemState>
               <ItemSymbol>LPTMR_HAL_Init</ItemSymbol>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
               <Index>0</Index>
               <Value>true</Value>
               <LastSelection>true</LastSelection>
@@ -25038,6 +25020,239 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <Value>tpmTmr2_IRQHandler</Value>
+      </ItemState>
+    </Events>
+  </Bean>
+  <Bean>
+    <Repository>file:/${ProcessorExpert_loc}/Repositories/KSDK130_Repository</Repository>
+    <ComponentUUID>com.freescale.processorexpert.os_task</ComponentUUID>
+    <BeanType>OS_Task</BeanType>
+    <Name>Sensor</Name>
+    <CompNumb>24</CompNumb>
+    <CompEnabled>true</CompEnabled>
+    <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
+    <IconName>OS_LDD</IconName>
+    <UserFolderName />
+    <Comment lines_count="0" />
+    <Template />
+    <BeanVersion>1.3.0</BeanVersion>
+    <LightErrorsIgnored>false</LightErrorsIgnored>
+    <Properties>
+      <ItemState>
+        <ItemSymbol>DeviceName</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>Sensor</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>CompVersion</ItemSymbol>
+        <Value>1.3.0</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>VersionSpecificItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Settings</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskEntryFunction</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>Sensor_task</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>IsPriorityInitialized</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskPriority</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>6</Value>
+        <Base>DEC</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskStackSize</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>1024</Value>
+        <Base>DEC</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>DynamicallyAllocateTaskResources</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>CreationParameterGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>UserParamExtDeclaration</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskCreationParameter</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>NULL</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskAttributesGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskFloatingPointTask</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>CallingComponents_InitFunction</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>HiddenItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Initialization</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>AutoInitialization</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+        <ItemsTypeState>Beans\OS_Task\OS_Task_links.item</ItemsTypeState>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkOSAGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>false</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkOSA</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>osa1</Value>
+      </ItemState>
+    </Properties>
+    <Methods>
+      <ItemState>
+        <ItemSymbol>SdkSpecificMethods</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>fsl_uartgroup</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Init</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>Init</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>GetHandler</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>no</LastUserSel>
+        <UsrMethodName>GetHandler</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Deinit</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>no</LastUserSel>
+        <UsrMethodName>Deinit</UsrMethodName>
+      </ItemState>
+    </Methods>
+    <Events>
+      <ItemState>
+        <ItemSymbol>SdkSpecificEvents</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>fsl_adceventgroup</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>EventModule</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>os_tasks</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskCode</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+        <LastSelection>false</LastSelection>
+        <LastUserSel>yes</LastUserSel>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>TaskCodeName</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>Task1_TaskCode</Value>
       </ItemState>
     </Events>
   </Bean>

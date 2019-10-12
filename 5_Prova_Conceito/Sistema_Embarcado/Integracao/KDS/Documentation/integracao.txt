@@ -260,6 +260,9 @@ Module "tpmTmr2"   (component fsl_tpm)
    - tpmTmr2_TPM_DRV_Deinit -Shuts down the TPM driver.
    - tpmTmr2_TPM_DRV_IRQHandler -Action to take when an TPM interrupt is triggered.
 
+Module "Sensor"    (component OS_Task)
+   - Sensor_Init -Creates and starts a task.
+
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 
                 called from startup_device file.

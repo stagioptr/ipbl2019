@@ -80,6 +80,7 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/SDK/platform/drivers/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../Prova_Conceito&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../Prova_Conceito/Template&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../Prova_Conceito/Tarefas&quot;"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.900281865" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
 							</tool>
@@ -165,5 +166,10 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/integracao"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:42, # CodeGen: 2
+**     Date/Time   : 2019-10-12, 13:51, # CodeGen: 10
 **     Contents    :
 **         TPM_DRV_Init                  - tpm_status_t TPM_DRV_Init(uint32_t instance,const tpm_general_config_t * info);
 **         TPM_DRV_PwmStop               - void TPM_DRV_PwmStop(uint32_t instance,tpm_pwm_param_t * param,uint8_t channel);

@@ -1,90 +1,70 @@
 /* ###################################################################
-**     Filename    : rtos_main_task.c
+**     Filename    : os_tasks.h
 **     Project     : integracao
 **     Processor   : MKL25Z128VLK4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:34, # CodeGen: 1
+**     Date/Time   : 2019-10-12, 14:38, # CodeGen: 11
 **     Abstract    :
 **         This is user's event module.
 **         Put your event handler code here.
 **     Settings    :
 **     Contents    :
-**         main_task - void main_task(os_task_param_t task_init_data);
+**         Sensor_task - void Sensor_task(os_task_param_t task_init_data);
 **
 ** ###################################################################*/
 /*!
-** @file rtos_main_task.c
+** @file os_tasks.h
 ** @version 01.00
 ** @brief
 **         This is user's event module.
 **         Put your event handler code here.
 */         
 /*!
-**  @addtogroup rtos_main_task_module rtos_main_task module documentation
+**  @addtogroup os_tasks_module os_tasks module documentation
 **  @{
 */         
-/* MODULE rtos_main_task */
 
-#include "Cpu.h"
-#include "Events.h"
-#include "rtos_main_task.h"
-#include "os_tasks.h"
+#ifndef __os_tasks_H
+#define __os_tasks_H
+/* MODULE os_tasks */
+
+#include "fsl_device_registers.h"
+#include "clockMan1.h"
+#include "pin_init.h"
+#include "osa1.h"
+#include "free_rtos.h"
+#include "MainTask.h"
+#include "rtcTimer1.h"
+#include "tpmTmr1.h"
+#include "tpmTmr2.h"
+#include "Sensor.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif 
 
-
-/* User includes (#include below this line is not maintained by Processor Expert) */
-
-/* Initialization of Processor Expert components function prototype */
-#ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
-extern void PEX_components_init(void);
-#endif 
-
 /*
 ** ===================================================================
-**     Callback    : main_task
+**     Callback    : Sensor_task
 **     Description : Task function entry.
 **     Parameters  :
 **       task_init_data - OS task parameter
 **     Returns : Nothing
 ** ===================================================================
 */
-void main_task(os_task_param_t task_init_data)
-{
-  /* Write your local variable definition here */
-  
-  /* Initialization of Processor Expert components (when some RTOS is active). DON'T REMOVE THIS CODE!!! */
-#ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
-  PEX_components_init(); 
-#endif 
-  /* End of Processor Expert components initialization.  */
+void Sensor_task(os_task_param_t task_init_data);
 
-#ifdef PEX_USE_RTOS
-  while (1) {
-#endif
-    /* Write your code here ... */
-    
-    
-    OSA_TimeDelay(10);                 /* Example code (for task release) */
-   
-    
-    
-    
-#ifdef PEX_USE_RTOS   
-  }
-#endif    
-}
 
-/* END rtos_main_task */
+/* END os_tasks */
 
 #ifdef __cplusplus
 }  /* extern "C" */
 #endif 
 
+#endif 
+/* ifndef __os_tasks_H*/
 /*!
 ** @}
 */

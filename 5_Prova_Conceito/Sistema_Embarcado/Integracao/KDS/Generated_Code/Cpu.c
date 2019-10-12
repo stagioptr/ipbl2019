@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 18:00, # CodeGen: 8
+**     Date/Time   : 2019-10-12, 14:38, # CodeGen: 11
 **     Abstract    :
 **
 **     Settings    :
@@ -68,6 +68,7 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "rtos_main_task.h"
+#include "os_tasks.h"
 
 
 #ifdef __cplusplus
@@ -131,6 +132,9 @@ void Components_Init(void)
   TPM_DRV_PwmStart(tpmTmr2_IDX, &tpmTmr2_ChnConfig1, 1U);
   /*! tpmTmr2 Auto initialization end */
   
+  /*! Sensor Auto initialization start */ 
+  (void)Sensor_Init();
+  /*! Sensor Auto initialization end */                       
 }
 #endif /* CPU_COMPONENTS_INIT */
 

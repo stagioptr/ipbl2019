@@ -31,6 +31,7 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "rtos_main_task.h"
+#include "os_tasks.h"
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
@@ -39,6 +40,7 @@
 #include "rtcTimer1.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
+#include "Sensor.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif

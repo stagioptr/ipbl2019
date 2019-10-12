@@ -189,5 +189,33 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+  <Bean name="tpmTmr1" type="fsl_tpm">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="tpmTmr1" />
+      <Device v="TPM0" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="tpmTmr2" type="fsl_tpm">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="tpmTmr2" />
+      <Device v="TPM2" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 
