@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-12, 14:38, # CodeGen: 11
+**     Date/Time   : 2019-10-12, 20:06, # CodeGen: 14
 **     Abstract    :
 **
 **     Settings    :
@@ -135,6 +135,15 @@ void Components_Init(void)
   /*! Sensor Auto initialization start */ 
   (void)Sensor_Init();
   /*! Sensor Auto initialization end */                       
+  /*! DbgCs1 Auto initialization start */
+  /* Enable clock source for LPSCI - bitfield UART0 within SIM_SOPT2 */
+  CLOCK_SYS_SetLpsciSrc(BOARD_DEBUG_UART_INSTANCE,kClockLpsciSrcPllFllSel);
+  /* Debug console initialization */
+  DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
+  /*! DbgCs1 Auto initialization end */
+  /*! Terminal Auto initialization start */ 
+  (void)Terminal_Init();
+  /*! Terminal Auto initialization end */                       
 }
 #endif /* CPU_COMPONENTS_INIT */
 

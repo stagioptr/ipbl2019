@@ -40,6 +40,8 @@
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
 #include "Sensor.h"
+#include "DbgCs1.h"
+#include "Terminal.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -56,6 +58,17 @@ extern "C" {
 */
 void Sensor_task(os_task_param_t task_init_data);
 
+
+/*
+** ===================================================================
+**     Callback    : Terminal_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+void Terminal_task(os_task_param_t task_init_data);
 
 /* END os_tasks */
 

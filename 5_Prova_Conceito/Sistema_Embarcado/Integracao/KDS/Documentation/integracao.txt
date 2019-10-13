@@ -159,6 +159,13 @@ Module "pin_init"  (component PinSettings)
                 if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or pins 
                 selected in pin items in components. Call this method code to un-route desired pins into TPM0, TPM1, TPM2 
                 peripherals.
+   - pin_init_init_uart0_pins -UART0 method configures registers according to settings  of routing and electrical features. 
+                This method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either 
+                user selected pins or pins selected in pin items in components. Call this method code to route desired pins 
+                into UART0 peripheral.
+   - pin_init_deinit_uart0_pins -UART0 method de-configures registers according to settings of routing. This method is enabled 
+                only if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or 
+                pins selected in pin items in components. Call this method code to un-route desired pins into UART0 peripheral.
 
 Module "intMan1"   (component fsl_interrupt_manager)
    - intMan1_INT_SYS_InstallHandler -Installs an interrupt handler routine for a given IRQ number.
@@ -262,6 +269,17 @@ Module "tpmTmr2"   (component fsl_tpm)
 
 Module "Sensor"    (component OS_Task)
    - Sensor_Init -Creates and starts a task.
+
+Module "DbgCs1"    (component fsl_debug_console)
+   - DbgCs1_DbgConsole_Init -Init the UART/LPUART used for debug messages.
+   - DbgCs1_DbgConsole_DeInit -Deinit the UART/LPUART used for debug messages.
+   - DbgCs1_debug_printf -Prints formatted output to the standard output stream.
+   - DbgCs1_debug_putchar -Writes a character to stdout.
+   - DbgCs1_debug_scanf -Reads formatted data from the standard input stream.
+   - DbgCs1_debug_getchar -Reads a character from standard input.
+
+Module "Terminal"  (component OS_Task)
+   - Terminal_Init -Creates and starts a task.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

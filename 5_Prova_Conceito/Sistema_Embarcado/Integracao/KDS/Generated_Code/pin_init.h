@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-12, 13:51, # CodeGen: 10
+**     Date/Time   : 2019-10-12, 20:01, # CodeGen: 12
 **     Abstract    :
 **
 **     Settings    :
@@ -925,15 +925,17 @@
 **              fsl_sim_hal                                : fsl_sim_hal
 **              fsl_mcg_hal                                : fsl_mcg_hal
 **     Contents    :
-**         hardware_init         - void hardware_init(void);
-**         init_osc_pins         - void init_osc_pins(uint32_t instance);
-**         deinit_osc_pins       - void deinit_osc_pins(uint32_t instance);
-**         init_rcm_pins         - void init_rcm_pins(uint32_t instance);
-**         deinit_rcm_pins       - void deinit_rcm_pins(uint32_t instance);
-**         init_swd_pins         - void init_swd_pins(uint32_t instance);
-**         deinit_swd_pins       - void deinit_swd_pins(uint32_t instance);
-**         init_tpm_pins         - void init_tpm_pins(uint32_t instance);
-**         deinit_tpm_pins       - void deinit_tpm_pins(uint32_t instance);
+**         hardware_init           - void hardware_init(void);
+**         init_osc_pins           - void init_osc_pins(uint32_t instance);
+**         deinit_osc_pins         - void deinit_osc_pins(uint32_t instance);
+**         init_rcm_pins           - void init_rcm_pins(uint32_t instance);
+**         deinit_rcm_pins         - void deinit_rcm_pins(uint32_t instance);
+**         init_swd_pins           - void init_swd_pins(uint32_t instance);
+**         deinit_swd_pins         - void deinit_swd_pins(uint32_t instance);
+**         init_tpm_pins           - void init_tpm_pins(uint32_t instance);
+**         deinit_tpm_pins         - void deinit_tpm_pins(uint32_t instance);
+**         init_uart0_pins         - void init_uart0_pins(uint32_t instance);
+**         deinit_uart0_pins       - void deinit_uart0_pins(uint32_t instance);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.

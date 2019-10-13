@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-12, 13:51, # CodeGen: 10
+**     Date/Time   : 2019-10-12, 20:01, # CodeGen: 12
 **     Abstract    :
 **
 **     Settings    :
@@ -988,6 +988,7 @@ void hardware_init(void) {
   init_swd_pins(SWD_IDX);
   init_tpm_pins(TPM0_IDX);
   init_tpm_pins(TPM2_IDX);
+  init_uart0_pins(UART0_IDX);
 }
 
 /*!

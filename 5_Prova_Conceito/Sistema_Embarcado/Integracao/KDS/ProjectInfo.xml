@@ -46,11 +46,11 @@
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\sim\MKL25Z4\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\system\src\clock\MKL25Z4\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\drivers\inc\</Path>
+      <Path>N:\Integracao\KDS\SDK\platform\utilities\src\</Path>
+      <Path>N:\Integracao\KDS\SDK\platform\utilities\inc\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\CMSIS\Include\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\include\</Path>
-      <Path>N:\Integracao\KDS\SDK\platform\utilities\src\</Path>
-      <Path>N:\Integracao\KDS\SDK\platform\utilities\inc\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Integracao\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Integracao\KDS\Sources\</Path>
@@ -86,8 +86,10 @@
   <FILES>
     <GeneratedCs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Sensor.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\Terminal.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\hardware_init.c</PathName>
@@ -140,11 +142,13 @@
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\rtos\FreeRTOS\config\FreeRTOSConfig.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Sensor.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\Terminal.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.h</PathName>

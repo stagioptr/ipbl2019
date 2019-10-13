@@ -40,6 +40,8 @@
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
 #include "Sensor.h"
+#include "DbgCs1.h"
+#include "Terminal.h"
 
 #ifdef __cplusplus
 extern "C" {
