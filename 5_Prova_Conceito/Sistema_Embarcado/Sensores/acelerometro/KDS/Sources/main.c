@@ -29,17 +29,19 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "rtos_main_task.h"
 #include "os_tasks.h"
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
+#include "free_rtos.h"
+#include "MainTask.h"
 #include "i2cCom1.h"
 #include "Task1.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
-#include "mpu6050.h"
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)

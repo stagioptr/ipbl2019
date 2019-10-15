@@ -11,6 +11,8 @@ RM := rm -rf
 -include driver_code/subdir.mk
 -include Static_Code/System/subdir.mk
 -include Sources/subdir.mk
+-include SDK/rtos/FreeRTOS/src/subdir.mk
+-include SDK/rtos/FreeRTOS/port/gcc/subdir.mk
 -include SDK/platform/utilities/src/subdir.mk
 -include SDK/platform/system/src/interrupt/subdir.mk
 -include SDK/platform/system/src/clock/MKL25Z4/subdir.mk

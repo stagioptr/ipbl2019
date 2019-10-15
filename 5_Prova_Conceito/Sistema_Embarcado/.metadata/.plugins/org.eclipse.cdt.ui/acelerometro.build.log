@@ -1,0 +1,11 @@
+16:56:02 **** Incremental Build of configuration Debug for project acelerometro ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "acelerometro.elf"
+   text	   data	    bss	    dec	    hex	filename
+  24236	    132	  10332	  34700	   878c	acelerometro.elf
+Finished building: acelerometro.siz
+ 
+
+16:56:04 Build Finished (took 1s.328ms)
+
