@@ -1,0 +1,11 @@
+﻿/Debug
+/Documentation
+/Generated_Code
+/*.g_c
+/*.g_x
+/Project_Settings/Components_DEBUG
+/*.settings
+/5_Prova_Conceito/Sistema_Embarcado/.metadata
+.cwGeneratedFileSetLog
+ProjectInfo.xml
+/Static_Code/
