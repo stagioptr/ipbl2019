@@ -29,6 +29,8 @@ SUBDIRS := \
 driver_code \
 Static_Code/System \
 Sources \
+SDK/rtos/FreeRTOS/src \
+SDK/rtos/FreeRTOS/port/gcc \
 SDK/platform/utilities/src \
 SDK/platform/system/src/interrupt \
 SDK/platform/system/src/clock \

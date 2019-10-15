@@ -34,9 +34,13 @@
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
+#include "free_rtos.h"
+#include "MainTask.h"
 #include "Radio1.h"
 #include "Radio2.h"
 #include "gpio1.h"
+#include "TaskRadio1.h"
+#include "TaskRadio2.h"
 
 #ifdef __cplusplus
 extern "C" {

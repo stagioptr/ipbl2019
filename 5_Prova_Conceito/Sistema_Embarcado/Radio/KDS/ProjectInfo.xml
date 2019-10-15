@@ -37,11 +37,14 @@
   <PATHS>
     <LinkerCommandFile>N:\Radio\KDS\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
     <IncludePaths>
+      <Path>N:\Radio\KDS\SDK\platform\system\inc\</Path>
+      <Path>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\</Path>
+      <Path>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\</Path>
+      <Path>N:\Radio\KDS\Generated_Code\SDK\rtos\FreeRTOS\config\</Path>
+      <Path>N:\Radio\KDS\SDK\platform\osa\inc\</Path>
       <Path>N:\Radio\KDS\SDK\platform\hal\inc\</Path>
       <Path>N:\Radio\KDS\SDK\platform\hal\src\sim\MKL25Z4\</Path>
       <Path>N:\Radio\KDS\SDK\platform\system\src\clock\MKL25Z4\</Path>
-      <Path>N:\Radio\KDS\SDK\platform\system\inc\</Path>
-      <Path>N:\Radio\KDS\SDK\platform\osa\inc\</Path>
       <Path>N:\Radio\KDS\SDK\platform\drivers\inc\</Path>
       <Path>N:\Radio\KDS\SDK\platform\CMSIS\Include\</Path>
       <Path>N:\Radio\KDS\SDK\platform\devices\</Path>
@@ -74,6 +77,8 @@
       <Path>N:\Radio\KDS\SDK\platform\system\src\clock\</Path>
       <Path>N:\Radio\KDS\SDK\platform\system\src\interrupt\</Path>
       <Path>N:\Radio\KDS\SDK\platform\utilities\src\</Path>
+      <Path>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\</Path>
+      <Path>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\</Path>
       <Path>N:\Radio\KDS\Sources\</Path>
       <Path>N:\Radio\KDS\Static_Code\System\</Path>
       <Path>N:\Radio\KDS\driver_code\</Path>
@@ -83,9 +88,13 @@
   <FILES>
     <GeneratedCs>
       <PathName>N:\Radio\KDS\Generated_Code\Cpu.c</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\MainTask.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\Radio1.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\Radio2.c</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\TaskRadio1.c</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\TaskRadio2.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\clockMan1.c</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\free_rtos.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\gpio1.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\hardware_init.c</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\osa1.c</PathName>
@@ -109,7 +118,7 @@
       <PathName>N:\Radio\KDS\SDK\platform\hal\src\sim\MKL25Z4\fsl_sim_hal_MKL25Z4.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\hal\src\spi\fsl_spi_hal.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\hal\src\uart\fsl_uart_hal.c</PathName>
-      <PathName>N:\Radio\KDS\SDK\platform\osa\src\fsl_os_abstraction_bm.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\platform\osa\src\fsl_os_abstraction_free_rtos.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\src\clock\MKL25Z4\fsl_clock_MKL25Z4.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\src\clock\fsl_clock_manager.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\src\clock\fsl_clock_manager_common.c</PathName>
@@ -117,20 +126,39 @@
       <PathName>N:\Radio\KDS\SDK\platform\utilities\src\fsl_debug_console.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\utilities\src\fsl_misc_utilities.c</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\utilities\src\print_scan.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\port.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\croutine.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\event_groups.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\heap_1.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\heap_2.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\heap_3.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\heap_4.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\heap_5.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\list.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\queue.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\tasks.c</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\src\timers.c</PathName>
       <PathName>N:\Radio\KDS\Sources\Events.c</PathName>
       <PathName>N:\Radio\KDS\Sources\main.c</PathName>
+      <PathName>N:\Radio\KDS\Sources\os_tasks.c</PathName>
+      <PathName>N:\Radio\KDS\Sources\rtos_main_task.c</PathName>
       <PathName>N:\Radio\KDS\Static_Code\System\PE_low_level_init.c</PathName>
       <PathName>N:\Radio\KDS\driver_code\Protocol_API.c</PathName>
       <PathName>N:\Radio\KDS\driver_code\nRF24L01_API.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Radio\KDS\Generated_Code\Cpu.h</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\MainTask.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\Radio1.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\Radio2.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\SDK\rtos\FreeRTOS\config\FreeRTOSConfig.h</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\TaskRadio1.h</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\TaskRadio2.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\clockMan1.h</PathName>
+      <PathName>N:\Radio\KDS\Generated_Code\free_rtos.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\gpio1.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\osa1.h</PathName>
       <PathName>N:\Radio\KDS\Generated_Code\pin_init.h</PathName>
@@ -163,27 +191,45 @@
       <PathName>N:\Radio\KDS\SDK\platform\hal\inc\fsl_uart_hal.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\hal\src\sim\MKL25Z4\fsl_sim_hal_MKL25Z4.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\osa\inc\fsl_os_abstraction.h</PathName>
-      <PathName>N:\Radio\KDS\SDK\platform\osa\inc\fsl_os_abstraction_bm.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\platform\osa\inc\fsl_os_abstraction_free_rtos.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\inc\fsl_clock_manager.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\inc\fsl_interrupt_manager.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\system\src\clock\MKL25Z4\fsl_clock_MKL25Z4.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\utilities\inc\fsl_debug_console.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\utilities\inc\fsl_misc_utilities.h</PathName>
       <PathName>N:\Radio\KDS\SDK\platform\utilities\src\print_scan.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\FreeRTOS.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\StackMacros.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\croutine.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\deprecated_definitions.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\event_groups.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\list.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\mpu_wrappers.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\portable.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\projdefs.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\queue.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\semphr.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\task.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\include\timers.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\portTicks.h</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\portmacro.h</PathName>
       <PathName>N:\Radio\KDS\Sources\Events.h</PathName>
+      <PathName>N:\Radio\KDS\Sources\os_tasks.h</PathName>
+      <PathName>N:\Radio\KDS\Sources\rtos_main_task.h</PathName>
       <PathName>N:\Radio\KDS\driver_code\Protocol_API.h</PathName>
       <PathName>N:\Radio\KDS\driver_code\Template\nRF24L01_API_port.h</PathName>
       <PathName>N:\Radio\KDS\driver_code\nRF24L01_API.h</PathName>
     </GeneratedHs>
     <GeneratedASMs>
       <PathName>N:\Radio\KDS\SDK\platform\devices\MKL25Z4\startup\gcc\startup_MKL25Z4.S</PathName>
+      <PathName>N:\Radio\KDS\SDK\rtos\FreeRTOS\port\gcc\portasm.S</PathName>
     </GeneratedASMs>
   </FILES>
   <OPTIONS>
     <BuildOptions>
       <CCoptList>
         <Option>-D CPU_MKL25Z128VLK4</Option>
-        <Option>-D FSL_OSA_BM_TIMER_CONFIG=2</Option>  
+        <Option>-D FSL_RTOS_FREE_RTOS</Option>  
       </CCoptList>
     </BuildOptions>
   </OPTIONS>

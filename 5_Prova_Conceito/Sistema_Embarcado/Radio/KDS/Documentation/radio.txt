@@ -175,8 +175,6 @@ Module "intMan1"   (component fsl_interrupt_manager)
    - intMan1_INT_SYS_DisableIRQGlobal -Disable system interrupt.
 
 Module "osa1"      (component fsl_os_abstraction)
-   - osa1_OSA_PollAllOtherTasks -Calls all task functions one time except for the current task.
-   - osa1_DefaultISR -The default interrupt handler installed in vector table.
    - osa1_OSA_SemaCreate -Creates a semaphore with a given value.
    - osa1_OSA_SemaWait -Pending a semaphore with timeout.
    - osa1_OSA_SemaPost -Signals for someone waiting on the semaphore to wake up.
@@ -263,6 +261,12 @@ Module "gpio1"     (component fsl_gpio)
    - gpio1_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
    - gpio1_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
    - gpio1_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
+
+Module "TaskRadio1" (component OS_Task)
+   - TaskRadio1_Init -Creates and starts a task.
+
+Module "TaskRadio2" (component OS_Task)
+   - TaskRadio2_Init -Creates and starts a task.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

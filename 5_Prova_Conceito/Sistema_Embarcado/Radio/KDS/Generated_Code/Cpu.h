@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 09:44, # CodeGen: 6
+**     Date/Time   : 2019-10-14, 12:02, # CodeGen: 8
 **     Abstract    :
 **
 **     Settings    :
@@ -70,14 +70,14 @@
 /*Include shared modules, which are used for whole project*/
 #include "fsl_device_registers.h"
 #include "fsl_clock_manager.h"
+#include "fsl_interrupt_manager.h"
+#include "fsl_os_abstraction.h"
+#include "osa1.h"
 #include "fsl_mcg_hal.h"
 #include "fsl_sim_hal.h"
 #include "fsl_osc_hal.h"
 #include "fsl_rtc_hal.h"
 #include "fsl_port_hal.h"
-#include "fsl_interrupt_manager.h"
-#include "fsl_os_abstraction.h"
-#include "osa1.h"
 #include "fsl_spi_hal.h"
 #include "fsl_spi_master_driver.h"
 #include "fsl_spi_slave_driver.h"
@@ -94,7 +94,6 @@ extern "C" {
 #define CPU_COMPONENTS_INIT                                0x01U     /* Call Components_Init() method in PE_low_level_init() */ 
 #define CPU_INIT_CONFIG                                    0x00U     /* Do not include Init_Config.h in the main.c file */ 
 #define CPU_HARDWARE_INIT                                  0x01U     /* Call hardware_init() method in PE_low_level_init() */ 
-#define PEX_COMPONENTS_INIT                                0x01U     /* Call PEX_components_init() method in PE_low_level_init() */ 
 #define CPU_COMMON_INIT                                    0x00U     /* Common_Init() method is not called in PE_low_level_init() */ 
 
 /*

@@ -30,12 +30,18 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "rtos_main_task.h"
+#include "os_tasks.h"
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
+#include "free_rtos.h"
+#include "MainTask.h"
 #include "Radio1.h"
 #include "Radio2.h"
 #include "gpio1.h"
+#include "TaskRadio1.h"
+#include "TaskRadio2.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif

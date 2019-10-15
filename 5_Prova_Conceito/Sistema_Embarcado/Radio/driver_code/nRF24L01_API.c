@@ -19,18 +19,21 @@
 //**********************************************************//
 
 // Declare HW/SW SPI Mode variable
-extern uint8_t SPI_Mode;
+extern uint8_t nRF24L01_Mode;
 
 // Variable that indicates nRF24L01 interrupt source
 extern uint8_t IRQ_Source;
 
-uint8_t SPI_ID = 0;
-
 //********************************************************************************************************************//
+
+void nRF24L01_Init(void) {
+	nRF24L01_SPI_Init_port();
+//	nRF24L01_RX_Mode();
+}
 
 //**********************************************************//
 //
-//  Function: SPI_RW
+//  Function: nRF24L01_RW
 //
 //  Description:
 //  Writes one byte to nRF24L01, and return the byte read
@@ -42,19 +45,18 @@ uint8_t SPI_ID = 0;
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
-uint8_t SPI_RW(uint8_t byte) {
-	const uint8_t sendByte = 0;
+uint8_t nRF24L01_RW(uint8_t byte) {
+	uint8_t sendByte = byte;
 	uint8_t temp = 0;
 
-	SPI_DRV_MasterTransferBlocking(SPI_ID, &Radio_MasterConfig0, &sendByte, &temp,
-			1, 20);
+	nRF24L01_SPI_TransferBlocking(&sendByte, &temp, 1);
 
 	return temp;
 }
 
 //**********************************************************//
 //
-//  Function: SPI_Read
+//  Function: nRF24L01_Read
 //
 //  Description:
 //  Read one byte from nRF24L01 register, 'reg'
@@ -67,22 +69,22 @@ uint8_t SPI_RW(uint8_t byte) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
-uint8_t SPI_Read(uint8_t reg) {
+uint8_t nRF24L01_Read(uint8_t reg) {
 	uint8_t reg_val;
 
-	GPIO_DRV_WritePinOutput(J2_6, 0);
+	nRF24L01_writeChpSelectPin(0);
 
-	SPI_RW(reg);                                 // Select register to read from..
-	reg_val = SPI_RW(0);                            // ..then read registervalue
+	nRF24L01_RW(reg);                            // Select register to read from..
+	reg_val = nRF24L01_RW(0);                         // ..then read registervalue
 
-	GPIO_DRV_WritePinOutput(J2_6, 1);
+	nRF24L01_writeChpSelectPin(1);
 
 	return (reg_val);                                // return register value
 }
 
 //**********************************************************//
 //
-//  Function: SPI_RW_Reg
+//  Function: nRF24L01_RW_Reg
 //
 //  Description:
 //  Writes value 'value' to register 'reg'
@@ -94,21 +96,21 @@ uint8_t SPI_Read(uint8_t reg) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
-uint8_t SPI_RW_Reg(uint8_t reg, uint8_t value) {
+uint8_t nRF24L01_RW_Reg(uint8_t reg, uint8_t value) {
 	uint8_t status;
 
-	GPIO_DRV_WritePinOutput(J2_6, 0);
+	nRF24L01_writeChpSelectPin(0);
 
-	status = SPI_RW(reg);                           // select register
-	SPI_RW(value);                                  // ..and write value to it..
-	GPIO_DRV_WritePinOutput(J2_6, 1);
+	status = nRF24L01_RW(reg);                           // select register
+	nRF24L01_RW(value);                               // ..and write value to it..
+	nRF24L01_writeChpSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }
 
 //**********************************************************//
 //
-//  Function: SPI_Write_Buf
+//  Function: nRF24L01_Write_Buf
 //
 //  Description:
 //  Writes contents of buffer '*pBuf' to nRF24L01
@@ -123,23 +125,23 @@ uint8_t SPI_RW_Reg(uint8_t reg, uint8_t value) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
-uint8_t SPI_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
+uint8_t nRF24L01_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 	uint8_t status, byte_ctr;
 
-	GPIO_DRV_WritePinOutput(J2_6, 0);
-	status = SPI_RW(reg);      // Select register to write to and read status byte
+	nRF24L01_writeChpSelectPin(0);
+	status = nRF24L01_RW(reg); // Select register to write to and read status byte
 
 	for (byte_ctr = 0; byte_ctr < bytes; byte_ctr++) // then write all byte in buffer(*pBuf)
-		SPI_RW(*pBuf++);
+		nRF24L01_RW(*pBuf++);
 
-	GPIO_DRV_WritePinOutput(J2_6, 1);
+	nRF24L01_writeChpSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }
 
 //**********************************************************//
 //
-//  Function: SPI_Read_Buf
+//  Function: nRF24L01_Read_Buf
 //
 //  Description:
 //  Reads 'bytes' #of bytes from register 'reg'
@@ -154,16 +156,16 @@ uint8_t SPI_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
-uint8_t SPI_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
+uint8_t nRF24L01_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 	uint8_t status, byte_ctr;
 
-	GPIO_DRV_WritePinOutput(J2_6, 0);
-	status = SPI_RW(reg);      // Select register to write to and read status byte
+	nRF24L01_writeChpSelectPin(0);
+	status = nRF24L01_RW(reg); // Select register to write to and read status byte
 
 	for (byte_ctr = 0; byte_ctr < bytes; byte_ctr++)
-		pBuf[byte_ctr] = SPI_RW(0);     // Perform SPI_RW to read byte from nRF24L01
+		pBuf[byte_ctr] = nRF24L01_RW(0); // Perform nRF24L01_RW to read byte from nRF24L01
 
-	GPIO_DRV_WritePinOutput(J2_6, 1);
+	nRF24L01_writeChpSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }
@@ -196,7 +198,7 @@ uint8_t TX_ADDRESS[TX_ADR_LENGTH] = { 0x34, 0x43, 0x10, 0x10, 0x01 };
 uint8_t TX_PAYLOAD[TX_PLOAD_WIDTH] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06,
 		0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f };
 
-extern uint8_t SPI_Buffer[32]; // Buffer to hold data from 'SPI_Read_Buf()' function
+extern uint8_t nRF24L01_Buffer[32]; // Buffer to hold data from 'nRF24L01_Read_Buf()' function
 
 //**********************************************************
 //
@@ -214,20 +216,24 @@ extern uint8_t SPI_Buffer[32]; // Buffer to hold data from 'SPI_Read_Buf()' func
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************
-void TX_Mode(void) {
-	SPI_Write_Buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_LENGTH); // Writes TX_Address to nRF24L01
-	SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // RX_Addr0 same as TX_Adr for Auto.Ack
-	SPI_Write_Buf(WR_TX_PLOAD, TX_PAYLOAD, TX_PLOAD_WIDTH); // Writes data to TX payload
+void nRF24L01_TX_Mode(void) {
+	nRF24L01_Write_Buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_LENGTH); // Writes TX_Address to nRF24L01
+	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // RX_Addr0 same as TX_Adr for Auto.Ack
+	nRF24L01_Write_Buf(WR_TX_PLOAD, TX_PAYLOAD, TX_PLOAD_WIDTH); // Writes data to TX payload
 
-	SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
-	SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
-	SPI_RW_Reg(WRITE_REG + SETUP_RETR, 0x1a);       // 500탎 + 86탎, 10 retrans...
-	SPI_RW_Reg(WRITE_REG + RF_CH, 40);              // Select RF channel 40
-	SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
-	SPI_RW_Reg(WRITE_REG + CONFIG, 0x0e); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
+	nRF24L01_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
+	nRF24L01_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
+	nRF24L01_RW_Reg(WRITE_REG + SETUP_RETR, 0x1a);  // 500탎 + 86탎, 10 retrans...
+	nRF24L01_RW_Reg(WRITE_REG + RF_CH, 40);              // Select RF channel 40
+	nRF24L01_RW_Reg(WRITE_REG + RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
+	nRF24L01_RW_Reg(WRITE_REG + CONFIG, 0x0e); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
 
-	GPIO_DRV_WritePinOutput(J1_8, 0); // Set CE pin high to enable RX device
-	GPIO_DRV_WritePinOutput(J1_8, 1); // Set CE pin high to enable RX device
+	for (uint32_t tempo = 0; tempo < 100000; tempo++)
+		;
+	nRF24L01_writeCEPin(0); // Set CE pin low to enable TX device
+	for (uint32_t tempo = 0; tempo < 1000; tempo++)
+		;
+	nRF24L01_writeCEPin(1); // Set CE pin high to enable RX device
 
 	//  This device is now ready to transmit one packet of 16 uint8_ts payload to a RX device at address
 	//  '3443101001', with auto acknowledgment, retransmit count of 10(retransmit delay of 500탎+86탎)
@@ -247,44 +253,95 @@ void TX_Mode(void) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************
-void RX_Mode(void) {
-	SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // Use the same address on the RX device as the TX device
+void nRF24L01_RX_Mode(void) {
+	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // Use the same address on the RX device as the TX device
 
-	SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
-	SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
-	SPI_RW_Reg(WRITE_REG + RF_CH, 40);              // Select RF channel 40
-	SPI_RW_Reg(WRITE_REG + RX_PW_P0, TX_PLOAD_WIDTH); // Select same RX payload width as TX Payload width
-	SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
-	SPI_RW_Reg(WRITE_REG + CONFIG, 0x0f); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:RX. RX_DR enabled..
+	nRF24L01_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
+	nRF24L01_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
+	nRF24L01_RW_Reg(WRITE_REG + RF_CH, 40);              // Select RF channel 40
+	nRF24L01_RW_Reg(WRITE_REG + RX_PW_P0, TX_PLOAD_WIDTH); // Select same RX payload width as TX Payload width
+	nRF24L01_RW_Reg(WRITE_REG + RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
+	nRF24L01_RW_Reg(WRITE_REG + CONFIG, 0x0f); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:RX. RX_DR enabled..
 
-	GPIO_DRV_WritePinOutput(J1_8, 1); // Set CE pin high to enable RX device
+	nRF24L01_writeCEPin(1); // Set CE pin high to enable RX device
 
 	//  This device is now ready to receive one packet of 16 uint8_ts payload from a TX device sending to address
 	//  '3443101001', with auto acknowledgment, retransmit count of 10, RF channel 40 and datarate = 2Mbps.
 
 }
 
-/*
- void nRF24L01_IRQ(void)
- interrupt EXT_INT0
- {
- uint8_t temp,rx_pw;
+uint8_t nRF24L01_readStatus(void) {
+	return nRF24L01_RW_Reg(WRITE_REG + STATUS, 0x70);	// Read STATUS uint8_t and clear IRQ flag's(nRF24L01)
+}
 
- EA = 0; // disable global interrupt during processing
- temp = SPI_RW_Reg(WRITE_REG + STATUS, 0x70);// Read STATUS uint8_t and clear IRQ flag's(nRF24L01)
+void L01_Set_Channel(uint8_t rf_ch)                            // Set RF channel
+		{
+	nRF24L01_RW_Reg(WRITE_REG + RF_CH, rf_ch);
+}
 
- if(temp & MAX_RT) IRQ_Source = MAX_RT;// Indicates max #of retransmit interrupt
- if(temp & TX_DS) IRQ_Source = TX_DS;// Indicates TX data succsessfully sent
+uint8_t L01_Get_Channel(void)                          // Get current RF channel
+		{
+	return nRF24L01_Read(RF_CH);
+}
 
- if(temp & RX_DR)// In RX mode, check for data received
- {
- // Data received, so find out which datapipe the data was received on:
- temp = (0x07 & (temp > 1));// Shift bits in status uint8_t one bit to LSB and mask 'Data Pipe Number'
- rx_pw = SPI_Read(READ_REG + RX_PW_P0 + temp);// Read current RX_PW_Pn register, where Pn is the pipe the data was received on..
- SPI_Read_Buf(RD_RX_PLOAD, SPI_Buffer, rx_pw);// Data from RX Payload register is now copied to SPI_Buffer[].
+uint8_t L01_Clear_IRQ(uint8_t irq_flag)            // Clear nRF24L01 IRQ flag(s)
+		{
+	return nRF24L01_RW_Reg(WRITE_REG + STATUS, irq_flag);
+}
 
- IRQ_Source = RX_DR;// Indicates RX data received
- }
- EA = 1; // enable global interrupt again
- } */
+void L01_Write_TX_Pload(uint8_t *pBuf, uint8_t plWidth) // Write TX payload, payload in *pBuf & #of uint8_ts = plWidth
+		{
+	nRF24L01_Write_Buf(WR_TX_PLOAD, pBuf, plWidth);
+}
+
+uint8_t L01_Get_Status(void)                              // Read status uint8_t
+		{
+	return nRF24L01_Read(STATUS);
+}
+
+uint8_t L01_RD_RX_PW_n(uint8_t pipe)  // Get current RX payload width for pipe.n
+		{
+	return nRF24L01_Read(RX_PW_P0 + pipe);
+}
+
+void L01_WR_RX_PW_n(uint8_t pipe, uint8_t plWidth) // Set RX payload width for pipe.n
+		{
+	nRF24L01_RW_Reg(WRITE_REG + RX_PW_P0 + pipe, plWidth);
+}
+
+uint8_t L01_Get_Current_Pipenum(void)                       // Get current pipe#
+		{
+	return ((L01_Get_Status() & RX_P_NO) >> 1);
+}
+
+uint16_t L01_Read_RX_Pload(uint8_t *pBuf)     // read current pipe#'s RX payload
+		{
+	uint8_t registradores[0x17];// For debug purpose, will be commented after unit tests
+	uint8_t* ponteiro = registradores;
+
+	uint8_t plWidth, pipe;
+	plWidth = L01_RD_RX_PW_n(pipe = L01_Get_Current_Pipenum()); // Read current pipe's payload width
+	nRF24L01_Read_Buf(RD_RX_PLOAD, pBuf, plWidth);             // Then get RX data
+
+	for (uint8_t loop = 0; loop < 0x17; loop++) {	// For debug purpose, will be commented after unit tests
+		*ponteiro++ = nRF24L01_Read(loop);
+	}
+
+	return ((pipe << 8) + plWidth);                // return pipe# & pipe#.plWidth
+}
+
+void L01_Flush_TX(void)                                         // Flush TX FIFO
+		{
+	nRF24L01_RW_Reg(FLUSH_TX, 0);
+}
+
+void L01_Flush_RX(void)                                         // Flush RX FIFO
+		{
+	nRF24L01_RW_Reg(FLUSH_RX, 0);
+}
+
+uint8_t L01_Get_FIFO(void)                          // Read FIFO_STATUS register
+		{
+	return nRF24L01_Read(FIFO_STATUS);
+}
 

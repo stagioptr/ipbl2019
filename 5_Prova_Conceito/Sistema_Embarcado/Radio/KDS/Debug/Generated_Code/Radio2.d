@@ -12,8 +12,8 @@ Generated_Code/Radio2.o: ../Generated_Code/Radio2.c \
  N:/Radio/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h \
  N:/Radio/KDS/Generated_Code/clockMan1.h \
  N:/Radio/KDS/Generated_Code/osa1.h \
- N:/Radio/KDS/Generated_Code/clockMan1.h \
- N:/Radio/KDS/Generated_Code/Cpu.h \
+ N:/Radio/KDS/Generated_Code/free_rtos.h \
+ N:/Radio/KDS/Generated_Code/MainTask.h N:/Radio/KDS/Generated_Code/Cpu.h \
  N:/Radio/KDS/SDK/platform/system/inc/fsl_clock_manager.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_sim_hal.h \
  n:\radio\kds\sdk\platform\hal\src\sim\mkl25z4\fsl_sim_hal_mkl25z4.h \
@@ -22,11 +22,24 @@ Generated_Code/Radio2.o: ../Generated_Code/Radio2.c \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_mcg_hal_modes.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_mcg_hal.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_osc_hal.h \
- N:/Radio/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h \
- N:/Radio/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
  N:/Radio/KDS/SDK/platform/system/inc/fsl_interrupt_manager.h \
  N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h \
- N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h \
+ N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/FreeRTOS.h \
+ N:/Radio/KDS/Generated_Code/SDK/rtos/FreeRTOS/config/FreeRTOSConfig.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/projdefs.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/portable.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/deprecated_definitions.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/port/gcc/portmacro.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/mpu_wrappers.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/list.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/semphr.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/queue.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/event_groups.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/timers.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_spi_hal.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h \
@@ -34,9 +47,14 @@ Generated_Code/Radio2.o: ../Generated_Code/Radio2.c \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Radio/KDS/Generated_Code/pin_init.h \
- N:/Radio/KDS/Generated_Code/osa1.h N:/Radio/KDS/Generated_Code/Radio1.h \
+ N:/Radio/KDS/Generated_Code/osa1.h \
+ N:/Radio/KDS/Generated_Code/free_rtos.h \
+ N:/Radio/KDS/Generated_Code/MainTask.h \
+ N:/Radio/KDS/Generated_Code/Radio1.h \
+ N:/Radio/KDS/Generated_Code/clockMan1.h \
  N:/Radio/KDS/Generated_Code/Radio2.h N:/Radio/KDS/Generated_Code/gpio1.h \
- ../Generated_Code/Radio2.h
+ N:/Radio/KDS/Generated_Code/TaskRadio1.h \
+ N:/Radio/KDS/Generated_Code/TaskRadio2.h ../Generated_Code/Radio2.h
 
 N:/Radio/KDS/Sources/Events.h:
 
@@ -64,7 +82,9 @@ N:/Radio/KDS/Generated_Code/clockMan1.h:
 
 N:/Radio/KDS/Generated_Code/osa1.h:
 
-N:/Radio/KDS/Generated_Code/clockMan1.h:
+N:/Radio/KDS/Generated_Code/free_rtos.h:
+
+N:/Radio/KDS/Generated_Code/MainTask.h:
 
 N:/Radio/KDS/Generated_Code/Cpu.h:
 
@@ -84,15 +104,41 @@ N:/Radio/KDS/SDK/platform/hal/inc/fsl_mcg_hal.h:
 
 N:/Radio/KDS/SDK/platform/hal/inc/fsl_osc_hal.h:
 
-N:/Radio/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h:
-
-N:/Radio/KDS/SDK/platform/hal/inc/fsl_port_hal.h:
-
 N:/Radio/KDS/SDK/platform/system/inc/fsl_interrupt_manager.h:
 
 N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h:
 
-N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h:
+N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/FreeRTOS.h:
+
+N:/Radio/KDS/Generated_Code/SDK/rtos/FreeRTOS/config/FreeRTOSConfig.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/projdefs.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/portable.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/deprecated_definitions.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/port/gcc/portmacro.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/mpu_wrappers.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/list.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/semphr.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/queue.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/event_groups.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/timers.h:
+
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h:
+
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_port_hal.h:
 
 N:/Radio/KDS/SDK/platform/hal/inc/fsl_spi_hal.h:
 
@@ -110,10 +156,20 @@ N:/Radio/KDS/Generated_Code/pin_init.h:
 
 N:/Radio/KDS/Generated_Code/osa1.h:
 
+N:/Radio/KDS/Generated_Code/free_rtos.h:
+
+N:/Radio/KDS/Generated_Code/MainTask.h:
+
 N:/Radio/KDS/Generated_Code/Radio1.h:
+
+N:/Radio/KDS/Generated_Code/clockMan1.h:
 
 N:/Radio/KDS/Generated_Code/Radio2.h:
 
 N:/Radio/KDS/Generated_Code/gpio1.h:
+
+N:/Radio/KDS/Generated_Code/TaskRadio1.h:
+
+N:/Radio/KDS/Generated_Code/TaskRadio2.h:
 
 ../Generated_Code/Radio2.h:

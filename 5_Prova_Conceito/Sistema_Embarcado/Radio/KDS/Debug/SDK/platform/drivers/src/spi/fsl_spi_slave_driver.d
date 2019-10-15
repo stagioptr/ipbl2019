@@ -13,7 +13,20 @@ SDK/platform/drivers/src/spi/fsl_spi_slave_driver.o: \
  N:/Radio/KDS/SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h \
  N:/Radio/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h \
  N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h \
- N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h \
+ N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/FreeRTOS.h \
+ N:/Radio/KDS/Generated_Code/SDK/rtos/FreeRTOS/config/FreeRTOSConfig.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/projdefs.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/portable.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/deprecated_definitions.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/port/gcc/portmacro.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/mpu_wrappers.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/list.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/semphr.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/queue.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/event_groups.h \
+ N:/Radio/KDS/SDK/rtos/FreeRTOS/include/timers.h \
  N:/Radio/KDS/SDK/platform/system/inc/fsl_clock_manager.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_sim_hal.h \
  n:\radio\kds\sdk\platform\hal\src\sim\mkl25z4\fsl_sim_hal_mkl25z4.h \
@@ -50,7 +63,33 @@ N:/Radio/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h:
 
 N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction.h:
 
-N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_bm.h:
+N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/FreeRTOS.h:
+
+N:/Radio/KDS/Generated_Code/SDK/rtos/FreeRTOS/config/FreeRTOSConfig.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/projdefs.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/portable.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/deprecated_definitions.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/port/gcc/portmacro.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/mpu_wrappers.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/list.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/semphr.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/queue.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/event_groups.h:
+
+N:/Radio/KDS/SDK/rtos/FreeRTOS/include/timers.h:
 
 N:/Radio/KDS/SDK/platform/system/inc/fsl_clock_manager.h:
 

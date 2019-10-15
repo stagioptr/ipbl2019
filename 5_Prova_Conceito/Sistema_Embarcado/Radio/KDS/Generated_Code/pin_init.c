@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 10:07, # CodeGen: 7
+**     Date/Time   : 2019-10-14, 23:11, # CodeGen: 15
 **     Abstract    :
 **
 **     Settings    :
@@ -993,6 +993,12 @@ void init_gpio_pins(uint32_t instance)
       /* Affects PORTA_PCR13 register */
       PORT_HAL_SetMuxMode(PORTA,13UL,kPortMuxAsGpio);
       break;
+    case GPIOB_IDX:                     /* GPIOB_IDX */
+      /* Affects PORTB_PCR18 register */
+      PORT_HAL_SetMuxMode(PORTB,18UL,kPortMuxAsGpio);
+      /* Affects PORTB_PCR19 register */
+      PORT_HAL_SetMuxMode(PORTB,19UL,kPortMuxAsGpio);
+      break;
     case GPIOD_IDX:                     /* GPIOD_IDX */
       /* Affects PORTD_PCR0 register */
       PORT_HAL_SetMuxMode(PORTD,0UL,kPortMuxAsGpio);
@@ -1014,6 +1020,10 @@ void deinit_gpio_pins(uint32_t instance)
       PORT_HAL_SetMuxMode(PORTA,4UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTA,12UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTA,13UL,kPortPinDisabled);
+      break;
+    case GPIOB_IDX:                     /* GPIOB_IDX */
+      PORT_HAL_SetMuxMode(PORTB,18UL,kPortPinDisabled);
+      PORT_HAL_SetMuxMode(PORTB,19UL,kPortPinDisabled);
       break;
     case GPIOD_IDX:                     /* GPIOD_IDX */
       PORT_HAL_SetMuxMode(PORTD,0UL,kPortPinDisabled);
@@ -1083,8 +1093,8 @@ void init_spi_pins(uint32_t instance)
       PORT_HAL_SetMuxMode(PORTD,2UL,kPortMuxAlt5);
       /* Affects PORTD_PCR3 register */
       PORT_HAL_SetMuxMode(PORTD,3UL,kPortMuxAlt5);
-      /* Affects PORTD_PCR1 register */
-      PORT_HAL_SetMuxMode(PORTD,1UL,kPortMuxAlt2);
+      /* Affects PORTC_PCR5 register */
+      PORT_HAL_SetMuxMode(PORTC,5UL,kPortMuxAlt2);
       break;
     case SPI1_IDX:                      /* SPI1_IDX */
       /* Affects PORTD_PCR7 register */
@@ -1110,7 +1120,7 @@ void deinit_spi_pins(uint32_t instance)
     case SPI0_IDX:                      /* SPI0_IDX */
       PORT_HAL_SetMuxMode(PORTD,2UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTD,3UL,kPortPinDisabled);
-      PORT_HAL_SetMuxMode(PORTD,1UL,kPortPinDisabled);
+      PORT_HAL_SetMuxMode(PORTC,5UL,kPortPinDisabled);
       break;
     case SPI1_IDX:                      /* SPI1_IDX */
       PORT_HAL_SetMuxMode(PORTD,7UL,kPortPinDisabled);

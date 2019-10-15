@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 10:07, # CodeGen: 7
+**     Date/Time   : 2019-10-14, 23:11, # CodeGen: 15
 **     Contents    :
 **         GPIO_DRV_Init            - void GPIO_DRV_Init(const gpio_input_pin_user_config_t * inputPins,const...
 **         GPIO_DRV_InputPinInit    - void GPIO_DRV_InputPinInit(const gpio_input_pin_user_config_t * inputPin);
@@ -82,6 +82,8 @@ enum _gpio1_pinNames{
   J2_2 = GPIO_MAKE_PIN(GPIOA_IDX, 13U),
   J1_8 = GPIO_MAKE_PIN(GPIOA_IDX, 12U),
   J1_10 = GPIO_MAKE_PIN(GPIOA_IDX, 4U),
+  LEDRGB_GREEN = GPIO_MAKE_PIN(GPIOB_IDX, 19U),
+  LEDRGB_RED = GPIO_MAKE_PIN(GPIOB_IDX, 18U),
 };
 
   

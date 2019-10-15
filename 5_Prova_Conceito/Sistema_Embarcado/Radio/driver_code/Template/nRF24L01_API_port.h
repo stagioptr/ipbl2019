@@ -11,6 +11,10 @@
 #include "fsl_spi_master_driver.h"
 #include "fsl_gpio_driver.h"
 #include "gpio1.h"
+#include "task.h"
+#include "fsl_os_abstraction_free_rtos.h"
+
+extern task_handler_t TaskRadio1_task_handler;
 
 const spi_master_user_config_t Radio_MasterConfig0 = {
 	.bitsPerSec = 2000000U,
@@ -22,8 +26,48 @@ const spi_master_user_config_t Radio_MasterConfig0 = {
 spi_master_state_t Radio_MasterState;
 uint32_t Radio_calculatedBaudRate = 0;
 
-void nRF24L01_Init(uint32_t SPI_ID) {
-	SPI_DRV_MasterInit(SPI_ID, &Radio_MasterState);
-	SPI_DRV_MasterConfigureBus(SPI_ID, &Radio_MasterConfig0,
-			&Radio_calculatedBaudRate);
+void nRF24L01_SPI_Init_port() {
+	if (xTaskGetCurrentTaskHandle() == TaskRadio1_task_handler) {
+		SPI_DRV_MasterInit(0, &Radio_MasterState);
+		SPI_DRV_MasterConfigureBus(0, &Radio_MasterConfig0,
+				&Radio_calculatedBaudRate);
+	} else {
+		SPI_DRV_MasterInit(1, &Radio_MasterState);
+		SPI_DRV_MasterConfigureBus(1, &Radio_MasterConfig0,
+				&Radio_calculatedBaudRate);
+	}
+}
+
+/*
+ #define nRF24L01_SPI_TransferBlocking(TX_BUFFER,RX_BUFFER,LENGTH) 		SPI_DRV_MasterTransferBlocking(SPI_ID, &Radio_MasterConfig0, TX_BUFFER, RX_BUFFER, LENGTH, 20);
+
+ #define nRF24L01_writeChpSelectPin( STATE )														GPIO_DRV_WritePinOutput(J2_6, STATE);
+ #define nRF24L01_writeCEPin( STATE )																	GPIO_DRV_WritePinOutput(J1_8, STATE);
+
+ */
+
+void nRF24L01_SPI_TransferBlocking(uint8_t* TX_BUFFER, uint8_t* RX_BUFFER,
+		uint8_t LENGTH) {
+	if (xTaskGetCurrentTaskHandle() == TaskRadio1_task_handler) {
+		SPI_DRV_MasterTransferBlocking(0, &Radio_MasterConfig0, TX_BUFFER,
+				RX_BUFFER, LENGTH, 20);
+	} else {
+		SPI_DRV_MasterTransferBlocking(1, &Radio_MasterConfig0, TX_BUFFER,
+				RX_BUFFER, LENGTH, 20);
+	}
+}
+
+void nRF24L01_writeChpSelectPin(uint8_t STATE) {
+	if (xTaskGetCurrentTaskHandle() == TaskRadio1_task_handler) {
+		GPIO_DRV_WritePinOutput(J2_6, STATE);
+	} else {
+		GPIO_DRV_WritePinOutput(J2_2, STATE);
+	}
+}
+void nRF24L01_writeCEPin(uint8_t STATE) {
+	if (xTaskGetCurrentTaskHandle() == TaskRadio1_task_handler) {
+		GPIO_DRV_WritePinOutput(J1_8, STATE);
+	} else {
+		GPIO_DRV_WritePinOutput(J1_10, STATE);
+	}
 }

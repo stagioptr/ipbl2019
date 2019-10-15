@@ -18,6 +18,8 @@ typedef unsigned char uint8_t;
 // Macro to read SPI Interrupt flag
 #define WAIT_SPIF (!(SPI0CN & 0x80))  // SPI interrupt flag(µC platform dependent)
 
+#define RX_P_NO             0x0e
+
 // Declare SW/HW SPI modes
 #define SW_MODE         0x00
 #define HW_MODE         0x01
@@ -74,10 +76,9 @@ typedef unsigned char uint8_t;
 //********************************************************************************************************************//
 //                                        FUNCTION's PROTOTYPES                                                       //
 //********************************************************************************************************************//
-void SPI_Init(uint8_t Mode);                              // Init HW or SW SPI
-uint8_t SPI_RW(uint8_t uint8_t);                        // Single SPI read/write
-uint8_t SPI_Read(uint8_t reg);                 // Read one uint8_t from nRF24L01
-uint8_t SPI_RW_Reg(uint8_t reg, uint8_t value); // Write one uint8_t to register 'reg'
-uint8_t SPI_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t uint8_ts); // Writes multiply uint8_ts to one register
-uint8_t SPI_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t uint8_ts); // Read multiply uint8_ts from one register
+void nRF24L01_Init(void);                        // Init HW or SW SPI
+void nRF24L01_TX_Mode(void);
+void nRF24L01_RX_Mode(void);
+uint8_t nRF24L01_readStatus(void);
+
 //********************************************************************************************************************//
