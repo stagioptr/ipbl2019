@@ -38,6 +38,21 @@ static tAccelCal sCalValues; /* calibration values in RAM */
 
 /*
 ** ===================================================================
+**     Method      :  MPU6050_Deinit (component MPU6050)
+**     Description :
+**         Counterpart to Init() method.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, kStatus_I2C_Success if everything is ok.
+** ===================================================================
+*/
+uint8_t MPU6050_Deinit(void)
+{
+  return kStatus_I2C_Success; /* nothing to do */
+}
+
+/*
+** ===================================================================
 **     Method      :  MPU6050_Init (component MPU6050)
 **     Description :
 **         Initializes the device driver

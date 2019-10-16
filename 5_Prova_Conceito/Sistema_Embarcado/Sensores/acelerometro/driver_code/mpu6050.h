@@ -22,6 +22,7 @@
 
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
 
+uint8_t MPU6050_Deinit(void);
 /*
 ** ===================================================================
 **     Method      :  MPU6050_Deinit (component MPU6050)
@@ -34,6 +35,16 @@
 */
 
 uint8_t MPU6050_Init(void);
+/*
+** ===================================================================
+**     Method      :  MPU6050_Init (component MPU6050)
+**     Description :
+**         Initializes the device driver
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, ERR_OK if everything is ok.
+** ===================================================================
+*/
 
 uint8_t init_example();
 
