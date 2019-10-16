@@ -29,6 +29,7 @@
 
 #include "Cpu.h"
 #include "Events.h"
+#include "rtos_main_task.h"
 #include "os_tasks.h"
 
 #ifdef __cplusplus
@@ -37,7 +38,7 @@ extern "C" {
 
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-#include "mpu6050.h"
+
 /*
 ** ===================================================================
 **     Callback    : Task1_task
@@ -60,9 +61,9 @@ void Task1_task(os_task_param_t task_init_data)
     OSA_TimeDelay(10);                 /* Example code (for task release) */
 
     // Mexi no seu código aqui!!!!
-    if (mpu6050_init() == 1){
-    	while(1);
-    }
+//    if (mpu6050_init() == 1){
+//    	while(1);
+//    }
     
     
     

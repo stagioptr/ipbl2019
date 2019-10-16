@@ -1,0 +1,55 @@
+//Altera√ß√£o para vers√£o 1...
+
+//uint8_t mpu6050_init();
+
+/*
+ * mpu6050.h
+ *
+ *  Created on: Jan 14, 2015
+ *      Author: lab
+ */
+
+#ifndef MPU6050_H_
+#define MPU6050_H_
+#define I2C_RECV     0    /* Modo de recebimento */
+#define I2C_SEND     1    /* Modo de envio */
+#define I2C_SrRECV   2    /* Com Sr recebendo */
+
+
+#define MPU6050_I2C_ADDRESS (0x68<<1)
+#define I2C0_B  I2C0_BASE_PTR
+/****************************************/
+// Defina o endereÁo interno do MPU6050
+//****************************************/
+#define        SMPLRT_DIV          0x19        //Taxa de amostra, geralmente 0x07 (125HZ)
+#define        CONFIG              0x1A        //Low pass filter frequency
+#define        GYRO_CONFIG         0x1B        //Faixa de mediÁ„o de giroscÛpio
+#define        ACCEL_CONFIG        0x1C        //Faixa de mediÁ„o do acelerÙmetro
+
+#define        INT_CONFIGURATION   0x37        //ConfiguraÁ„o do sinal de interrupÁ„o
+#define        INTERRUPT_ENABLE    0x38        //Ativar interrupÁ„o
+
+
+#define        ACCEL_XOUT_H        0x3B
+#define        ACCEL_XOUT_L        0x3C
+#define        ACCEL_YOUT_H        0x3D
+#define        ACCEL_YOUT_L        0x3E
+#define        ACCEL_ZOUT_H        0x3F
+#define        ACCEL_ZOUT_L        0x40
+#define        TEMP_OUT_H          0x41
+#define        TEMP_OUT_L          0x42
+#define        GYRO_XOUT_H         0x43
+#define        GYRO_XOUT_L         0x44
+#define        GYRO_YOUT_H         0x45
+#define        GYRO_YOUT_L         0x46
+#define        GYRO_ZOUT_H         0x47
+#define        GYRO_ZOUT_L         0x48
+#define        PWR_MGMT_1          0x6B        //Gerenciamento de energia, tÌpico? X00 (normalmente ativado)
+#define        WHO_AM_I            0x75        //Registro de endereÁo IIC? O n˙mero padr„o È 0x68, apenas?
+
+
+void get_acc(short *Ax,short *Ay,short *Az);
+void get_gyro(short *Gx,short *Gy,short *Gz);
+void InitMPU6050();
+
+#endif /* MPU6050_H_ */

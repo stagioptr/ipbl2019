@@ -1,0 +1,15 @@
+/*
+ * mpu6050.h
+ *
+ *  Created on: Oct 15, 2019
+ *      Author: Joao Mendes
+ *      Implements a Driver for the mpu6050 accelerometer/gyroscope.
+ */
+
+#include "stdint.h"
+#include "mpu6050.h"
+
+uint8_t mpu6050_init(){
+	uint8_t temporario = 1;
+	return temporario;
+}
