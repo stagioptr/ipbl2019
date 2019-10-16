@@ -34,6 +34,8 @@
 #include "clockMan1.h"
 #include "pin_init.h"
 #include "osa1.h"
+#include "free_rtos.h"
+#include "MainTask.h"
 #include "i2cCom1.h"
 #include "Task1.h"
 

@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-04, 20:42, # CodeGen: 3
+**     Date/Time   : 2019-10-15, 13:46, # CodeGen: 10
 **     Abstract    :
 **
 **     Settings    :
@@ -67,6 +67,7 @@
 /* {Default RTOS Adapter} No RTOS includes */
 #include "Cpu.h"
 #include "Events.h"
+#include "rtos_main_task.h"
 #include "os_tasks.h"
 
 

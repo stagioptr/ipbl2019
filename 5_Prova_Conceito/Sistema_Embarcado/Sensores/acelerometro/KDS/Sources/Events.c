@@ -29,6 +29,7 @@
 
 #include "Cpu.h"
 #include "Events.h"
+#include "rtos_main_task.h"
 #include "os_tasks.h"
 
 #ifdef __cplusplus
