@@ -34,7 +34,7 @@ uint8_t MPU6050_WhoAmI(uint8_t *value)
 {
   static const uint8_t addr = MPU6050_WHO_AM_I;
 
-  return I2C_DRV_MasterReceiveDataBlocking( I2C0_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&value, sizeof(value), 20 );
+  return I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&value, sizeof(value), 20 );
 
   //return I2C_DRV_MasterReceiveDataBlocking(MMA1_I2C_ADDR, MMA1_WHO_AM_I, value);
 }

@@ -5,6 +5,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\john\workspace.kds\acelerometroMMA"/>
 			<item value="C:\Users\john\workspace.kds\Sensor3.0_KL25Z"/>
 			<item value="N:\Sensores\acelerometro\KDS"/>
 		</list>

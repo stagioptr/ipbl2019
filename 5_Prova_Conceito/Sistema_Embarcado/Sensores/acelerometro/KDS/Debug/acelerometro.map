@@ -6596,68 +6596,68 @@ OUTPUT(acelerometro.elf elf32-littlearm)
  .debug_line    0x0000dbf1      0x8a9 ./Generated_Code/i2cCom1.o
  .debug_line    0x0000e49a      0x527 ./Generated_Code/pin_init.o
 
-.debug_str      0x00000000    0xa9778
- .debug_str     0x00000000    0xa06c5 ./driver_code/mpu6050.o
-                              0xa0bc8 (size before relaxing)
- .debug_str     0x000a06c5      0x4de ./Static_Code/System/PE_low_level_init.o
+.debug_str      0x00000000    0xa9775
+ .debug_str     0x00000000    0xa06c2 ./driver_code/mpu6050.o
+                              0xa0bc5 (size before relaxing)
+ .debug_str     0x000a06c2      0x4de ./Static_Code/System/PE_low_level_init.o
                               0xa0f59 (size before relaxing)
- .debug_str     0x000a0ba3       0x46 ./Sources/Events.o
+ .debug_str     0x000a0ba0       0x46 ./Sources/Events.o
                               0xa0f29 (size before relaxing)
- .debug_str     0x000a0be9       0x17 ./Sources/main.o
+ .debug_str     0x000a0be6       0x17 ./Sources/main.o
                               0xa0f1c (size before relaxing)
- .debug_str     0x000a0c00       0x40 ./Sources/os_tasks.o
+ .debug_str     0x000a0bfd       0x40 ./Sources/os_tasks.o
                               0xa0f45 (size before relaxing)
- .debug_str     0x000a0c40       0x33 ./Sources/rtos_main_task.o
-                              0xa0fd8 (size before relaxing)
- .debug_str     0x000a0c73      0x40a ./SDK/rtos/FreeRTOS/src/event_groups.o
+ .debug_str     0x000a0c3d       0x33 ./Sources/rtos_main_task.o
+                              0xa0fd5 (size before relaxing)
+ .debug_str     0x000a0c70      0x40a ./SDK/rtos/FreeRTOS/src/event_groups.o
                                0x815e (size before relaxing)
- .debug_str     0x000a107d      0x35c ./SDK/rtos/FreeRTOS/src/heap_2.o
+ .debug_str     0x000a107a      0x35c ./SDK/rtos/FreeRTOS/src/heap_2.o
                                0x7744 (size before relaxing)
- .debug_str     0x000a13d9       0xa2 ./SDK/rtos/FreeRTOS/src/list.o
+ .debug_str     0x000a13d6       0xa2 ./SDK/rtos/FreeRTOS/src/list.o
                                0x74c6 (size before relaxing)
- .debug_str     0x000a147b     0x155f ./SDK/rtos/FreeRTOS/src/queue.o
+ .debug_str     0x000a1478     0x155f ./SDK/rtos/FreeRTOS/src/queue.o
                                0x948d (size before relaxing)
- .debug_str     0x000a29da      0xf23 ./SDK/rtos/FreeRTOS/src/tasks.o
+ .debug_str     0x000a29d7      0xf23 ./SDK/rtos/FreeRTOS/src/tasks.o
                                0x9b62 (size before relaxing)
- .debug_str     0x000a38fd      0x456 ./SDK/rtos/FreeRTOS/src/timers.o
+ .debug_str     0x000a38fa      0x456 ./SDK/rtos/FreeRTOS/src/timers.o
                                0x8b4a (size before relaxing)
- .debug_str     0x000a3d53      0xa01 ./SDK/rtos/FreeRTOS/port/gcc/port.o
+ .debug_str     0x000a3d50      0xa01 ./SDK/rtos/FreeRTOS/port/gcc/port.o
                                0x6e90 (size before relaxing)
- .debug_str     0x000a4754     0x1517 ./SDK/platform/utilities/src/fsl_debug_console.o
+ .debug_str     0x000a4751     0x1517 ./SDK/platform/utilities/src/fsl_debug_console.o
                               0xa3069 (size before relaxing)
- .debug_str     0x000a5c6b      0x6b8 ./SDK/platform/utilities/src/fsl_misc_utilities.o
+ .debug_str     0x000a5c68      0x6b8 ./SDK/platform/utilities/src/fsl_misc_utilities.o
                                0xa347 (size before relaxing)
- .debug_str     0x000a6323     0x12bb ./SDK/platform/system/src/clock/MKL25Z4/fsl_clock_MKL25Z4.o
+ .debug_str     0x000a6320     0x12bb ./SDK/platform/system/src/clock/MKL25Z4/fsl_clock_MKL25Z4.o
                               0xa1ea3 (size before relaxing)
- .debug_str     0x000a75de      0x7a5 ./SDK/platform/osa/src/fsl_os_abstraction_free_rtos.o
+ .debug_str     0x000a75db      0x7a5 ./SDK/platform/osa/src/fsl_os_abstraction_free_rtos.o
                               0xa225f (size before relaxing)
- .debug_str     0x000a7d83      0x7d5 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+ .debug_str     0x000a7d80      0x7d5 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
                               0x9c735 (size before relaxing)
- .debug_str     0x000a8558      0x5f7 ./SDK/platform/hal/src/i2c/fsl_i2c_hal.o
+ .debug_str     0x000a8555      0x5f7 ./SDK/platform/hal/src/i2c/fsl_i2c_hal.o
                               0x9c5f2 (size before relaxing)
- .debug_str     0x000a8b4f       0x4a ./SDK/platform/drivers/src/i2c/fsl_i2c_common.o
+ .debug_str     0x000a8b4c       0x4a ./SDK/platform/drivers/src/i2c/fsl_i2c_common.o
                               0x9beea (size before relaxing)
- .debug_str     0x000a8b99      0x3d4 ./SDK/platform/drivers/src/i2c/fsl_i2c_master_driver.o
+ .debug_str     0x000a8b96      0x3d4 ./SDK/platform/drivers/src/i2c/fsl_i2c_master_driver.o
                               0xa250a (size before relaxing)
- .debug_str     0x000a8f6d       0x4d ./SDK/platform/drivers/src/i2c/fsl_i2c_shared_function.o
+ .debug_str     0x000a8f6a       0x4d ./SDK/platform/drivers/src/i2c/fsl_i2c_shared_function.o
                               0x9bf42 (size before relaxing)
- .debug_str     0x000a8fba      0x390 ./SDK/platform/drivers/src/i2c/fsl_i2c_slave_driver.o
+ .debug_str     0x000a8fb7      0x390 ./SDK/platform/drivers/src/i2c/fsl_i2c_slave_driver.o
                               0xa25fb (size before relaxing)
- .debug_str     0x000a934a       0xe2 ./SDK/platform/devices/MKL25Z4/startup/system_MKL25Z4.o
+ .debug_str     0x000a9347       0xe2 ./SDK/platform/devices/MKL25Z4/startup/system_MKL25Z4.o
                               0x9c08f (size before relaxing)
- .debug_str     0x000a942c      0x126 ./SDK/platform/devices/startup.o
+ .debug_str     0x000a9429      0x126 ./SDK/platform/devices/startup.o
                               0x9bdf8 (size before relaxing)
- .debug_str     0x000a9552       0x52 ./Generated_Code/Cpu.o
+ .debug_str     0x000a954f       0x52 ./Generated_Code/Cpu.o
                               0xa1192 (size before relaxing)
- .debug_str     0x000a95a4       0x50 ./Generated_Code/MainTask.o
+ .debug_str     0x000a95a1       0x50 ./Generated_Code/MainTask.o
                               0xa0fd7 (size before relaxing)
- .debug_str     0x000a95f4       0x44 ./Generated_Code/Task1.o
+ .debug_str     0x000a95f1       0x44 ./Generated_Code/Task1.o
                               0xa0fc5 (size before relaxing)
- .debug_str     0x000a9638       0x30 ./Generated_Code/hardware_init.o
+ .debug_str     0x000a9635       0x30 ./Generated_Code/hardware_init.o
                               0x9c171 (size before relaxing)
- .debug_str     0x000a9668       0x1c ./Generated_Code/i2cCom1.o
+ .debug_str     0x000a9665       0x1c ./Generated_Code/i2cCom1.o
                               0xa1164 (size before relaxing)
- .debug_str     0x000a9684       0xf4 ./Generated_Code/pin_init.o
+ .debug_str     0x000a9681       0xf4 ./Generated_Code/pin_init.o
                               0x9bf8c (size before relaxing)
 
 .comment        0x00000000       0x70
