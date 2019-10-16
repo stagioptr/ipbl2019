@@ -15,26 +15,28 @@
 
 #define MPU6050_I2C_ADDRESS (0x68) /* I2C slave device address as set in the properties */
 
+#define MPU6050_ACTIVE_BIT_MASK 0x01
+#define MPU6050_F_READ_BIT_MASK 0x02
+
+#define MPU6050_I2C_SLV1_CTRL 0x2A
+
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
-
-uint8_t mpu6050_init();
-
-//void get_acc(short *Ax,short *Ay,short *Az);
-//void get_gyro(short *Gx,short *Gy,short *Gz);
-
-
-//uint8_t MPU6050_Init(void);
 
 /*
 ** ===================================================================
-**     Method      :  MPU6050_Init (component MPU6050)
+**     Method      :  MPU6050_Deinit (component MPU6050)
 **     Description :
-**         Initializes the device driver
+**         Counterpart to Init() method.
 **     Parameters  : None
 **     Returns     :
 **         ---             - Error code, ERR_OK if everything is ok.
 ** ===================================================================
 */
+
+uint8_t MPU6050_Init(void);
+
+uint8_t init_example();
+
 
 uint8_t MPU6050_WhoAmI(uint8_t *value);
 /*

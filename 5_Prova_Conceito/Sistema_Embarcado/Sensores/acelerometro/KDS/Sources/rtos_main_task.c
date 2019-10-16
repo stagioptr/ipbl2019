@@ -58,6 +58,7 @@ void main_task(os_task_param_t task_init_data)
 {
   /* Write your local variable definition here */
 	uint8_t value;
+	uint8_t initCod;
 	uint8_t whoami;
 	int teste;
 
@@ -73,7 +74,7 @@ void main_task(os_task_param_t task_init_data)
 #endif
     /* Write your code here ... */
 
-	  if(mpu6050_init()){
+	  if(init_example()){
 		  teste = 1;
 	  }else {
 		  teste = 0;
@@ -81,6 +82,7 @@ void main_task(os_task_param_t task_init_data)
 	  teste = teste + 1;
 
 	  whoami = MPU6050_WhoAmI(&value);
+	  initCod = MPU6050_Init();
     
     
     OSA_TimeDelay(10);                 /* Example code (for task release) */
