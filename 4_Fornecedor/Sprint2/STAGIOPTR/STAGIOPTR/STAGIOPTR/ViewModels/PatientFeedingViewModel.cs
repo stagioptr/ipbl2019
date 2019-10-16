@@ -9,6 +9,8 @@ namespace STAGIOPTR.ViewModels
 {
     class PatientFeedingViewModel : BaseViewModel
     {
+        DatabaseConnection database = new DatabaseConnection();
+
         private Feeding _feeding;
 
         public Feeding Feeding
@@ -17,9 +19,7 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _feeding, value); }
         }
 
-
         private ObservableCollection<Feeding> _feedings;
-        DatabaseConnection database = new DatabaseConnection();
         public ObservableCollection<Feeding> Feedings
         {
             get { return _feedings; }
@@ -30,14 +30,31 @@ namespace STAGIOPTR.ViewModels
 
         public Command AddFeedingCommand { get; }
 
+        public Command LoadFeedingsCommand { get; }
+
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
+
+
         public PatientFeedingViewModel(Patient Patient)
         {
-            Debug.WriteLine("AQUI");
+            this.Patient = Patient;
             this.Feedings = new ObservableCollection<Feeding>();
             this.Feeding = new Feeding();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             AddFeedingCommand = new Command(ExecuteAddFeedingCommand);
-            this.LoadAsync();
-            this.Patient = Patient;
+            LoadFeedingsCommand = new Command(LoadAsyncList);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -48,6 +65,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Feedings.Add(food);
             }
+            this.IsLoading = false;
         }
 
         private async void ExecuteAddFeedingCommand()

@@ -21,23 +21,40 @@ namespace STAGIOPTR.ViewModels
 
         public Command AddEmotionalCommand { get; }
 
+        public Command LoadEmotionalsCommand { get; }
+
         public Patient Patient
         {
             get { return _patient; }
             set { SetProperty(ref _patient, value); }
         }
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
+
         public PatientEmotionalViewModel(Patient Patient)
         {
             this.Patient = Patient;
             this.Emotional = new ObservableCollection<Emotional>();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             AddEmotionalCommand = new Command(ExecuteAddEmotionalCommand);
-            this.LoadAsync();
+            LoadEmotionalsCommand = new Command(LoadAsyncList);
         }
 
         private async void ExecuteAddEmotionalCommand()
         {
             await PushAsync<EmotionalAddViewModel>(this.Patient);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -48,6 +65,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Emotional.Add(emotional);
             }
+            this.IsLoading = false;
         }
 
     }

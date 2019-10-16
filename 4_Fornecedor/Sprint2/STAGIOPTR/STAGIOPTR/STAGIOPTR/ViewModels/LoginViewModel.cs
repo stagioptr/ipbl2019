@@ -1,56 +1,65 @@
 ﻿using STAGIOPTR.Models;
 using STAGIOPTR.Database;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace STAGIOPTR.ViewModels
 {
-    public class LoginViewModel:BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
-        private Patient _patient;
         DatabaseConnection database = new DatabaseConnection();
-        public Command LoginPatientCommand { get; }
-        public Command RegisterPatientCommand { get; }
 
-        public string email;
+        public Command LoginUserCommand { get; }
 
-        public Patient Patient
+        private User _user;
+
+        public User User
         {
-            get { return _patient; }
-            set { SetProperty(ref _patient, value); }
+            get { return _user; }
+            set { SetProperty(ref _user, value); }
         }
 
-        private string _erros;
+        private string _email;
 
-        public string Errors
+        public string Email
         {
-            get { return _erros; }
-            set { SetProperty(ref _erros, value); }
+            get { return _email; }
+            set { SetProperty(ref _email, value); }
         }
 
+        private string _password;
+
+        public string Password
+        {
+            get { return _password; }
+            set { SetProperty(ref _password, value); }
+        }
 
         public LoginViewModel()
         {
-            Patient = new Patient();
-            LoginPatientCommand = new Command(ExecuteLoginPatientCommandAsync);
-            RegisterPatientCommand = new Command(ExecuteRegisterPatientCommandAsync);
+            this.User = new User();
+            LoginUserCommand = new Command(ExecuteLoginUserCommand);
+            User User = database.getUserPerLogin("admin@admin", "admin");
+            Debug.WriteLine(User == null);
+            if (User == null)
+            {
+                User Admin = new User
+                {
+                    Name = "Administrador",
+                    CPF = 007,
+                    Email = "admin@admin",
+                    Password = "admin",
+                    AccessLevel = 1
+                };
+                database.InsertUsers(Admin);
+            }
+            
         }
 
-        private async void ExecuteLoginPatientCommandAsync()
+        public void ExecuteLoginUserCommand()
         {
-            this.Patient = this.database.getPatientPerEmail(this.email);
-            if (this.Patient == null)
-            {
-                this.Errors = "Paciente não cadastrado!";
-            }
-            else
-            {
-                await PushAsync<PatientViewModel>(Patient);
-            }
-        }
-
-        private async void ExecuteRegisterPatientCommandAsync()
-        {
-            await PushAsync<PatientAddViewModel>();
+            Debug.WriteLine("user: "+ this.Email);
+            Debug.WriteLine("password: "+ this.Password);
         }
     }
 }

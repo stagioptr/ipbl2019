@@ -10,7 +10,10 @@
             <ListView
                 HasUnevenRows="true"
                 ItemsSource="{Binding Foods}"
-                SelectedItem="{Binding FoodSelected}">
+                SelectedItem="{Binding FoodSelected}"                
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadFoodsCommand}"
+                IsRefreshing="{Binding IsLoading}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

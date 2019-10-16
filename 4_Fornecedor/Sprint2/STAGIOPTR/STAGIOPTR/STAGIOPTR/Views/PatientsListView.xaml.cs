@@ -26,7 +26,7 @@ namespace STAGIOPTR.Views
 
         protected override void OnAppearing()
         {
-            this._viewModel.LoadAsync();
+            _ = this._viewModel.LoadAsync();
         }
     }
 }

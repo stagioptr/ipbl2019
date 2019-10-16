@@ -1,5 +1,5 @@
-﻿using STAGIOPTR.Models;
-using STAGIOPTR.Database;
+﻿using STAGIOPTR.Database;
+using STAGIOPTR.Models;
 using Xamarin.Forms;
 
 namespace STAGIOPTR.ViewModels
@@ -16,16 +16,47 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _food, value); }
         }
 
+        private string _errors;
+
+        public string Errors
+        {
+            get { return _errors; }
+            set { SetProperty(ref _errors, value); }
+        }
+
+
         public FoodAddViewModel()
         {
             Food = new Food();
             AddFoodCommand = new Command(ExecuteAddFoodCommand);
         }
 
-        public void ExecuteAddFoodCommand()
+        private void ExecuteAddFoodCommand()
         {
-            this.database.InsertFood(this.Food);
-            Application.Current.MainPage.Navigation.PopAsync();
+            if (this.ValidationRules())
+            {
+                this.database.InsertFood(this.Food);
+                Application.Current.MainPage.Navigation.PopAsync();
+            }
+        }
+
+        private bool ValidationRules()
+        {
+            bool validation = true;
+
+            if (string.IsNullOrWhiteSpace(this.Food.Name))
+            {
+                this.Errors = "Campo Nome obrigatório";
+                validation = false;
+            }
+
+            if(database.verifyFoodExist(this.Food.Name))
+            {
+                this.Errors = "Alimento já cadastrado";
+                validation = false;
+            }
+
+            return validation;
         }
 
     }

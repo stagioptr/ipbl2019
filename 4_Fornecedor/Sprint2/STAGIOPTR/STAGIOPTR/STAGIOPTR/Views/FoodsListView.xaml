@@ -13,7 +13,10 @@
             <ListView
                 HasUnevenRows="true"
                 ItemsSource="{Binding Foods}"
-                ItemSelected="ListView_ItemSelected">
+                ItemSelected="ListView_ItemSelected"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadFoodsCommand}"
+                IsRefreshing="{Binding IsLoading}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell

@@ -1,9 +1,8 @@
-﻿using STAGIOPTR.Models;
+﻿using STAGIOPTR.Database;
+using STAGIOPTR.Models;
 using System.Collections.ObjectModel;
-using STAGIOPTR.Database;
-using Xamarin.Forms;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace STAGIOPTR.ViewModels
 {
@@ -14,6 +13,8 @@ namespace STAGIOPTR.ViewModels
 
         public Command AddPatientCommand { get; }
 
+        public Command LoadPatientsCommand { get; }
+
         public Command<Patient> ShowPatientCommand { get; }
 
         public ObservableCollection<Patient> Patients
@@ -22,17 +23,33 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _patients, value); }
         }
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
+
+
         public PatientsListViewModel()
         {
             _patients = new ObservableCollection<Patient>();
-            this.LoadAsync();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             AddPatientCommand = new Command(ExecuteAddPatientCommand);
             ShowPatientCommand = new Command<Patient>(ExecuteShowPatientCommand);
+            LoadPatientsCommand = new Command(LoadAsyncList);
         }
 
         private async void ExecuteShowPatientCommand(Patient patient)
         {
             await PushAsync<PatientViewModel>(patient);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -43,6 +60,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Patients.Add(patient);
             }
+            this.IsLoading = false;
         }
 
         private async void ExecuteAddPatientCommand()
