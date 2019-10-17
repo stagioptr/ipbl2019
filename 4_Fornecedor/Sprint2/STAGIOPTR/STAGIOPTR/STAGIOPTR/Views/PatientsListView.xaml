@@ -20,6 +20,9 @@
                 HasUnevenRows="true"
                 ItemsSource="{Binding Patients}"
                 ItemSelected="ListView_ItemSelected"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadPatientsCommand}"
+                IsRefreshing="{Binding IsLoading}"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>

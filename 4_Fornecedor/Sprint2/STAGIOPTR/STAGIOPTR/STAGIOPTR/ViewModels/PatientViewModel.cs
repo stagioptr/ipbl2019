@@ -1,4 +1,6 @@
-﻿using STAGIOPTR.Models;
+﻿using Plugin.Messaging;
+using STAGIOPTR.Models;
+using System;
 using System.Diagnostics;
 using Xamarin.Forms;
 
@@ -13,7 +15,7 @@ namespace STAGIOPTR.ViewModels
         public Command ShowEmotionalCommand { get; set; }
         public Command AlterPatientCommand { get; }
         public Command DelPatientCommand { get; }
-
+        public Command CallCommand { get; set; }
 
         public PatientViewModel(Patient patient)
         {
@@ -23,6 +25,7 @@ namespace STAGIOPTR.ViewModels
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);
             AlterPatientCommand = new Command(ExecuteAlterPatientCommand);
             DelPatientCommand = new Command(ExecuteDelPatientCommand);
+            CallCommand = new Command(ExecuteCallCommand);
         }
 
         private async void ExecuteShowFeedingCommand()
@@ -48,6 +51,13 @@ namespace STAGIOPTR.ViewModels
         private async void ExecuteDelPatientCommand()
         {
             await PushAsync<PatientDeleteViewModel>(Patient);
+        }
+
+        private async void ExecuteCallCommand()
+        {
+            var phoneDialer = CrossMessaging.Current.PhoneDialer;
+            if (phoneDialer.CanMakePhoneCall && !String.IsNullOrWhiteSpace(Patient.EmergencyPhone.ToString()))
+                phoneDialer.MakePhoneCall(Patient.EmergencyPhone.ToString());
         }
     }
 }

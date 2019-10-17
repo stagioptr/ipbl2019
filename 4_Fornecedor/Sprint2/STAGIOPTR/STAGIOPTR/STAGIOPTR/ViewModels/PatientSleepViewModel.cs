@@ -18,9 +18,11 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _sleep, value); }
         }
 
-        private Patient _patient;
-
         public Command AddSleepCommand { get; }
+
+        public Command LoadSleepsCommand { get; }
+
+        private Patient _patient;
 
         public Patient Patient
         {
@@ -28,18 +30,32 @@ namespace STAGIOPTR.ViewModels
             set { _patient = value; }
         }
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
 
         public PatientSleepViewModel(Patient Patient)
         {
             this.Patient = Patient;
             this.Sleep = new ObservableCollection<Sleep>();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             AddSleepCommand = new Command(ExecuteAddSleepCommand);
-            this.LoadAsync();
+            LoadSleepsCommand = new Command(LoadAsyncList);
         }
 
         private async void ExecuteAddSleepCommand()
         {
             await PushAsync<SleepAddViewModel>(this.Patient);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -50,6 +66,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Sleep.Add(sleep);
             }
+            this.IsLoading = false;
         }
 
     }

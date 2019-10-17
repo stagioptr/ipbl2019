@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:STAGIOPTR.Converters"
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.FoodAddView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ValidationErrorsConverter x:Key="ValidationErrorsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="15">
             <Grid>
@@ -18,6 +24,7 @@
                <Entry Placeholder="Nome" Text="{Binding Food.Name}" Grid.Row="0" Grid.Column="1"/>
             </Grid>
             <Button Text="CADASTRAR" Command="{Binding AddFoodCommand}" Style="{StaticResource ButtonPrimary}"/>
+            <Label HorizontalOptions="Center" TextColor="{StaticResource Danger}" Text="{Binding Errors}" IsVisible="{Binding Errors, Converter={StaticResource ValidationErrorsConverter}}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

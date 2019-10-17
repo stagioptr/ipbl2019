@@ -20,7 +20,10 @@
         <StackLayout Padding="15">
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Emotional}">
+                ItemsSource="{Binding Emotional}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadEmotionalsCommand}"
+                IsRefreshing="{Binding IsLoading}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -48,6 +51,9 @@
                                Text="{Binding EmotionalTime, StringFormat='{0:dd/MM/yyyy hh:mm}'}"
                                VerticalOptions="End" />
                             </Grid>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir" IsDestructive="true" Command="{Binding}" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

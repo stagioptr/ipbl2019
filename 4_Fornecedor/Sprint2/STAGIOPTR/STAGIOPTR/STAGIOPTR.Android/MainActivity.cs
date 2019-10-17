@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.Messaging;
 
 namespace STAGIOPTR.Droid
 {
@@ -20,6 +21,7 @@ namespace STAGIOPTR.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            CrossMessaging.Current.Settings().Phone.AutoDial = true;
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

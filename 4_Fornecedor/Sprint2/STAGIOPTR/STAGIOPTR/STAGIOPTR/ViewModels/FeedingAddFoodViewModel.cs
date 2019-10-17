@@ -1,15 +1,15 @@
-﻿using STAGIOPTR.Models;
-using STAGIOPTR.Database;
+﻿using STAGIOPTR.Database;
+using STAGIOPTR.Models;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Diagnostics;
 
 namespace STAGIOPTR.ViewModels
 {
     public class FeedingAddFoodViewModel : BaseViewModel
     {
         DatabaseConnection database = new DatabaseConnection();
+
         private ObservableCollection<Food> _foods;
         public ObservableCollection<Food> Foods
         {
@@ -33,14 +33,30 @@ namespace STAGIOPTR.ViewModels
 
         public Command SelectItemVerify { get; }
 
+        public Command LoadFoodsCommand { get; }
+
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
 
         public FeedingAddFoodViewModel(Feeding Feeding)
         {
             this.Feeding = Feeding;
             Foods = new ObservableCollection<Food>();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             FoodSelected = new Food();
             SelectItemVerify = new Command(ExecuteSelectItemVerify);
-            this.LoadAsync();
+            LoadFoodsCommand = new Command(LoadAsyncList);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -51,6 +67,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Foods.Add(food);
             }
+            this.IsLoading = false;
         }
 
         private async void ExecuteSelectItemVerify()

@@ -22,6 +22,8 @@ namespace STAGIOPTR.Database
             _connection.CreateTable<Feeding>();
             _connection.CreateTable<Sleep>();
             _connection.CreateTable<Emotional>();
+            _connection.CreateTable<User>();
+            _connection.CreateTable<UserLogged>();
         }
 
         // CRUD PATIENTS
@@ -89,6 +91,20 @@ namespace STAGIOPTR.Database
             return _connection.Table<Food>().Where(a => a.Id == Id).FirstOrDefault();
         }
 
+        public Food getFoodPerName(string Name)
+        {
+            return _connection.Table<Food>().Where(a => a.Name == Name).FirstOrDefault();
+        }
+
+        public bool verifyFoodExist(string Name)
+        {
+            Food result = _connection.Table<Food>().Where(a => a.Name == Name).FirstOrDefault();
+            if (result != null)
+                return true;
+            else
+                return false;
+        }
+
         // Feeding
         public void InsertFeeding(Feeding Feeding)
         {
@@ -119,6 +135,17 @@ namespace STAGIOPTR.Database
         public async Task<List<Emotional>> getEmotional(int id)
         {
             return _connection.Query<Emotional>("select *from Emotional where IdPatient=? order by EmotionalTime desc",id);
+        }
+
+        // CRUD USER
+        public void InsertUsers(User User)
+        {
+            _connection.Insert(User);
+        }
+
+        public User getUserPerLogin(string Email, string Password)
+        {
+            return _connection.Table<User>().Where(a => a.Email == Email && a.Password == Password ).FirstOrDefault();
         }
     }
 }

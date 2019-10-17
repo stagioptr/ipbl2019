@@ -11,7 +11,7 @@ namespace STAGIOPTR.Models
         [NotNull]
         public string Name { get; set; }
         [Unique, NotNull]
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         [NotNull]
         public DateTime Birthdate { get; set; }
         public string BloodType { get; set; }
@@ -19,6 +19,6 @@ namespace STAGIOPTR.Models
         [Unique]
         public string Email { get; set; }
         [NotNull]
-        public int EmergencyPhone { get; set; }
+        public string EmergencyPhone { get; set; }
     }
 }

@@ -20,7 +20,10 @@
         <StackLayout Padding="15">
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Sleep}">
+                ItemsSource="{Binding Sleep}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadSleepsCommand}"
+                IsRefreshing="{Binding IsLoading}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

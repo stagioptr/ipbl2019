@@ -10,7 +10,7 @@ namespace STAGIOPTR
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage( new MainView());
+            MainPage = new NavigationPage(new MainView());
         }
 
         protected override void OnStart()

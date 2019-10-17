@@ -13,7 +13,10 @@
         <StackLayout>
             <ListView
                 HasUnevenRows="true"
-                ItemsSource="{Binding Feedings}">
+                ItemsSource="{Binding Feedings}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadFeedingsCommand}"
+                IsRefreshing="{Binding IsLoading}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding FoodTime}" Detail="{Binding Food}" TextColor="{StaticResource Primary}"/>

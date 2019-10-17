@@ -15,23 +15,41 @@ namespace STAGIOPTR.ViewModels
 
         public Command<Food> ShowUpdateFoodCommand { get; }
 
+        public Command LoadFoodsCommand { get; }
+
         public ObservableCollection<Food> Foods
         {
             get { return _foods; }
             set { SetProperty(ref _foods, value); }
         }
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { SetProperty(ref _isLoading, value); }
+        }
+
         public FoodsListViewModel()
         {
             Foods = new ObservableCollection<Food>();
+            this.IsLoading = true;
+            _ = this.LoadAsync();
             AddFoodCommand = new Command(ExecuteAddFoodCommand);
             ShowUpdateFoodCommand = new Command<Food>(ExecuteShowUpdateFoodCommand);
-            this.LoadAsync();
+            LoadFoodsCommand = new Command(LoadAsyncList);
+
         }
 
         private async void ExecuteShowUpdateFoodCommand(Food food)
         {
             await PushAsync<FoodUpdateViewModel>(food);
+        }
+
+        private async void LoadAsyncList()
+        {
+            await LoadAsync();
         }
 
         public override async Task LoadAsync()
@@ -42,6 +60,7 @@ namespace STAGIOPTR.ViewModels
             {
                 this.Foods.Add(food);
             }
+            this.IsLoading = false;
         }
 
         private async void ExecuteAddFoodCommand()
