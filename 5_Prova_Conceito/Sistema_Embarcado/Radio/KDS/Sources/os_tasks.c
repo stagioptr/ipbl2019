@@ -39,7 +39,6 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "nRF24L01_API.h"
-#include "Protocol_API.h"
 
 /*
  ** ===================================================================
@@ -50,12 +49,20 @@ extern "C" {
  **     Returns : Nothing
  ** ===================================================================
  */
-uint8_t teste[32];
+uint8_t transmitPayload[16] = "Trasmitindo...";
+
 void TaskRadio2_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
+	NRF25L01_transferSetupStruct_t transmitSetup = {
+			.payload = transmitPayload,
+			.payloadWidth = 16,
+			.address = { 0x34, 0x43, 0x10, 0x10, 0x01 },
+			.addressLength = 5
+	};
+
 	nRF24L01_Init();
 	OSA_TimeDelay(2000); /* Example code (for task release) */
-	nRF24L01_TX_Mode();
+	nRF24L01_transmitPayload( &transmitSetup );
 	/*
 	 OSA_TimeDelay(2000);  Example code (for task release)
 	 L01_Read_RX_Pload(teste);
@@ -82,23 +89,29 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
  **     Returns : Nothing
  ** ===================================================================
  */
-const uint8_t valores[] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-		0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f };
+uint8_t receivePayload[16] = "\0";
 
 void TaskRadio1_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
+	NRF25L01_transferSetupStruct_t receiveSetup = {
+			.payload = receivePayload,
+			.payloadWidth = 16,
+			.address = { 0x34, 0x43, 0x10, 0x10, 0x01 },
+			.addressLength = 5
+	};
+
 	uint8_t loop;
 
 	nRF24L01_Init();
-	nRF24L01_RX_Mode();
+	nRF24L01_receivePayload( &receiveSetup );
 	OSA_TimeDelay(3000); /* Example code (for task release) */
-	L01_Read_RX_Pload(teste);
+	L01_Read_RX_Pload( receivePayload );
 
-	for (loop = 0; loop < sizeof(valores); loop++)
-		if (valores[loop] != teste[loop])
+	for (loop = 0; loop < receiveSetup.payloadWidth; loop++)
+		if (receivePayload[loop] != transmitPayload[loop])
 			break;
 
-	if (loop >= sizeof(valores))
+	if (loop >= receiveSetup.payloadWidth)
 		GPIO_DRV_WritePinOutput(LEDRGB_GREEN, 0);
 	else
 		GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);

@@ -26,11 +26,9 @@ extern uint8_t IRQ_Source;
 
 //********************************************************************************************************************//
 
-NRF25L01_state_t nRF24L01_Init(void) {
-	if (nRF24L01_SPI_Init_port())
-		return NRF25L01_STATE_SUCCESS;
-	else
-		return NRF25L01_STATE_FAIL_INIT;
+void nRF24L01_Init(void) {
+	nRF24L01_SPI_Init_port();
+//	nRF24L01_RX_Mode();
 }
 
 //**********************************************************//
@@ -195,12 +193,12 @@ uint8_t nRF24L01_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 #define TX_PLOAD_WIDTH  16                        // 16 uint8_ts TX payload
 
 // Predefine a static TX address
-//uint8_t TX_ADDRESS[TX_ADR_LENGTH] = { 0x34, 0x43, 0x10, 0x10, 0x01 };
+uint8_t TX_ADDRESS[TX_ADR_LENGTH] = { 0x34, 0x43, 0x10, 0x10, 0x01 };
 // Predefine TX payload packet..
-//uint8_t TX_PAYLOAD[TX_PLOAD_WIDTH] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06,
-//		0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f };
+uint8_t TX_PAYLOAD[TX_PLOAD_WIDTH] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06,
+		0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f };
 
-//extern uint8_t nRF24L01_Buffer[32]; // Buffer to hold data from 'nRF24L01_Read_Buf()' function
+extern uint8_t nRF24L01_Buffer[32]; // Buffer to hold data from 'nRF24L01_Read_Buf()' function
 
 //**********************************************************
 //
@@ -218,10 +216,10 @@ uint8_t nRF24L01_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************
-NRF25L01_state_t nRF24L01_transmitPayload( NRF25L01_transferSetupStruct_t* setup ) {
-	nRF24L01_Write_Buf(WRITE_REG + TX_ADDR, setup->address, setup->addressLength); // Writes TX_Address to nRF24L01
-	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, setup->address, setup->addressLength); // RX_Addr0 same as TX_Adr for Auto.Ack
-	nRF24L01_Write_Buf(WR_TX_PLOAD, setup->payload, setup->payloadWidth); // Writes data to TX payload
+void nRF24L01_TX_Mode(void) {
+	nRF24L01_Write_Buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_LENGTH); // Writes TX_Address to nRF24L01
+	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // RX_Addr0 same as TX_Adr for Auto.Ack
+	nRF24L01_Write_Buf(WR_TX_PLOAD, TX_PAYLOAD, TX_PLOAD_WIDTH); // Writes data to TX payload
 
 	nRF24L01_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
 	nRF24L01_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
@@ -230,18 +228,16 @@ NRF25L01_state_t nRF24L01_transmitPayload( NRF25L01_transferSetupStruct_t* setup
 	nRF24L01_RW_Reg(WRITE_REG + RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
 	nRF24L01_RW_Reg(WRITE_REG + CONFIG, 0x0e); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
 
-	for (uint32_t tempo = 0; tempo < 160; tempo++)
+	for (uint32_t tempo = 0; tempo < 100000; tempo++)
 		;
 	nRF24L01_writeCEPin(0); // Set CE pin low to enable TX device
-	for (uint32_t tempo = 0; tempo < 160; tempo++)
+	for (uint32_t tempo = 0; tempo < 1000; tempo++)
 		;
 	nRF24L01_writeCEPin(1); // Set CE pin high to enable RX device
 
 	//  This device is now ready to transmit one packet of 16 uint8_ts payload to a RX device at address
 	//  '3443101001', with auto acknowledgment, retransmit count of 10(retransmit delay of 500µs+86µs)
 	//  RF channel 40, datarate = 2Mbps with TX power = 0dBm.
-
-	return NRF25L01_STATE_SUCCESS;
 }
 
 //**********************************************************
@@ -257,8 +253,8 @@ NRF25L01_state_t nRF24L01_transmitPayload( NRF25L01_transferSetupStruct_t* setup
 //
 //  Author: RSK   Date: 28.11.05
 //**********************************************************
-NRF25L01_state_t nRF24L01_receivePayload( NRF25L01_transferSetupStruct_t* setup ) {
-	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, setup->address, setup->addressLength); // Use the same address on the RX device as the TX device
+void nRF24L01_RX_Mode(void) {
+	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_LENGTH); // Use the same address on the RX device as the TX device
 
 	nRF24L01_RW_Reg(WRITE_REG + EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
 	nRF24L01_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);        // Enable Pipe0
@@ -271,7 +267,7 @@ NRF25L01_state_t nRF24L01_receivePayload( NRF25L01_transferSetupStruct_t* setup 
 
 	//  This device is now ready to receive one packet of 16 uint8_ts payload from a TX device sending to address
 	//  '3443101001', with auto acknowledgment, retransmit count of 10, RF channel 40 and datarate = 2Mbps.
-	return NRF25L01_STATE_SUCCESS;
+
 }
 
 uint8_t nRF24L01_readStatus(void) {
@@ -320,7 +316,7 @@ uint8_t L01_Get_Current_Pipenum(void)                       // Get current pipe#
 
 uint16_t L01_Read_RX_Pload(uint8_t *pBuf)     // read current pipe#'s RX payload
 		{
-	uint8_t registradores[0x17]; // For debug purpose, will be commented after unit tests
+	uint8_t registradores[0x17];// For debug purpose, will be commented after unit tests
 	uint8_t* ponteiro = registradores;
 
 	uint8_t plWidth, pipe;

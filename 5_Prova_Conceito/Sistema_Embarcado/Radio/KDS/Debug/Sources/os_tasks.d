@@ -55,8 +55,7 @@ Sources/os_tasks.o: ../Sources/os_tasks.c \
  N:/Radio/KDS/Generated_Code/Radio2.h N:/Radio/KDS/Generated_Code/gpio1.h \
  N:/Radio/KDS/Generated_Code/TaskRadio1.h \
  N:/Radio/KDS/Generated_Code/TaskRadio2.h ../Sources/rtos_main_task.h \
- ../Sources/os_tasks.h n:\radio\driver_code\nrf24l01_api.h \
- n:\radio\driver_code\protocol_api.h
+ ../Sources/os_tasks.h n:\radio\driver_code\nrf24l01_api.h
 
 N:/Radio/KDS/Generated_Code/Cpu.h:
 
@@ -181,5 +180,3 @@ N:/Radio/KDS/Generated_Code/TaskRadio2.h:
 ../Sources/os_tasks.h:
 
 n:\radio\driver_code\nrf24l01_api.h:
-
-n:\radio\driver_code\protocol_api.h:

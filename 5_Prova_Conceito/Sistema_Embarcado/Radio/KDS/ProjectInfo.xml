@@ -143,7 +143,6 @@
       <PathName>N:\Radio\KDS\Sources\os_tasks.c</PathName>
       <PathName>N:\Radio\KDS\Sources\rtos_main_task.c</PathName>
       <PathName>N:\Radio\KDS\Static_Code\System\PE_low_level_init.c</PathName>
-      <PathName>N:\Radio\KDS\driver_code\Protocol_API.c</PathName>
       <PathName>N:\Radio\KDS\driver_code\nRF24L01_API.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
@@ -216,7 +215,6 @@
       <PathName>N:\Radio\KDS\Sources\Events.h</PathName>
       <PathName>N:\Radio\KDS\Sources\os_tasks.h</PathName>
       <PathName>N:\Radio\KDS\Sources\rtos_main_task.h</PathName>
-      <PathName>N:\Radio\KDS\driver_code\Protocol_API.h</PathName>
       <PathName>N:\Radio\KDS\driver_code\Template\nRF24L01_API_port.h</PathName>
       <PathName>N:\Radio\KDS\driver_code\nRF24L01_API.h</PathName>
     </GeneratedHs>

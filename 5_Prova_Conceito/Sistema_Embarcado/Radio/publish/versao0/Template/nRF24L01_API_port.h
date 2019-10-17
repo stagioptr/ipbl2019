@@ -15,7 +15,6 @@
 #include "fsl_os_abstraction_free_rtos.h"
 
 extern task_handler_t TaskRadio1_task_handler;
-extern task_handler_t TaskRadio2_task_handler;
 
 const spi_master_user_config_t Radio_MasterConfig0 = {
 	.bitsPerSec = 2000000U,
@@ -27,24 +26,16 @@ const spi_master_user_config_t Radio_MasterConfig0 = {
 spi_master_state_t Radio_MasterState;
 uint32_t Radio_calculatedBaudRate = 0;
 
-bool nRF24L01_SPI_Init_port() {
-	bool retVal = true;
-	uint32_t instance;
-
+void nRF24L01_SPI_Init_port() {
 	if (xTaskGetCurrentTaskHandle() == TaskRadio1_task_handler) {
-		instance = 0;
-	} else if (xTaskGetCurrentTaskHandle() == TaskRadio2_task_handler) {
-		instance = 1;
+		SPI_DRV_MasterInit(0, &Radio_MasterState);
+		SPI_DRV_MasterConfigureBus(0, &Radio_MasterConfig0,
+				&Radio_calculatedBaudRate);
 	} else {
-		return false;
+		SPI_DRV_MasterInit(1, &Radio_MasterState);
+		SPI_DRV_MasterConfigureBus(1, &Radio_MasterConfig0,
+				&Radio_calculatedBaudRate);
 	}
-	retVal &=
-			(SPI_DRV_MasterInit(instance, &Radio_MasterState) == kStatus_SPI_Success) ?
-					1 : 0;
-	SPI_DRV_MasterConfigureBus(instance, &Radio_MasterConfig0,
-			&Radio_calculatedBaudRate);
-
-	return retVal;
 }
 
 /*

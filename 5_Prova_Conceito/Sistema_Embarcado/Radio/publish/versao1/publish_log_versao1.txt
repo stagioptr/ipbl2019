@@ -1,0 +1,5 @@
+Controle de versao do driver Radio 
+
+Versao 1:
+Realizar a mudanca do proprio endereco de rede; Transmitir um pacote com dados definidos pela aplicacao; Transmitir dados para um endereco especificado; 
+

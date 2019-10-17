@@ -73,25 +73,12 @@ typedef unsigned char uint8_t;
 #define RX_PW_P5        0x16  // 'RX payload width, pipe5' register address
 #define FIFO_STATUS     0x17  // 'FIFO Status Register' register address
 
-typedef enum {
-	NRF25L01_STATE_SUCCESS = 0,
-	NRF25L01_STATE_FAIL_INIT = 1
-} NRF25L01_state_t;
-
-typedef struct {
-	uint8_t* payload;
-	uint8_t address[5];
-	uint8_t payloadWidth;
-	uint8_t addressLength;
-}NRF25L01_transferSetupStruct_t;
-
 //********************************************************************************************************************//
 //                                        FUNCTION's PROTOTYPES                                                       //
 //********************************************************************************************************************//
-NRF25L01_state_t nRF24L01_Init(void);                       // Init HW or SW SPI
-NRF25L01_state_t nRF24L01_transmitPayload( NRF25L01_transferSetupStruct_t* setup );
-NRF25L01_state_t nRF24L01_receivePayload( NRF25L01_transferSetupStruct_t* setup );
+void nRF24L01_Init(void);                        // Init HW or SW SPI
+void nRF24L01_TX_Mode(void);
+void nRF24L01_RX_Mode(void);
 uint8_t nRF24L01_readStatus(void);
-uint16_t L01_Read_RX_Pload(uint8_t *pBuf);
 
 //********************************************************************************************************************//
