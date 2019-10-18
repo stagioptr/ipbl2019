@@ -15,7 +15,7 @@
 
 const i2c_device_t mpu6050_parameters = {
 	.address = MPU6050_I2C_ADDRESS,
-	.baudRate_kbps = 400000
+	.baudRate_kbps = 200,
 };
 
 typedef struct {
@@ -68,6 +68,7 @@ uint8_t MPU6050_Init(void)
   //static const uint8_t val = MMA1_ACTIVE_BIT_MASK | MMA1_F_READ_BIT_MASK;
   static const uint8_t val = MPU6050_ACTIVE_BIT_MASK | MPU6050_F_READ_BIT_MASK;
 
+
   sCalValues.NxOff = InitialCalibration.NxOff;
   sCalValues.NyOff = InitialCalibration.NyOff;
   sCalValues.NzOff = InitialCalibration.NzOff;
@@ -75,6 +76,34 @@ uint8_t MPU6050_Init(void)
   return I2C_DRV_MasterSendDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&val, sizeof(val), 20 );
   //MMA1_I2C_ADDR, (uint8_t*)&addr, sizeof(addr), &xyz[0], 3);
   //return I2C_DRV_MasterSendDataBlocking(MMA1_I2C_ADDR, MMA1_CTRL_REG_1, MMA1_ACTIVE_BIT_MASK); /* enable device */
+}
+
+uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val)
+{
+  if( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)val, sizeof(*val), 20 ) ) {
+  //if (I2C_DRV_MasterReceiveDataBlocking(MMA1_I2C_ADDR, addr, val)!=kStatus_I2C_Success) {
+    return kStatus_I2C_Fail;
+  }
+  return kStatus_I2C_Success;
+}
+
+/*
+** ===================================================================
+**     Method      :  MMA1_WriteReg8 (component MMA8451Q)
+**     Description :
+**         Write an 8bit device register
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         addr            - device memory map address
+**         val             - value to write
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val)
+{
+  return I2C_DRV_MasterSendDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&val, sizeof(val), 20 );
+  //  return I2C_DRV_MasterSendDataBlocking(MMA1_I2C_ADDR, addr, val);
 }
 
 /*
@@ -103,3 +132,14 @@ uint8_t init_example(){
 	return temporario;
 }
 
+uint8_t read_test()
+{
+	uint8_t cmd=0x3b; //register address
+
+	uint8_t count=6;
+
+	uint8_t buffer[10];
+
+  return( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, &cmd,1,&buffer[0],count,1000) );
+
+}

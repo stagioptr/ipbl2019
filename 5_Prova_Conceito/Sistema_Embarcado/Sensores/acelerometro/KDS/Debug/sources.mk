@@ -50,4 +50,5 @@ SDK/platform/devices \
 SDK/platform/devices/MKL25Z4/startup \
 SDK/platform/devices/MKL25Z4/startup/gcc \
 Generated_Code \
+.metadata/.plugins/org.eclipse.cdt.make.core \
 

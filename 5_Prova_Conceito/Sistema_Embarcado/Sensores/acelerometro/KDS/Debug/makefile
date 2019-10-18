@@ -32,6 +32,7 @@ RM := rm -rf
 -include SDK/platform/devices/MKL25Z4/startup/subdir.mk
 -include SDK/platform/devices/subdir.mk
 -include Generated_Code/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -76,7 +77,7 @@ all: acelerometro.elf secondary-outputs
 acelerometro.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T "N:/Sensores/acelerometro/KDS/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"N:/Sensores/acelerometro/KDS/Project_Settings/Linker_Files" -Wl,-Map,"acelerometro.map" -specs=nosys.specs -specs=nano.specs -Xlinker -z -Xlinker muldefs -o "acelerometro.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T "C:/Users/john/ipbl2019/5_Prova_Conceito/Sistema_Embarcado/Sensores/acelerometro/KDS/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"C:/Users/john/ipbl2019/5_Prova_Conceito/Sistema_Embarcado/Sensores/acelerometro/KDS/Project_Settings/Linker_Files" -Wl,-Map,"acelerometro.map" -specs=nosys.specs -specs=nano.specs -Xlinker -z -Xlinker muldefs -o "acelerometro.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

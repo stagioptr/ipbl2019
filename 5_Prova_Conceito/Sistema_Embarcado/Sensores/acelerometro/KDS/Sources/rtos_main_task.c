@@ -61,7 +61,20 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t init_status_code;
 	uint8_t deinit_status_code;
 	uint8_t whoami;
+	uint8_t codigo_erro;
+	uint8_t read;
 	int teste;
+	uint8_t a_x;
+	uint8_t a_y;
+	uint8_t a_z;
+
+
+	uint8_t codigoErro;
+	uint8_t valor;
+	uint8_t habilita = 1;
+	uint8_t x = 0;
+	uint8_t y = 0;
+	uint8_t z = 0;
 
   
   /* Initialization of Processor Expert components (when some RTOS is active). DON'T REMOVE THIS CODE!!! */
@@ -69,6 +82,19 @@ void main_task(os_task_param_t task_init_data)
   PEX_components_init(); 
 #endif 
   /* End of Processor Expert components initialization.  */
+  codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_2, 0x40 );
+  OSA_TimeDelay(10);                 /* Example code (for task release) */
+
+  codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_4, 1 );
+  codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_5, 1 );
+
+  codigoErro = MPU6050_ReadReg8( MPU6050_CTRL_REG_4, &valor );
+  codigoErro = MPU6050_ReadReg8( MPU6050_CTRL_REG_5, &valor );
+
+  if( habilita == 1 )
+	codigoErro = MPU6050_Init();
+
+  codigoErro = MPU6050_ReadReg8( MPU6050_SYS_MODE_REG, &valor );
 
 #ifdef PEX_USE_RTOS
   while (1) {
@@ -84,7 +110,18 @@ void main_task(os_task_param_t task_init_data)
 
 	  whoami = MPU6050_WhoAmI(&value);
 	  init_status_code = MPU6050_Init();
-	  deinit_status_code = MPU6050_Deinit();
+	  read = read_test();
+	  //deinit_status_code = MPU6050_Deinit();
+
+	    while( GPIO_DRV_ReadPinInput( J2_2 ) == 1 );
+
+		codigoErro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
+		codigoErro = MPU6050_ReadReg8( MPU6050_ACCEL_YOUT_H, &a_x );
+		codigoErro = MPU6050_ReadReg8( MPU6050_ACCEL_ZOUT_H, &a_x );
+
+
+
+	  //codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
     
     
     OSA_TimeDelay(10);                 /* Example code (for task release) */
