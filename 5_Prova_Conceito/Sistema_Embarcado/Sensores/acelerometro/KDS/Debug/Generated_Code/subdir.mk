@@ -9,6 +9,7 @@ C_SRCS += \
 ../Generated_Code/Task1.c \
 ../Generated_Code/clockMan1.c \
 ../Generated_Code/free_rtos.c \
+../Generated_Code/gpio1.c \
 ../Generated_Code/hardware_init.c \
 ../Generated_Code/i2cCom1.c \
 ../Generated_Code/osa1.c \
@@ -20,6 +21,7 @@ OBJS += \
 ./Generated_Code/Task1.o \
 ./Generated_Code/clockMan1.o \
 ./Generated_Code/free_rtos.o \
+./Generated_Code/gpio1.o \
 ./Generated_Code/hardware_init.o \
 ./Generated_Code/i2cCom1.o \
 ./Generated_Code/osa1.o \
@@ -31,6 +33,7 @@ C_DEPS += \
 ./Generated_Code/Task1.d \
 ./Generated_Code/clockMan1.d \
 ./Generated_Code/free_rtos.d \
+./Generated_Code/gpio1.d \
 ./Generated_Code/hardware_init.d \
 ./Generated_Code/i2cCom1.d \
 ./Generated_Code/osa1.d \

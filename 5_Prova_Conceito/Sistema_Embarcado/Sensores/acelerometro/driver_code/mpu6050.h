@@ -15,16 +15,42 @@
 
 #define MPU6050_I2C_ADDRESS (0x68) /* I2C slave device address as set in the properties */
 
+#define MPU6050_SMPLRT_DIV 0x19
+#define MPU6050_CONFIG 0x1A
+#define MPU6050_GYRO_CONFIG 0x1B
+#define MPU6050_ACCEL_CONFIG 0x1C
+
+#define MPU6050_INT_CONFIGURATION 0x37
+#define MPU6050_INTERRUPT_ENABLE 0x38
+
+#define MPU6050_I2C_SLV1_CTRL 0x2A
+
+#define MPU6050_ACCEL_XOUT_H 0x3B
+#define MPU6050_ACCEL_YOUT_H 0x3D
+#define MPU6050_ACCEL_ZOUT_H 0x3F
+
+#define MPU6050_TEMP_OUT_H 0x41
+
+#define MPU6050_GYRO_XOUT_H 0x43
+#define MPU6050_GYRO_YOUT_H 0x45
+#define MPU6050_GYRO_ZOUT_H 0x47
+
+#define MPU6050_PWR_MGMT_1 0x6B
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
 
-uint8_t mpu6050_init();
+uint8_t MPU6050_Deinit(void);
+/*
+** ===================================================================
+**     Method      :  MPU6050_Deinit (component MPU6050)
+**     Description :
+**         Counterpart to Init() method.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, ERR_OK if everything is ok.
+** ===================================================================
+*/
 
-//void get_acc(short *Ax,short *Ay,short *Az);
-//void get_gyro(short *Gx,short *Gy,short *Gz);
-
-
-//uint8_t MPU6050_Init(void);
-
+uint8_t MPU6050_Init(void);
 /*
 ** ===================================================================
 **     Method      :  MPU6050_Init (component MPU6050)
@@ -36,7 +62,24 @@ uint8_t mpu6050_init();
 ** ===================================================================
 */
 
-uint8_t MPU6050_WhoAmI(uint8_t *value);
+uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val);
+
+uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val);
+/*
+** ===================================================================
+**     Method      :  MMA1_WriteReg8 (component MMA8451Q)
+**     Description :
+**         Write an 8bit device register
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         addr            - device memory map address
+**         val             - value to write
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+
+*/
+uint8_t MPU6050_WhoAmI();
 /*
 ** ===================================================================
 **     Method      :  MPU6050_WhoAmI (component MPU6050)
@@ -49,5 +92,9 @@ uint8_t MPU6050_WhoAmI(uint8_t *value);
 **         ---             - Error code
 ** ===================================================================
 */
+
+uint8_t read_test();
+
+uint8_t init_example();
 
 #endif /* MPU6050_H_ */

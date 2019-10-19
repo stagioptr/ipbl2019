@@ -26,12 +26,15 @@ RM := rm -rf
 -include SDK/platform/hal/src/mcg/subdir.mk
 -include SDK/platform/hal/src/lpsci/subdir.mk
 -include SDK/platform/hal/src/i2c/subdir.mk
+-include SDK/platform/hal/src/gpio/subdir.mk
 -include SDK/platform/drivers/src/rtc/subdir.mk
 -include SDK/platform/drivers/src/i2c/subdir.mk
+-include SDK/platform/drivers/src/gpio/subdir.mk
 -include SDK/platform/devices/MKL25Z4/startup/gcc/subdir.mk
 -include SDK/platform/devices/MKL25Z4/startup/subdir.mk
 -include SDK/platform/devices/subdir.mk
 -include Generated_Code/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
