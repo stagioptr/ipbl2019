@@ -15,15 +15,13 @@
 
 #define MPU6050_I2C_ADDRESS (0x68) /* I2C slave device address as set in the properties */
 
-#define MPU6050_SYS_MODE_REG	0x0B
+#define MPU6050_SMPLRT_DIV 0x19
+#define MPU6050_CONFIG 0x1A
+#define MPU6050_GYRO_CONFIG 0x1B
+#define MPU6050_ACCEL_CONFIG 0x1C
 
-#define MPU6050_CTRL_REG_2 0x2B
-
-#define MPU6050_CTRL_REG_4 0x2D
-#define MPU6050_CTRL_REG_5 0x2E
-
-#define MPU6050_ACTIVE_BIT_MASK 0x01
-#define MPU6050_F_READ_BIT_MASK 0x02
+#define MPU6050_INT_CONFIGURATION 0x37
+#define MPU6050_INTERRUPT_ENABLE 0x38
 
 #define MPU6050_I2C_SLV1_CTRL 0x2A
 
@@ -31,6 +29,13 @@
 #define MPU6050_ACCEL_YOUT_H 0x3D
 #define MPU6050_ACCEL_ZOUT_H 0x3F
 
+#define MPU6050_TEMP_OUT_H 0x41
+
+#define MPU6050_GYRO_XOUT_H 0x43
+#define MPU6050_GYRO_YOUT_H 0x45
+#define MPU6050_GYRO_ZOUT_H 0x47
+
+#define MPU6050_PWR_MGMT_1 0x6B
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
 
 uint8_t MPU6050_Deinit(void);
@@ -73,7 +78,8 @@ uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val);
 **         ---             - Error code
 ** ===================================================================
 
-uint8_t MPU6050_WhoAmI(uint8_t *value);
+*/
+uint8_t MPU6050_WhoAmI();
 /*
 ** ===================================================================
 **     Method      :  MPU6050_WhoAmI (component MPU6050)

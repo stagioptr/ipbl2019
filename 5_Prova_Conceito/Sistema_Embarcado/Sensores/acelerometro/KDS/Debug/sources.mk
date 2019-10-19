@@ -44,8 +44,10 @@ SDK/platform/hal/src/osc \
 SDK/platform/hal/src/mcg \
 SDK/platform/hal/src/lpsci \
 SDK/platform/hal/src/i2c \
+SDK/platform/hal/src/gpio \
 SDK/platform/drivers/src/rtc \
 SDK/platform/drivers/src/i2c \
+SDK/platform/drivers/src/gpio \
 SDK/platform/devices \
 SDK/platform/devices/MKL25Z4/startup \
 SDK/platform/devices/MKL25Z4/startup/gcc \
