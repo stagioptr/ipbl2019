@@ -178,7 +178,7 @@
 			</tr>
 			<tr>
 				<td>31</td><td>PTA5/USB_CLKIN/TPM0_CH2</td><td>J1_12</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port5</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
 			<tr>
 				<td>32</td><td>PTA12/TPM1_CH0</td><td>J1_8</td>
@@ -376,9 +376,10 @@
 				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_mosi</td><td bgcolor='#90EE67'>alt5</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
-				<td>77</td><td>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td>J1_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td rowspan='2'>77</td><td rowspan='2'>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td rowspan='2'>J1_6</td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
+			<tr bgcolor='#EBD4BD'><td>LLWU</td><td>llwu_wakeup14</td><td>alt1</td><td>Input</td></tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
 				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
@@ -1470,7 +1471,7 @@
 			</tr>
 			<tr>
 				<td>31</td><td>PTA5/USB_CLKIN/TPM0_CH2</td><td>J1_12</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port5</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
 			<tr>
 				<td>32</td><td>PTA12/TPM1_CH0</td><td>J1_8</td>
@@ -1668,9 +1669,10 @@
 				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_mosi</td><td bgcolor='#90EE67'>alt5</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
-				<td>77</td><td>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td>J1_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td rowspan='2'>77</td><td rowspan='2'>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td rowspan='2'>J1_6</td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
+			<tr bgcolor='#EBD4BD'><td>LLWU</td><td>llwu_wakeup14</td><td>alt1</td><td>Input</td></tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
 				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>

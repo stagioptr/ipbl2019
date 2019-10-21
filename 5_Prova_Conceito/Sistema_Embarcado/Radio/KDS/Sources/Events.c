@@ -20,11 +20,11 @@
 ** @brief
 **         This is user's event module.
 **         Put your event handler code here.
-*/         
+*/
 /*!
 **  @addtogroup Events_module Events module documentation
 **  @{
-*/         
+*/
 /* MODULE Events */
 
 #include "Cpu.h"
@@ -34,10 +34,12 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
+extern semaphore_t nRF24L01_Radio1_IRQ;
+extern semaphore_t nRF24L01_Radio2_IRQ;
 
 #ifdef Radio1_IDX
 /*
@@ -45,7 +47,7 @@ extern "C" {
 **     Interrupt handler : SPI0_IRQHandler
 **
 **     Description :
-**         User interrupt service routine. 
+**         User interrupt service routine.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
@@ -61,8 +63,8 @@ void SPI0_IRQHandler(void)
 }
 #else
   /* This IRQ handler is not used by Radio1 component. The purpose may be
-   * that the component has been removed or disabled. It is recommended to 
-   * remove this handler because Processor Expert cannot modify it according to 
+   * that the component has been removed or disabled. It is recommended to
+   * remove this handler because Processor Expert cannot modify it according to
    * possible new request (e.g. in case that another component uses this
    * interrupt vector). */
   #warning This IRQ handler is not used by Radio1 component.\
@@ -76,7 +78,7 @@ void SPI0_IRQHandler(void)
 **     Interrupt handler : SPI1_IRQHandler
 **
 **     Description :
-**         User interrupt service routine. 
+**         User interrupt service routine.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
@@ -92,8 +94,8 @@ void SPI1_IRQHandler(void)
 }
 #else
   /* This IRQ handler is not used by Radio2 component. The purpose may be
-   * that the component has been removed or disabled. It is recommended to 
-   * remove this handler because Processor Expert cannot modify it according to 
+   * that the component has been removed or disabled. It is recommended to
+   * remove this handler because Processor Expert cannot modify it according to
    * possible new request (e.g. in case that another component uses this
    * interrupt vector). */
   #warning This IRQ handler is not used by Radio2 component.\
@@ -101,11 +103,49 @@ void SPI1_IRQHandler(void)
            modify it according to possible new request.
 #endif
 
+/*
+** ===================================================================
+**     Interrupt handler : PORTA_IRQHandler
+**
+**     Description :
+**         User interrupt service routine.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTA_IRQHandler(void)
+{
+  /* Clear interrupt flag.*/
+  PORT_HAL_ClearPortIntFlag(PORTA_BASE_PTR);
+  /* Write your code here ... */
+  /*Radio 2 */
+  xSemaphoreGive(nRF24L01_Radio2_IRQ);
+}
+
+/*
+** ===================================================================
+**     Interrupt handler : PORTD_IRQHandler
+**
+**     Description :
+**         User interrupt service routine.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTD_IRQHandler(void)
+{
+  /* Clear interrupt flag.*/
+  PORT_HAL_ClearPortIntFlag(PORTD_BASE_PTR);
+  /* Write your code here ... */
+  /*Radio 1 */
+  xSemaphoreGive(nRF24L01_Radio1_IRQ);
+}
+
 /* END Events */
 
 #ifdef __cplusplus
 }  /* extern "C" */
-#endif 
+#endif
 
 /*!
 ** @}

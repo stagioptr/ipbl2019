@@ -3,7 +3,7 @@
   <Header>
     <Name>radio</Name>
     <SavedBy>vcruz</SavedBy>
-    <ModificationStamp>16</ModificationStamp>
+    <ModificationStamp>27</ModificationStamp>
     <Date>2019-10-13</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>29</ProjectCompNumb>
+    <ProjectCompNumb>32</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -9809,7 +9809,7 @@
         <ItemSymbol>GPIOA_port_12</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
+        <Value>J1_8</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -21500,7 +21500,7 @@
         <ItemSymbol>LinkDma</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value />
+        <Value>dmaController1</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LinkOSAGrp</ItemSymbol>
@@ -22373,13 +22373,13 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaIRQHandler</UsrMethodName>
       </ItemState>
       <ItemState>
@@ -22400,90 +22400,90 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterInit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterInit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterDeinit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterDeinit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterConfigureBus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterConfigureBus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterTransferBlocking</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterTransferBlocking</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterGetTransferStatus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterGetTransferStatus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterAbortTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterAbortTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterIRQHandler</UsrMethodName>
       </ItemState>
       <ItemState>
@@ -22504,79 +22504,79 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveInit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveInit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveDeinit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveDeinit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveTransferBlocking</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveTransferBlocking</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveAbortTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveAbortTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveGetTransferStatus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveGetTransferStatus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveIRQHandler</UsrMethodName>
       </ItemState>
     </Methods>
@@ -22991,8 +22991,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>InitOpt</ItemSymbol>
@@ -23099,7 +23099,7 @@
         <ItemSymbol>LinkDma</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value />
+        <Value>dmaController1</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LinkOSAGrp</ItemSymbol>
@@ -23972,13 +23972,13 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaIRQHandler</UsrMethodName>
       </ItemState>
       <ItemState>
@@ -23999,90 +23999,90 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterInit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterInit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterDeinit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterDeinit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterConfigureBus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterConfigureBus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterTransferBlocking</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterTransferBlocking</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterGetTransferStatus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterGetTransferStatus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterAbortTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterAbortTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaMasterIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaMasterIRQHandler</UsrMethodName>
       </ItemState>
       <ItemState>
@@ -24103,79 +24103,79 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveInit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveInit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveDeinit</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveDeinit</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveTransferBlocking</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveTransferBlocking</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveAbortTransfer</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveAbortTransfer</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveGetTransferStatus</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveGetTransferStatus</UsrMethodName>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPI_DRV_DmaSlaveIRQHandler</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
+        <ReadOnly>true</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Index>0</Index>
         <Value>true</Value>
         <LastSelection>true</LastSelection>
-        <LastUserSel>yes</LastUserSel>
+        <LastUserSel>always</LastUserSel>
         <UsrMethodName>SPI_DRV_DmaSlaveIRQHandler</UsrMethodName>
       </ItemState>
     </Methods>
@@ -24201,7 +24201,7 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
         <LastSelection>false</LastSelection>
         <LastUserSel>yes</LastUserSel>
       </ItemState>
@@ -24268,8 +24268,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>InpConfigurations</ItemSymbol>
@@ -24295,7 +24295,7 @@
       <ItemState>
         <ItemSymbol>ConfigurationsIn0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
-        <ListItemCount>1</ListItemCount>
+        <ListItemCount>2</ListItemCount>
         <UserReadOnly>false</UserReadOnly>
         <Expanded>true</Expanded>
       </ItemState>
@@ -24311,24 +24311,24 @@
         <ItemSymbol>PinIn0_0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>ACCEL_SCL</Value>
+        <Value>J1_6</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>GPIOPortIn0_0</ItemSymbol>
-        <Value>GPIOE</Value>
+        <Value>GPIOD</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>PortIn0_0</ItemSymbol>
-        <Value>PORTE</Value>
+        <Value>PORTD</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>pinNameIn0_0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>ACCEL_SCL</Value>
+        <Value>J1_6</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>pinNameInMode0_0</ItemSymbol>
@@ -24341,8 +24341,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>kPortIntDisabled</EnumSymbVal>
+        <Index>6</Index>
+        <EnumSymbVal>kPortIntFallingEdge</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>ElFeaturesIn0_0</ItemSymbol>
@@ -24394,6 +24394,106 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PinCfgIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PinIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>J1_12</Value>
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>GPIOPortIn0_1</ItemSymbol>
+        <Value>GPIOA</Value>
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PortIn0_1</ItemSymbol>
+        <Value>PORTA</Value>
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>pinNameIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>J1_12</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>pinNameInMode0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>auto</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>interruptIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>6</Index>
+        <EnumSymbVal>kPortIntFallingEdge</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ElFeaturesIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>isPullEnableIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FSL_PORT_HAS_PULL_SELECTION_pullSelectIn_Grp0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>pullSelectIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
+        <Index>0</Index>
+        <EnumSymbVal>kPortPullDown</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FSL_HAS_PASSIVE_FILTERGrp0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>isPassiveFilterEnabledIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FSL_HAS_DIGITAL_FILTERGrp0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>isDigitalFilterEnabledIn0_1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
         <Index>0</Index>
         <Value>true</Value>
       </ItemState>
@@ -24663,7 +24763,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>0</Value>
+        <Value>1</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -24682,8 +24782,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <EnumSymbVal>kPortSlowSlewRate</EnumSymbVal>
+        <Index>0</Index>
+        <EnumSymbVal>kPortFastSlewRate</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FSL_HAS_DRIVE_STRENGTHGrp0_2</ItemSymbol>
@@ -24695,8 +24795,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>kPortLowDriveStrength</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>kPortHighDriveStrength</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FSL_HAS_OPEN_DRAINGrp0_2</ItemSymbol>
@@ -24756,7 +24856,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>0</Value>
+        <Value>1</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -24775,8 +24875,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <EnumSymbVal>kPortSlowSlewRate</EnumSymbVal>
+        <Index>0</Index>
+        <EnumSymbVal>kPortFastSlewRate</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FSL_HAS_DRIVE_STRENGTHGrp0_3</ItemSymbol>
@@ -24788,8 +24888,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <EnumSymbVal>kPortLowDriveStrength</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>kPortHighDriveStrength</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FSL_HAS_OPEN_DRAINGrp0_3</ItemSymbol>
@@ -25053,7 +25153,7 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>true</Value>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>DeviceA</ItemSymbol>
@@ -25179,7 +25279,7 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>true</Value>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>DeviceD</ItemSymbol>
@@ -26507,10 +26607,10 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
+        <Value>true</Value>
         <Expanded>false</Expanded>
         <LastSelection>false</LastSelection>
-        <LastUserSel>no</LastUserSel>
+        <LastUserSel>yes</LastUserSel>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORTA_IRQHandlerName</ItemSymbol>
@@ -26555,10 +26655,10 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
+        <Value>true</Value>
         <Expanded>false</Expanded>
         <LastSelection>false</LastSelection>
-        <LastUserSel>no</LastUserSel>
+        <LastUserSel>yes</LastUserSel>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORTD_IRQHandlerName</ItemSymbol>

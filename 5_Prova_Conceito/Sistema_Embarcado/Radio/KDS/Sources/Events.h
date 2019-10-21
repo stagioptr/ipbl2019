@@ -93,6 +93,30 @@ void SPI1_IRQHandler(void);
            modify it according to possible new request.
 #endif
 
+/*
+** ===================================================================
+**     Interrupt handler : PORTA_IRQHandler
+**
+**     Description :
+**         User interrupt service routine. 
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTA_IRQHandler(void);
+
+/*
+** ===================================================================
+**     Interrupt handler : PORTD_IRQHandler
+**
+**     Description :
+**         User interrupt service routine. 
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTD_IRQHandler(void);
+
 /* END Events */
 
 #ifdef __cplusplus

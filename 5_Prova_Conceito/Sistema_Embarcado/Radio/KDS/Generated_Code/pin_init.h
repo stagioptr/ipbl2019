@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 09:44, # CodeGen: 6
+**     Date/Time   : 2019-10-18, 16:01, # CodeGen: 24
 **     Abstract    :
 **
 **     Settings    :
@@ -88,7 +88,7 @@
 **                  Direction                              : <Automatic>
 **                  Pin 5                                  : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Pin 12                                 : <Automatic>
+**                  Pin 12                                 : J1_8
 **                  Direction                              : <Automatic>
 **                  Pin 13                                 : <Automatic>
 **                  Direction                              : <Automatic>
@@ -928,6 +928,8 @@
 **         hardware_init          - void hardware_init(void);
 **         init_gpio_pins         - void init_gpio_pins(uint32_t instance);
 **         deinit_gpio_pins       - void deinit_gpio_pins(uint32_t instance);
+**         init_llwu_pins         - void init_llwu_pins(uint32_t instance);
+**         deinit_llwu_pins       - void deinit_llwu_pins(uint32_t instance);
 **         init_osc_pins          - void init_osc_pins(uint32_t instance);
 **         deinit_osc_pins        - void deinit_osc_pins(uint32_t instance);
 **         init_rcm_pins          - void init_rcm_pins(uint32_t instance);

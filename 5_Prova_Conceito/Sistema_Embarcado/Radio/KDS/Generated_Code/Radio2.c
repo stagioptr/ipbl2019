@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-13, 17:52, # CodeGen: 3
+**     Date/Time   : 2019-10-20, 19:47, # CodeGen: 30
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -51,12 +51,8 @@
 
 /* Radio2. */
 
-#include "Events.h"
 #include "Radio2.h"
 
-spi_master_state_t Radio2_MasterState;
-uint32_t Radio2_calculatedBaudRate = 0;
-  
 const spi_master_user_config_t Radio2_MasterConfig0 = {
   .bitsPerSec = 2000000U,
   .polarity = kSpiClockPolarity_ActiveHigh,

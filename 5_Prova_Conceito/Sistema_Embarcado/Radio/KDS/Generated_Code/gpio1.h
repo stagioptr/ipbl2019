@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 23:11, # CodeGen: 15
+**     Date/Time   : 2019-10-18, 16:01, # CodeGen: 24
 **     Contents    :
 **         GPIO_DRV_Init            - void GPIO_DRV_Init(const gpio_input_pin_user_config_t * inputPins,const...
 **         GPIO_DRV_InputPinInit    - void GPIO_DRV_InputPinInit(const gpio_input_pin_user_config_t * inputPin);
@@ -72,12 +72,16 @@
 #include "fsl_gpio_driver.h"
 
 
+/*! @brief Configuration structure 0 for input pins */
+extern const gpio_input_pin_user_config_t gpio1_InpConfig0[];
 
 /*! @brief Configuration structure 0 for output pins */
 extern const gpio_output_pin_user_config_t gpio1_OutConfig0[];
 
 /*! @brief Pin names */
 enum _gpio1_pinNames{
+  J1_6 = GPIO_MAKE_PIN(GPIOD_IDX, 4U),
+  J1_12 = GPIO_MAKE_PIN(GPIOA_IDX, 5U),
   J2_6 = GPIO_MAKE_PIN(GPIOD_IDX, 0U),
   J2_2 = GPIO_MAKE_PIN(GPIOA_IDX, 13U),
   J1_8 = GPIO_MAKE_PIN(GPIOA_IDX, 12U),

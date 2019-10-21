@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-13, 22:14, # CodeGen: 4
+**     Date/Time   : 2019-10-20, 19:17, # CodeGen: 29
 **     Contents    :
 **         SPI_DRV_IRQHandler              - void SPI_DRV_IRQHandler(uint32_t instance);
 **         SPI_DRV_MasterInit              - spi_status_t SPI_DRV_MasterInit(uint32_t instance,spi_master_state_t *...

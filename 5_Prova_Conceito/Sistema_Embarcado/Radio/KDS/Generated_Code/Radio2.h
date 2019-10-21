@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-13, 17:52, # CodeGen: 3
+**     Date/Time   : 2019-10-20, 19:47, # CodeGen: 30
 **     Contents    :
 **         SPI_DRV_IRQHandler              - void SPI_DRV_IRQHandler(uint32_t instance);
 **         SPI_DRV_MasterInit              - spi_status_t SPI_DRV_MasterInit(uint32_t instance,spi_master_state_t *...
@@ -83,13 +83,6 @@
 /*! @brief Radio2 component mode for backward compatibility */
 #define RADIO2_DMA_MODE Radio2_DMA_MODE
 
-/*! @brief Driver state structure. Generated due to enabled auto initialization */
-extern spi_master_state_t Radio2_MasterState;
-
-/*! @brief Driver calculated baudrate is returned from SPI_DRV_MasterConfigureBus() call.
-    Generated due to enabled auto initialization */
-extern uint32_t Radio2_calculatedBaudRate;
-  
 /*! @brief Master configuration declaration */
 extern const spi_master_user_config_t Radio2_MasterConfig0;
     

@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 15:17, # CodeGen: 9
+**     Date/Time   : 2019-10-20, 19:47, # CodeGen: 30
 **     Abstract    :
 **
 **     Settings    :
@@ -109,11 +109,6 @@ void Common_Init(void)
 void Components_Init(void)
 {
 
-  /*! Radio2 Auto initialization start */
-  SPI_DRV_MasterInit(Radio2_IDX, &Radio2_MasterState);
-  SPI_DRV_MasterConfigureBus(Radio2_IDX, &Radio2_MasterConfig0, &Radio2_calculatedBaudRate);
-  /*! Radio2 Auto initialization end */
-  
   /*! gpio1 Auto initialization start */
   GPIO_DRV_Init(NULL,gpio1_OutConfig0);
   /*! gpio1 Auto initialization end */

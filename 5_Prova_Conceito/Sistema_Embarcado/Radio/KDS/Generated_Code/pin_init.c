@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-14, 23:11, # CodeGen: 15
+**     Date/Time   : 2019-10-20, 17:32, # CodeGen: 25
 **     Abstract    :
 **
 **     Settings    :
@@ -88,7 +88,7 @@
 **                  Direction                              : <Automatic>
 **                  Pin 5                                  : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Pin 12                                 : <Automatic>
+**                  Pin 12                                 : J1_8
 **                  Direction                              : <Automatic>
 **                  Pin 13                                 : <Automatic>
 **                  Direction                              : <Automatic>
@@ -988,6 +988,8 @@ void init_gpio_pins(uint32_t instance)
     case GPIOA_IDX:                     /* GPIOA_IDX */
       /* Affects PORTA_PCR4 register */
       PORT_HAL_SetMuxMode(PORTA,4UL,kPortMuxAsGpio);
+      /* Affects PORTA_PCR5 register */
+      PORT_HAL_SetMuxMode(PORTA,5UL,kPortMuxAsGpio);
       /* Affects PORTA_PCR12 register */
       PORT_HAL_SetMuxMode(PORTA,12UL,kPortMuxAsGpio);
       /* Affects PORTA_PCR13 register */
@@ -1002,6 +1004,8 @@ void init_gpio_pins(uint32_t instance)
     case GPIOD_IDX:                     /* GPIOD_IDX */
       /* Affects PORTD_PCR0 register */
       PORT_HAL_SetMuxMode(PORTD,0UL,kPortMuxAsGpio);
+      /* Affects PORTD_PCR4 register */
+      PORT_HAL_SetMuxMode(PORTD,4UL,kPortMuxAsGpio);
       break;
     default:
       break;
@@ -1018,6 +1022,7 @@ void deinit_gpio_pins(uint32_t instance)
   switch(instance) {    
     case GPIOA_IDX:                     /* GPIOA_IDX */
       PORT_HAL_SetMuxMode(PORTA,4UL,kPortPinDisabled);
+      PORT_HAL_SetMuxMode(PORTA,5UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTA,12UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTA,13UL,kPortPinDisabled);
       break;
@@ -1027,10 +1032,33 @@ void deinit_gpio_pins(uint32_t instance)
       break;
     case GPIOD_IDX:                     /* GPIOD_IDX */
       PORT_HAL_SetMuxMode(PORTD,0UL,kPortPinDisabled);
+      PORT_HAL_SetMuxMode(PORTD,4UL,kPortPinDisabled);
       break;
     default:
       break;
   }
+}
+
+/*FUNCTION**********************************************************************
+*
+* Function Name : init_llwu_pins
+* Description   : LLWU method sets registers according routing settings.
+* Call this method code to route desired pins.
+*END**************************************************************************/
+void init_llwu_pins(uint32_t instance)
+{
+  /* Affects PORTD_PCR4 register */
+  PORT_HAL_SetMuxMode(PORTD,4UL,kPortMuxAsGpio);
+}
+/*FUNCTION**********************************************************************
+*
+* Function Name : deinit_llwu_pins
+* Description   : LLWU method sets registers according routing settings.
+* Call this method code to disable routing of desired pins.
+*END**************************************************************************/
+void deinit_llwu_pins(uint32_t instance)
+{
+  PORT_HAL_SetMuxMode(PORTD,4UL,kPortPinDisabled);
 }
 
 /*FUNCTION**********************************************************************

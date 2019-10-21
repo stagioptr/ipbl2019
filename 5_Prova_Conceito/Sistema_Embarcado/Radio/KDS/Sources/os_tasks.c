@@ -40,6 +40,9 @@ extern "C" {
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "nRF24L01_API.h"
 
+extern semaphore_t nRF24L01_Radio1_IRQ;
+extern semaphore_t nRF24L01_Radio2_IRQ;
+
 /*
  ** ===================================================================
  **     Callback    : TaskRadio2_task
@@ -49,34 +52,65 @@ extern "C" {
  **     Returns : Nothing
  ** ===================================================================
  */
-uint8_t transmitPayload[16] = "Trasmitindo...";
-
 void TaskRadio2_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
-	NRF25L01_transferSetupStruct_t transmitSetup = {
+	uint8_t transmitPayload[16] = "Trasmitindo2...";
+	uint8_t receivePayload[16] = "\0";
+
+	NRF24L01_transferSetupStruct_t transmitSetup = {
 			.payload = transmitPayload,
 			.payloadWidth = 16,
 			.address = { 0x34, 0x43, 0x10, 0x10, 0x01 },
 			.addressLength = 5
 	};
 
+	NRF24L01_transferSetupStruct_t receiveSetup = {
+			.payload = receivePayload,
+			.payloadWidth = 16,
+			.address = { 0x34, 0x43, 0x10, 0x10, 0x02 },
+			.addressLength = 5
+	};
+
+	uint8_t radio2_status = 0;
+//	uint8_t registers[0x17];
+
 	nRF24L01_Init();
-	OSA_TimeDelay(2000); /* Example code (for task release) */
+	OSA_TimeDelay(100); /* Example code (for task release) */
 	nRF24L01_transmitPayload( &transmitSetup );
+//	radio2_status = nRF24L01_readStatus();
 	/*
 	 OSA_TimeDelay(2000);  Example code (for task release)
 	 L01_Read_RX_Pload(teste);
 	 */
-
+//	nRF24L01_getAllRegisters( registers );
 #ifdef PEX_USE_RTOS
 	while (1) {
 #endif
 	/* Write your code here ... */
+		if( xSemaphoreTake( nRF24L01_Radio2_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
+//		while(1);
+		}
 
-	OSA_TimeDelay(10); /* Example code (for task release) */
+		radio2_status = nRF24L01_readStatus();
+
+		if( radio2_status & MAX_RT ) {
+			L01_Clear_IRQ( MAX_RT );
+		}
+
+		if( radio2_status & TX_DS ) {
+			L01_Clear_IRQ( TX_DS );
+			nRF24L01_receivePayload( &receiveSetup );
+		}
+
+		if( radio2_status & RX_DR ) {
+			L01_Read_RX_Pload( receivePayload );
+			L01_Clear_IRQ( RX_DR );
+			OSA_TimeDelay(100); /* Example code (for task release) */
+			nRF24L01_transmitPayload( &transmitSetup );
+		}
 
 #ifdef PEX_USE_RTOS
-}
+	}
 #endif
 }
 
@@ -89,38 +123,60 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
  **     Returns : Nothing
  ** ===================================================================
  */
-uint8_t receivePayload[16] = "\0";
-
 void TaskRadio1_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
-	NRF25L01_transferSetupStruct_t receiveSetup = {
+	uint8_t transmitPayload[16] = "Trasmitindo1...";
+	uint8_t receivePayload[16] = "\0";
+
+	NRF24L01_transferSetupStruct_t transmitSetup = {
+			.payload = transmitPayload,
+			.payloadWidth = 16,
+			.address = { 0x34, 0x43, 0x10, 0x10, 0x02 },
+			.addressLength = 5
+	};
+
+	NRF24L01_transferSetupStruct_t receiveSetup = {
 			.payload = receivePayload,
 			.payloadWidth = 16,
 			.address = { 0x34, 0x43, 0x10, 0x10, 0x01 },
 			.addressLength = 5
 	};
 
-	uint8_t loop;
+	uint8_t radio1_status = 0;
+//	uint8_t registers[0x17];
 
 	nRF24L01_Init();
+	OSA_TimeDelay(10); /* Example code (for task release) */
 	nRF24L01_receivePayload( &receiveSetup );
-	OSA_TimeDelay(3000); /* Example code (for task release) */
-	L01_Read_RX_Pload( receivePayload );
+//	radio1_status = nRF24L01_readStatus();
 
-	for (loop = 0; loop < receiveSetup.payloadWidth; loop++)
-		if (receivePayload[loop] != transmitPayload[loop])
-			break;
-
-	if (loop >= receiveSetup.payloadWidth)
-		GPIO_DRV_WritePinOutput(LEDRGB_GREEN, 0);
-	else
-		GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
+//	nRF24L01_getAllRegisters( registers );
 #ifdef PEX_USE_RTOS
 	while (1) {
 #endif
 	/* Write your code here ... */
 
-	OSA_TimeDelay(10); /* Example code (for task release) */
+		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
+//			while(1);
+		}
+
+		radio1_status = nRF24L01_readStatus();
+
+		if( radio1_status & MAX_RT ) {
+			L01_Clear_IRQ( MAX_RT );
+		}
+
+		if( radio1_status & TX_DS ) {
+			L01_Clear_IRQ( TX_DS );
+			nRF24L01_receivePayload( &receiveSetup );
+		}
+
+		if( radio1_status & RX_DR ) {
+			L01_Read_RX_Pload( receivePayload );
+			L01_Clear_IRQ( RX_DR );
+			OSA_TimeDelay(100); /* Example code (for task release) */
+			nRF24L01_transmitPayload( &transmitSetup );
+		}
 
 #ifdef PEX_USE_RTOS
 }
