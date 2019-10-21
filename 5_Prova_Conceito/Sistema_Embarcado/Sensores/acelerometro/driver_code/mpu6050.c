@@ -97,7 +97,7 @@ uint8_t MPU6050_Init(void)
 
 uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val)
 {
-  if( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)val, sizeof(*val), 10 ) ) {
+  if( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)val, sizeof(*val), 20 ) ) {
     return kStatus_I2C_Fail;
   }
   return kStatus_I2C_Success;
@@ -145,6 +145,48 @@ uint8_t MPU6050_WhoAmI()
   } else {
 	  return rt;
   }
+}
+
+uint8_t MPU6050_GetAccelXYZ(uint8_t* a_x, uint8_t* a_y, uint8_t* a_z)
+{
+	uint8_t x;
+	uint8_t y;
+	uint8_t z;
+
+	do {
+		if (MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &x ) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_ReadReg8( MPU6050_ACCEL_YOUT_H, &y ) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_ReadReg8( MPU6050_ACCEL_ZOUT_H, &z ) != kStatus_I2C_Success)
+			break;
+		*a_x = x;
+		*a_y = y;
+		*a_z = z;
+		return kStatus_I2C_Success;
+	} while (1);
+	return kStatus_I2C_Fail;
+}
+
+uint8_t MPU6050_GetGyroXYZ(uint8_t* g_x, uint8_t* g_y, uint8_t* g_z)
+{
+	uint8_t x;
+	uint8_t y;
+	uint8_t z;
+
+	do {
+		if (MPU6050_ReadReg8( MPU6050_GYRO_XOUT_H, &x ) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_ReadReg8( MPU6050_GYRO_YOUT_H, &y ) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_ReadReg8( MPU6050_GYRO_ZOUT_H, &z ) != kStatus_I2C_Success)
+			break;
+		*g_x = x;
+		*g_y = y;
+		*g_z = z;
+		return kStatus_I2C_Success;
+	} while (1);
+	return kStatus_I2C_Fail;
 }
 
 
