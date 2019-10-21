@@ -70,21 +70,6 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t temperature;
 	int teste;
 
-
-/*
-
-	uint8_t codigoErro;
-	uint8_t valor;
-	uint8_t habilita = 1;
-	uint8_t x = 0;
-	uint8_t y = 0;
-	uint8_t z = 0;
-	uint8_t value;
-	uint8_t deinit_status_code;
-	uint8_t read;
-
-*/
-
   
   /* Initialization of Processor Expert components (when some RTOS is active). DON'T REMOVE THIS CODE!!! */
 #ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
@@ -92,21 +77,8 @@ void main_task(os_task_param_t task_init_data)
 #endif 
   /* End of Processor Expert components initialization.  */
 
+  //Start MPU6050
   init_status_code = MPU6050_Init();
-
-  //codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_2, 0x40 );
-  //OSA_TimeDelay(10);                 /* Example code (for task release) */
-
-  //codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_4, 1 );
-  //codigoErro = MPU6050_WriteReg8( MPU6050_CTRL_REG_5, 1 );
-
-  //codigoErro = MPU6050_ReadReg8( MPU6050_CTRL_REG_4, &valor );
-  //codigoErro = MPU6050_ReadReg8( MPU6050_CTRL_REG_5, &valor );
-
-  //if( habilita == 1 )
-	//codigoErro = MPU6050_Init();
-
-  //codigoErro = MPU6050_ReadReg8( MPU6050_SYS_MODE_REG, &valor );
 
 #ifdef PEX_USE_RTOS
   while (1) {
@@ -122,9 +94,6 @@ void main_task(os_task_param_t task_init_data)
 
 	  whoami = MPU6050_WhoAmI();
 
-	  //read = read_test();
-	  //deinit_status_code = MPU6050_Deinit();
-
 	  while( GPIO_DRV_ReadPinInput( J2_2 ) == 1 ){
 		  //Get Accel
 		  codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
@@ -137,15 +106,12 @@ void main_task(os_task_param_t task_init_data)
 		  codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_ZOUT_H, &g_z );
 
 		  //Get Temperature
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_TEMP_OUT_H, &temperature);
+		  temperature = MPU6050_GetTemperature();
 		  OSA_TimeDelay(10);                 /* Example code (for task release) */
 
 	    }
 
 
-
-
-    
 #ifdef PEX_USE_RTOS   
   }
 #endif    

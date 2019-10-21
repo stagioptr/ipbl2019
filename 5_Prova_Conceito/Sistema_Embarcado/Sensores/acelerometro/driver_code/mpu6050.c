@@ -64,6 +64,7 @@ uint8_t MPU6050_Deinit(void)
 uint8_t MPU6050_Init(void)
 {
 	//local variables
+	uint8_t whoami = 0x68;
 	uint8_t pwr = 0x00;
 	uint8_t smplrt = 0x13;
 	uint8_t config = 0x02;
@@ -72,48 +73,31 @@ uint8_t MPU6050_Init(void)
 	uint8_t interrupt_config = 0x30;
 	uint8_t interrupt_enable = 0x01;
 
-	//return variables
-	uint8_t rt_pwr;
-	uint8_t rt_smplrt;
-	uint8_t rt_config;
-	uint8_t rt_gyro_config;
-	uint8_t rt_accel_config;
-	uint8_t rt_interrupt_config;
-	uint8_t rt_interrupt_enable;
-
-	rt_pwr = MPU6050_WriteReg8(MPU6050_PWR_MGMT_1, pwr);
-	rt_smplrt = MPU6050_WriteReg8(MPU6050_SMPLRT_DIV, smplrt);
-	rt_config = MPU6050_WriteReg8(MPU6050_CONFIG, config);
-	rt_gyro_config = MPU6050_WriteReg8(MPU6050_GYRO_CONFIG, gyro_config);
-	rt_accel_config = MPU6050_WriteReg8(MPU6050_ACCEL_CONFIG, accel_config);
-	rt_interrupt_config = MPU6050_WriteReg8(MPU6050_INT_CONFIGURATION, interrupt_config);
-	rt_interrupt_enable = MPU6050_WriteReg8(MPU6050_INTERRUPT_ENABLE, interrupt_enable);
-
-	//MPU6050_WriteReg8( MPU6050_CTRL_REG_2, 0x40 );
-  //static const uint8_t addr = MMA1_CTRL_REG_1;
-  //static const uint8_t addr = MPU6050_I2C_SLV1_CTRL;
-  //static const uint8_t val = MMA1_ACTIVE_BIT_MASK | MMA1_F_READ_BIT_MASK;
-  //static const uint8_t val = MPU6050_ACTIVE_BIT_MASK | MPU6050_F_READ_BIT_MASK;
-
-
-  //sCalValues.NxOff = InitialCalibration.NxOff;
-  //sCalValues.NyOff = InitialCalibration.NyOff;
-  //sCalValues.NzOff = InitialCalibration.NzOff;
-
-  //return I2C_DRV_MasterSendDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&val, sizeof(val), 20 );
-  //MMA1_I2C_ADDR, (uint8_t*)&addr, sizeof(addr), &xyz[0], 3);
-  //return I2C_DRV_MasterSendDataBlocking(MMA1_I2C_ADDR, MMA1_CTRL_REG_1, MMA1_ACTIVE_BIT_MASK); /* enable device */
-	if((rt_pwr == kStatus_I2C_Success) && (rt_smplrt == kStatus_I2C_Success) && (rt_config == kStatus_I2C_Success) && (rt_gyro_config == kStatus_I2C_Success) && (rt_accel_config == kStatus_I2C_Success) && (rt_interrupt_config == kStatus_I2C_Success) && (rt_interrupt_enable == kStatus_I2C_Success)){
+	do {
+		if (MPU6050_WhoAmI() != whoami) //get ID default value = 0x68
+			break;
+		if (MPU6050_WriteReg8(MPU6050_PWR_MGMT_1, pwr) != kStatus_I2C_Success) //set clock (0x00) = Internal 8MHz oscillator
+			break;
+		if (MPU6050_WriteReg8(MPU6050_SMPLRT_DIV, smplrt)  != kStatus_I2C_Success)
+			break;
+		if (MPU6050_WriteReg8(MPU6050_CONFIG, config) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_WriteReg8(MPU6050_GYRO_CONFIG, gyro_config) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_WriteReg8(MPU6050_ACCEL_CONFIG, accel_config) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_WriteReg8(MPU6050_INT_CONFIGURATION, interrupt_config) != kStatus_I2C_Success)
+			break;
+		if (MPU6050_WriteReg8(MPU6050_INTERRUPT_ENABLE, interrupt_enable) != kStatus_I2C_Success)
+			break;
 		return kStatus_I2C_Success;
-	} else {
-		return kStatus_I2C_Fail;
-	}
+	} while (1);
+	return kStatus_I2C_Fail;
 }
 
 uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val)
 {
   if( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)val, sizeof(*val), 10 ) ) {
-  //if (I2C_DRV_MasterReceiveDataBlocking(MMA1_I2C_ADDR, addr, val)!=kStatus_I2C_Success) {
     return kStatus_I2C_Fail;
   }
   return kStatus_I2C_Success;
@@ -121,7 +105,7 @@ uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val)
 
 /*
 ** ===================================================================
-**     Method      :  MMA1_WriteReg8 (component MMA8451Q)
+**     Method      :  MPU6050_WriteReg8 (component MPU6050)
 **     Description :
 **         Write an 8bit device register
 **     Parameters  :
@@ -135,7 +119,6 @@ uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val)
 uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val)
 {
   return I2C_DRV_MasterSendDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&val, sizeof(val), 20 );
-  //  return I2C_DRV_MasterSendDataBlocking(MMA1_I2C_ADDR, addr, val);
 }
 
 /*
@@ -157,7 +140,6 @@ uint8_t MPU6050_WhoAmI()
   uint8_t rt;
 
   rt = I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, (uint8_t*)&addr, sizeof(addr), (uint8_t*)&value, sizeof(value), 20 );
-  //return I2C_DRV_MasterReceiveDataBlocking(MPU6050_I2C_ADDRESS, MPU6050_WHO_AM_I, value);
   if(rt == kStatus_I2C_Success){
 	  return value;
   } else {
@@ -165,19 +147,22 @@ uint8_t MPU6050_WhoAmI()
   }
 }
 
+
+uint8_t MPU6050_GetTemperature()
+{
+	uint8_t buffer[2];
+	int16_t temp;
+    memset(buffer, 0, sizeof(buffer));
+    if (MPU6050_ReadReg8( MPU6050_TEMP_OUT_H, buffer) == kStatus_I2C_Success){
+    	temp = (((int16_t)buffer[0]) << 8) | buffer[1];
+  	    temp = 36.53 + temp / 340;
+  		return temp;
+    } else {
+    	return kStatus_I2C_Fail;
+    }
+}
+
 uint8_t init_example(){
 	uint8_t temporario = 1;
 	return temporario;
-}
-
-uint8_t read_test()
-{
-	uint8_t cmd=0x3b; //register address
-
-	uint8_t count=6;
-
-	uint8_t buffer[10];
-
-  return( I2C_DRV_MasterReceiveDataBlocking( I2C1_IDX, &mpu6050_parameters, &cmd,1,&buffer[0],count,1000) );
-
 }
