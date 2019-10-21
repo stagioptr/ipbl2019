@@ -13,15 +13,15 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="tem" key="selection"/>
+		<item value="Init" key="selection"/>
 		<list key="findhistory">
+			<item value="init"/>
 			<item value="tem"/>
 			<item value="temp"/>
 			<item value="AFS_SEL"/>
 			<item value="ACCEL_XOUT_H"/>
 			<item value="CONFIG"/>
 			<item value="SMPLRT_DIV"/>
-			<item value="init"/>
 			<item value="int"/>
 		</list>
 		<list key="replacehistory">

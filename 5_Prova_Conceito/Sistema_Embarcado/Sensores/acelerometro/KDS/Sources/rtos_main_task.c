@@ -68,6 +68,8 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t g_y;
 	uint8_t g_z;
 	uint8_t temperature;
+	uint8_t accelGetXYZ_status_code;
+	uint8_t gyroGetXYZ_status_code;
 	int teste;
 
   
@@ -96,14 +98,16 @@ void main_task(os_task_param_t task_init_data)
 
 	  while( GPIO_DRV_ReadPinInput( J2_2 ) == 1 ){
 		  //Get Accel
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_YOUT_H, &a_y );
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_ZOUT_H, &a_z );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_YOUT_H, &a_y );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_ZOUT_H, &a_z );
+		  accelGetXYZ_status_code = MPU6050_GetAccelXYZ(&a_x, &a_y, &a_z);
 
 		  //Get Gyro
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_XOUT_H, &g_x );
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_YOUT_H, &g_y );
-		  codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_ZOUT_H, &g_z );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_XOUT_H, &g_x );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_YOUT_H, &g_y );
+		  //codigo_erro = MPU6050_ReadReg8( MPU6050_GYRO_ZOUT_H, &g_z );
+		  gyroGetXYZ_status_code = MPU6050_GetGyroXYZ(&g_x, &g_y, &g_z);
 
 		  //Get Temperature
 		  temperature = MPU6050_GetTemperature();

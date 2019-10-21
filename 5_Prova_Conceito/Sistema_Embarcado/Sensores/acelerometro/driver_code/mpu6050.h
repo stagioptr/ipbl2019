@@ -62,6 +62,12 @@ uint8_t MPU6050_Init(void);
 ** ===================================================================
 */
 
+uint8_t MPU6050_GetAccelXYZ(uint8_t* x, uint8_t* y, uint8_t* z);
+
+uint8_t MPU6050_GetGyroXYZ(uint8_t* x, uint8_t* y, uint8_t* z);
+
+uint8_t MPU6050_GetTemperature(void);
+
 uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val);
 
 uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val);
