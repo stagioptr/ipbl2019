@@ -93,8 +93,6 @@ uint8_t MPU6050_WhoAmI();
 ** ===================================================================
 */
 
-uint8_t read_test();
-
 uint8_t init_example();
 
 #endif /* MPU6050_H_ */
