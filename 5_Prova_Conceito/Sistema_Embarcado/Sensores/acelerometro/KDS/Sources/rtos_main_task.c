@@ -71,6 +71,7 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t accelGetXYZ_status_code;
 	uint8_t gyroGetXYZ_status_code;
 	int teste;
+	int cont = 0;
 
   
   /* Initialization of Processor Expert components (when some RTOS is active). DON'T REMOVE THIS CODE!!! */
@@ -79,14 +80,20 @@ void main_task(os_task_param_t task_init_data)
 #endif 
   /* End of Processor Expert components initialization.  */
 
-  //Start MPU6050
-  init_status_code = MPU6050_Init();
+  while (cont <= 3) {
+	  //Start MPU6050
+	  init_status_code = MPU6050_Init();
+	  if (init_status_code == kStatus_I2C_Success)
+		  break;
+	  cont = cont + 1; //breakpoint here
+  }
+
 
 #ifdef PEX_USE_RTOS
   while (1) {
 #endif
     /* Write your code here ... */
-
+/*
 	  if(init_example()){
 		  teste = 1;
 	  }else {
@@ -95,7 +102,9 @@ void main_task(os_task_param_t task_init_data)
 	  teste = teste + 1;
 
 	  whoami = MPU6050_WhoAmI();
+	  */
 
+	  //breakpoint below this line
 	  while( GPIO_DRV_ReadPinInput( J2_2 ) == 1 ){
 		  //Get Accel
 		  //codigo_erro = MPU6050_ReadReg8( MPU6050_ACCEL_XOUT_H, &a_x );
