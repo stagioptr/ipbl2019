@@ -7,7 +7,7 @@
              x:Class="STAGIOPTR.Views.LoginView"
              Title="STAGIOP-TR">
     <ContentPage.Content>
-        <Grid BackgroundColor="{StaticResource Light}" Padding="0,20,0,0">
+        <Grid BackgroundColor="{StaticResource Light}" Margin="0,50,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>

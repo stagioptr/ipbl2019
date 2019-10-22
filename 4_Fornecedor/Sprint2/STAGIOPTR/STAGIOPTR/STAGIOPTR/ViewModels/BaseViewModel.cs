@@ -1,6 +1,8 @@
-﻿using System;
+﻿using STAGIOPTR.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -83,5 +85,29 @@ namespace STAGIOPTR.ViewModels
             return Task.FromResult(0);
         }
 
+        //LOGIN
+        public void LoginAsync<TViewModel>(params object[] args) where TViewModel : BaseViewModel
+        {
+            var viewModelType = typeof(TViewModel);
+            var viewModelTypeName = viewModelType.Name;
+            var viewModelWordLength = "ViewModel".Length;
+            var viewTypeName = $"STAGIOPTR.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}View";
+            var viewType = Type.GetType(viewTypeName);
+
+            var page = Activator.CreateInstance(viewType) as Page;
+
+            var viewModel = Activator.CreateInstance(viewModelType, args);
+            if (page != null)
+            {
+                page.BindingContext = viewModel;
+            }
+
+            Application.Current.MainPage = new NavigationPage(page);
+        }
+
+        public void Logout()
+        {
+            Application.Current.MainPage = new NavigationPage(new LoginView());
+        }
     }
 }

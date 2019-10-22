@@ -40,7 +40,7 @@ namespace STAGIOPTR.ViewModels
             this.User = new User();
             LoginUserCommand = new Command(ExecuteLoginUserCommand);
             User User = database.getUserPerLogin("admin@admin", "admin");
-            Debug.WriteLine(User == null);
+            Debug.WriteLine(User);
             if (User == null)
             {
                 User Admin = new User
@@ -49,17 +49,33 @@ namespace STAGIOPTR.ViewModels
                     CPF = 007,
                     Email = "admin@admin",
                     Password = "admin",
-                    AccessLevel = 1
+                    AccessLevel = 1,
+                    IdPatient = 0
                 };
                 database.InsertUsers(Admin);
+                User Luan = new User
+                {
+                    Name = "Luan Dantas",
+                    CPF = 100,
+                    Email = "luan@dantas",
+                    Password = "luan",
+                    AccessLevel = 2,
+                    IdPatient = 1
+                };
+                database.InsertUsers(Luan);
+                database.InsertUsers(Admin);
             }
-            
         }
 
         public void ExecuteLoginUserCommand()
         {
             Debug.WriteLine("user: "+ this.Email);
             Debug.WriteLine("password: "+ this.Password);
+            User User = database.getUserPerLogin(this.Email, this.Password);
+            if (User.AccessLevel == 1)
+                LoginAsync<MainViewModel>();
+            else
+                LoginAsync<PatientViewModel>(User);
         }
     }
 }
