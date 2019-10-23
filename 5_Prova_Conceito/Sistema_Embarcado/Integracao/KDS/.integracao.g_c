@@ -829,7 +829,7 @@
         <Line>RTC_Seconds_IRQHandler</Line>
       </GenMethodsInEvents>
       <GenMethodsInos_tasks lines_count="2">
-        <Line>Terminal_task</Line>
+        <Line>Radio_task</Line>
         <Line>Sensor_task</Line>
       </GenMethodsInos_tasks>
       <GenMethodsInrtos_main_task lines_count="1">
@@ -845,10 +845,10 @@
         <Line>os_tasks</Line>
         <Line>osa1</Line>
         <Line>pin_init</Line>
+        <Line>Radio</Line>
         <Line>rtcTimer1</Line>
         <Line>rtos_main_task</Line>
         <Line>Sensor</Line>
-        <Line>Terminal</Line>
         <Line>tpmTmr1</Line>
         <Line>tpmTmr2</Line>
       </GenAllModules>
@@ -864,12 +864,12 @@
         <Line>tpmTmr2</Line>
         <Line>Sensor</Line>
         <Line>DbgCs1</Line>
-        <Line>Terminal</Line>
+        <Line>Radio</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>12</ProjectModificationStamp>
+    <ProjectModificationStamp>13</ProjectModificationStamp>
   </Options>
   <CpuID_1>
     <Generated>true</Generated>
@@ -878,7 +878,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1330421809</HeaderAge>
-    <CodeAge>1330421974</CodeAge>
+    <CodeAge>1331102927</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>2</GenNumMethods>
     <SystemInit>true</SystemInit>
@@ -2403,12 +2403,12 @@
   </ComponentID_31>
   <ComponentID_34>
     <Generated>true</Generated>
-    <GenCompName>Terminal</GenCompName>
+    <GenCompName>Radio</GenCompName>
     <GenComponentVersion>1.3.0</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>os_tasks</GenEventModule>
-    <HeaderAge>1330421974</HeaderAge>
-    <CodeAge>1330421974</CodeAge>
+    <HeaderAge>1331102927</HeaderAge>
+    <CodeAge>1331102927</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
     <Init>true</Init>
@@ -2416,7 +2416,7 @@
     <Deinit>false</Deinit>
     <GenNumEvents>1</GenNumEvents>
     <TaskCode_Selected>3</TaskCode_Selected>
-    <TaskCode_Name>Terminal_task</TaskCode_Name>
+    <TaskCode_Name>Radio_task</TaskCode_Name>
     <TaskCode_Priority>interrupts disabled</TaskCode_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>

@@ -15,19 +15,19 @@
  * Definição dos estados da máquina.
  */
 typedef enum {
-	CONFIGURA_SENSOR = 0,
-	AGUARDA_DADOS,
-	LER_DADOS,
-	INTERPRETA_DADOS,
-	VERIFICA_TIPO_FALHA,
-	DESCONFIGURA_SENSOR,
-	ENCERRA_ROTINA
+	CONFIGURANDO_SENSOR = 0,
+	AGUARDANDO_DADOS,
+	LENDO_DADOS,
+	INTERPRETANDO_DADOS,
+	DESCONFIGURANDO_SENSOR,
+	VERIFICANDO_TIPO_FALHA,
+	ENCERRANDO_ROTINA
 } sensor_EstadosEnum_t;
 
 /*
  * Controle do estado atual da máquina.
  */
-static sensor_EstadosEnum_t estadoMaquina = CONFIGURA_SENSOR;
+static sensor_EstadosEnum_t estadoMaquina = CONFIGURANDO_SENSOR;
 static SENSOR_RETORNO estadoSensor = SENSOR_PRONTO;
 
 /*
@@ -36,69 +36,69 @@ static SENSOR_RETORNO estadoSensor = SENSOR_PRONTO;
 void sensor_stateMachine(void) {
 	while (1) {
 		switch (estadoMaquina) {
-		case CONFIGURA_SENSOR:
+		case CONFIGURANDO_SENSOR:
 
 			estadoSensor = CONFIGURA_SENSOR_PORT();
 
 			if (estadoSensor == CONFIGURACAO_OK)
-				estadoMaquina = AGUARDA_DADOS;
+				estadoMaquina = AGUARDANDO_DADOS;
 			else if (estadoSensor == FALHA_CONFIGURACAO)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
+				estadoMaquina = DESCONFIGURANDO_SENSOR;
 
 			break;
 
-		case AGUARDA_DADOS:
+		case AGUARDANDO_DADOS:
 			estadoSensor = AGUARDA_DADOS_PORT();
 
 			if (estadoSensor == TEMPO_ESGOTADO)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
+				estadoMaquina = DESCONFIGURANDO_SENSOR;
 			else if (estadoSensor == AMOSTRA_PRONTA)
-				estadoMaquina = LER_DADOS;
+				estadoMaquina = LENDO_DADOS;
 
 			break;
 
-		case LER_DADOS:
+		case LENDO_DADOS:
 			estadoSensor = LER_DADOS_PORT();
 
 			if (estadoSensor == FALHA_SENSOR)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
+				estadoMaquina = DESCONFIGURANDO_SENSOR;
 			else if (estadoSensor == AMOSTRA_OK)
-				estadoMaquina = INTERPRETA_DADOS;
+				estadoMaquina = INTERPRETANDO_DADOS;
 
 			break;
 
-		case INTERPRETA_DADOS:
+		case INTERPRETANDO_DADOS:
 			estadoSensor = INTERPRETA_DADOS_PORT();
 
 			if (estadoSensor == DADOS_VALIDOS)
-				estadoMaquina = AGUARDA_DADOS;
+				estadoMaquina = AGUARDANDO_DADOS;
 			else if (estadoSensor == DADOS_INVALIDOS)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
-
-			break;
-
-		case VERIFICA_TIPO_FALHA:
-			estadoSensor = VERIFICA_TIPO_FALHA_PORT();
-
-			if (estadoSensor == FALHA_RECUPERAVEL)
-				estadoMaquina = DESCONFIGURA_SENSOR;
-			else if (estadoSensor == FALHA_PERMANENTE)
-				estadoMaquina = ENCERRA_ROTINA;
+				estadoMaquina = DESCONFIGURANDO_SENSOR;
 
 			break;
 
 		default:
-		case DESCONFIGURA_SENSOR:
+		case DESCONFIGURANDO_SENSOR:
 			estadoSensor = DESCONFIGURA_SENSOR_PORT();
 
 			if (estadoSensor == DESCONFIGURACAO_OK)
-				estadoMaquina = CONFIGURA_SENSOR;
+				estadoMaquina = VERIFICANDO_TIPO_FALHA;
 			else if (estadoSensor == FALHA_DESCONFIGURACAO)
-				estadoMaquina = ENCERRA_ROTINA;
+				estadoMaquina = ENCERRANDO_ROTINA;
 
 			break;
 
-		case ENCERRA_ROTINA:
+		case VERIFICANDO_TIPO_FALHA:
+			estadoSensor = VERIFICA_TIPO_FALHA_PORT();
+
+			if (estadoSensor == FALHA_RECUPERAVEL)
+				estadoMaquina = CONFIGURANDO_SENSOR;
+			else if (estadoSensor == FALHA_PERMANENTE)
+				estadoMaquina = ENCERRANDO_ROTINA;
+
+			break;
+
+		case ENCERRANDO_ROTINA:
 			return;
 
 		}

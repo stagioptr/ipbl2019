@@ -42,7 +42,7 @@
 #include "tpmTmr2.h"
 #include "Sensor.h"
 #include "DbgCs1.h"
-#include "Terminal.h"
+#include "Radio.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif

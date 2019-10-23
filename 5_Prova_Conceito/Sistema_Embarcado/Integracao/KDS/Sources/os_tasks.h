@@ -41,7 +41,7 @@
 #include "tpmTmr2.h"
 #include "Sensor.h"
 #include "DbgCs1.h"
-#include "Terminal.h"
+#include "Radio.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,14 +61,14 @@ void Sensor_task(os_task_param_t task_init_data);
 
 /*
 ** ===================================================================
-**     Callback    : Terminal_task
+**     Callback    : Radio_task
 **     Description : Task function entry.
 **     Parameters  :
 **       task_init_data - OS task parameter
 **     Returns : Nothing
 ** ===================================================================
 */
-void Terminal_task(os_task_param_t task_init_data);
+void Radio_task(os_task_param_t task_init_data);
 
 /* END os_tasks */
 
