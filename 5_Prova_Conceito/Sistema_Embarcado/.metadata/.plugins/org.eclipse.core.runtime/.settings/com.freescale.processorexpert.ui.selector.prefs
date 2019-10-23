@@ -2,6 +2,6 @@ columnComponent=200
 columnComponent\ Repository=200
 columnDescription=400
 componentFilter=0
-defaultProviderID=com.processorexpert.ui.selector.Categories
+defaultProviderID=com.processorexpert.ui.selector.Alphabetical
 eclipse.preferences.version=1
 repositoryFilter=All repositories

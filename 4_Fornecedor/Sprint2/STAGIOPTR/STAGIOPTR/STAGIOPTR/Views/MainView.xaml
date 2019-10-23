@@ -7,6 +7,9 @@
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.MainView"
              Title="STAGIOP-TR">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </TabbedPage.ToolbarItems>
     <TabbedPage.Children>
         <views:PatientsListView Title="Pacientes" IconImageSource="details.png"/>
         <views:FoodsListView Title="Alimentos" IconImageSource="food.png"/>

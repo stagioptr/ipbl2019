@@ -14,6 +14,7 @@ namespace STAGIOPTR.Views
             InitializeComponent();
             _viewModel = new LoginViewModel();
             BindingContext = _viewModel;
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

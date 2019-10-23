@@ -14,5 +14,9 @@ namespace STAGIOPTR.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public int AccessLevel { get; set; }
+        [Indexed]
+        public int IdPatient { get; set; }
+        [Ignore]
+        public Patient Patient { get; set; }
     }
 }
