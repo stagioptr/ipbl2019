@@ -3,7 +3,7 @@
   <Header>
     <Name>integracao</Name>
     <SavedBy>vcruz</SavedBy>
-    <ModificationStamp>12</ModificationStamp>
+    <ModificationStamp>13</ModificationStamp>
     <Date>2019-10-03</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -25416,8 +25416,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>type_debugconsole_lpsci_clock_source</TypeSpecNameState>
-        <Index>1</Index>
-        <EnumSymbVal>kClockLpsciSrcPllFllSel</EnumSymbVal>
+        <Index>0</Index>
+        <EnumSymbVal>kClockLpsciSrcNone</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>LinkItem</ItemSymbol>
@@ -27774,7 +27774,7 @@
     <Repository>file:/${ProcessorExpert_loc}/Repositories/KSDK130_Repository</Repository>
     <ComponentUUID>com.freescale.processorexpert.os_task</ComponentUUID>
     <BeanType>OS_Task</BeanType>
-    <Name>Terminal</Name>
+    <Name>Radio</Name>
     <CompNumb>34</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
@@ -27789,7 +27789,7 @@
         <ItemSymbol>DeviceName</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>Terminal</Value>
+        <Value>Radio</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CompVersion</ItemSymbol>
@@ -27809,7 +27809,7 @@
         <ItemSymbol>TaskEntryFunction</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>Terminal_task</Value>
+        <Value>Radio_task</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>IsPriorityInitialized</ItemSymbol>

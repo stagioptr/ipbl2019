@@ -38,6 +38,7 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "maquinaEstadoSensor.h"
+#include "maquinaEstadoRadio.h"
 
 /*
  ** ===================================================================
@@ -66,31 +67,31 @@ void Sensor_task(os_task_param_t task_init_data) {
 
 /*
 ** ===================================================================
-**     Callback    : Terminal_task
+**     Callback    : Radio_task
 **     Description : Task function entry.
 **     Parameters  :
 **       task_init_data - OS task parameter
 **     Returns : Nothing
 ** ===================================================================
 */
-void Terminal_task(os_task_param_t task_init_data)
+void Radio_task(os_task_param_t task_init_data)
 {
   /* Write your local variable definition here */
-  
+	radio_stateMachine();
 #ifdef PEX_USE_RTOS
   while (1) {
 #endif
     /* Write your code here ... */
-    
-    
+
+
     OSA_TimeDelay(10);                 /* Example code (for task release) */
-   
-    
-    
-    
-#ifdef PEX_USE_RTOS   
+
+
+
+
+#ifdef PEX_USE_RTOS
   }
-#endif    
+#endif
 }
 
 /* END os_tasks */

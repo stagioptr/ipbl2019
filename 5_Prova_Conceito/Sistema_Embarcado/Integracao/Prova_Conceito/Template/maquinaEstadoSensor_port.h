@@ -9,6 +9,12 @@
  */
 
 #include "stdint.h"
+#include "Cpu.h"
+#include "Events.h"
+#include "rtos_main_task.h"
+#include "os_tasks.h"
+
+QueueHandle_t sensor_x_msg_queue_handler = NULL;
 
 #define		SENSOR_RETORNO									uint32_t
 
@@ -27,10 +33,14 @@
 #define		FALHA_DESCONFIGURACAO						12
 
 SENSOR_RETORNO CONFIGURA_SENSOR_PORT(void) {
+	sensor_x_msg_queue_handler = xQueueCreate( 5, sizeof(uint32_t) );
+
 	return CONFIGURACAO_OK;
 }
 
 SENSOR_RETORNO AGUARDA_DADOS_PORT(void) {
+	OSA_TimeDelay(1000); /* Example code (for task release) */
+
 	return AMOSTRA_PRONTA;
 }
 
@@ -39,7 +49,12 @@ SENSOR_RETORNO LER_DADOS_PORT(void) {
 }
 
 SENSOR_RETORNO INTERPRETA_DADOS_PORT(void) {
-	return DADOS_INVALIDOS;
+	uint32_t valorSensor = 2374;
+
+	if( xQueueSendToBack( sensor_x_msg_queue_handler, &valorSensor, 0 ) == pdPASS )
+		return DADOS_VALIDOS;
+	else
+		return DADOS_INVALIDOS;
 }
 
 SENSOR_RETORNO VERIFICA_TIPO_FALHA_PORT(void) {
