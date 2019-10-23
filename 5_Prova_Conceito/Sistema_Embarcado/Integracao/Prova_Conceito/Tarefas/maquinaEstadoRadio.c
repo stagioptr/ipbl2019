@@ -15,19 +15,19 @@
  * Definição dos estados da máquina.
  */
 typedef enum {
-	CONFIGURA_RADIO = 0,
-	CONECTAR,
-	AGUARDA_TEMPO_TRANSMISSAO,
-	TRANSMITE_AMOSTRAS,
-	VERIFICA_TIPO_FALHA,
-	DESCONFIGURA_RADIO,
-	ENCERRA_ROTINA
+	CONFIGURANDO_RADIO = 0,
+	CONECTANDO,
+	AGUARDANDO_TEMPO_TRANSMISSAO,
+	TRANSMITINDO_AMOSTRAS,
+	DESCONFIGURANDO_RADIO,
+	VERIFICANDO_TIPO_FALHA,
+	ENCERRANDO_ROTINA
 } radio_EstadosEnum_t;
 
 /*
  * Controle do estado atual da máquina.
  */
-static radio_EstadosEnum_t estadoMaquina = CONFIGURA_RADIO;
+static radio_EstadosEnum_t estadoMaquina = CONFIGURANDO_RADIO;
 static RADIO_RETORNO estadoRadio = RADIO_PRONTO;
 
 /*
@@ -36,68 +36,68 @@ static RADIO_RETORNO estadoRadio = RADIO_PRONTO;
 void radio_stateMachine(void) {
 	while (1) {
 		switch (estadoMaquina) {
-		case CONFIGURA_RADIO:
+		case CONFIGURANDO_RADIO:
 
 			estadoRadio = CONFIGURA_RADIO_PORT();
 
 			if (estadoRadio == CONFIGURACAO_OK)
-				estadoMaquina = CONECTAR;
+				estadoMaquina = CONECTANDO;
 			else if (estadoRadio == FALHA_CONFIGURACAO)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
+				estadoMaquina = DESCONFIGURANDO_RADIO;
 
 			break;
 
-		case CONECTAR:
+		case CONECTANDO:
 			estadoRadio = CONECTAR_PORT();
 
 			if (estadoRadio == FALHA_CONEXAO)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
+				estadoMaquina = DESCONFIGURANDO_RADIO;
 			else if (estadoRadio == CONECTADO)
-				estadoMaquina = AGUARDA_TEMPO_TRANSMISSAO;
+				estadoMaquina = AGUARDANDO_TEMPO_TRANSMISSAO;
 			else if (estadoRadio == PERIFERICO_OK)
-				estadoMaquina = CONECTAR;
+				estadoMaquina = CONECTANDO;
 
 			break;
 
-		case AGUARDA_TEMPO_TRANSMISSAO:
+		case AGUARDANDO_TEMPO_TRANSMISSAO:
 			estadoRadio = AGUARDA_TEMPO_TRANSMISSAO_PORT();
 
-			estadoMaquina = TRANSMITE_AMOSTRAS;
+			estadoMaquina = TRANSMITINDO_AMOSTRAS;
 
 			break;
 
-		case TRANSMITE_AMOSTRAS:
+		case TRANSMITINDO_AMOSTRAS:
 			estadoRadio = TRANSMITE_AMOSTRAS_PORT();
 
 			if (estadoRadio == SUCESSO_TRANSMISSAO)
-				estadoMaquina = AGUARDA_TEMPO_TRANSMISSAO;
+				estadoMaquina = AGUARDANDO_TEMPO_TRANSMISSAO;
 			else if (estadoRadio == FALHA_TRANSMISSAO)
-				estadoMaquina = VERIFICA_TIPO_FALHA;
-
-			break;
-
-		case VERIFICA_TIPO_FALHA:
-			estadoRadio = VERIFICA_TIPO_FALHA_PORT();
-
-			if (estadoRadio == FALHA_RECUPERAVEL)
-				estadoMaquina = DESCONFIGURA_RADIO;
-			else if (estadoRadio == FALHA_PERMANENTE)
-				estadoMaquina = ENCERRA_ROTINA;
+				estadoMaquina = DESCONFIGURANDO_RADIO;
 
 			break;
 
 		default:
-		case DESCONFIGURA_RADIO:
+		case DESCONFIGURANDO_RADIO:
 			estadoRadio = DESCONFIGURA_RADIO_PORT();
 
 			if (estadoRadio == DESCONFIGURACAO_OK)
-				estadoMaquina = CONFIGURA_RADIO;
+				estadoMaquina = VERIFICANDO_TIPO_FALHA;
 			else if (estadoRadio == FALHA_DESCONFIGURACAO)
-				estadoMaquina = ENCERRA_ROTINA;
+				estadoMaquina = ENCERRANDO_ROTINA;
 
 			break;
 
-		case ENCERRA_ROTINA:
+		case VERIFICANDO_TIPO_FALHA:
+			estadoRadio = VERIFICA_TIPO_FALHA_PORT();
+
+			if (estadoRadio == FALHA_RECUPERAVEL)
+				estadoMaquina = CONFIGURANDO_RADIO;
+			else if (estadoRadio == FALHA_PERMANENTE)
+				estadoMaquina = ENCERRANDO_ROTINA;
+
+			break;
+
+		case ENCERRANDO_ROTINA:
 			return;
 
 		}

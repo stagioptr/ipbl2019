@@ -41,7 +41,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Configura radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
+                            <ID name="Configurando radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -50,9 +50,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Configura radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
+                <ID name="Configurando radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Configura radio]]></ATT>
+                  <ATT name="Name"><![CDATA[Configurando radio]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -71,7 +71,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Conectar" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
+                            <ID name="Conectando" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -90,7 +90,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Verifica tipo falha" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
+                            <ID name="Desconfigurando radio" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -99,9 +99,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Conectar" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
+                <ID name="Conectando" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Conectar]]></ATT>
+                  <ATT name="Name"><![CDATA[Conectando]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -120,7 +120,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Aguarda tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
+                            <ID name="Aguardando tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -139,7 +139,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Conectar" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
+                            <ID name="Conectando" mc="Standard.State" uid="4d6e5e84-8568-4e00-ab18-ca9c47351d7a"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -158,7 +158,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Verifica tipo falha" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
+                            <ID name="Desconfigurando radio" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -167,9 +167,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Aguarda tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
+                <ID name="Aguardando tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Aguarda tempo transmissão]]></ATT>
+                  <ATT name="Name"><![CDATA[Aguardando tempo transmissão]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -188,7 +188,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Transmite amostras" mc="Standard.State" uid="f716b342-7ddc-4c41-bb9f-f87f161f3ce4"/>
+                            <ID name="Transmitindo amostras" mc="Standard.State" uid="f716b342-7ddc-4c41-bb9f-f87f161f3ce4"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -197,9 +197,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Transmite amostras" mc="Standard.State" uid="f716b342-7ddc-4c41-bb9f-f87f161f3ce4"/>
+                <ID name="Transmitindo amostras" mc="Standard.State" uid="f716b342-7ddc-4c41-bb9f-f87f161f3ce4"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Transmite amostras]]></ATT>
+                  <ATT name="Name"><![CDATA[Transmitindo amostras]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -218,7 +218,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Aguarda tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
+                            <ID name="Aguardando tempo transmissão" mc="Standard.State" uid="5909152a-03ca-4f48-9ff5-c44a417d2d46"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -237,7 +237,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Verifica tipo falha" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
+                            <ID name="Desconfigurando radio" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -246,9 +246,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Verifica tipo falha" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
+                <ID name="Desconfigurando radio" mc="Standard.State" uid="d6bcdfd7-2739-4ed7-9d34-3ca6cd9e7ba9"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Verifica tipo falha]]></ATT>
+                  <ATT name="Name"><![CDATA[Desconfigurando radio]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -259,7 +259,7 @@
                         <ATT name="Effect"></ATT>
                         <ATT name="ReceivedEvents"></ATT>
                         <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"><![CDATA[FALHA_RECUPERAVEL]]></ATT>
+                        <ATT name="Guard"><![CDATA[DESCONFIGURACAO_OK]]></ATT>
                         <ATT name="PostCondition"></ATT>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -267,7 +267,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Desconfigura radio" mc="Standard.State" uid="66b6e5d6-6ca1-4fc6-8f5b-1e3e0d95eb74"/>
+                            <ID name="Verificando tipo falha" mc="Standard.State" uid="66b6e5d6-6ca1-4fc6-8f5b-1e3e0d95eb74"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -278,7 +278,7 @@
                         <ATT name="Effect"></ATT>
                         <ATT name="ReceivedEvents"></ATT>
                         <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"><![CDATA[FALHA_PERMANENTE]]></ATT>
+                        <ATT name="Guard"><![CDATA[FALHA_DESCONFIGURACAO]]></ATT>
                         <ATT name="PostCondition"></ATT>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -295,9 +295,9 @@
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="Desconfigura radio" mc="Standard.State" uid="66b6e5d6-6ca1-4fc6-8f5b-1e3e0d95eb74"/>
+                <ID name="Verificando tipo falha" mc="Standard.State" uid="66b6e5d6-6ca1-4fc6-8f5b-1e3e0d95eb74"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Desconfigura radio]]></ATT>
+                  <ATT name="Name"><![CDATA[Verificando tipo falha]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
@@ -308,7 +308,7 @@
                         <ATT name="Effect"></ATT>
                         <ATT name="ReceivedEvents"></ATT>
                         <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"><![CDATA[DESCONFIGURACAO_OK]]></ATT>
+                        <ATT name="Guard"><![CDATA[FALHA_RECUPERAVEL]]></ATT>
                         <ATT name="PostCondition"></ATT>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -316,7 +316,7 @@
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Configura radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
+                            <ID name="Configurando radio" mc="Standard.State" uid="2bd29020-e784-4488-89a0-ec038be60a04"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -327,7 +327,7 @@
                         <ATT name="Effect"></ATT>
                         <ATT name="ReceivedEvents"></ATT>
                         <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"><![CDATA[FALHA_DESCONFIGURACAO]]></ATT>
+                        <ATT name="Guard"><![CDATA[FALHA_PERMANENTE]]></ATT>
                         <ATT name="PostCondition"></ATT>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
