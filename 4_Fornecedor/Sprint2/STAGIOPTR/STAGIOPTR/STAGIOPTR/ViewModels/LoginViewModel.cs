@@ -9,7 +9,9 @@ namespace STAGIOPTR.ViewModels
     {
         DatabaseConnection database = new DatabaseConnection();
 
-        public Command LoginUserCommand { get; }
+        public Command LoginCommand { get; }
+
+        public Command SignupCommand { get; }
 
         private User _user;
 
@@ -38,7 +40,8 @@ namespace STAGIOPTR.ViewModels
         public LoginViewModel()
         {
             this.User = new User();
-            LoginUserCommand = new Command(ExecuteLoginUserCommand);
+            LoginCommand = new Command(ExecuteLoginCommand);
+            SignupCommand = new Command(ExecuteSignupCommand);
             User User = database.getUserPerLogin("admin@admin", "admin");
             Debug.WriteLine(User);
             if (User == null)
@@ -46,28 +49,17 @@ namespace STAGIOPTR.ViewModels
                 User Admin = new User
                 {
                     Name = "Administrador",
-                    CPF = 007,
+                    CPF = "007",
                     Email = "admin@admin",
                     Password = "admin",
                     AccessLevel = 1,
                     IdPatient = 0
                 };
                 database.InsertUsers(Admin);
-                User Luan = new User
-                {
-                    Name = "Luan Dantas",
-                    CPF = 100,
-                    Email = "luan@dantas",
-                    Password = "luan",
-                    AccessLevel = 2,
-                    IdPatient = 1
-                };
-                database.InsertUsers(Luan);
-                database.InsertUsers(Admin);
             }
         }
 
-        public void ExecuteLoginUserCommand()
+        public void ExecuteLoginCommand()
         {
             Debug.WriteLine("user: "+ this.Email);
             Debug.WriteLine("password: "+ this.Password);
@@ -76,6 +68,11 @@ namespace STAGIOPTR.ViewModels
                 LoginAsync<MainViewModel>();
             else
                 LoginAsync<PatientViewModel>(User);
+        }
+
+        private async void ExecuteSignupCommand()
+        {
+            await PushAsync<SignupViewModel>();
         }
     }
 }

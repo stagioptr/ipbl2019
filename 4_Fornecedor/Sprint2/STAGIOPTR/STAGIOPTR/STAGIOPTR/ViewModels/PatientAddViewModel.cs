@@ -26,6 +26,16 @@ namespace STAGIOPTR.ViewModels
         public void ExecuteAddPatientCommand()
         {
             this.database.InsertPatients(this.Patient);
+            User User = new User
+            {
+                Name = this.Patient.Name ,
+                CPF = this.Patient.CPF,
+                Email = this.Patient.Email,
+                Password = "paciente",
+                AccessLevel = 3,
+                IdPatient = 0
+            };
+            this.database.InsertUsers(User);
             Application.Current.MainPage.Navigation.PopAsync();
         }
 

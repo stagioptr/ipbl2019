@@ -32,7 +32,6 @@ namespace STAGIOPTR.ViewModels
 
         public PatientViewModel(User User)
         {
-            Debug.WriteLine("NAVEGAÇÃO DEU BOM!: "+ User.Name);
             this.Patient = database.getPatientPerId(User.IdPatient);
             ShowFeedingCommand = new Command(ExecuteShowFeedingCommand);
             ShowSleepCommand = new Command(ExecuteShowSleepCommand);

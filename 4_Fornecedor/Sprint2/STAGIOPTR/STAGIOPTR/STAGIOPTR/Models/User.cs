@@ -9,7 +9,7 @@ namespace STAGIOPTR.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [Unique, NotNull]
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         [Unique, NotNull]
         public string Email { get; set; }
         public string Password { get; set; }
@@ -19,4 +19,10 @@ namespace STAGIOPTR.Models
         [Ignore]
         public Patient Patient { get; set; }
     }
+    /*
+     * 1 - Administrador
+     * 2 - Enfermeiro/Médico
+     * 3 - Paciente
+     * 4 - Familiar
+     */
 }
