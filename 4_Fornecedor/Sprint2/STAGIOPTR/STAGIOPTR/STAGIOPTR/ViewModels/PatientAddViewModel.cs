@@ -1,7 +1,6 @@
-﻿using STAGIOPTR.Models;
-using STAGIOPTR.Database;
+﻿using STAGIOPTR.Database;
+using STAGIOPTR.Models;
 using Xamarin.Forms;
-using System.Diagnostics;
 
 namespace STAGIOPTR.ViewModels
 {

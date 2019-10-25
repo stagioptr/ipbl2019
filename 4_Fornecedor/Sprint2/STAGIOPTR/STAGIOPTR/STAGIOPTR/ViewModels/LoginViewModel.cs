@@ -50,16 +50,16 @@ namespace STAGIOPTR.ViewModels
             this.User = new User();
             LoginCommand = new Command(ExecuteLoginCommand);
             SignupCommand = new Command(ExecuteSignupCommand);
-            User User = database.GetUserPerLogin("admin@admin", "admin");
+            User User = database.GetUserPerLogin("cuidador@cuidador", "cuidador");
             Debug.WriteLine(User);
             if (User == null)
             {
                 User Admin = new User
                 {
-                    Name = "Administrador",
+                    Name = "Cuidador",
                     CPF = "007",
-                    Email = "admin@admin",
-                    Password = "admin",
+                    Email = "cuidador@cuidador",
+                    Password = "cuidador",
                     AccessLevel = 1,
                     IdPatient = 0
                 };

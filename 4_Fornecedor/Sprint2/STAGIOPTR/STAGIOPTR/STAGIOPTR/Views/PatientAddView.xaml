@@ -34,7 +34,7 @@
                 <Label VerticalOptions="Center" Text="Email:" Grid.Row="5" Grid.Column="0" FontAttributes="Bold"/>
                 <Label VerticalOptions="Center" Text="Telefone:" Grid.Row="6" Grid.Column="0" FontAttributes="Bold"/>
                 <Entry Placeholder="Nome" Text="{Binding Patient.Name}" Grid.Row="0" Grid.Column="1"/>
-                <Entry Placeholder="CPF" Text="{Binding Patient.CPF, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1">
+                <Entry Keyboard="Numeric" Placeholder="CPF" Text="{Binding Patient.CPF, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1">
                     <Entry.Behaviors>
                         <helper:MaskBehaviorEntry MaskType="Cpf" MaxLength="11"/>
                     </Entry.Behaviors>

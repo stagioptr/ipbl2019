@@ -22,9 +22,9 @@
                 <Label VerticalOptions="Center" Text="Nome:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
                 <Label VerticalOptions="Center" Text="CPF:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
                 <Label VerticalOptions="Center" Text="Email:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
-                <Label VerticalOptions="Center" Text="Telefone:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Password:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
                 <Entry Placeholder="Nome" Text="{Binding User.Name}" Grid.Row="0" Grid.Column="1"/>
-                <Entry Placeholder="CPF" Text="{Binding User.CPF, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1">
+                <Entry Placeholder="CPF" Keyboard="Numeric" Text="{Binding User.CPF, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1">
                     <Entry.Behaviors>
                         <helper:MaskBehaviorEntry MaskType="Cpf" MaxLength="11"/>
                     </Entry.Behaviors>
@@ -36,7 +36,7 @@
                 </Entry>
                 <Entry Placeholder="Password" IsPassword="True" Text="{Binding User.Password, Mode=OneWayToSource}" Grid.Row="3" Grid.Column="1"/>
             </Grid>
-            <Button Text="CADASTRAR" Style="{StaticResource ButtonPrimary}" Command="{Binding AddPatientCommand}"/>
+            <Button VerticalOptions="EndAndExpand" Text="PRÓXIMO" Style="{StaticResource ButtonSuccess}" Command="{Binding AddPatientUserCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
