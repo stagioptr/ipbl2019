@@ -42,7 +42,7 @@ namespace STAGIOPTR.ViewModels
             this.User = new User();
             LoginCommand = new Command(ExecuteLoginCommand);
             SignupCommand = new Command(ExecuteSignupCommand);
-            User User = database.getUserPerLogin("admin@admin", "admin");
+            User User = database.GetUserPerLogin("admin@admin", "admin");
             Debug.WriteLine(User);
             if (User == null)
             {
@@ -63,7 +63,7 @@ namespace STAGIOPTR.ViewModels
         {
             Debug.WriteLine("user: "+ this.Email);
             Debug.WriteLine("password: "+ this.Password);
-            User User = database.getUserPerLogin(this.Email, this.Password);
+            User User = database.GetUserPerLogin(this.Email, this.Password);
             if (User.AccessLevel == 1)
                 LoginAsync<MainViewModel>();
             else

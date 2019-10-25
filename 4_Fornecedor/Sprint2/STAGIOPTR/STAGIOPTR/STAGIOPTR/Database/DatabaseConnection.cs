@@ -51,12 +51,12 @@ namespace STAGIOPTR.Database
             return _connection.Table<Patient>().Where(a => a.Name.Contains(word)).ToList();
         }
 
-        public Patient getPatientPerId(int Id)
+        public Patient GetPatientPerId(int Id)
         {
             return _connection.Table<Patient>().Where(a => a.Id == Id).FirstOrDefault();
         }
 
-        public Patient getPatientPerEmail(string Email)
+        public Patient GetPatientPerEmail(string Email)
         {
             return _connection.Table<Patient>().Where(a => a.Email == Email).FirstOrDefault();
         }
@@ -86,17 +86,17 @@ namespace STAGIOPTR.Database
             return _connection.Table<Food>().Where(a => a.Name.Contains(word)).ToList();
         }
 
-        public Food getFoodPerId(int Id)
+        public Food GetFoodPerId(int Id)
         {
             return _connection.Table<Food>().Where(a => a.Id == Id).FirstOrDefault();
         }
 
-        public Food getFoodPerName(string Name)
+        public Food GetFoodPerName(string Name)
         {
             return _connection.Table<Food>().Where(a => a.Name == Name).FirstOrDefault();
         }
 
-        public bool verifyFoodExist(string Name)
+        public bool VerifyFoodExist(string Name)
         {
             Food result = _connection.Table<Food>().Where(a => a.Name == Name).FirstOrDefault();
             if (result != null)
@@ -121,7 +121,7 @@ namespace STAGIOPTR.Database
             _connection.Insert(Sleep);
         }
 
-        public async Task<List<Sleep>> getSleep(int id)
+        public async Task<List<Sleep>> GetSleep(int id)
         {
             return _connection.Query<Sleep>("select *from Sleep where IdPatient=? order by SleepTime desc", id);
         }
@@ -132,7 +132,7 @@ namespace STAGIOPTR.Database
             _connection.Insert(Emotional);
         }
 
-        public async Task<List<Emotional>> getEmotional(int id)
+        public async Task<List<Emotional>> GetEmotional(int id)
         {
             return _connection.Query<Emotional>("select *from Emotional where IdPatient=? order by EmotionalTime desc",id);
         }
@@ -143,9 +143,30 @@ namespace STAGIOPTR.Database
             _connection.Insert(User);
         }
 
-        public User getUserPerLogin(string Email, string Password)
+        public User GetUserPerLogin(string Email, string Password)
         {
             return _connection.Table<User>().Where(a => a.Email == Email && a.Password == Password ).FirstOrDefault();
+        }
+
+        //CRUD LOGGED USER
+
+        public void InsertLoggedUser(UserLogged userLogged)
+        {
+            _connection.Insert(userLogged);
+        }
+
+
+        public Patient GetLoggedUser()
+        {
+            if (_connection.Table<UserLogged>().FirstOrDefault() == null)
+                return null;
+            int Id = _connection.Table<UserLogged>().FirstOrDefault().IdUser;
+            return _connection.Table<Patient>().Where(a => a.Id == Id).FirstOrDefault();
+        }
+
+        public void DeleteLoggedUser()
+        {
+            _connection.DeleteAll<UserLogged>();
         }
     }
 }

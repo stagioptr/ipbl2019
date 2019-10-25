@@ -11,7 +11,7 @@ namespace STAGIOPTR.ViewModels
     {
         DatabaseConnection database = new DatabaseConnection();
         public Patient Patient { get; }
-
+        public Command LogoutCommand { get; set; }
         public Command ShowFeedingCommand { get; set; }
         public Command ShowSleepCommand { get; set; }
         public Command ShowEmotionalCommand { get; set; }
@@ -22,6 +22,7 @@ namespace STAGIOPTR.ViewModels
         public PatientViewModel(Patient patient)
         {
             Patient = patient;
+            LogoutCommand = new Command(this.Logout);
             ShowFeedingCommand = new Command(ExecuteShowFeedingCommand);
             ShowSleepCommand = new Command(ExecuteShowSleepCommand);
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);
@@ -32,7 +33,8 @@ namespace STAGIOPTR.ViewModels
 
         public PatientViewModel(User User)
         {
-            this.Patient = database.getPatientPerId(User.IdPatient);
+            this.Patient = database.GetPatientPerId(User.IdPatient);
+            LogoutCommand = new Command(this.Logout);
             ShowFeedingCommand = new Command(ExecuteShowFeedingCommand);
             ShowSleepCommand = new Command(ExecuteShowSleepCommand);
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);

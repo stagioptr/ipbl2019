@@ -29,7 +29,7 @@ namespace STAGIOPTR.ViewModels
         public Patient Patient { get; }
 
         public Command AddFeedingCommand { get; }
-
+        public Command LogoutCommand { get; set; }
         public Command LoadFeedingsCommand { get; }
 
         private bool _isLoading;
@@ -45,6 +45,7 @@ namespace STAGIOPTR.ViewModels
         {
             this.Patient = Patient;
             this.Feedings = new ObservableCollection<Feeding>();
+            LogoutCommand = new Command(this.Logout);
             this.Feeding = new Feeding();
             this.IsLoading = true;
             _ = this.LoadAsync();

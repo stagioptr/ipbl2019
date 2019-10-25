@@ -6,6 +6,9 @@
              xmlns:helper="clr-namespace:STAGIOPTR.Helpers"
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.PatientUpdateView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Grid>

@@ -7,6 +7,7 @@
              x:Class="STAGIOPTR.Views.PatientFeedingView"
              Title="Registro de Alimentação">
     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
         <ToolbarItem Text="ADD" Command="{Binding AddFeedingCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

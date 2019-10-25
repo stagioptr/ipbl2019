@@ -15,7 +15,7 @@ namespace STAGIOPTR.ViewModels
         }
 
         DatabaseConnection database = new DatabaseConnection();
-
+        public Command LogoutCommand { get; set; }
         public Command UpdateFoodCommand { get; }
 
         public FoodUpdateViewModel()
@@ -26,6 +26,7 @@ namespace STAGIOPTR.ViewModels
         public FoodUpdateViewModel(Food Food)
         {
             this.Food = Food;
+            LogoutCommand = new Command(this.Logout);
             UpdateFoodCommand = new Command(ExecuteUpdateFoodCommand);
         }
 

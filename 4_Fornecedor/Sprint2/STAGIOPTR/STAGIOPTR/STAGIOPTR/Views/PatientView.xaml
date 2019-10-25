@@ -7,6 +7,7 @@
              x:Class="STAGIOPTR.Views.PatientView"
              Title="{Binding Patient.Name}">
     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
         <ToolbarItem Text="EDIT" Command="{Binding AlterPatientCommand}"/>
         <ToolbarItem Text="DEL" Command="{Binding DelPatientCommand}"/>
     </ContentPage.ToolbarItems>

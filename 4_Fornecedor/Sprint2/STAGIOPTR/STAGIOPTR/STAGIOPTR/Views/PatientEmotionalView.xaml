@@ -14,6 +14,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
         <ToolbarItem Text="ADD" Command="{Binding AddEmotionalCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

@@ -6,6 +6,9 @@
              xmlns:converter="clr-namespace:STAGIOPTR.Converters"
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.FoodAddView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:ValidationErrorsConverter x:Key="ValidationErrorsConverter"/>

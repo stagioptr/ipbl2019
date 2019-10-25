@@ -9,7 +9,7 @@ namespace STAGIOPTR.ViewModels
         private Food _food;
         DatabaseConnection database = new DatabaseConnection();
         public Command AddFoodCommand { get; }
-
+        public Command LogoutCommand { get; set; }
         public Food Food
         {
             get { return _food; }
@@ -28,6 +28,7 @@ namespace STAGIOPTR.ViewModels
         public FoodAddViewModel()
         {
             Food = new Food();
+            LogoutCommand = new Command(this.Logout);
             AddFoodCommand = new Command(ExecuteAddFoodCommand);
         }
 
@@ -50,7 +51,7 @@ namespace STAGIOPTR.ViewModels
                 validation = false;
             }
 
-            if(database.verifyFoodExist(this.Food.Name))
+            if(database.VerifyFoodExist(this.Food.Name))
             {
                 this.Errors = "Alimento já cadastrado";
                 validation = false;

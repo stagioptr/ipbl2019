@@ -10,7 +10,7 @@ namespace STAGIOPTR.ViewModels
     {
         DatabaseConnection database = new DatabaseConnection();
         private Patient _patient;
-
+        public Command LogoutCommand { get; set; }
         public Command VerySatisfiedCommand { get; }
         public Command SatisfiedCommand { get; }
         public Command NormalCommand { get; }
@@ -45,6 +45,7 @@ namespace STAGIOPTR.ViewModels
             this.Emotional = new Emotional();
             this.Emotional.EmotionalTime = DateTime.Now;
             this.EmotionalTime = DateTime.Now.TimeOfDay;
+            LogoutCommand = new Command(this.Logout);
             VerySatisfiedCommand = new Command(ExecuteVerySatisfiedCommand);
             SatisfiedCommand = new Command(ExecuteSatisfiedCommand);
             NormalCommand = new Command(ExecuteNormalCommand);

@@ -6,6 +6,9 @@
              mc:Ignorable="d"
              x:Class="STAGIOPTR.Views.EmotionalAddView"
              >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="15">
             <Grid>

@@ -26,13 +26,14 @@ namespace STAGIOPTR.ViewModels
             get { return _patientName; }
             set { SetProperty(ref _patientName, value); }
         }
-
+        public Command LogoutCommand { get; set; }
         public Command FeedingAddCommand { get; }
 
         public FeedingAddFoodTimeViewModel(Feeding Feeding)
         {
             this.Feeding = Feeding;
-            PatientName = database.getPatientPerId(Feeding.IdPatient).Name;
+            PatientName = database.GetPatientPerId(Feeding.IdPatient).Name;
+            LogoutCommand = new Command(this.Logout);
             FeedingAddCommand = new Command(ExecuteFeedingAddCommand);
         }
 

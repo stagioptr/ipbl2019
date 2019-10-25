@@ -15,7 +15,7 @@ namespace STAGIOPTR.ViewModels
         }
 
         DatabaseConnection database = new DatabaseConnection();
-
+        public Command LogoutCommand { get; set; }
         public Command DeletePatientCommand { get; }
 
         public PatientDeleteViewModel()
@@ -26,6 +26,7 @@ namespace STAGIOPTR.ViewModels
         public PatientDeleteViewModel(Patient Patient)
         {
             this.Patient = Patient;
+            LogoutCommand = new Command(this.Logout);
             DeletePatientCommand = new Command(ExecuteDeletePatientCommand);
         }
 

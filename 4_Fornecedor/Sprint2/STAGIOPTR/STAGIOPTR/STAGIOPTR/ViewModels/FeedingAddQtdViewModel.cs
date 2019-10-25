@@ -16,10 +16,11 @@ namespace STAGIOPTR.ViewModels
             set { _feeding = value; }
         }
         public Command FinalStepCommand { get; }
-
+        public Command LogoutCommand { get; set; }
         public FeedingAddQtdViewModel(Feeding Feeding)
         {
             this.Feeding = Feeding;
+            LogoutCommand = new Command(this.Logout);
             FinalStepCommand = new Command(ExecuteFinalStepCommandAsync);
         }
 

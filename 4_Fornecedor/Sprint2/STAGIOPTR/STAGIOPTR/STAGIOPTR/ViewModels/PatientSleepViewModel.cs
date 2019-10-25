@@ -19,7 +19,7 @@ namespace STAGIOPTR.ViewModels
         }
 
         public Command AddSleepCommand { get; }
-
+        public Command LogoutCommand { get; set; }
         public Command LoadSleepsCommand { get; }
 
         private Patient _patient;
@@ -42,6 +42,7 @@ namespace STAGIOPTR.ViewModels
         {
             this.Patient = Patient;
             this.Sleep = new ObservableCollection<Sleep>();
+            LogoutCommand = new Command(this.Logout);
             this.IsLoading = true;
             _ = this.LoadAsync();
             AddSleepCommand = new Command(ExecuteAddSleepCommand);
@@ -60,7 +61,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var sleeps = await database.getSleep(this.Patient.Id);
+            var sleeps = await database.GetSleep(this.Patient.Id);
             this.Sleep.Clear();
             foreach (var sleep in sleeps)
             {

@@ -11,7 +11,7 @@ namespace STAGIOPTR.ViewModels
     {
         DatabaseConnection database = new DatabaseConnection();
         private Patient _patient;
-
+        public Command LogoutCommand { get; set; }
         public Command VerySatisfiedCommand { get; }
         public Command SatisfiedCommand { get; }
         public Command NormalCommand { get; }
@@ -47,6 +47,7 @@ namespace STAGIOPTR.ViewModels
             this.Sleep = new Sleep();
             this.Sleep.SleepTime = DateTime.Now;
             this.SleepTime = DateTime.Now.TimeOfDay;
+            LogoutCommand = new Command(this.Logout);
             VerySatisfiedCommand = new Command(ExecuteVerySatisfiedCommand);
             SatisfiedCommand = new Command(ExecuteSatisfiedCommand);
             NormalCommand = new Command(ExecuteNormalCommand);

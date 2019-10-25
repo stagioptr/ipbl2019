@@ -3,7 +3,7 @@
 namespace STAGIOPTR.Models
 {
     [Table("UserLogged")]
-    class UserLogged
+    public class UserLogged
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

@@ -10,7 +10,7 @@ namespace STAGIOPTR.ViewModels
         private Patient _patient;
         DatabaseConnection database = new DatabaseConnection();
         public Command AddPatientCommand { get; }
-
+        public Command LogoutCommand { get; set; }
         public Patient Patient
         {
             get { return _patient; }
@@ -20,6 +20,7 @@ namespace STAGIOPTR.ViewModels
         public PatientAddViewModel()
         {
             Patient = new Patient();
+            LogoutCommand = new Command(this.Logout);
             AddPatientCommand = new Command(ExecuteAddPatientCommand);
         }
 

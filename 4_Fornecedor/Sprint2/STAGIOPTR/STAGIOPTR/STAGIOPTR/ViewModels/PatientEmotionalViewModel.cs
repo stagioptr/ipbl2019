@@ -18,7 +18,7 @@ namespace STAGIOPTR.ViewModels
         }
 
         private Patient _patient;
-
+        public Command LogoutCommand { get; set; }
         public Command AddEmotionalCommand { get; }
 
         public Command LoadEmotionalsCommand { get; }
@@ -41,6 +41,7 @@ namespace STAGIOPTR.ViewModels
         {
             this.Patient = Patient;
             this.Emotional = new ObservableCollection<Emotional>();
+            LogoutCommand = new Command(this.Logout);
             this.IsLoading = true;
             _ = this.LoadAsync();
             AddEmotionalCommand = new Command(ExecuteAddEmotionalCommand);
@@ -59,7 +60,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var emotionals = await database.getEmotional(this.Patient.Id);
+            var emotionals = await database.GetEmotional(this.Patient.Id);
             this.Emotional.Clear();
             foreach (var emotional in emotionals)
             {

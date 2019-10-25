@@ -32,7 +32,7 @@ namespace STAGIOPTR.ViewModels
         }
 
         public Command SelectItemVerify { get; }
-
+        public Command LogoutCommand { get; set; }
         public Command LoadFoodsCommand { get; }
 
         private bool _isLoading;
@@ -47,6 +47,7 @@ namespace STAGIOPTR.ViewModels
         {
             this.Feeding = Feeding;
             Foods = new ObservableCollection<Food>();
+            LogoutCommand = new Command(this.Logout);
             this.IsLoading = true;
             _ = this.LoadAsync();
             FoodSelected = new Food();
