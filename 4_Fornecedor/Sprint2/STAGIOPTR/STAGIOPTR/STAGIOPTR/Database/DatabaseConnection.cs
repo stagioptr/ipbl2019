@@ -56,6 +56,11 @@ namespace STAGIOPTR.Database
             return _connection.Table<Patient>().Where(a => a.Id == Id).FirstOrDefault();
         }
 
+        public Patient GetPatientPerCPF(string CPF)
+        {
+            return _connection.Table<Patient>().Where(a => a.CPF == CPF).FirstOrDefault();
+        }
+
         public Patient GetPatientPerEmail(string Email)
         {
             return _connection.Table<Patient>().Where(a => a.Email == Email).FirstOrDefault();

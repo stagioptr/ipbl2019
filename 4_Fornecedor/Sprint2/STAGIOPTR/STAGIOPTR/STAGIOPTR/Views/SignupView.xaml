@@ -14,6 +14,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -23,6 +24,7 @@
                 <Label VerticalOptions="Center" Text="CPF:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
                 <Label VerticalOptions="Center" Text="Email:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
                 <Label VerticalOptions="Center" Text="Password:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="CPF do Paciente:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold"/>
                 <Entry Placeholder="Nome" Text="{Binding User.Name}" Grid.Row="0" Grid.Column="1"/>
                 <Entry Placeholder="CPF" Keyboard="Numeric" Text="{Binding User.CPF, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1">
                     <Entry.Behaviors>
@@ -35,8 +37,13 @@
                     </Entry.Behaviors>
                 </Entry>
                 <Entry Placeholder="Password" IsPassword="True" Text="{Binding User.Password, Mode=OneWayToSource}" Grid.Row="3" Grid.Column="1"/>
+                <Entry Placeholder="CPF" Keyboard="Numeric" Text="{Binding CPFPatient, Mode=OneWayToSource}" Grid.Row="4" Grid.Column="1">
+                    <Entry.Behaviors>
+                        <helper:MaskBehaviorEntry MaskType="Cpf" MaxLength="11"/>
+                    </Entry.Behaviors>
+                </Entry>
             </Grid>
-            <Button VerticalOptions="EndAndExpand" Text="PRÓXIMO" Style="{StaticResource ButtonSuccess}" Command="{Binding AddPatientUserCommand}"/>
+            <Button VerticalOptions="EndAndExpand" Text="CADASTRAR" Command="{Binding SignUpCommand}" Style="{StaticResource ButtonPrimary}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

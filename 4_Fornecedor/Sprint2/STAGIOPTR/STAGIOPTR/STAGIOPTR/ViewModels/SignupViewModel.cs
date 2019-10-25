@@ -7,8 +7,8 @@ namespace STAGIOPTR.ViewModels
     public class SignupViewModel : BaseViewModel
     {
         DatabaseConnection database = new DatabaseConnection();
-
-        public Command AddPatientUserCommand { get; }
+        
+        public Command SignUpCommand { get; }
 
         private User _user;
 
@@ -18,16 +18,39 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _user, value); }
         }
 
+        private string _cpfPatient;
+
+        public string CPFPatient
+        {
+            get { return _cpfPatient; }
+            set { SetProperty(ref _cpfPatient, value); }
+        }
+
+
         public SignupViewModel()
         {
             User = new User();
-            AddPatientUserCommand = new Command(ExecuteAddPatientUserCommand);
+            SignUpCommand = new Command(ExecuteSignUpCommand);
         }
 
-        private async void ExecuteAddPatientUserCommand()
+        public void ExecuteSignUpCommand()
         {
+            Patient Patient = database.GetPatientPerCPF(this.CPFPatient);
+            this.User.IdPatient = Patient.Id;
+            this.User.Patient = Patient;
             this.User.AccessLevel = 4;
-            await PushAsync<UserPatientViewModel>(this.User);
+            database.InsertUsers(this.User);
+            this.Login();
+        }
+
+        public void Login()
+        {
+            database.InsertLoggedUser(new UserLogged
+            {
+                IdUser = this.User.Id,
+                User = this.User
+            });
+            LoginAsync<PatientViewModel>(this.User);
         }
 
     }
