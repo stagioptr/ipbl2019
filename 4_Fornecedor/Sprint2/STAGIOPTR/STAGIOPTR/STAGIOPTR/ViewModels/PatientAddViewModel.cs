@@ -34,7 +34,7 @@ namespace STAGIOPTR.ViewModels
                 Email = this.Patient.Email,
                 Password = "paciente",
                 AccessLevel = 3,
-                IdPatient = 0
+                IdPatient = this.Patient.Id
             };
             this.database.InsertUsers(User);
             Application.Current.MainPage.Navigation.PopAsync();

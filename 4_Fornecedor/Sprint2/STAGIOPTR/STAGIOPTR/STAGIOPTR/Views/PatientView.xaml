@@ -8,7 +8,7 @@
              Title="{Binding Patient.Name}">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
-        <ToolbarItem Text="EDIT" Command="{Binding AlterPatientCommand}"/>
+        <ToolbarItem Text="EDIT" Command="{Binding AlterPatientCommand}" />
         <ToolbarItem Text="DEL" Command="{Binding DelPatientCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -54,7 +54,7 @@
                         <ColumnDefinition Width="64"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ImageButton Command="{Binding ShowFeedingCommand}" CornerRadius="10" Source="food.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <ImageButton IsEnabled="{Binding ValidationSettings}" Command="{Binding ShowFeedingCommand}" CornerRadius="10" Source="food.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
                     <Label Text="Alimentação" TextColor="{StaticResource Primary}" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
                     <Label Text="Ultima: " Grid.Row="1" Grid.Column="1"/>
                 </Grid>
@@ -69,7 +69,7 @@
                         <ColumnDefinition Width="64"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ImageButton Command="{Binding ShowSleepCommand}" CornerRadius="10" Source="nightstay.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <ImageButton IsEnabled="{Binding ValidationSettings}" Command="{Binding ShowSleepCommand}" CornerRadius="10" Source="nightstay.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
                     <Label Text="Qualidade de sono" TextColor="{StaticResource Primary}" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
                     <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
@@ -84,12 +84,12 @@
                         <ColumnDefinition Width="64"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ImageButton Command="{Binding ShowEmotionalCommand}" CornerRadius="10" Source="mood.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
+                    <ImageButton IsEnabled="{Binding ValidationSettings}" Command="{Binding ShowEmotionalCommand}" CornerRadius="10" Source="mood.png" BackgroundColor="{StaticResource Primary}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="64" WidthRequest="64"/>
                     <Label Text="Emocional" TextColor="{StaticResource Primary}" Font="Bold"  Grid.Row="0" Grid.Column="1"/>
                     <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </Frame>
-            <Button Text="HELP ME PLEASE ! ! !" Style="{StaticResource ButtonDanger}" Command="{Binding CallCommand}"/>
+            <Button Text="HELP ME PLEASE ! ! !" Style="{StaticResource ButtonDanger}" Command="{Binding CallCommand}" IsVisible="{Binding ValidationButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

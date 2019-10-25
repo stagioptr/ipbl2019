@@ -156,12 +156,12 @@ namespace STAGIOPTR.Database
         }
 
 
-        public Patient GetLoggedUser()
+        public User GetLoggedUser()
         {
             if (_connection.Table<UserLogged>().FirstOrDefault() == null)
                 return null;
             int Id = _connection.Table<UserLogged>().FirstOrDefault().IdUser;
-            return _connection.Table<Patient>().Where(a => a.Id == Id).FirstOrDefault();
+            return _connection.Table<User>().Where(a => a.Id == Id).FirstOrDefault();
         }
 
         public void DeleteLoggedUser()

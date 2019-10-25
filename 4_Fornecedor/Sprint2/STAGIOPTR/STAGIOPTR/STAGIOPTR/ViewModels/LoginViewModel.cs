@@ -21,6 +21,14 @@ namespace STAGIOPTR.ViewModels
             set { SetProperty(ref _user, value); }
         }
 
+        private string _errors;
+
+        public string Errors
+        {
+            get { return _errors; }
+            set { SetProperty(ref _errors, value); }
+        }
+
         private string _email;
 
         public string Email
@@ -63,16 +71,35 @@ namespace STAGIOPTR.ViewModels
         {
             Debug.WriteLine("user: "+ this.Email);
             Debug.WriteLine("password: "+ this.Password);
-            User User = database.GetUserPerLogin(this.Email, this.Password);
-            if (User.AccessLevel == 1)
-                LoginAsync<MainViewModel>();
-            else
-                LoginAsync<PatientViewModel>(User);
+            User User = this.ValidationRules();
+            if (User != null)
+            {
+                if(User.AccessLevel==1)
+                    LoginAsync<MainViewModel>();
+                else
+                    LoginAsync<PatientViewModel>(User);
+            }
         }
 
         private async void ExecuteSignupCommand()
         {
             await PushAsync<SignupViewModel>();
+        }
+
+
+        private User ValidationRules()
+        {
+            User User = database.GetUserPerLogin(this.Email, this.Password);
+            if (User == null)
+            {
+                this.Errors = "E-mail ou senha inválidos!";
+                return null;
+            }
+            database.InsertLoggedUser(new UserLogged{
+                IdUser = User.Id,
+                User = User
+            });;
+            return User;
         }
     }
 }
