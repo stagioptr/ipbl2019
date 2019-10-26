@@ -11,6 +11,8 @@ broker_info = {
   'port': 1883,
 }
 
+init_devices = list()
+
 def start(sleep_interval, execution_count=-1):
   while True:
     for device in devices():
@@ -21,12 +23,12 @@ def start(sleep_interval, execution_count=-1):
     time.sleep(sleep_interval)
 
 def devices():
-  d = list()
-  d.append(generate_device('humidity', (40, 90), 'HR'))
-  d.append(generate_device('temperature', (15, 35), 'C'))
-  d.append(generate_device('heartrate', (60, 110), 'bpm'))
-  d.append(generate_device('accelerometer', (0, 10), 'km/h'))
-  return d
+  if len(init_devices) == 0:
+    init_devices.append(generate_device('humidity', (40, 90), 'HR'))
+    init_devices.append(generate_device('temperature', (15, 35), 'C'))
+    init_devices.append(generate_device('heartrate', (60, 110), 'bpm'))
+    init_devices.append(generate_device('accelerometer', (0, 10), 'km/h'))
+  return init_devices
 
 def generate_uuid(preffix):
   id = uuid.uuid1()
