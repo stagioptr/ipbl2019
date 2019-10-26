@@ -11,10 +11,13 @@ broker_info = {
   'port': 1883,
 }
 
-def start(sleep_interval):
+def start(sleep_interval, execution_count=-1):
   while True:
     for device in devices():
       device.publish()
+    execution_count += -1 if execution_count > 0 else 0
+    if execution_count == 0:
+      break
     time.sleep(sleep_interval)
 
 def devices():
@@ -52,4 +55,9 @@ def generate_topic(topic):
   return new_info
 
 if __name__ == "__main__":
-  start(5)
+  import sys
+  if len(sys.argv) > 1:
+    exec_times = int(sys.argv[1])
+    start(5, exec_times)
+  else:
+    start(5)
