@@ -8,11 +8,15 @@ class Accelerometer(BaseDevice.BaseDevice):
     super().configure(broker_info)
 
   def format_message(self, kwargs):
-    return {
+    msg = {
       'deviceid': self.uuid,
       'time': datetime.today().strftime('%Y%m%d%H%M%S%f'),
       'value': kwargs['value'],
+      'unit': kwargs['ue'],
     }
+    if random.getrandbits(1) == 1:
+      del msg['unit']
+    return msg
 
   def publish(self):
     value = super().get_value()
