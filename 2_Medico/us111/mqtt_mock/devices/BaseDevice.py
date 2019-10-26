@@ -3,10 +3,11 @@ import paho.mqtt.publish as publish
 import random
 
 class BaseDevice():
-  def __init__(self, uuid, range_min, range_max):
+  def __init__(self, uuid, range_min, range_max, ue):
     self.uuid = uuid
     self.range_min = range_min
     self.range_max = range_max
+    self.ue = ue
 
   def configure(self, broker_info):
     self.broker_info = broker_info
@@ -21,7 +22,7 @@ class BaseDevice():
     topic = self.broker_info['topic']
     broker = self.broker_info['broker']
     port = self.broker_info['port']
-    kwargs = {"value": value}
+    kwargs = {'value': value, 'ue': self.ue}
     msg = formatter_func(kwargs)
-    print(f"Sending {value} from {self.uuid} to {broker}:{port}/{topic}")
+    print(f"Sending {value}({self.ue}) from {self.uuid} to {broker}:{port}/{topic}")
     publish.single(topic, str(msg), hostname=broker)
