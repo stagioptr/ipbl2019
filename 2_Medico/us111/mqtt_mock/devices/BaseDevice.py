@@ -19,10 +19,11 @@ class BaseDevice():
     return self.uuid
 
   def publish(self, value, formatter_func):
+    import json
     topic = self.broker_info['topic']
     broker = self.broker_info['broker']
     port = self.broker_info['port']
     kwargs = {'value': value, 'ue': self.ue}
-    msg = formatter_func(kwargs)
+    msg = json.dumps(formatter_func(kwargs))
     print(f"Sending {value}({self.ue}) from {self.uuid} to {broker}:{port}/{topic}")
     publish.single(topic, str(msg), hostname=broker)
