@@ -31,7 +31,7 @@ def devices():
   return init_devices
 
 def generate_uuid(preffix):
-  id = uuid.uuid1()
+  id = uuid.uuid4()
   return f"{preffix}_{id}"
 
 def generate_device(device_type, range_tuple, ue):
