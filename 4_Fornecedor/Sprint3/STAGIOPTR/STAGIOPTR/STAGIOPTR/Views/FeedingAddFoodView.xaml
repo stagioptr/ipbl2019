@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.FeedingAddFoodView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Foods}"
+                SelectedItem="{Binding FoodSelected}"                
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadFoodsCommand}"
+                IsRefreshing="{Binding IsLoading}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Próximo" Command="{Binding SelectItemVerify}" Style="{StaticResource ButtonSuccess}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

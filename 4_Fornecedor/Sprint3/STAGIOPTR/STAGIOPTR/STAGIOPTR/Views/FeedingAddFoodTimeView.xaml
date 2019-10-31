@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.FeedingAddFoodTimeView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Frame CornerRadius="10" BorderColor="{StaticResource Primary}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalOptions="Center" Text="Paciente:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Quantidade:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Alimento:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label VerticalOptions="Center" Text="Horário:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label Text="{Binding PatientName}" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="{Binding Feeding.qtd}" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="{Binding Feeding.Food}" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="{Binding Feeding.FoodTime}" Grid.Row="3" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Button VerticalOptions="EndAndExpand" Text="CONFIRMAR ALIMENTAÇÃO" Command="{Binding FeedingAddCommand}" Style="{StaticResource ButtonPrimary}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
