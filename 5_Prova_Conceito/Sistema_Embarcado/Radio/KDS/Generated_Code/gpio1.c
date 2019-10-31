@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-20, 18:31, # CodeGen: 27
+**     Date/Time   : 2019-10-30, 11:13, # CodeGen: 39
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -55,15 +55,9 @@
 #include "gpio1.h"
 #include <stdbool.h>
 
-const gpio_input_pin_user_config_t gpio1_InpConfig0[] = {
+const gpio_input_pin_user_config_t gpio1_InpRadio1[] = {
   {
-    .pinName = J1_6,
-    .config.isPullEnable = true, 
-    .config.isPassiveFilterEnabled = true,
-    .config.interrupt = kPortIntFallingEdge
-  },
-  {
-    .pinName = J1_12,
+    .pinName = IRQ_Radio1,
     .config.isPullEnable = true, 
     .config.isPassiveFilterEnabled = true,
     .config.interrupt = kPortIntFallingEdge
@@ -73,42 +67,66 @@ const gpio_input_pin_user_config_t gpio1_InpConfig0[] = {
   }
 };
       
-const gpio_output_pin_user_config_t gpio1_OutConfig0[] = {
+const gpio_input_pin_user_config_t gpio1_InpRadio2[] = {
   {
-    .pinName = J2_6,
-    .config.outputLogic = 1,
-    .config.slewRate = kPortFastSlewRate,
-    .config.driveStrength = kPortHighDriveStrength,
+    .pinName = IRQ_Radio2,
+    .config.isPullEnable = true, 
+    .config.isPassiveFilterEnabled = true,
+    .config.interrupt = kPortIntFallingEdge
   },
   {
-    .pinName = J2_2,
-    .config.outputLogic = 1,
-    .config.slewRate = kPortFastSlewRate,
-    .config.driveStrength = kPortHighDriveStrength,
-  },
-  {
-    .pinName = J1_8,
-    .config.outputLogic = 1,
-    .config.slewRate = kPortFastSlewRate,
-    .config.driveStrength = kPortHighDriveStrength,
-  },
-  {
-    .pinName = J1_10,
-    .config.outputLogic = 1,
-    .config.slewRate = kPortFastSlewRate,
-    .config.driveStrength = kPortHighDriveStrength,
-  },
+    .pinName = GPIO_PINS_OUT_OF_RANGE,
+  }
+};
+      
+const gpio_output_pin_user_config_t gpio1_OutLEDs[] = {
   {
     .pinName = LEDRGB_GREEN,
     .config.outputLogic = 1,
-    .config.slewRate = kPortSlowSlewRate,
-    .config.driveStrength = kPortLowDriveStrength,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
   },
   {
     .pinName = LEDRGB_RED,
     .config.outputLogic = 1,
-    .config.slewRate = kPortSlowSlewRate,
-    .config.driveStrength = kPortLowDriveStrength,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
+  },
+  {
+    .pinName = GPIO_PINS_OUT_OF_RANGE,
+  }
+};
+      
+const gpio_output_pin_user_config_t gpio1_OutRadio1[] = {
+  {
+    .pinName = CSN_Radio1,
+    .config.outputLogic = 1,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
+  },
+  {
+    .pinName = CE_Radio1,
+    .config.outputLogic = 1,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
+  },
+  {
+    .pinName = GPIO_PINS_OUT_OF_RANGE,
+  }
+};
+      
+const gpio_output_pin_user_config_t gpio1_OutRadio2[] = {
+  {
+    .pinName = CSN_Radio2,
+    .config.outputLogic = 1,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
+  },
+  {
+    .pinName = CE_Radio2,
+    .config.outputLogic = 1,
+    .config.slewRate = kPortFastSlewRate,
+    .config.driveStrength = kPortHighDriveStrength,
   },
   {
     .pinName = GPIO_PINS_OUT_OF_RANGE,

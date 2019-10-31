@@ -38,6 +38,7 @@ extern "C" {
 #endif
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
+#include "string.h"
 #include "nRF24L01_API.h"
 
 extern semaphore_t nRF24L01_Radio1_IRQ;
@@ -54,7 +55,7 @@ extern semaphore_t nRF24L01_Radio2_IRQ;
  */
 void TaskRadio2_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
-	uint8_t transmitPayload[16] = "Trasmitindo2...";
+	uint8_t transmitPayload[16] = "Trasmitindo2";
 	uint8_t receivePayload[16] = "\0";
 
 	NRF24L01_transferSetupStruct_t transmitSetup = {
@@ -89,6 +90,7 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
 	/* Write your code here ... */
 		if( xSemaphoreTake( nRF24L01_Radio2_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
 //		while(1);
+			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
 		radio2_status = nRF24L01_readStatus();
@@ -99,12 +101,15 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
 
 		if( radio2_status & TX_DS ) {
 			L01_Clear_IRQ( TX_DS );
+			memset(receivePayload, 0, 16);
 			nRF24L01_receivePayload( &receiveSetup );
 		}
 
 		if( radio2_status & RX_DR ) {
 			L01_Read_RX_Pload( receivePayload );
 			L01_Clear_IRQ( RX_DR );
+			if( memcmp( receivePayload, "Trasmitindo1", 16) != 0 )
+				GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 			OSA_TimeDelay(100); /* Example code (for task release) */
 			nRF24L01_transmitPayload( &transmitSetup );
 		}
@@ -125,7 +130,7 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
  */
 void TaskRadio1_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
-	uint8_t transmitPayload[16] = "Trasmitindo1...";
+	uint8_t transmitPayload[16] = "Trasmitindo1";
 	uint8_t receivePayload[16] = "\0";
 
 	NRF24L01_transferSetupStruct_t transmitSetup = {
@@ -158,6 +163,7 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
 //			while(1);
+			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
 		radio1_status = nRF24L01_readStatus();
@@ -168,12 +174,15 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 		if( radio1_status & TX_DS ) {
 			L01_Clear_IRQ( TX_DS );
+			memset(receivePayload, 0, 16);
 			nRF24L01_receivePayload( &receiveSetup );
 		}
 
 		if( radio1_status & RX_DR ) {
 			L01_Read_RX_Pload( receivePayload );
 			L01_Clear_IRQ( RX_DR );
+			if( memcmp( receivePayload, "Trasmitindo2", 16) != 0 )
+				GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 			OSA_TimeDelay(100); /* Example code (for task release) */
 			nRF24L01_transmitPayload( &transmitSetup );
 		}

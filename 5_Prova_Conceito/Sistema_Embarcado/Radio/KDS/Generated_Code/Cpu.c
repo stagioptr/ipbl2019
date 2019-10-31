@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-20, 19:47, # CodeGen: 30
+**     Date/Time   : 2019-10-30, 10:43, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -110,7 +110,7 @@ void Components_Init(void)
 {
 
   /*! gpio1 Auto initialization start */
-  GPIO_DRV_Init(NULL,gpio1_OutConfig0);
+  GPIO_DRV_Init(NULL,gpio1_OutLEDs);
   /*! gpio1 Auto initialization end */
   
   /*! TaskRadio1 Auto initialization start */ 
