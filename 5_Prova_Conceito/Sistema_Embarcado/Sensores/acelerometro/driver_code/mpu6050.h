@@ -36,6 +36,23 @@
 #define MPU6050_GYRO_ZOUT_H 0x47
 
 #define MPU6050_PWR_MGMT_1 0x6B
+
+//Gyro config						//Full Scale Range| LSB Sensitivity
+#define MPU6050_GYRO_FS_250         0x00 //± 250 °/s  | 131 LSB/°/s
+#define MPU6050_GYRO_FS_500         0x01 //± 500 °/s  | 65.5 LSB/°/s
+#define MPU6050_GYRO_FS_1000        0x02 //± 1000 °/s | 32.8 LSB/°/s
+#define MPU6050_GYRO_FS_2000        0x03 //± 2000 °/s | 16.4 LSB/°/s
+
+//Acceleration (G)					//Full Scale Range | LSB Sensitivity
+#define MPU6050_ACCEL_FS_2          0x00 //±2g 	       | 16384 LSB/g
+#define MPU6050_ACCEL_FS_4          0x01 //±4g 		   | 8192 LSB/g
+#define MPU6050_ACCEL_FS_8          0x02 //±8g 		   | 4096 LSB/g
+#define MPU6050_ACCEL_FS_16         0x03 //±16g 	   | 2048 LSB/g
+
+//Free Fall
+#define MPU6050_FF_THR 0x1D
+#define MPU6050_FF_DUR 0x1E
+
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
 
 uint8_t MPU6050_Deinit(void);
@@ -67,6 +84,8 @@ uint8_t MPU6050_GetAccelXYZ(uint8_t* x, uint8_t* y, uint8_t* z);
 uint8_t MPU6050_GetGyroXYZ(uint8_t* x, uint8_t* y, uint8_t* z);
 
 uint8_t MPU6050_GetTemperature(void);
+
+uint8_t MPU6050_GetFreeFallDetectionThreshold(uint8_t* threshold);
 
 uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val);
 

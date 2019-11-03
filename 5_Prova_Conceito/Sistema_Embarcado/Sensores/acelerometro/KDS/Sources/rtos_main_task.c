@@ -68,8 +68,10 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t g_y;
 	uint8_t g_z;
 	uint8_t temperature;
+	uint8_t free_fall_threshold;
 	uint8_t accelGetXYZ_status_code;
 	uint8_t gyroGetXYZ_status_code;
+	uint8_t free_fall_status_code;
 	int teste;
 	int cont = 0;
 
@@ -120,6 +122,13 @@ void main_task(os_task_param_t task_init_data)
 
 		  //Get Temperature
 		  temperature = MPU6050_GetTemperature();
+
+		  //Free fall detection
+		  free_fall_status_code = MPU6050_GetFreeFallDetectionThreshold(&free_fall_threshold);
+		  if (&free_fall_threshold == 0){
+
+		  }
+
 		  OSA_TimeDelay(10);                 /* Example code (for task release) */
 
 	    }

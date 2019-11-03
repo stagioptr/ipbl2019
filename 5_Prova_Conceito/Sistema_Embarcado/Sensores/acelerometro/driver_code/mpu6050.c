@@ -68,8 +68,8 @@ uint8_t MPU6050_Init(void)
 	uint8_t pwr = 0x00;
 	uint8_t smplrt = 0x13;
 	uint8_t config = 0x02;
-	uint8_t gyro_config = 0x18;
-	uint8_t accel_config = 0x01;
+	uint8_t gyro_config = MPU6050_GYRO_FS_250;
+	uint8_t accel_config = MPU6050_ACCEL_FS_2;
 	uint8_t interrupt_config = 0x30;
 	uint8_t interrupt_enable = 0x01;
 
@@ -202,6 +202,17 @@ uint8_t MPU6050_GetTemperature()
     } else {
     	return kStatus_I2C_Fail;
     }
+}
+
+uint8_t MPU6050_GetFreeFallDetectionThreshold(uint8_t* threshold) {
+	uint8_t buffer;
+
+	if (MPU6050_ReadReg8( MPU6050_GYRO_XOUT_H, &buffer ) != kStatus_I2C_Success){
+		return kStatus_I2C_Fail;
+	} else {
+		*threshold = buffer;
+		return kStatus_I2C_Success;
+	}
 }
 
 uint8_t init_example(){

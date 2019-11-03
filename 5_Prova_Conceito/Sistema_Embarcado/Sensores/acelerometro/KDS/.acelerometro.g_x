@@ -175,7 +175,7 @@
       <File Name="SDK/rtos/FreeRTOS/port/gcc/port.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320210" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/src/heap_2.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320241" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/include/projdefs.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320179" FileType="1048576" CompNumb="19" />
-      <File Name="Sources/rtos_main_task.c" FileDate="2019-10-21, 17:41:08" FileAge="1571690468627" FileType="131328" />
+      <File Name="Sources/rtos_main_task.c" FileDate="2019-11-02, 23:02:16" FileAge="1572746536307" FileType="131328" />
       <File Name="SDK/platform/hal/src/uart/fsl_uart_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212139" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portmacro.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320226" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/src/heap_1.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320241" FileType="1048576" CompNumb="19" />
@@ -280,5 +280,5 @@
       <File Name="SDK/platform/drivers/src/gpio/fsl_gpio_driver.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891583" FileType="1048576" CompNumb="21" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>21</CodeGenReference>
+  <CodeGenReference>23</CodeGenReference>
 </CodeGenerationInfo>
