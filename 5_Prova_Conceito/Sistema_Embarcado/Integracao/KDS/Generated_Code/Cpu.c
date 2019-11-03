@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-23, 00:38, # CodeGen: 15
+**     Date/Time   : 2019-10-31, 19:57, # CodeGen: 21
 **     Abstract    :
 **
 **     Settings    :
@@ -132,9 +132,9 @@ void Components_Init(void)
   TPM_DRV_PwmStart(tpmTmr2_IDX, &tpmTmr2_ChnConfig1, 1U);
   /*! tpmTmr2 Auto initialization end */
   
-  /*! Sensor Auto initialization start */ 
-  (void)Sensor_Init();
-  /*! Sensor Auto initialization end */                       
+  /*! tempSensor Auto initialization start */ 
+  (void)tempSensor_Init();
+  /*! tempSensor Auto initialization end */                       
   /*! DbgCs1 Auto initialization start */
   /* Enable clock source for LPSCI - bitfield UART0 within SIM_SOPT2 */
   CLOCK_SYS_SetLpsciSrc(BOARD_DEBUG_UART_INSTANCE,kClockLpsciSrcPllFllSel);
@@ -144,6 +144,20 @@ void Components_Init(void)
   /*! Radio Auto initialization start */ 
   (void)Radio_Init();
   /*! Radio Auto initialization end */                       
+  /*! spiTemp Auto initialization start */
+  SPI_DRV_MasterInit(spiTemp_IDX, &spiTemp_MasterState);
+  SPI_DRV_MasterConfigureBus(spiTemp_IDX, &spiTemp_MasterConfig0, &spiTemp_calculatedBaudRate);
+  /*! spiTemp Auto initialization end */
+  
+  /*! gpio Auto initialization start */
+  GPIO_DRV_Init(NULL,NULL);
+  /*! gpio Auto initialization end */
+  
+  /*! spiRadio Auto initialization start */
+  SPI_DRV_MasterInit(spiRadio_IDX, &spiRadio_MasterState);
+  SPI_DRV_MasterConfigureBus(spiRadio_IDX, &spiRadio_MasterConfig0, &spiRadio_calculatedBaudRate);
+  /*! spiRadio Auto initialization end */
+  
 }
 #endif /* CPU_COMPONENTS_INIT */
 

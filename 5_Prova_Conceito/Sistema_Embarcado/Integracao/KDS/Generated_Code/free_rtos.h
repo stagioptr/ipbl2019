@@ -7,7 +7,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-12, 13:51, # CodeGen: 10
+**     Date/Time   : 2019-10-31, 18:21, # CodeGen: 17
 **     Contents    :
 **         xCoRoutineCreate               - BaseType_t xCoRoutineCreate(crCOROUTINE_CODE pxCoRoutineCode,UBaseType_t...
 **         crDELAY                        - void crDELAY(CoRoutineHandle_t xHandle ,TickType_t xTicksToDelay);
@@ -170,6 +170,7 @@
                           }  
 #define PEX_USE_RTOS 
 
+#define free_rtos_vApplicationIdleHook vApplicationIdleHook
 
 typedef void * os_task_param_t;
 

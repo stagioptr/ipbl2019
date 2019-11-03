@@ -6,7 +6,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:58, # CodeGen: 7
+**     Date/Time   : 2019-10-31, 18:21, # CodeGen: 17
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -59,7 +59,7 @@
 #define configGENERATE_RUN_TIME_STATS            0 /* 1: generate runtime statistics; 0: no runtime statistics */
 
 #define configUSE_PREEMPTION                     1 /* 1: pre-emptive mode; 0: cooperative mode */
-#define configUSE_IDLE_HOOK                      0 /* 1: use Idle hook; 0: no Idle hook */
+#define configUSE_IDLE_HOOK                      1 /* 1: use Idle hook; 0: no Idle hook */
 #define configUSE_TICK_HOOK                      0 /* 1: use Tick hook; 0: no Tick hook */
 #define configUSE_MALLOC_FAILED_HOOK             0 /* 1: use MallocFailed hook; 0: no MallocFailed hook */
 #define configTICK_RATE_HZ                       200 /* frequency of tick interrupt */

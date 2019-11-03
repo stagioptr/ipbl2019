@@ -41,6 +41,7 @@
 #include "gpio1.h"
 #include "TaskRadio1.h"
 #include "TaskRadio2.h"
+#include "DbgCs1.h"
 
 #ifdef __cplusplus
 extern "C" {

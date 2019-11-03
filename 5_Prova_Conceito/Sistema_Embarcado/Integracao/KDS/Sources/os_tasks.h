@@ -11,7 +11,7 @@
 **         Put your event handler code here.
 **     Settings    :
 **     Contents    :
-**         Sensor_task - void Sensor_task(os_task_param_t task_init_data);
+**         tempSensor_task - void tempSensor_task(os_task_param_t task_init_data);
 **
 ** ###################################################################*/
 /*!
@@ -39,9 +39,12 @@
 #include "rtcTimer1.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
-#include "Sensor.h"
+#include "tempSensor.h"
 #include "DbgCs1.h"
 #include "Radio.h"
+#include "spiTemp.h"
+#include "gpio.h"
+#include "spiRadio.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -49,14 +52,14 @@ extern "C" {
 
 /*
 ** ===================================================================
-**     Callback    : Sensor_task
+**     Callback    : tempSensor_task
 **     Description : Task function entry.
 **     Parameters  :
 **       task_init_data - OS task parameter
 **     Returns : Nothing
 ** ===================================================================
 */
-void Sensor_task(os_task_param_t task_init_data);
+void tempSensor_task(os_task_param_t task_init_data);
 
 
 /*

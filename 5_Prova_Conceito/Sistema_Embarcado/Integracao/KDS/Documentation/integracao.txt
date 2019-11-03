@@ -130,6 +130,14 @@ Module "pin_init"  (component PinSettings)
                 provides pin initialization for selected pins during processor start-up. Selected pins are either user selected 
                 pins or pins selected in pin properties in components.  Only pins of devices  enabled for auto initialization 
                 are handled within this method.
+   - pin_init_init_gpio_pins -GPIO method configures registers according to settings  of routing and electrical features. This 
+                method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
+                selected pins or pins selected in pin items in components. Call this method code to route desired pins into 
+                GPIOA, GPIOB, GPIOC, GPIOD, GPIOE peripherals.
+   - pin_init_deinit_gpio_pins -GPIO method de-configures registers according to settings of routing. This method is enabled 
+                only if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or 
+                pins selected in pin items in components. Call this method code to un-route desired pins into GPIOA, GPIOB, 
+                GPIOC, GPIOD, GPIOE peripherals.
    - pin_init_init_osc_pins -OSC method configures registers according to settings  of routing and electrical features. This 
                 method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
                 selected pins or pins selected in pin items in components. Call this method code to route desired pins into 
@@ -144,6 +152,13 @@ Module "pin_init"  (component PinSettings)
    - pin_init_deinit_rcm_pins -RCM method de-configures registers according to settings of routing. This method is enabled only 
                 if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or pins 
                 selected in pin items in components. Call this method code to un-route desired pins into RCM peripheral.
+   - pin_init_init_spi_pins -SPI method configures registers according to settings  of routing and electrical features. This 
+                method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
+                selected pins or pins selected in pin items in components. Call this method code to route desired pins into 
+                SPI0, SPI1 peripherals.
+   - pin_init_deinit_spi_pins -SPI method de-configures registers according to settings of routing. This method is enabled only 
+                if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or pins 
+                selected in pin items in components. Call this method code to un-route desired pins into SPI0, SPI1 peripherals.
    - pin_init_init_swd_pins -SWD method configures registers according to settings  of routing and electrical features. This 
                 method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
                 selected pins or pins selected in pin items in components. Call this method code to route desired pins into SWD 
@@ -267,8 +282,8 @@ Module "tpmTmr2"   (component fsl_tpm)
    - tpmTmr2_TPM_DRV_Deinit -Shuts down the TPM driver.
    - tpmTmr2_TPM_DRV_IRQHandler -Action to take when an TPM interrupt is triggered.
 
-Module "Sensor"    (component OS_Task)
-   - Sensor_Init -Creates and starts a task.
+Module "tempSensor" (component OS_Task)
+   - tempSensor_Init -Creates and starts a task.
 
 Module "DbgCs1"    (component fsl_debug_console)
    - DbgCs1_DbgConsole_Init -Init the UART/LPUART used for debug messages.
@@ -280,6 +295,58 @@ Module "DbgCs1"    (component fsl_debug_console)
 
 Module "Radio"     (component OS_Task)
    - Radio_Init -Creates and starts a task.
+
+Module "spiTemp"   (component fsl_spi)
+   - spiTemp_SPI_DRV_IRQHandler -The function SPI_DRV_IRQHandler passes IRQ control to either the master or slave driver.
+   - spiTemp_SPI_DRV_MasterInit -Initializes an SPI instance for master mode operation.
+   - spiTemp_SPI_DRV_MasterDeinit -Shuts down an SPI instance.
+   - spiTemp_SPI_DRV_MasterConfigureBus -Configures the SPI port to access a device on the bus.
+   - spiTemp_SPI_DRV_MasterTransferBlocking -Performs a blocking SPI master mode transfer.
+   - spiTemp_SPI_DRV_MasterTransfer -Performs a non-blocking SPI master mode transfer.
+   - spiTemp_SPI_DRV_MasterGetTransferStatus -Returns whether the previous transfer is completed.
+   - spiTemp_SPI_DRV_MasterAbortTransfer -Terminates an asynchronous transfer early.
+   - spiTemp_SPI_DRV_MasterIRQHandler -Interrupt handler for SPI master mode. This handler uses the buffers stored in the 
+                spi_master_state_t structs to transfer data.
+   - spiTemp_SPI_DRV_SlaveInit -Initializes a SPI instance for a slave mode operation, using interrupt mechanism.
+   - spiTemp_SPI_DRV_SlaveDeinit -Shuts down an SPI instance interrupt mechanism.
+   - spiTemp_SPI_DRV_SlaveTransferBlocking -Transfers data on SPI bus using interrupt and a blocking call.
+   - spiTemp_SPI_DRV_SlaveTransfer -Starts the transfer data on SPI bus using an interrupt and a non-blocking call.
+   - spiTemp_SPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
+   - spiTemp_SPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
+   - spiTemp_SPI_DRV_SlaveIRQHandler -SPI Slave Generic IRQ handler.
+
+Module "gpio"      (component fsl_gpio)
+   - gpio_GPIO_DRV_Init -Initializes all GPIO pins used by the board.
+   - gpio_GPIO_DRV_InputPinInit -Initializes one GPIO input pin used by the board.
+   - gpio_GPIO_DRV_OutputPinInit -Initializes one GPIO output pin used by the board.
+   - gpio_GPIO_DRV_GetPinDir -Gets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_SetPinDir -Sets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_WritePinOutput -Sets the output level of the individual GPIO pin to the logic 1 or 0.
+   - gpio_GPIO_DRV_SetPinOutput -Sets the output level of the individual GPIO pin to the logic 1.
+   - gpio_GPIO_DRV_ClearPinOutput -Sets the output level of the individual GPIO pin to the logic 0.
+   - gpio_GPIO_DRV_TogglePinOutput -Reverses current output logic of the individual GPIO pin.
+   - gpio_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
+   - gpio_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
+   - gpio_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
+
+Module "spiRadio"  (component fsl_spi)
+   - spiRadio_SPI_DRV_IRQHandler -The function SPI_DRV_IRQHandler passes IRQ control to either the master or slave driver.
+   - spiRadio_SPI_DRV_MasterInit -Initializes an SPI instance for master mode operation.
+   - spiRadio_SPI_DRV_MasterDeinit -Shuts down an SPI instance.
+   - spiRadio_SPI_DRV_MasterConfigureBus -Configures the SPI port to access a device on the bus.
+   - spiRadio_SPI_DRV_MasterTransferBlocking -Performs a blocking SPI master mode transfer.
+   - spiRadio_SPI_DRV_MasterTransfer -Performs a non-blocking SPI master mode transfer.
+   - spiRadio_SPI_DRV_MasterGetTransferStatus -Returns whether the previous transfer is completed.
+   - spiRadio_SPI_DRV_MasterAbortTransfer -Terminates an asynchronous transfer early.
+   - spiRadio_SPI_DRV_MasterIRQHandler -Interrupt handler for SPI master mode. This handler uses the buffers stored in the 
+                spi_master_state_t structs to transfer data.
+   - spiRadio_SPI_DRV_SlaveInit -Initializes a SPI instance for a slave mode operation, using interrupt mechanism.
+   - spiRadio_SPI_DRV_SlaveDeinit -Shuts down an SPI instance interrupt mechanism.
+   - spiRadio_SPI_DRV_SlaveTransferBlocking -Transfers data on SPI bus using interrupt and a blocking call.
+   - spiRadio_SPI_DRV_SlaveTransfer -Starts the transfer data on SPI bus using an interrupt and a non-blocking call.
+   - spiRadio_SPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
+   - spiRadio_SPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
+   - spiRadio_SPI_DRV_SlaveIRQHandler -SPI Slave Generic IRQ handler.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 
