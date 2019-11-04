@@ -1,5 +1,0 @@
-Controle de versao do driver Radio 
-
-Versao 0:
-Funcionalidade basica para transmissao e recepcao de dados fixos em endereco de rede fixo. 
-

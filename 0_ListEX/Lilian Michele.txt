@@ -1,2 +1,0 @@
-testing commit command using Git
-testing merge

@@ -1,5 +1,0 @@
-Controle de versao do driver Radio 
-
-Versao 2:
-Corrigido bug de inicializacao do radio onde, em algumas situacoes, o buffer de transmissao fica travado por aguardar a limpeza dos flags de estado. Adaptacao do codigo para tratamento da interrupcao do radio. Exemplo de codigo com comunicacao bidirecional em loop, onde o receptor entra em modo de transmissao ao receber o pacote e o transmissor entra em modo de recepcao assim que termina de transmitir o pacote. 
-

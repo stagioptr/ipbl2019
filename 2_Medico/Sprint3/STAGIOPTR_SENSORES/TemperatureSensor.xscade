@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="TemperatureSensor">
+			<declarations>
+				<Constant name="CONVERSION_FACTOR">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0.25"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/49d3/5BE5/2318/5dbc74c161d8"/>
+					</pragmas>
+				</Constant>
+				<Operator name="tempratureSensor" href="tempratureSensor.xscade"/>
+				<Operator name="rangeChecker" href="rangeChecker.xscade"/>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/49ba/5BE5/2318/5dbc746275ad" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49bb/5BE5/2318/5dbc74621810" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49bc/5BE5/2318/5dbc74627a15" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49bd/5BE5/2318/5dbc746228aa" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

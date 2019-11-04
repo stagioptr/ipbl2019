@@ -1,0 +1,56 @@
+$**************  SCADETOC Version 2019 R2 (build 20190418) **************
+** Generation date: 2019-11-01T16:58:09
+** Command: scade -code "C:\Users\Max\SCADE\STAGIOPTR\STAGIOPTR.etp" -root Integration::Integration -conf KCG
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\Integration_Integration.c, line 0, character 0
+ ~Integration_Integration.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\accellerometerSensor_AccellerometerSensor.c, line 0, character 0
+ ~accellerometerSensor_AccellerometerSensor.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\humiditySensor_HumiditySensor.c, line 0, character 0
+ ~humiditySensor_HumiditySensor.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\tempratureSensor_TemperatureSensor.c, line 0, character 0
+ ~tempratureSensor_TemperatureSensor.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\rangeChecker_TemperatureSensor.c, line 0, character 0
+ ~rangeChecker_TemperatureSensor.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\Integration_Integration.h, line 0, character 0
+ ~Integration_Integration.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\accellerometerSensor_AccellerometerSensor.h, line 0, character 0
+ ~accellerometerSensor_AccellerometerSensor.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\humiditySensor_HumiditySensor.h, line 0, character 0
+ ~humiditySensor_HumiditySensor.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\tempratureSensor_TemperatureSensor.h, line 0, character 0
+ ~tempratureSensor_TemperatureSensor.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\rangeChecker_TemperatureSensor.h, line 0, character 0
+ ~rangeChecker_TemperatureSensor.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_xml_filter_out.scade, line 0, character 0
+ ~kcg_xml_filter_out.scade
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file C:\Users\Max\SCADE\STAGIOPTR\KCG\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+$**************  SCADETOC Version 2019 R2 (build 20190418) **************
+** Generation date: 2019-11-01T16:58:23
+** sc2c.log
+*************************************************************$

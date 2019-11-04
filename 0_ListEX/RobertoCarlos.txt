@@ -1,8 +1,0 @@
-file
-is
-modified
-to generate
-a conflict
-Changing the file
-File modified to merge
-

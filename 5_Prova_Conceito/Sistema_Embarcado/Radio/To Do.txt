@@ -1,4 +1,0 @@
-Lista de itens pendentes para o desenvolvimento do rádio para o projeto STAGIOP-TR:
-
-- Rotina para configuração dos pipes do sistema de transferência do rádio;
-- Possibilitar uma configuração personalizável dos modos de funcionamento do rádio;
