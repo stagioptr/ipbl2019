@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:locationapp"
+             x:Class="locationapp.MainPage">
+
+    <StackLayout  Orientation="Vertical">
+        <!-- Place new controls here -->
+        <Button Text="Get GPS location"  
+                         Clicked="OnButtonClicked"  
+                         TextColor="Chocolate"  
+                         FontSize="30"/>
+        <Label Text="Longitude"  
+                       FontSize="60"  
+                        TextColor="BlueViolet"/>
+        <Label x:Name="LogitudeLabel"  
+                       FontSize="20"/>
+        <Label Text="Latitude"  
+                       FontSize="60"  
+                        TextColor="DarkRed"/>
+        <Label x:Name="LatitudeLabel"   
+                       FontSize="20"/>
+    </StackLayout>
+
+</ContentPage>
+
+<!--
+    <StackLayout Orientation="Vertical">
+        <Button Text="Get GPS location"  
+                         Clicked="OnButtonClicked"  
+                         TextColor="Chocolate"  
+                         FontSize="30"/>
+        <Label Text="Longitude"  
+                       FontSize="60"  
+                        TextColor="BlueViolet"/>
+        <Label x:Name="LogitudeLabel"  
+                       FontSize="20"/>
+        <Label Text="Latitude"  
+                       FontSize="60"  
+                        TextColor="DarkRed"/>
+        <Label x:Name="LatitudeLabel"   
+                       FontSize="20"/>
+    </StackLayout>
+</ContentPage> 
+ -->

@@ -1,0 +1,12 @@
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\bin\Debug\netstandard2.0\locationapp.deps.json
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\bin\Debug\netstandard2.0\locationapp.dll
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.csprojAssemblyReference.cache
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.csproj.CoreCompileInputs.cache
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.AssemblyInfoInputs.cache
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.AssemblyInfo.cs
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\bin\Debug\netstandard2.0\locationapp.pdb
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.dll
+C:\Users\camont\source\repos\locationapp\locationapp\locationapp\obj\Debug\netstandard2.0\locationapp.pdb
