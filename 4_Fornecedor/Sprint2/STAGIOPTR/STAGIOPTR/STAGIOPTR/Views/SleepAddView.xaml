@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.SleepAddView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Center" Text="Data:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Hora:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Duração:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                <DatePicker Format="dd/MM/yyyy" Date="{Binding Sleep.SleepTime, StringFormat='{0:dd/MM/yyyy}', Mode=OneWayToSource}" Grid.Row="0" Grid.Column="1"/>
+                <TimePicker Time="{Binding SleepTime}" Grid.Row="1" Grid.Column="1"/>
+                <Entry Placeholder="Duração (min)" Keyboard="Numeric" Text="{Binding Sleep.Duration}" Grid.Row="2" Grid.Column="1"/>
+            </Grid>
+            <Label HorizontalOptions="CenterAndExpand" Text="QUALIDADE" FontAttributes="Bold"/>
+            <StackLayout Padding="15">
+                <Button HorizontalOptions="FillAndExpand" Margin="5" ImageSource="very_satisfied_white.png" Command="{Binding VerySatisfiedCommand}" Style="{StaticResource ButtonSuccess}"/>
+                <Button HorizontalOptions="FillAndExpand" Margin="5" ImageSource="satisfied_white.png" Command="{Binding SatisfiedCommand}" Style="{StaticResource ButtonInfo}"/>
+                <Button HorizontalOptions="FillAndExpand" Margin="5" ImageSource="normal_white.png" Command="{Binding NormalCommand}" Style="{StaticResource ButtonSecondary}"/>
+                <Button HorizontalOptions="FillAndExpand" Margin="5" ImageSource="dissatisfied_white.png" Command="{Binding DissatisfiedCommand}" Style="{StaticResource ButtonWarning}"/>
+                <Button HorizontalOptions="FillAndExpand" Margin="5" ImageSource="very_dissatisfied_white.png" Command="{Binding VeryDissatisfiedCommand}" Style="{StaticResource ButtonDanger}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,9 @@
+Olá, meu nome é Vítor, sou formado em Engenharia de Computação pela Universidade São Judas Tadeu e estou buscando ampliar os meus conhecimentos em sistemas embarcados e engenharia de software.
+
+
+Tenho 7 anos de experiência no desenvolvimento de sistemas de detecção, alarme e combate de incêndios, desde a concepção dos requisitos do projeto até o planejamento de produção e testes dos circuitos eletrônicos. Atualmente trabalho como profissional liberal para desenvolvimento de projetos embarcados em várias áreas de aplicação.
+
+
+Estou cursando a disciplina CE-237 como aluno ouvinte para conhecer melhor o ITA e estudar a possibilidade de realizar a minha p�s-gradua��o na institui��o.
+
+*Adicionando uma linha ao arquivo para gerar um conflito de merge, alterardo a mesma linha do arquivo para gerar um conflito de merge e resolvendo o conflito de merge.

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.FoodsListView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddFoodCommand}" Text="ADD"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Foods}"
+                ItemSelected="ListView_ItemSelected"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadFoodsCommand}"
+                IsRefreshing="{Binding IsLoading}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell
+                            Text="{Binding Name}"
+                            ImageSource="food_black.png"
+                            TextColor="{StaticResource Primary}">
+                            <ImageCell.ContextActions>
+                                <MenuItem Text="Excluir" IsDestructive="true" Clicked="DeleteAction" CommandParameter="{Binding .}"/>
+                            </ImageCell.ContextActions>
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

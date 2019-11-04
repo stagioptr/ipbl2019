@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.LoginView"
+             Title="STAGIOP-TR">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="15">
+            <Entry Placeholder="E-Mail" Text="{Binding email, Mode=OneWayToSource}"/>
+            <Button Text="ACESSAR" Command="{Binding LoginPatientCommand}"/>
+            <Button Text="CADASTRAR" Command="{Binding RegisterPatientCommand}"/>
+            <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding Errors, Mode=OneWay}" BackgroundColor="Red" TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

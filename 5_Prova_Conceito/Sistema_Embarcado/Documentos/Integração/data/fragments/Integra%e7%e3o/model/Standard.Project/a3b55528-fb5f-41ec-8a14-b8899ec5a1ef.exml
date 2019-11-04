@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Integração" version="4">
+  <OBJECT>
+    <ID name="Integração" mc="Standard.Project" uid="a3b55528-fb5f-41ec-8a14-b8899ec5a1ef"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[Integração]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="integração" mc="Standard.Package" uid="9de41933-7616-4ac5-b78b-cfd440506cda"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="Integração" mc="Infrastructure.DiagramSet" uid="8bb34362-a8c5-410e-9420-b3dc9f1c29d6"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
