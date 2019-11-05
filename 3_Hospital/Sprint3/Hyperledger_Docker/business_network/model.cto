@@ -1,0 +1,32 @@
+/**
+* stagiopbd network
+*/
+namespace stagiopbd.notification
+
+asset NotificationAsset identified by assetId {
+  o String assetId
+  --> NotificationParticipant owner
+  o String value
+}
+
+participant NotificationParticipant identified by notificationId {
+  o String notificationId
+  o String type
+  o String from
+  o String to
+  o String datetime
+  o String title
+  o String text
+  o String protocol
+}
+
+transaction NotificationTransaction {
+  --> NotificationAsset asset
+  o String newValue
+}
+
+event NotificationEvent {
+  --> NotificationAsset asset
+  o String oldValue
+  o String newValue
+}
