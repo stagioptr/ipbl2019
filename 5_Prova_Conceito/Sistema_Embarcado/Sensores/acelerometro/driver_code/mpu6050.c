@@ -69,7 +69,7 @@ uint8_t MPU6050_Init(void)
 	uint8_t smplrt = 0x13;
 	uint8_t config = 0x02;
 	uint8_t gyro_config = MPU6050_GYRO_FS_250;
-	uint8_t accel_config = MPU6050_ACCEL_FS_2;
+	uint8_t accel_config = MPU6050_ACCEL_FS_16;
 	uint8_t interrupt_config = 0x30;
 	uint8_t interrupt_enable = 0x01;
 
@@ -133,6 +133,67 @@ uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val)
 **         ---             - Error code
 ** ===================================================================
 */
+
+uint8_t MPU6050_WriteRegisterBit(uint8_t reg, uint8_t pos, bool state)
+{
+    uint8_t value;
+    uint8_t read_error_status;
+    uint8_t write_error_status;
+
+    read_error_status = MPU6050_ReadReg8(reg, &value);
+    if(read_error_status != kStatus_I2C_Success){
+    	return kStatus_I2C_Fail;
+    }
+
+    if (state)
+    {
+        value |= (1 << pos);
+    } else
+    {
+        value &= ~(1 << pos);
+    }
+
+    write_error_status = MPU6050_WriteReg8(reg, value);
+    if (write_error_status != kStatus_I2C_Success){
+    	return kStatus_I2C_Fail;
+    } else {
+    	return kStatus_I2C_Success;
+    }
+}
+
+uint8_t MPU6050_SetIntFreeFallEnabled(bool state)
+{
+	uint8_t error_status;
+	error_status = MPU6050_WriteRegisterBit(MPU6050_INTERRUPT_ENABLE, 7, state);
+	if (error_status != kStatus_I2C_Success) {
+		return kStatus_I2C_Fail;
+	} else {
+		return kStatus_I2C_Success;
+	}
+}
+
+uint8_t MPU6050_SetIntZeroMotionEnabled(bool state)
+{
+	uint8_t error_status;
+	error_status = MPU6050_WriteRegisterBit(MPU6050_INTERRUPT_ENABLE, 5, state);
+	if (error_status != kStatus_I2C_Success) {
+		return kStatus_I2C_Fail;
+	} else {
+		return kStatus_I2C_Success;
+	}
+}
+
+uint8_t MPU6050_SetIntMotionEnabled(bool state)
+{
+	uint8_t error_status;
+	error_status = MPU6050_WriteRegisterBit(MPU6050_INTERRUPT_ENABLE, 6, state);
+	if (error_status != kStatus_I2C_Success) {
+		return kStatus_I2C_Fail;
+	} else {
+		return kStatus_I2C_Success;
+	}
+}
+
 uint8_t MPU6050_WhoAmI()
 {
   static const uint8_t addr = MPU6050_WHO_AM_I;
@@ -205,14 +266,52 @@ uint8_t MPU6050_GetTemperature()
 }
 
 uint8_t MPU6050_GetFreeFallDetectionThreshold(uint8_t* threshold) {
-	uint8_t buffer;
 
-	if (MPU6050_ReadReg8( MPU6050_GYRO_XOUT_H, &buffer ) != kStatus_I2C_Success){
+	if (MPU6050_ReadReg8( MPU6050_FF_THR, &threshold ) != kStatus_I2C_Success){
 		return kStatus_I2C_Fail;
 	} else {
-		*threshold = buffer;
 		return kStatus_I2C_Success;
 	}
+}
+
+uint8_t MPU6050_SetFreeFallDetectionThreshold(uint8_t threshold)
+{
+	uint8_t status;
+    if (MPU6050_WriteReg8(MPU6050_FF_THR, threshold) != kStatus_I2C_Success) {
+    	return kStatus_I2C_Fail;
+    } else {
+    	return kStatus_I2C_Success;
+    }
+}
+
+uint8_t MPU6050_GetFreeFallDetectionDuration(uint8_t* duration)
+{
+	uint8_t status;
+    if (MPU6050_ReadReg8(MPU6050_FF_DUR, duration) != kStatus_I2C_Success) {
+    	return kStatus_I2C_Fail;
+    } else {
+    	return kStatus_I2C_Success;
+    }
+}
+
+uint8_t MPU6050_SetFreeFallDetectionDuration(uint8_t duration)
+{
+	if (MPU6050_WriteReg8(MPU6050_FF_DUR, duration) != kStatus_I2C_Success){
+		return kStatus_I2C_Fail;
+	} else {
+		return kStatus_I2C_Success;
+	}
+}
+
+uint8_t MPU6050_SetDHPFMode(uint8_t dhpf)
+{
+	uint8_t status;
+    status = MPU6050_WriteReg8(MPU6050_ACCEL_CONFIG, dhpf);
+    if (status != kStatus_I2C_Success) {
+    	return kStatus_I2C_Fail;
+    } else {
+    	return kStatus_I2C_Success;
+    }
 }
 
 uint8_t init_example(){

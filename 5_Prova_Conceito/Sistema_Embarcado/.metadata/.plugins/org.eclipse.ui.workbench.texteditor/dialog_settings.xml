@@ -2,9 +2,9 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="179" key="DIALOG_Y_ORIGIN"/>
+		<item value="174" key="DIALOG_Y_ORIGIN"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="703" key="DIALOG_X_ORIGIN"/>
+		<item value="793" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="PWR_MGMT_1" key="selection"/>
+		<item value="DH" key="selection"/>
 		<list key="findhistory">
-			<item value="PWR_MGMT_1"/>
+			<item value="dh"/>
+			<item value="MPU6050_WriteReg8"/>
+			<item value="ACCEL_CONFIG"/>
+			<item value="MPU6050_REG_ACCEL_CONFIG"/>
 			<item value="init"/>
-			<item value="tem"/>
-			<item value="temp"/>
-			<item value="AFS_SEL"/>
-			<item value="ACCEL_XOUT_H"/>
-			<item value="CONFIG"/>
-			<item value="SMPLRT_DIV"/>
+			<item value="0x38"/>
+			<item value="getX"/>
+			<item value="getX1"/>
 		</list>
 		<list key="replacehistory">
 			<item value="MMA1_WriteReg8"/>

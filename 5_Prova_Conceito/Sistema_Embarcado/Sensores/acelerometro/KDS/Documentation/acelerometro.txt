@@ -258,6 +258,10 @@ Module "gpio1"     (component fsl_gpio)
    - gpio1_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
    - gpio1_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
 
+Module "MCUC1"     (component McuLibConfig)
+   - MCUC1_Init -Driver initialization method
+   - MCUC1_Deinit -Driver deinitialization method
+
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 
                 called from startup_device file.

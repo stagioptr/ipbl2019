@@ -39,6 +39,7 @@
 #include "i2cCom1.h"
 #include "Task1.h"
 #include "gpio1.h"
+#include "MCUC1.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif

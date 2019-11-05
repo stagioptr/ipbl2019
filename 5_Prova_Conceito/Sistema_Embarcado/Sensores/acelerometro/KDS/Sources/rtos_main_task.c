@@ -39,6 +39,7 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "mpu6050.h"
+#include "ledrgb_hal.h"
 
 /* Initialization of Processor Expert components function prototype */
 #ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
@@ -68,10 +69,16 @@ void main_task(os_task_param_t task_init_data)
 	uint8_t g_y;
 	uint8_t g_z;
 	uint8_t temperature;
-	uint8_t free_fall_threshold;
+	uint8_t free_fall_threshold = NULL;
 	uint8_t accelGetXYZ_status_code;
 	uint8_t gyroGetXYZ_status_code;
-	uint8_t free_fall_status_code;
+	uint8_t free_fall_status_code = NULL;
+	uint8_t int_ff_set_status_code;
+	uint8_t int_zm_set_status_code;
+	uint8_t int_me_set_status_code;
+	uint8_t ff_th_set_status_code;
+	uint8_t ff_dr_set_status_code;
+	uint8_t dhpf_monde_set_status_code;
 	int teste;
 	int cont = 0;
 
@@ -81,6 +88,8 @@ void main_task(os_task_param_t task_init_data)
   PEX_components_init(); 
 #endif 
   /* End of Processor Expert components initialization.  */
+
+  ledrgb_init();
 
   while (cont <= 3) {
 	  //Start MPU6050
@@ -124,8 +133,31 @@ void main_task(os_task_param_t task_init_data)
 		  temperature = MPU6050_GetTemperature();
 
 		  //Free fall detection
+		  //Int Free Fall
+		  int_ff_set_status_code = MPU6050_SetIntFreeFallEnabled(true);
+
+		  //Int Zero Motion
+		  int_zm_set_status_code =  MPU6050_SetIntZeroMotionEnabled(false);
+
+		  int_me_set_status_code = MPU6050_SetIntMotionEnabled(false);
+
+		  dhpf_monde_set_status_code = MPU6050_SetDHPFMode(MPU6050_DHPF_5);
+
+		  //Set Free Fall threshold
+		  //ff_th_set_status_code = MPU6050_SetFreeFallDetectionThreshold(17);
+
+		  //Set duration
+		  //ff_dr_set_status_code = MPU6050_SetFreeFallDetectionDuration(1);
+
+		  //Get free fall == 0
 		  free_fall_status_code = MPU6050_GetFreeFallDetectionThreshold(&free_fall_threshold);
-		  if (&free_fall_threshold == 0){
+		  if (free_fall_threshold == 17){
+			  ledrgb_clearGreenLed();
+			  ledrgb_setRedLed();
+			  OSA_TimeDelay(100);
+		  } else {
+			  ledrgb_clearRedLed();
+			  //ledrgb_setGreenLed();
 
 		  }
 

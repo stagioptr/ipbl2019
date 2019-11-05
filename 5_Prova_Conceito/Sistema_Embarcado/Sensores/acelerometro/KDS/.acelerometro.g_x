@@ -171,11 +171,11 @@
       <File Name="SDK/rtos/FreeRTOS/src/tasks.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320288" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/src/heap_3.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320241" FileType="1048576" CompNumb="19" />
       <File Name="SDK/platform/drivers/inc/fsl_i2c_slave_driver.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212115" FileType="1048576" CompNumb="14" />
-      <File Name="Sources/rtos_main_task.h" FileDate="2019-10-18, 14:31:31" FileAge="1571419891630" FileType="131328" />
+      <File Name="Sources/rtos_main_task.h" FileDate="2019-11-02, 23:34:05" FileAge="1572748445504" FileType="131328" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/port.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320210" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/src/heap_2.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320241" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/include/projdefs.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320179" FileType="1048576" CompNumb="19" />
-      <File Name="Sources/rtos_main_task.c" FileDate="2019-11-02, 23:02:16" FileAge="1572746536307" FileType="131328" />
+      <File Name="Sources/rtos_main_task.c" FileDate="2019-11-02, 23:39:48" FileAge="1572748788348" FileType="131328" />
       <File Name="SDK/platform/hal/src/uart/fsl_uart_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212139" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portmacro.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320226" FileType="1048576" CompNumb="19" />
       <File Name="SDK/rtos/FreeRTOS/src/heap_1.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320241" FileType="1048576" CompNumb="19" />
@@ -187,15 +187,15 @@
       <File Name="SDK/platform/hal/inc/fsl_port_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212126" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/hal/inc/fsl_uart_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212128" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/system/inc/fsl_clock_manager.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212143" FileType="1048576" CompNumb="2" />
-      <File Name="Sources/os_tasks.h" FileDate="2019-10-18, 14:31:31" FileAge="1571419891615" FileType="131328" />
+      <File Name="Sources/os_tasks.h" FileDate="2019-11-02, 23:34:05" FileAge="1572748445520" FileType="131328" />
       <File Name="SDK/platform/hal/src/rtc/fsl_rtc_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212135" FileType="1048576" CompNumb="6" />
       <File Name="Generated_Code/Cpu.h" FileDate="2019-10-18, 21:35:07" FileAge="1571445307535" FileType="45637" CompNumb="1" />
-      <File Name="Sources/main.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891615" FileType="128" />
+      <File Name="Sources/main.c" FileDate="2019-11-02, 23:34:05" FileAge="1572748445473" FileType="128" />
       <File Name="Generated_Code/free_rtos.h" FileDate="2019-10-18, 21:35:07" FileAge="1571445307626" FileType="45637" CompNumb="19" />
       <File Name="Generated_Code/gpio1.h" FileDate="2019-10-18, 21:35:07" FileAge="1571445307551" FileType="45637" CompNumb="21" />
       <File Name="Sources/os_tasks.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320335" FileType="131328" />
-      <File Name="Documentation/acelerometro.txt" FileDate="2019-10-18, 14:31:31" FileAge="1571419891542" FileType="3072" />
-      <File Name="Generated_Code/Cpu.c" FileDate="2019-10-18, 21:35:07" FileAge="1571445307535" FileType="45637" CompNumb="1" />
+      <File Name="Documentation/acelerometro.txt" FileDate="2019-11-02, 23:34:06" FileAge="1572748446160" FileType="3072" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2019-11-02, 23:34:05" FileAge="1572748445504" FileType="45637" CompNumb="1" />
       <File Name="Generated_Code/free_rtos.c" FileDate="2019-10-18, 21:35:07" FileAge="1571445307626" FileType="45637" CompNumb="19" />
       <File Name="Generated_Code/gpio1.c" FileDate="2019-10-18, 21:35:07" FileAge="1571445307551" FileType="45637" CompNumb="21" />
       <File Name="SDK/platform/osa/inc/fsl_os_abstraction.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212140" FileType="1048576" CompNumb="12" />
@@ -219,41 +219,44 @@
       <File Name="SDK/platform/CMSIS/Include/core_cm0plus.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212090" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/hal/inc/fsl_rtc_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212126" FileType="1048576" CompNumb="6" />
       <File Name="SDK/platform/hal/src/port/fsl_port_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212134" FileType="1048576" CompNumb="0" />
-      <File Name="SDK/platform/devices/startup.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212113" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/hal/inc/fsl_mcg_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212123" FileType="1048576" CompNumb="0" />
-      <File Name="Documentation/doxygen/acelerometro_project.txt" FileDate="2019-10-14, 20:36:52" FileAge="1571096212052" FileType="45637" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/i2c/fsl_i2c_common.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212117" FileType="1048576" CompNumb="14" />
+      <File Name="Documentation/doxygen/acelerometro_project.txt" FileDate="2019-10-14, 20:36:52" FileAge="1571096212052" FileType="45637" CompNumb="1" />
+      <File Name="SDK/platform/hal/inc/fsl_mcg_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212123" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/devices/startup.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212113" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/osa/inc/fsl_os_abstraction_bm.h" FileDate="1969-12-31, 20:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="Generated_Code/MCUC1.h" FileDate="2019-11-02, 23:34:05" FileAge="1572748445457" FileType="45637" CompNumb="26" />
+      <File Name="ProjectInfo.xml" FileDate="2019-11-02, 23:42:00" FileAge="1572748920034" FileType="45637" />
       <File Name="SDK/platform/devices/MKL25Z4/startup/gcc/startup_MKL25Z4.S" FileDate="2019-10-14, 20:36:52" FileAge="1571096212110" FileType="1048576" CompNumb="1" />
-      <File Name="ProjectInfo.xml" FileDate="2019-10-18, 21:35:08" FileAge="1571445308204" FileType="45637" />
       <File Name="SDK/platform/utilities/src/fsl_debug_console.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212151" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/devices/startup.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212112" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/rtc/fsl_rtc_common.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212120" FileType="1048576" CompNumb="2" />
-      <File Name="SDK/platform/system/inc/fsl_interrupt_manager.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212144" FileType="1048576" CompNumb="11" />
+      <File Name="Generated_Code/MCUC1.c" FileDate="2019-11-02, 23:34:05" FileAge="1572748445457" FileType="45637" CompNumb="26" />
       <File Name="SDK/platform/hal/inc/fsl_gpio_hal.h" FileDate="2019-10-18, 14:31:31" FileAge="1571419891599" FileType="1048576" CompNumb="22" />
+      <File Name="SDK/platform/system/inc/fsl_interrupt_manager.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212144" FileType="1048576" CompNumb="11" />
       <File Name="SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212108" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/inc/fsl_gpio_driver.h" FileDate="2019-10-18, 14:31:31" FileAge="1571419891583" FileType="1048576" CompNumb="21" />
+      <File Name="Generated_Code/MCUC1config.h" FileDate="2019-11-02, 23:34:05" FileAge="1572748445441" FileType="45637" CompNumb="26" />
+      <File Name="Sources/Events.h" FileDate="2019-11-02, 23:34:05" FileAge="1572748445520" FileType="131328" />
       <File Name="SDK/platform/hal/inc/fsl_osc_hal.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212125" FileType="1048576" CompNumb="5" />
-      <File Name="Sources/Events.h" FileDate="2019-10-18, 14:31:31" FileAge="1571419891615" FileType="131328" />
-      <File Name="SDK/platform/utilities/src/fsl_misc_utilities.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212152" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212109" FileType="1048576" CompNumb="1" />
+      <File Name="SDK/platform/utilities/src/fsl_misc_utilities.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212152" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/i2c/fsl_i2c_slave_driver.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212119" FileType="1048576" CompNumb="14" />
       <File Name="Sources/Events.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320288" FileType="131328" />
-      <File Name="SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320117" FileType="1048576" CompNumb="12" />
       <File Name="SDK/platform/hal/src/i2c/fsl_i2c_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212129" FileType="1048576" CompNumb="15" />
+      <File Name="SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320117" FileType="1048576" CompNumb="12" />
       <File Name="SDK/platform/hal/src/gpio/fsl_gpio_hal.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891599" FileType="1048576" CompNumb="22" />
       <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2019-10-14, 20:36:52" FileAge="1571096212056" FileType="45637" CompNumb="1" />
-      <File Name="SDK/platform/hal/src/sim/MKL25Z4/fsl_sim_hal_MKL25Z4.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212137" FileType="1048576" CompNumb="0" />
       <File Name="Generated_Code/Task1.h" FileDate="2019-10-18, 21:35:07" FileAge="1571445307566" FileType="45637" CompNumb="18" />
+      <File Name="SDK/platform/hal/src/sim/MKL25Z4/fsl_sim_hal_MKL25Z4.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212137" FileType="1048576" CompNumb="0" />
       <File Name="SDK/rtos/FreeRTOS/include/event_groups.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320163" FileType="1048576" CompNumb="19" />
-      <File Name="Generated_Code/Task1.c" FileDate="2019-10-18, 21:35:07" FileAge="1571445307551" FileType="45637" CompNumb="18" />
       <File Name="SDK/platform/hal/src/sim/MKL25Z4/fsl_sim_hal_MKL25Z4.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212136" FileType="1048576" CompNumb="0" />
+      <File Name="Generated_Code/Task1.c" FileDate="2019-10-18, 21:35:07" FileAge="1571445307551" FileType="45637" CompNumb="18" />
       <File Name="SDK/platform/system/src/clock/MKL25Z4/fsl_clock_MKL25Z4.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212146" FileType="1048576" CompNumb="2" />
       <File Name="SDK/platform/hal/src/mcg/fsl_mcg_hal_modes.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212133" FileType="1048576" CompNumb="0" />
-      <File Name="SDK/platform/drivers/src/gpio/fsl_gpio_common.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891583" FileType="1048576" CompNumb="21" />
       <File Name="SDK/platform/CMSIS/Include/arm_common_tables.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212086" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/system/src/clock/MKL25Z4/fsl_clock_MKL25Z4.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212145" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/platform/drivers/src/gpio/fsl_gpio_common.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891583" FileType="1048576" CompNumb="21" />
       <File Name="Generated_Code/SDK/rtos/FreeRTOS/config/FreeRTOSConfig.h" FileDate="2019-10-15, 22:11:59" FileAge="1571188319913" FileType="45637" CompNumb="19" />
+      <File Name="SDK/platform/system/src/clock/MKL25Z4/fsl_clock_MKL25Z4.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212145" FileType="1048576" CompNumb="2" />
       <File Name="SDK/platform/CMSIS/Include/core_cmInstr.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212092" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/include/FreeRTOS.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320132" FileType="1048576" CompNumb="19" />
       <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2019-10-18, 14:38:36" FileAge="1571420316442" FileType="45637" CompNumb="1" />
@@ -263,22 +266,22 @@
       <File Name="SDK/platform/drivers/inc/fsl_i2c_shared_function.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212114" FileType="1048576" CompNumb="14" />
       <File Name="SDK/rtos/FreeRTOS/include/semphr.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320179" FileType="1048576" CompNumb="19" />
       <File Name="Documentation/doxygen/pex.css" FileDate="2019-10-14, 20:36:52" FileAge="1571096212054" FileType="16384" CompNumb="1" />
-      <File Name="Project_Settings/Linker_Files/ProcessorExpert.ld" FileDate="2019-10-14, 20:36:52" FileAge="1571096212084" FileType="8" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portTicks.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320210" FileType="1048576" CompNumb="19" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.ld" FileDate="2019-10-14, 20:36:52" FileAge="1571096212084" FileType="8" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/include/StackMacros.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320132" FileType="1048576" CompNumb="19" />
       <File Name="SDK/platform/utilities/inc/fsl_debug_console.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212150" FileType="1048576" CompNumb="1" />
-      <File Name="Documentation/acelerometro_Settings.xml" FileDate="2019-10-18, 14:38:36" FileAge="1571420316864" FileType="3072" />
+      <File Name="Documentation/acelerometro_Settings.xml" FileDate="2019-11-02, 23:34:05" FileAge="1572748445754" FileType="3072" />
       <File Name="SDK/platform/devices/MKL25Z4/include/MKL25Z4_extension.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212106" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/hal/src/mcg/fsl_mcg_hal.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212132" FileType="1048576" CompNumb="0" />
-      <File Name="SDK/platform/utilities/src/print_scan.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212154" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/include/timers.h" FileDate="2019-10-15, 22:12:00" FileAge="1571188320195" FileType="1048576" CompNumb="19" />
-      <File Name="SDK/platform/system/src/clock/fsl_clock_manager.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212146" FileType="1048576" CompNumb="2" />
+      <File Name="SDK/platform/utilities/src/print_scan.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212154" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/i2c/fsl_i2c_shared_function.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212118" FileType="1048576" CompNumb="14" />
-      <File Name="SDK/platform/utilities/src/print_scan.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212153" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/osa/src/fsl_os_abstraction_free_rtos.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320132" FileType="1048576" CompNumb="12" />
-      <File Name="SDK/platform/utilities/inc/fsl_misc_utilities.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212150" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/system/src/clock/fsl_clock_manager.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212146" FileType="1048576" CompNumb="2" />
       <File Name="SDK/platform/drivers/src/gpio/fsl_gpio_driver.c" FileDate="2019-10-18, 14:31:31" FileAge="1571419891583" FileType="1048576" CompNumb="21" />
+      <File Name="SDK/platform/utilities/inc/fsl_misc_utilities.h" FileDate="2019-10-14, 20:36:52" FileAge="1571096212150" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/osa/src/fsl_os_abstraction_free_rtos.c" FileDate="2019-10-15, 22:12:00" FileAge="1571188320132" FileType="1048576" CompNumb="12" />
+      <File Name="SDK/platform/utilities/src/print_scan.c" FileDate="2019-10-14, 20:36:52" FileAge="1571096212153" FileType="1048576" CompNumb="1" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>23</CodeGenReference>
+  <CodeGenReference>26</CodeGenReference>
 </CodeGenerationInfo>

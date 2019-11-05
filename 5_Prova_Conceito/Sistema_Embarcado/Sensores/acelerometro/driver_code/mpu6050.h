@@ -53,6 +53,13 @@
 #define MPU6050_FF_THR 0x1D
 #define MPU6050_FF_DUR 0x1E
 
+#define MPU6050_DHPF_RESET          0x00
+#define MPU6050_DHPF_5              0x01
+#define MPU6050_DHPF_2P5            0x02
+#define MPU6050_DHPF_1P25           0x03
+#define MPU6050_DHPF_0P63           0x04
+#define MPU6050_DHPF_HOLD           0x07
+
 #define MPU6050_WHO_AM_I 0x75 //O número padrão é 0x68
 
 uint8_t MPU6050_Deinit(void);
@@ -87,9 +94,26 @@ uint8_t MPU6050_GetTemperature(void);
 
 uint8_t MPU6050_GetFreeFallDetectionThreshold(uint8_t* threshold);
 
+uint8_t MPU6050_SetFreeFallDetectionThreshold(uint8_t threshold);
+
+uint8_t MPU6050_GetFreeFallDetectionDuration(uint8_t* duration);
+
+uint8_t MPU6050_SetFreeFallDetectionDuration(uint8_t duration);
+
 uint8_t MPU6050_ReadReg8(uint8_t addr, uint8_t *val);
 
 uint8_t MPU6050_WriteReg8(uint8_t addr, uint8_t val);
+
+uint8_t MPU6050_WriteRegisterBit(uint8_t reg, uint8_t pos, bool state);
+
+uint8_t MPU6050_SetIntFreeFallEnabled(bool state);
+
+uint8_t MPU6050_SetIntZeroMotionEnabled(bool state);
+
+uint8_t MPU6050_SetIntMotionEnabled(bool state);
+
+uint8_t MPU6050_SetDHPFMode(uint8_t dhpf);
+
 /*
 ** ===================================================================
 **     Method      :  MMA1_WriteReg8 (component MMA8451Q)

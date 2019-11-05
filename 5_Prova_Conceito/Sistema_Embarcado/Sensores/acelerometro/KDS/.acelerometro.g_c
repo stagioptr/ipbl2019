@@ -14,11 +14,12 @@
       <LinkerFileGenerated>false</LinkerFileGenerated>
       <MakefileGenerated>false</MakefileGenerated>
       <GenSharedModules lines_count="0" />
-      <GenExtraFiles lines_count="10">
+      <GenExtraFiles lines_count="11">
         <Line>Generated_Code\SDK\rtos\FreeRTOS\config\FreeRTOSConfig.h</Line>
         <Line>Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</Line>
         <Line>Generated_Code\board.h</Line>
         <Line>Generated_Code\hardware_init.c</Line>
+        <Line>Generated_Code\MCUC1config.h</Line>
         <Line>Generated_Code\PE_low_level_init.h</Line>
         <Line>Project_Settings\Linker_Files\ProcessorExpert.ld</Line>
         <Line>Documentation\doxygen\acelerometro_project.txt</Line>
@@ -26,13 +27,15 @@
         <Line>Documentation\doxygen\pex.doxyfile</Line>
         <Line>Documentation\doxygen\pex.css</Line>
       </GenExtraFiles>
-      <GenExtraFileSrcDir9>Repositories\lib\doxygen\</GenExtraFileSrcDir9>
+      <GenExtraFileSrcDir10>Repositories\lib\doxygen\</GenExtraFileSrcDir10>
       <XtraAge0>1330622845</XtraAge0>
       <XtraAge1>1330554010</XtraAge1>
       <XtraAge2>1330818147</XtraAge2>
       <XtraAge3>1330818147</XtraAge3>
-      <XtraAge4>1330818147</XtraAge4>
-      <GenExtraFileType9>5</GenExtraFileType9>
+      <XtraAge4>1331870786</XtraAge4>
+      <XtraAge5>1330818147</XtraAge5>
+      <GenExtraFileType10>5</GenExtraFileType10>
+      <GenExtraFileType9>4</GenExtraFileType9>
       <GenExtraFileType8>4</GenExtraFileType8>
       <GenExtraFileType7>4</GenExtraFileType7>
       <GenExtraFileType6>4</GenExtraFileType6>
@@ -894,7 +897,7 @@
       <GenMethodsInrtos_main_task lines_count="1">
         <Line>main_task</Line>
       </GenMethodsInrtos_main_task>
-      <GenAllModules lines_count="12">
+      <GenAllModules lines_count="13">
         <Line>clockMan1</Line>
         <Line>Cpu</Line>
         <Line>Events</Line>
@@ -902,6 +905,7 @@
         <Line>gpio1</Line>
         <Line>i2cCom1</Line>
         <Line>MainTask</Line>
+        <Line>MCUC1</Line>
         <Line>os_tasks</Line>
         <Line>osa1</Line>
         <Line>pin_init</Line>
@@ -909,7 +913,7 @@
         <Line>Task1</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="8">
+      <GenBeanModules lines_count="9">
         <Line>clockMan1</Line>
         <Line>pin_init</Line>
         <Line>osa1</Line>
@@ -918,11 +922,12 @@
         <Line>i2cCom1</Line>
         <Line>Task1</Line>
         <Line>gpio1</Line>
+        <Line>MCUC1</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>13</ProjectModificationStamp>
+    <ProjectModificationStamp>15</ProjectModificationStamp>
   </Options>
   <CpuID_1>
     <Generated>true</Generated>
@@ -931,7 +936,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1330818147</HeaderAge>
-    <CodeAge>1330818147</CodeAge>
+    <CodeAge>1331870786</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>2</GenNumMethods>
     <SystemInit>true</SystemInit>
@@ -2285,6 +2290,54 @@
       <ExtraFile1>SDK\platform\hal\src\port\fsl_port_hal.c</ExtraFile1>
     </InhrCompID_23>
   </ComponentID_21>
+  <ComponentID_26>
+    <Generated>true</Generated>
+    <GenCompName>MCUC1</GenCompName>
+    <GenComponentVersion>01.014</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1331870786</HeaderAge>
+    <CodeAge>1331870786</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>2</GenNumMethods>
+    <Init>true</Init>
+    <Deinit>true</Deinit>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>4</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>Init</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>159</LineBeg>
+      <LineEnd>169</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>Deinit</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>170</LineBeg>
+      <LineEnd>180</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>Init</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>65</LineBeg>
+      <LineEnd>78</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>Deinit</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>79</LineBeg>
+      <LineEnd>92</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>1</GenExtraFilesCount>
+    <ExtraFile0>Generated_Code\MCUC1config.h</ExtraFile0>
+  </ComponentID_26>
   <UsedSrcFiles>
     <SrcFile0>Drivers\PEx_Kinetis.src=1194226771</SrcFile0>
     <SrcFile1>Drivers\Kinetis\fsl_mcg_hal.drv=-1</SrcFile1>
@@ -2296,74 +2349,84 @@
     <SrcFile7>Drivers\FreeRTOS.src=-1</SrcFile7>
     <SrcFile8>Drivers\Common\Static_SetConst.prg=1183486427</SrcFile8>
     <SrcFile9>Drivers\Common\Header.end=1183486427</SrcFile9>
-    <SrcFile10>Drivers\Common\WriteBlock_NotRst.prg=1194226775</SrcFile10>
-    <SrcFile11>Drivers\Common\KinetisCommon_Init.inc=1183486427</SrcFile11>
-    <SrcFile12>Drivers\Common\HeaderFreescale.h=1183486427</SrcFile12>
-    <SrcFile13>Drivers\Kinetis\fsl_gpio_hal.drv=-1</SrcFile13>
-    <SrcFile14>Drivers\Common\GeneralParametersNone.inc=1183486427</SrcFile14>
-    <SrcFile15>Drivers\fsl_os_abstraction.src=-1</SrcFile15>
-    <SrcFile16>Drivers\Common\Header.doxy=1183484379</SrcFile16>
-    <SrcFile17>Drivers\Common\GenInitConfigSequence.prg=1183486427</SrcFile17>
-    <SrcFile18>Drivers\Common\GeneralInternalGlobal.inc=1183486427</SrcFile18>
-    <SrcFile19>Drivers\Kinetis\fsl_os_abstraction.drv=-1</SrcFile19>
-    <SrcFile20>Drivers\Common\GeneralInternalDescription.prg=1183486427</SrcFile20>
-    <SrcFile21>Drivers\Common\Static_SupportSubroutines.prg=1194226775</SrcFile21>
-    <SrcFile22>Drivers\Common\ToolChain_Settings.prg=1183486427</SrcFile22>
-    <SrcFile23>Drivers\Kinetis\fsl_i2c_hal.drv=-1</SrcFile23>
-    <SrcFile24>Drivers\Common\HeaderFreescale.C=1183486427</SrcFile24>
-    <SrcFile25>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1183482931</SrcFile25>
-    <SrcFile26>Drivers\Kinetis\KinetisSdk_Linker_V1.prg=1194226773</SrcFile26>
-    <SrcFile27>Drivers\fsl_gpio.src=-1</SrcFile27>
-    <SrcFile28>Drivers\Kinetis\PinSettings_MKL25Z128LK4_4SDK.prg=-1</SrcFile28>
-    <SrcFile29>Drivers\Kinetis\fsl_port_hal.drv=-1</SrcFile29>
-    <SrcFile30>Drivers\Kinetis\fsl_clock_manager.drv=-1</SrcFile30>
-    <SrcFile31>Drivers\sw\PinSettings.drv=-1</SrcFile31>
-    <SrcFile32>Drivers\Kinetis\fsl_gpio_code.drv=-1</SrcFile32>
-    <SrcFile33>Drivers\Kinetis\HAL_Port_Bridge_V2.prg=1194226773</SrcFile33>
-    <SrcFile34>Drivers\Common\InitReg32Block.prg=1183486427</SrcFile34>
-    <SrcFile35>Drivers\Kinetis\fsl_gpio.drv=-1</SrcFile35>
-    <SrcFile36>Drivers\fsl_i2c_hal.src=-1</SrcFile36>
-    <SrcFile37>Drivers\fsl_mcg_hal.src=-1</SrcFile37>
-    <SrcFile38>Drivers\fsl_clock_manager.src=-1</SrcFile38>
-    <SrcFile39>Drivers\Common\CommonInitialization_NotRst.prg=1183486427</SrcFile39>
-    <SrcFile40>Drivers\Kinetis\fsl_rtc_hal.drv=-1</SrcFile40>
-    <SrcFile41>Drivers\Common\GenReg8BitsInitInfo.prg=1183486427</SrcFile41>
-    <SrcFile42>Drivers\fsl_i2c.src=-1</SrcFile42>
-    <SrcFile43>Drivers\sw\OS_Task.drv=-1</SrcFile43>
-    <SrcFile44>Drivers\Kinetis\fsl_clock_manager_code.drv=-1</SrcFile44>
-    <SrcFile45>Drivers\OS_Task.src=-1</SrcFile45>
-    <SrcFile46>Drivers\Common\KinetisAbstract.inc=1183486427</SrcFile46>
-    <SrcFile47>Drivers\fsl_rtc_hal.src=-1</SrcFile47>
-    <SrcFile48>Drivers\Common\GenReg32BitsInitInfo.prg=1183486427</SrcFile48>
-    <SrcFile49>Drivers\fsl_gpio_hal.src=-1</SrcFile49>
-    <SrcFile50>Drivers\Common\InitRegBlock.prg=1183486427</SrcFile50>
-    <SrcFile51>Drivers\Common\GeneralDamage.inc=1183486427</SrcFile51>
-    <SrcFile52>Drivers\Common\EBGNSupport\StringLib.prg=1183486427</SrcFile52>
-    <SrcFile53>Drivers\Kinetis\fsl_i2c.drv=-1</SrcFile53>
-    <SrcFile54>Drivers\Common\Header.c=1183486427</SrcFile54>
-    <SrcFile55>Drivers\Kinetis\fsl_i2c_code.drv=-1</SrcFile55>
-    <SrcFile56>Drivers\fsl_interrupt_manager.src=-1</SrcFile56>
-    <SrcFile57>Drivers\Common\Header.h=1183486427</SrcFile57>
-    <SrcFile58>Drivers\Kinetis\Static_Kinetis_MCG.prg=1194226774</SrcFile58>
-    <SrcFile59>Drivers\Common\Doxy_CollectRegInitInfo.prg=1183486427</SrcFile59>
-    <SrcFile60>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1183482931</SrcFile60>
-    <SrcFile61>Drivers\fsl_osc_hal.src=-1</SrcFile61>
-    <SrcFile62>Drivers\Common\HeaderGeneral.h=1183486427</SrcFile62>
-    <SrcFile63>Drivers\Kinetis\system_KinetisK_h.prg=1194226773</SrcFile63>
-    <SrcFile64>Drivers\Kinetis\HAL_Port_Bridge.prg=1194226774</SrcFile64>
-    <SrcFile65>Drivers\Kinetis\fsl_interrupt_manager.drv=-1</SrcFile65>
-    <SrcFile66>Drivers\Common\KinetisComponents_Init.inc=1183486427</SrcFile66>
-    <SrcFile67>Drivers\Common\GeneralISR.inc=1183486427</SrcFile67>
-    <SrcFile68>Drivers\fsl_sim_hal.src=-1</SrcFile68>
-    <SrcFile69>Drivers\Kinetis\fsl_sim_hal.drv=-1</SrcFile69>
-    <SrcFile70>Drivers\sw\FreeRTOS.drv=-1</SrcFile70>
-    <SrcFile71>lib\doxygen\pex.doxyfile=1183482798</SrcFile71>
-    <SrcFile72>Drivers\Kinetis\StaticSdk_Kinetis.drv=1194226773</SrcFile72>
-    <SrcFile73>Drivers\Common\GeneralReturnNothing.inc=1183486427</SrcFile73>
-    <SrcFile74>Drivers\Common\RTOSAdaptor.prg=1183486427</SrcFile74>
-    <SrcFile75>Drivers\Common\HeaderCopyright.inc=1183486427</SrcFile75>
-    <SrcFile76>Drivers\PinSettings.src=-1</SrcFile76>
-    <SrcFile77>Drivers\Common\KinetisSettings.inc=1183486427</SrcFile77>
+    <SrcFile10>Drivers\sw\McuLibConfig.drv=1327921757</SrcFile10>
+    <SrcFile11>Drivers\Common\WriteBlock_NotRst.prg=1194226775</SrcFile11>
+    <SrcFile12>Drivers\Common\KinetisCommon_Init.inc=1183486427</SrcFile12>
+    <SrcFile13>Drivers\Common\HeaderFreescale.h=1183486427</SrcFile13>
+    <SrcFile14>Drivers\Common\Header.End=1183486427</SrcFile14>
+    <SrcFile15>Drivers\Kinetis\fsl_gpio_hal.drv=-1</SrcFile15>
+    <SrcFile16>Drivers\Common\GeneralParametersNone.inc=1183486427</SrcFile16>
+    <SrcFile17>Drivers\fsl_os_abstraction.src=-1</SrcFile17>
+    <SrcFile18>Drivers\Common\CopyrightUserC.inc=1183486427</SrcFile18>
+    <SrcFile19>Drivers\Common\Header.doxy=1183484379</SrcFile19>
+    <SrcFile20>Drivers\Common\GenInitConfigSequence.prg=1183486427</SrcFile20>
+    <SrcFile21>Drivers\Common\McuLibConfigDeinit.Inc=1327921743</SrcFile21>
+    <SrcFile22>Drivers\Common\GeneralInternalGlobal.inc=1183486427</SrcFile22>
+    <SrcFile23>Drivers\Kinetis\fsl_os_abstraction.drv=-1</SrcFile23>
+    <SrcFile24>Drivers\Common\GeneralInternalDescription.prg=1183486427</SrcFile24>
+    <SrcFile25>Drivers\Common\Static_SupportSubroutines.prg=1194226775</SrcFile25>
+    <SrcFile26>Drivers\Common\ToolChain_Settings.prg=1183486427</SrcFile26>
+    <SrcFile27>Drivers\Kinetis\fsl_i2c_hal.drv=-1</SrcFile27>
+    <SrcFile28>Drivers\Common\HeaderFreescale.C=1183486427</SrcFile28>
+    <SrcFile29>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1183482931</SrcFile29>
+    <SrcFile30>Drivers\Kinetis\KinetisSdk_Linker_V1.prg=1194226773</SrcFile30>
+    <SrcFile31>Drivers\fsl_gpio.src=-1</SrcFile31>
+    <SrcFile32>Drivers\Kinetis\PinSettings_MKL25Z128LK4_4SDK.prg=-1</SrcFile32>
+    <SrcFile33>Drivers\Kinetis\fsl_port_hal.drv=-1</SrcFile33>
+    <SrcFile34>Drivers\Kinetis\fsl_clock_manager.drv=-1</SrcFile34>
+    <SrcFile35>Drivers\sw\PinSettings.drv=-1</SrcFile35>
+    <SrcFile36>Drivers\Kinetis\fsl_gpio_code.drv=-1</SrcFile36>
+    <SrcFile37>Drivers\Kinetis\HAL_Port_Bridge_V2.prg=1194226773</SrcFile37>
+    <SrcFile38>Drivers\Common\McuLibConfigSettings.Inc=1327921746</SrcFile38>
+    <SrcFile39>Drivers\Common\InitReg32Block.prg=1183486427</SrcFile39>
+    <SrcFile40>Drivers\Kinetis\fsl_gpio.drv=-1</SrcFile40>
+    <SrcFile41>Drivers\fsl_i2c_hal.src=-1</SrcFile41>
+    <SrcFile42>Drivers\fsl_mcg_hal.src=-1</SrcFile42>
+    <SrcFile43>Drivers\fsl_clock_manager.src=-1</SrcFile43>
+    <SrcFile44>Drivers\Common\CommonInitialization_NotRst.prg=1183486427</SrcFile44>
+    <SrcFile45>Drivers\Kinetis\fsl_rtc_hal.drv=-1</SrcFile45>
+    <SrcFile46>Drivers\Common\GenReg8BitsInitInfo.prg=1183486427</SrcFile46>
+    <SrcFile47>Drivers\fsl_i2c.src=-1</SrcFile47>
+    <SrcFile48>Drivers\sw\OS_Task.drv=-1</SrcFile48>
+    <SrcFile49>Drivers\Kinetis\fsl_clock_manager_code.drv=-1</SrcFile49>
+    <SrcFile50>Drivers\OS_Task.src=-1</SrcFile50>
+    <SrcFile51>Drivers\Common\KinetisAbstract.inc=1183486427</SrcFile51>
+    <SrcFile52>Drivers\fsl_rtc_hal.src=-1</SrcFile52>
+    <SrcFile53>Drivers\Common\GenReg32BitsInitInfo.prg=1183486427</SrcFile53>
+    <SrcFile54>Drivers\fsl_gpio_hal.src=-1</SrcFile54>
+    <SrcFile55>Drivers\Common\InitRegBlock.prg=1183486427</SrcFile55>
+    <SrcFile56>Drivers\Common\GeneralDamage.inc=1183486427</SrcFile56>
+    <SrcFile57>Drivers\Common\EBGNSupport\StringLib.prg=1183486427</SrcFile57>
+    <SrcFile58>Drivers\Kinetis\fsl_i2c.drv=-1</SrcFile58>
+    <SrcFile59>Drivers\Common\Header.c=1183486427</SrcFile59>
+    <SrcFile60>Drivers\Kinetis\fsl_i2c_code.drv=-1</SrcFile60>
+    <SrcFile61>Drivers\fsl_interrupt_manager.src=-1</SrcFile61>
+    <SrcFile62>Drivers\Common\McuLibConfigAbstract.Inc=1327921748</SrcFile62>
+    <SrcFile63>Drivers\Common\Header.h=1183486427</SrcFile63>
+    <SrcFile64>Drivers\Kinetis\Static_Kinetis_MCG.prg=1194226774</SrcFile64>
+    <SrcFile65>Drivers\Common\Doxy_CollectRegInitInfo.prg=1183486427</SrcFile65>
+    <SrcFile66>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1183482931</SrcFile66>
+    <SrcFile67>Drivers\fsl_osc_hal.src=-1</SrcFile67>
+    <SrcFile68>Drivers\Common\HeaderGeneral.h=1183486427</SrcFile68>
+    <SrcFile69>Drivers\Kinetis\system_KinetisK_h.prg=1194226773</SrcFile69>
+    <SrcFile70>Drivers\Kinetis\HAL_Port_Bridge.prg=1194226774</SrcFile70>
+    <SrcFile71>Drivers\Common\Header.C=1183486427</SrcFile71>
+    <SrcFile72>Drivers\Kinetis\fsl_interrupt_manager.drv=-1</SrcFile72>
+    <SrcFile73>Drivers\Common\KinetisComponents_Init.inc=1183486427</SrcFile73>
+    <SrcFile74>Drivers\Common\GeneralISR.inc=1183486427</SrcFile74>
+    <SrcFile75>Drivers\fsl_sim_hal.src=-1</SrcFile75>
+    <SrcFile76>Drivers\Kinetis\fsl_sim_hal.drv=-1</SrcFile76>
+    <SrcFile77>Drivers\sw\FreeRTOS.drv=-1</SrcFile77>
+    <SrcFile78>Drivers\Common\GeneralMethod.inc=1183486427</SrcFile78>
+    <SrcFile79>lib\doxygen\pex.doxyfile=1183482798</SrcFile79>
+    <SrcFile80>Drivers\Kinetis\StaticSdk_Kinetis.drv=1194226773</SrcFile80>
+    <SrcFile81>Drivers\Common\GeneralReturnNothing.inc=1183486427</SrcFile81>
+    <SrcFile82>Drivers\Common\RTOSAdaptor.prg=1183486427</SrcFile82>
+    <SrcFile83>Drivers\Common\McuLibConfigInit.Inc=1327921752</SrcFile83>
+    <SrcFile84>Drivers\Common\HeaderCopyright.inc=1183486427</SrcFile84>
+    <SrcFile85>Drivers\PinSettings.src=-1</SrcFile85>
+    <SrcFile86>Drivers\Common\KinetisSettings.inc=1183486427</SrcFile86>
+    <SrcFile87>Drivers\McuLibConfig.src=1327921748</SrcFile87>
   </UsedSrcFiles>
 </GenerationInfo_G_C>
 
