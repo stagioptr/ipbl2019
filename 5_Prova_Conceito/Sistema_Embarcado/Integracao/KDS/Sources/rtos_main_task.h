@@ -36,15 +36,16 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer1.h"
+#include "rtcTimer.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
 #include "tempSensor.h"
-#include "DbgCs1.h"
+#include "DbgCs.h"
 #include "Radio.h"
 #include "spiTemp.h"
 #include "gpio.h"
 #include "spiRadio.h"
+#include "Shell.h"
 
 #ifdef __cplusplus
 extern "C" {

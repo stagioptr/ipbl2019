@@ -1,0 +1,5 @@
+Controle de versao do driver Radio 
+
+Versao 4:
+Inclusao das rotinas de desinicializacao, adiá∆o da limpeza da fila de recepá∆o e transmiss∆o durante a inicializaá∆o. 
+

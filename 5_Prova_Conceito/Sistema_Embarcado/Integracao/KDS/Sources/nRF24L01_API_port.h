@@ -15,7 +15,7 @@
 #include "task.h"
 #include "fsl_os_abstraction_free_rtos.h"
 
-semaphore_t nRF24L01_Radio_IRQ = NULL;
+extern semaphore_t nRF24L01_Radio_IRQ;
 
 const gpio_output_pin_user_config_t gpio_OutRadio[] = {
   {
@@ -29,6 +29,24 @@ const gpio_output_pin_user_config_t gpio_OutRadio[] = {
     .config.outputLogic = 1,
     .config.slewRate = kPortFastSlewRate,
     .config.driveStrength = kPortHighDriveStrength,
+  },
+  {
+    .pinName = GPIO_PINS_OUT_OF_RANGE,
+  }
+};
+
+const gpio_input_pin_user_config_t gpio1_DeinitRadio[] = {
+  {
+    .pinName = CSN_Radio,
+		.config.isPullEnable = false,
+		.config.isPassiveFilterEnabled = false,
+		.config.interrupt = kPortIntDisabled
+  },
+  {
+    .pinName = CE_Radio,
+		.config.isPullEnable = false,
+		.config.isPassiveFilterEnabled = false,
+		.config.interrupt = kPortIntDisabled
   },
   {
     .pinName = GPIO_PINS_OUT_OF_RANGE,
@@ -57,6 +75,16 @@ bool nRF24L01_SPI_Init_port() {
 	return retVal;
 }
 
+bool nRF24L01_SPI_Deinit_port() {
+	bool retVal = true;
+
+	GPIO_DRV_Init(gpio1_DeinitRadio,NULL);
+
+	retVal &= (SPI_DRV_MasterDeinit(spiRadio_IDX) == kStatus_SPI_Success) ? 1 : 0;
+
+	return retVal;
+}
+
 const gpio_input_pin_user_config_t gpio1_InpRadio[] = {
   {
     .pinName = IRQ_Radio,
@@ -69,14 +97,31 @@ const gpio_input_pin_user_config_t gpio1_InpRadio[] = {
   }
 };
 
+const gpio_input_pin_user_config_t gpio1_InpDeinitRadio[] = {
+  {
+    .pinName = IRQ_Radio,
+    .config.isPullEnable = false,
+    .config.isPassiveFilterEnabled = false,
+    .config.interrupt = kPortIntDisabled
+  },
+  {
+    .pinName = GPIO_PINS_OUT_OF_RANGE,
+  }
+};
+
 bool nRF24L01_EXTI_Init_port() {
 
 	GPIO_DRV_Init(gpio1_InpRadio,NULL);
-	nRF24L01_Radio_IRQ = xSemaphoreCreateBinary();
 
 	return true;
 }
 
+bool nRF24L01_EXTI_Deinit_port() {
+
+	GPIO_DRV_Init(gpio1_InpDeinitRadio,NULL);
+
+	return true;
+}
 
 #define nRF24L01_SPI_TransferBlocking(TX_BUFFER,RX_BUFFER,LENGTH) 		SPI_DRV_MasterTransferBlocking(spiRadio_IDX, &Radio_MasterConfig0, TX_BUFFER, RX_BUFFER, LENGTH, 20);
 

@@ -20,11 +20,11 @@
 ** @brief
 **         This is user's event module.
 **         Put your event handler code here.
-*/         
+*/
 /*!
 **  @addtogroup rtos_main_task_module rtos_main_task module documentation
 **  @{
-*/         
+*/
 /* MODULE rtos_main_task */
 
 #include "Cpu.h"
@@ -34,15 +34,30 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
+#include "shellStateMachine.h"
+
+extern void PEX_components_init(void);
+
+semaphore_t nRF24L01_Radio_IRQ = NULL;
+
+QueueHandle_t temperature_msg_queue_handler = NULL;
+
+#if defined DEBUG
+
+uint32_t ulHighFrequencyTimerTicks = 0;
+QueueHandle_t temperature_debug_msg_queue_handler = NULL;
+QueueHandle_t radio_debug_msg_queue_handler = NULL;
+
+#endif
 
 /* Initialization of Processor Expert components function prototype */
 #ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
 extern void PEX_components_init(void);
-#endif 
+#endif
 
 /*
 ** ===================================================================
@@ -53,37 +68,52 @@ extern void PEX_components_init(void);
 **     Returns : Nothing
 ** ===================================================================
 */
+task_handler_t MainTask_task_handler;
+
 void main_task(os_task_param_t task_init_data)
 {
   /* Write your local variable definition here */
-  
+
   /* Initialization of Processor Expert components (when some RTOS is active). DON'T REMOVE THIS CODE!!! */
 #ifdef MainTask_PEX_RTOS_COMPONENTS_INIT
-  PEX_components_init(); 
-#endif 
+  PEX_components_init();
+#endif
   /* End of Processor Expert components initialization.  */
+	nRF24L01_Radio_IRQ = xSemaphoreCreateBinary();
+	temperature_msg_queue_handler = xQueueCreate( 4, sizeof(float) );
+
+#if defined DEBUG
+	temperature_debug_msg_queue_handler = xQueueCreate( 4, sizeof(float) );
+	radio_debug_msg_queue_handler = xQueueCreate( 16, sizeof(radioDebugCodeEnum_t) );
+
+
+	/*! Shell Auto initialization start */
+	  (void)Shell_Init();
+  /*! Shell Auto initialization end */
+#endif
+
 
 #ifdef PEX_USE_RTOS
   while (1) {
 #endif
     /* Write your code here ... */
-    
-    
-    OSA_TimeDelay(10);                 /* Example code (for task release) */
-   
-    
-    
-    
-#ifdef PEX_USE_RTOS   
+
+
+    OSA_TaskDestroy(MainTask_task_handler);
+
+
+
+
+#ifdef PEX_USE_RTOS
   }
-#endif    
+#endif
 }
 
 /* END rtos_main_task */
 
 #ifdef __cplusplus
 }  /* extern "C" */
-#endif 
+#endif
 
 /*!
 ** @}

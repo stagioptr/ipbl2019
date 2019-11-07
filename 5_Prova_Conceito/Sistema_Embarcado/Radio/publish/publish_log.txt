@@ -12,3 +12,6 @@ Corrigido bug de inicializacao do radio onde, em algumas situacoes, o buffer de 
 Versao 3:
 Corigido o arquivo do template para portabilidade, adicao do led para indicar falha de comunicacao. 
 
+Versao 4:
+Inclusao das rotinas de desinicializacao, adiá∆o da limpeza da fila de recepá∆o e transmiss∆o durante a inicializaá∆o. 
+

@@ -50,6 +50,8 @@ driver_code/nRF24L01_API.o: N:/Radio/driver_code/nRF24L01_API.c \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
  N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h \
+ N:/Radio/KDS/Generated_Code/Radio1.h \
+ N:/Radio/KDS/Generated_Code/Radio2.h \
  N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h \
  N:/Radio/KDS/SDK/platform/osa/inc/fsl_os_abstraction_free_rtos.h \
  N:/Radio/driver_code/nRF24L01_API.h
@@ -157,6 +159,10 @@ N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
 N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h:
 
 N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h:
+
+N:/Radio/KDS/Generated_Code/Radio1.h:
+
+N:/Radio/KDS/Generated_Code/Radio2.h:
 
 N:/Radio/KDS/SDK/rtos/FreeRTOS/include/task.h:
 

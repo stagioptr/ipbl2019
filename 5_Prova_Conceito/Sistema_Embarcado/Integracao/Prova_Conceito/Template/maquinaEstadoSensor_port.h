@@ -16,7 +16,7 @@
 
 #include "MAX6675_API.h"
 
-QueueHandle_t sensor_x_msg_queue_handler = NULL;
+extern QueueHandle_t temperature_msg_queue_handler;
 float temperatureCelsiusDegree = 0.0;
 
 typedef enum {
@@ -36,8 +36,6 @@ typedef enum {
 }SENSOR_RETORNO;
 
 static SENSOR_RETORNO CONFIGURA_SENSOR_PORT(void) {
-	sensor_x_msg_queue_handler = xQueueCreate( 5, sizeof(float) );
-
 	if( MAX6675_Init() != MAX6675_STATE_SUCCESS )
 		return SENSOR_FALHA_CONFIGURACAO;
 	else
@@ -62,8 +60,8 @@ static SENSOR_RETORNO LER_DADOS_PORT(void) {
 }
 
 static SENSOR_RETORNO INTERPRETA_DADOS_PORT(void) {
-
-	if( xQueueSendToBack( sensor_x_msg_queue_handler, &temperatureCelsiusDegree, 0 ) == pdPASS )
+	// Código do SCADE aqui.
+	if( xQueueSendToBack( temperature_msg_queue_handler, &temperatureCelsiusDegree, 0 ) == pdPASS )
 		return SENSOR_DADOS_VALIDOS;
 	else
 		return SENSOR_DADOS_INVALIDOS;

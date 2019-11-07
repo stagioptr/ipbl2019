@@ -182,12 +182,12 @@ Module "pin_init"  (component PinSettings)
                 only if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or 
                 pins selected in pin items in components. Call this method code to un-route desired pins into UART0 peripheral.
 
-Module "intMan1"   (component fsl_interrupt_manager)
-   - intMan1_INT_SYS_InstallHandler -Installs an interrupt handler routine for a given IRQ number.
-   - intMan1_INT_SYS_EnableIRQ -Enables an interrupt for a given IRQ number.
-   - intMan1_INT_SYS_DisableIRQ -Disables an interrupt for a given IRQ number.
-   - intMan1_INT_SYS_EnableIRQGlobal -Enables system interrupt.
-   - intMan1_INT_SYS_DisableIRQGlobal -Disable system interrupt.
+Module "intMan"    (component fsl_interrupt_manager)
+   - intMan_INT_SYS_InstallHandler -Installs an interrupt handler routine for a given IRQ number.
+   - intMan_INT_SYS_EnableIRQ -Enables an interrupt for a given IRQ number.
+   - intMan_INT_SYS_DisableIRQ -Disables an interrupt for a given IRQ number.
+   - intMan_INT_SYS_EnableIRQGlobal -Enables system interrupt.
+   - intMan_INT_SYS_DisableIRQGlobal -Disable system interrupt.
 
 Module "osa1"      (component fsl_os_abstraction)
    - osa1_OSA_SemaCreate -Creates a semaphore with a given value.
@@ -225,28 +225,28 @@ Module "osa1"      (component fsl_os_abstraction)
    - osa1_OSA_Init -Initializes the RTOS services.
    - osa1_OSA_Start -Starts the RTOS.
 
-Module "rtcTimer1" (component fsl_rtc)
-   - rtcTimer1_RTC_DRV_Init -Initializes the RTC module.
-   - rtcTimer1_RTC_DRV_Deinit -Disables the RTC module clock gate control.
-   - rtcTimer1_RTC_DRV_SetDatetime -Sets the RTC date and time according to the given time structure.
-   - rtcTimer1_RTC_DRV_GetDatetime -Gets the RTC time and stores it in the given time structure.
-   - rtcTimer1_RTC_DRV_SetAlarm -Sets the RTC alarm time and enables the alarm interrupt.
-   - rtcTimer1_RTC_DRV_GetAlarm -Returns the RTC alarm time.
-   - rtcTimer1_RTC_DRV_InitRepeatAlarm -Initializes the RTC repeat alarm state structure.
-   - rtcTimer1_RTC_DRV_SetAlarmRepeat -Sets an alarm that is periodically repeated.
-   - rtcTimer1_RTC_DRV_DeinitRepeatAlarm -Deinitializes the RTC repeat alarm state structure.
-   - rtcTimer1_RTC_IRQHandler -Implements the RTC alarm handler named in the startup code.
-   - rtcTimer1_RTC_Seconds_IRQHandler -Implements the RTC seconds handler named in the startup code.
-   - rtcTimer1_RTC_DRV_IsCounterEnabled -Checks whether the RTC is enabled.
-   - rtcTimer1_RTC_DRV_SetSecsIntCmd -Enables or disables the RTC seconds interrupt.
-   - rtcTimer1_RTC_DRV_SetAlarmIntCmd -Enables or disables the alarm interrupt.
-   - rtcTimer1_RTC_DRV_GetAlarmIntCmd -Reads the alarm interrupt.
-   - rtcTimer1_RTC_DRV_IsAlarmPending -Reads the alarm status to see if the alarm is triggered.
-   - rtcTimer1_RTC_DRV_SetTimeCompensation -Writes the compensation value to the RTC compensation register.
-   - rtcTimer1_RTC_DRV_GetTimeCompensation -Reads the compensation value from the RTC compensation register.
-   - rtcTimer1_RTC_DRV_AlarmIntAction -Action to take when an RTC alarm interrupt is triggered. To receive alarms periodically, 
+Module "rtcTimer"  (component fsl_rtc)
+   - rtcTimer_RTC_DRV_Init -Initializes the RTC module.
+   - rtcTimer_RTC_DRV_Deinit -Disables the RTC module clock gate control.
+   - rtcTimer_RTC_DRV_SetDatetime -Sets the RTC date and time according to the given time structure.
+   - rtcTimer_RTC_DRV_GetDatetime -Gets the RTC time and stores it in the given time structure.
+   - rtcTimer_RTC_DRV_SetAlarm -Sets the RTC alarm time and enables the alarm interrupt.
+   - rtcTimer_RTC_DRV_GetAlarm -Returns the RTC alarm time.
+   - rtcTimer_RTC_DRV_InitRepeatAlarm -Initializes the RTC repeat alarm state structure.
+   - rtcTimer_RTC_DRV_SetAlarmRepeat -Sets an alarm that is periodically repeated.
+   - rtcTimer_RTC_DRV_DeinitRepeatAlarm -Deinitializes the RTC repeat alarm state structure.
+   - rtcTimer_RTC_IRQHandler -Implements the RTC alarm handler named in the startup code.
+   - rtcTimer_RTC_Seconds_IRQHandler -Implements the RTC seconds handler named in the startup code.
+   - rtcTimer_RTC_DRV_IsCounterEnabled -Checks whether the RTC is enabled.
+   - rtcTimer_RTC_DRV_SetSecsIntCmd -Enables or disables the RTC seconds interrupt.
+   - rtcTimer_RTC_DRV_SetAlarmIntCmd -Enables or disables the alarm interrupt.
+   - rtcTimer_RTC_DRV_GetAlarmIntCmd -Reads the alarm interrupt.
+   - rtcTimer_RTC_DRV_IsAlarmPending -Reads the alarm status to see if the alarm is triggered.
+   - rtcTimer_RTC_DRV_SetTimeCompensation -Writes the compensation value to the RTC compensation register.
+   - rtcTimer_RTC_DRV_GetTimeCompensation -Reads the compensation value from the RTC compensation register.
+   - rtcTimer_RTC_DRV_AlarmIntAction -Action to take when an RTC alarm interrupt is triggered. To receive alarms periodically, 
                 the RTC_TAR register is updated using the repeat interval.
-   - rtcTimer1_RTC_DRV_SecsIntAction -Action to take when an RTC seconds interrupt is triggered.
+   - rtcTimer_RTC_DRV_SecsIntAction -Action to take when an RTC seconds interrupt is triggered.
 
 Module "tpmTmr1"   (component fsl_tpm)
    - tpmTmr1_TPM_DRV_Init -Initializes the TPM driver.
@@ -285,13 +285,13 @@ Module "tpmTmr2"   (component fsl_tpm)
 Module "tempSensor" (component OS_Task)
    - tempSensor_Init -Creates and starts a task.
 
-Module "DbgCs1"    (component fsl_debug_console)
-   - DbgCs1_DbgConsole_Init -Init the UART/LPUART used for debug messages.
-   - DbgCs1_DbgConsole_DeInit -Deinit the UART/LPUART used for debug messages.
-   - DbgCs1_debug_printf -Prints formatted output to the standard output stream.
-   - DbgCs1_debug_putchar -Writes a character to stdout.
-   - DbgCs1_debug_scanf -Reads formatted data from the standard input stream.
-   - DbgCs1_debug_getchar -Reads a character from standard input.
+Module "DbgCs"     (component fsl_debug_console)
+   - DbgCs_DbgConsole_Init -Init the UART/LPUART used for debug messages.
+   - DbgCs_DbgConsole_DeInit -Deinit the UART/LPUART used for debug messages.
+   - DbgCs_debug_printf -Prints formatted output to the standard output stream.
+   - DbgCs_debug_putchar -Writes a character to stdout.
+   - DbgCs_debug_scanf -Reads formatted data from the standard input stream.
+   - DbgCs_debug_getchar -Reads a character from standard input.
 
 Module "Radio"     (component OS_Task)
    - Radio_Init -Creates and starts a task.
@@ -347,6 +347,9 @@ Module "spiRadio"  (component fsl_spi)
    - spiRadio_SPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
    - spiRadio_SPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
    - spiRadio_SPI_DRV_SlaveIRQHandler -SPI Slave Generic IRQ handler.
+
+Module "Shell"     (component OS_Task)
+   - Shell_Init -Creates and starts a task.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

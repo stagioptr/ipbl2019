@@ -16,7 +16,12 @@
 
 #include "nRF24L01_API.h"
 
-extern QueueHandle_t sensor_x_msg_queue_handler;
+extern QueueHandle_t temperature_msg_queue_handler;
+extern semaphore_t nRF24L01_Radio_IRQ;
+
+#if defined DEBUG
+	extern QueueHandle_t radio_debug_msg_queue_handler;
+#endif
 
 typedef enum {
 	RADIO_PRONTO,
@@ -61,16 +66,14 @@ static RADIO_RETORNO AGUARDA_TEMPO_TRANSMISSAO_PORT(void) {
 	return RADIO_PRONTO;
 }
 
-extern semaphore_t nRF24L01_Radio_IRQ;
-
 static RADIO_RETORNO TRANSMITE_AMOSTRAS_PORT(void) {
 	uint8_t radio_status = 0;
 
-	if( xQueueReceive( sensor_x_msg_queue_handler, &valorATransmitir, pdMS_TO_TICKS(1000) ) == pdFAIL )
+	if( xQueueReceive( temperature_msg_queue_handler, &valorATransmitir, pdMS_TO_TICKS(1000) ) == pdFAIL )
 		return RADIO_FALHA_TRANSMISSAO;
 
 #if DEBUG
-	debug_printf("%5.2f Celsius Degree: ", valorATransmitir );
+//	debug_printf("%5.2f Celsius Degree: ", valorATransmitir );
 #endif
 
 	if( nRF24L01_transmitPayload( &transmitSetup ) != NRF24L01_STATE_SUCCESS )
@@ -83,13 +86,17 @@ static RADIO_RETORNO TRANSMITE_AMOSTRAS_PORT(void) {
 
 	if( radio_status & MAX_RT ) {
 		L01_Clear_IRQ( MAX_RT );
-		debug_printf("Transmition failed!\n\r");
+#if DEBUG
+//		debug_printf("Transmition failed!\n\r");
+#endif
 		return RADIO_FALHA_TRANSMISSAO;
 	}
 
 	if( radio_status & TX_DS ) {
 		L01_Clear_IRQ( TX_DS );
-		debug_printf("Transmition succeed!\n\r");
+#if DEBUG
+//		debug_printf("Transmition succeed!\n\r");
+#endif
 		return RADIO_SUCESSO_TRANSMISSAO;
 	}
 

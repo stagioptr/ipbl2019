@@ -39,6 +39,7 @@ extern "C" {
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "maquinaEstadoSensor.h"
 #include "maquinaEstadoRadio.h"
+#include "shellStateMachine.h"
 
 /*
  ** ===================================================================
@@ -49,6 +50,8 @@ extern "C" {
  **     Returns : Nothing
  ** ===================================================================
  */
+extern task_handler_t tempSensor_task_handler;
+
 void tempSensor_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
 	sensor_stateMachine();
@@ -58,7 +61,7 @@ void tempSensor_task(os_task_param_t task_init_data) {
 #endif
 	/* Write your code here ... */
 
-	OSA_TimeDelay(10); /* Example code (for task release) */
+		OSA_TaskDestroy(tempSensor_task_handler);
 
 #ifdef PEX_USE_RTOS
 }
@@ -74,6 +77,8 @@ void tempSensor_task(os_task_param_t task_init_data) {
 **     Returns : Nothing
 ** ===================================================================
 */
+extern task_handler_t Radio_task_handler;
+
 void Radio_task(os_task_param_t task_init_data)
 {
   /* Write your local variable definition here */
@@ -84,7 +89,38 @@ void Radio_task(os_task_param_t task_init_data)
     /* Write your code here ... */
 
 
-    OSA_TimeDelay(10);                 /* Example code (for task release) */
+    OSA_TaskDestroy(Radio_task_handler);
+
+
+
+
+#ifdef PEX_USE_RTOS
+  }
+#endif
+}
+
+/*
+** ===================================================================
+**     Callback    : Shell_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+extern task_handler_t Shell_task_handler;
+
+void Shell_task(os_task_param_t task_init_data)
+{
+  /* Write your local variable definition here */
+	shell_stateMachine();
+#ifdef PEX_USE_RTOS
+  while (1) {
+#endif
+    /* Write your code here ... */
+
+
+  	OSA_TaskDestroy(Shell_task_handler);
 
 
 

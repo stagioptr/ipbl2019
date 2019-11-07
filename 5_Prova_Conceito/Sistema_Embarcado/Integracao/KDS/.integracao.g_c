@@ -27,7 +27,7 @@
         <Line>Documentation\doxygen\pex.css</Line>
       </GenExtraFiles>
       <GenExtraFileSrcDir9>Repositories\lib\doxygen\</GenExtraFileSrcDir9>
-      <XtraAge0>1331663537</XtraAge0>
+      <XtraAge0>1332178191</XtraAge0>
       <XtraAge1>1329826795</XtraAge1>
       <XtraAge2>1330409072</XtraAge2>
       <XtraAge3>1331664551</XtraAge3>
@@ -958,17 +958,18 @@
         <Line>RTC_Seconds_IRQHandler</Line>
         <Line>free_rtos_vApplicationIdleHook</Line>
       </GenMethodsInEvents>
-      <GenMethodsInos_tasks lines_count="2">
+      <GenMethodsInos_tasks lines_count="3">
+        <Line>Shell_task</Line>
         <Line>Radio_task</Line>
         <Line>tempSensor_task</Line>
       </GenMethodsInos_tasks>
       <GenMethodsInrtos_main_task lines_count="1">
         <Line>main_task</Line>
       </GenMethodsInrtos_main_task>
-      <GenAllModules lines_count="18">
+      <GenAllModules lines_count="19">
         <Line>clockMan1</Line>
         <Line>Cpu</Line>
-        <Line>DbgCs1</Line>
+        <Line>DbgCs</Line>
         <Line>Events</Line>
         <Line>free_rtos</Line>
         <Line>gpio</Line>
@@ -977,8 +978,9 @@
         <Line>osa1</Line>
         <Line>pin_init</Line>
         <Line>Radio</Line>
-        <Line>rtcTimer1</Line>
+        <Line>rtcTimer</Line>
         <Line>rtos_main_task</Line>
+        <Line>Shell</Line>
         <Line>spiRadio</Line>
         <Line>spiTemp</Line>
         <Line>tempSensor</Line>
@@ -986,26 +988,27 @@
         <Line>tpmTmr2</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="14">
+      <GenBeanModules lines_count="15">
         <Line>clockMan1</Line>
         <Line>pin_init</Line>
         <Line>osa1</Line>
         <Line>free_rtos</Line>
         <Line>MainTask</Line>
-        <Line>rtcTimer1</Line>
+        <Line>rtcTimer</Line>
         <Line>tpmTmr1</Line>
         <Line>tpmTmr2</Line>
         <Line>tempSensor</Line>
-        <Line>DbgCs1</Line>
+        <Line>DbgCs</Line>
         <Line>Radio</Line>
         <Line>spiTemp</Line>
         <Line>gpio</Line>
         <Line>spiRadio</Line>
+        <Line>Shell</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>18</ProjectModificationStamp>
+    <ProjectModificationStamp>29</ProjectModificationStamp>
   </Options>
   <CpuID_1>
     <Generated>true</Generated>
@@ -1014,7 +1017,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1331663537</HeaderAge>
-    <CodeAge>1331666757</CodeAge>
+    <CodeAge>1332174932</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>2</GenNumMethods>
     <SystemInit>true</SystemInit>
@@ -1739,7 +1742,7 @@
   </ComponentID_7>
   <ComponentID_11>
     <Generated>true</Generated>
-    <GenCompName>intMan1</GenCompName>
+    <GenCompName>intMan</GenCompName>
     <GenComponentVersion>1.3.0</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
@@ -1848,7 +1851,7 @@
       <GenComponentVersion>8.2.0</GenComponentVersion>
       <GenDriverVersion>01.00</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1331663537</HeaderAge>
+      <HeaderAge>1332132688</HeaderAge>
       <CodeAge>1331663537</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>108</GenNumMethods>
@@ -1941,7 +1944,7 @@
       <vTaskGetRunTimeStats>true</vTaskGetRunTimeStats>
       <xTaskGetSchedulerState>true</xTaskGetSchedulerState>
       <uxTaskGetStackHighWaterMark>true</uxTaskGetStackHighWaterMark>
-      <eTaskGetState>false</eTaskGetState>
+      <eTaskGetState>true</eTaskGetState>
       <uxTaskGetSystemState>true</uxTaskGetSystemState>
       <pcTaskGetTaskName>false</pcTaskGetTaskName>
       <xTaskGetTickCount>true</xTaskGetTickCount>
@@ -2013,7 +2016,7 @@
         <GenComponentVersion>1.3.0</GenComponentVersion>
         <GenDriverVersion>01.00</GenDriverVersion>
         <GenEventModule>rtos_main_task</GenEventModule>
-        <HeaderAge>1330409072</HeaderAge>
+        <HeaderAge>1332128685</HeaderAge>
         <CodeAge>1330409072</CodeAge>
         <AsemblAge>-1</AsemblAge>
         <GenNumMethods>3</GenNumMethods>
@@ -2048,12 +2051,12 @@
   </ComponentID_12>
   <ComponentID_16>
     <Generated>true</Generated>
-    <GenCompName>rtcTimer1</GenCompName>
+    <GenCompName>rtcTimer</GenCompName>
     <GenComponentVersion>1.3.0</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1330409072</HeaderAge>
-    <CodeAge>1330409072</CodeAge>
+    <HeaderAge>1332128685</HeaderAge>
+    <CodeAge>1332128685</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>20</GenNumMethods>
     <RTC_DRV_Init>true</RTC_DRV_Init>
@@ -2387,12 +2390,12 @@
   </ComponentID_24>
   <ComponentID_31>
     <Generated>true</Generated>
-    <GenCompName>DbgCs1</GenCompName>
+    <GenCompName>DbgCs</GenCompName>
     <GenComponentVersion>1.3.0</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1330421809</HeaderAge>
-    <CodeAge>1330421809</CodeAge>
+    <HeaderAge>1332128424</HeaderAge>
+    <CodeAge>1332128424</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>6</GenNumMethods>
     <DbgConsole_Init>true</DbgConsole_Init>
@@ -2543,7 +2546,7 @@
     <GenComponentVersion>1.3.0</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>os_tasks</GenEventModule>
-    <HeaderAge>1331145674</HeaderAge>
+    <HeaderAge>1332119573</HeaderAge>
     <CodeAge>1331145674</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
@@ -2940,6 +2943,43 @@
       <ExtraFile1>SDK\platform\hal\src\spi\fsl_spi_hal.c</ExtraFile1>
     </InhrCompID_41>
   </ComponentID_40>
+  <ComponentID_42>
+    <Generated>true</Generated>
+    <GenCompName>Shell</GenCompName>
+    <GenComponentVersion>1.3.0</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule>os_tasks</GenEventModule>
+    <HeaderAge>1332128685</HeaderAge>
+    <CodeAge>1332118709</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>3</GenNumMethods>
+    <Init>true</Init>
+    <GetHandler>false</GetHandler>
+    <Deinit>false</Deinit>
+    <GenNumEvents>1</GenNumEvents>
+    <TaskCode_Selected>3</TaskCode_Selected>
+    <TaskCode_Name>Shell_task</TaskCode_Name>
+    <TaskCode_Priority>interrupts disabled</TaskCode_Priority>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>Init</MethodPos0>
+      <MethodType>internal_method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>69</LineBeg>
+      <LineEnd>80</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>Init</MethodPos1>
+      <MethodType>internal_method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>61</LineBeg>
+      <LineEnd>87</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+  </ComponentID_42>
   <UsedSrcFiles>
     <SrcFile0>Drivers\PEx_Kinetis.src=1194226771</SrcFile0>
     <SrcFile1>Drivers\fsl_tpm_hal.src=-1</SrcFile1>

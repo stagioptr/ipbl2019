@@ -92,16 +92,17 @@
   <FILES>
     <GeneratedCs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Radio.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\Shell.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\hardware_init.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer1.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiRadio.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiTemp.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.c</PathName>
@@ -109,6 +110,7 @@
       <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr2.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.c</PathName>
+      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\shellStateMachine.c</PathName>
       <PathName>N:\Integracao\KDS\Radio\nRF24L01_API.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\startup.c</PathName>
@@ -142,6 +144,7 @@
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\fsl_misc_utilities.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\print_scan.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\port\gcc\port.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\Utility.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\croutine.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\event_groups.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\heap_1.c</PathName>
@@ -162,19 +165,20 @@
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Radio.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\rtos\FreeRTOS\config\FreeRTOSConfig.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\Shell.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer1.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiRadio.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiTemp.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.h</PathName>
@@ -182,6 +186,7 @@
       <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr2.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\shellStateMachine.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoRadio_port.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoSensor_port.h</PathName>
       <PathName>N:\Integracao\KDS\Radio\Template\nRF24L01_API_port.h</PathName>
@@ -227,6 +232,7 @@
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\print_scan.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\FreeRTOS.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\StackMacros.h</PathName>
+      <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\Utility.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\croutine.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\deprecated_definitions.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\event_groups.h</PathName>
@@ -242,6 +248,7 @@
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\port\gcc\portmacro.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\Events.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\MAX6675_API_port.h</PathName>
+      <PathName>N:\Integracao\KDS\Sources\PE_KSDK_Types.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\nRF24L01_API_port.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\os_tasks.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\rtos_main_task.h</PathName>

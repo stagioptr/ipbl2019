@@ -40,7 +40,7 @@ extern "C" {
 /* User includes (#include below this line is not maintained by Processor Expert) */
 extern semaphore_t nRF24L01_Radio_IRQ;
 
-#ifdef rtcTimer1_IDX
+#ifdef rtcTimer_IDX
 /*
 ** ===================================================================
 **     Interrupt handler : RTC_IRQHandler
@@ -53,16 +53,16 @@ extern semaphore_t nRF24L01_Radio_IRQ;
 */
 void RTC_IRQHandler(void)
 {
-  RTC_DRV_AlarmIntAction(rtcTimer1_IDX);
+  RTC_DRV_AlarmIntAction(rtcTimer_IDX);
   /* Write your code here ... */
 }
 #else
-  /* This IRQ handler is not used by rtcTimer1 component. The purpose may be
+  /* This IRQ handler is not used by rtcTimer component. The purpose may be
    * that the component has been removed or disabled. It is recommended to
    * remove this handler because Processor Expert cannot modify it according to
    * possible new request (e.g. in case that another component uses this
    * interrupt vector). */
-  #warning This IRQ handler is not used by rtcTimer1 component.\
+  #warning This IRQ handler is not used by rtcTimer component.\
            It is recommended to remove this because Processor Expert cannot\
            modify it according to possible new request.
 #endif
