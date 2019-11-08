@@ -6,7 +6,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:58, # CodeGen: 7
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -56,10 +56,12 @@
 #define configGENERATE_STATIC_SOURCES            1 /* 1: it will create 'static' sources to be used without Processor Expert; 0: Processor Expert code generated */
 #define configPEX_KINETIS_SDK                    1 /* 1: project is a Kinetis SDK Processor Expert project; 0: No Kinetis Processor Expert project */
 
-#define configGENERATE_RUN_TIME_STATS            0 /* 1: generate runtime statistics; 0: no runtime statistics */
+#define configGENERATE_RUN_TIME_STATS            1 /* 1: generate runtime statistics; 0: no runtime statistics */
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() /* nothing */ /* default: use Tick counter as runtime counter */   
+#define portGET_RUN_TIME_COUNTER_VALUE()         xTaskGetTickCount() /* default: use Tick counter as runtime counter */ 
 
 #define configUSE_PREEMPTION                     1 /* 1: pre-emptive mode; 0: cooperative mode */
-#define configUSE_IDLE_HOOK                      0 /* 1: use Idle hook; 0: no Idle hook */
+#define configUSE_IDLE_HOOK                      1 /* 1: use Idle hook; 0: no Idle hook */
 #define configUSE_TICK_HOOK                      0 /* 1: use Tick hook; 0: no Tick hook */
 #define configUSE_MALLOC_FAILED_HOOK             0 /* 1: use MallocFailed hook; 0: no MallocFailed hook */
 #define configTICK_RATE_HZ                       200 /* frequency of tick interrupt */
@@ -80,8 +82,8 @@
   
 /*----------------------------------------------------------*/
 #define configMAX_TASK_NAME_LEN                  12 /* Task name length */
-#define configUSE_TRACE_FACILITY                 0
-#define configUSE_STATS_FORMATTING_FUNCTIONS     0
+#define configUSE_TRACE_FACILITY                 1
+#define configUSE_STATS_FORMATTING_FUNCTIONS     1
 #define configUSE_16_BIT_TICKS                   0
 #define configIDLE_SHOULD_YIELD                  1
 #define configUSE_CO_ROUTINES                    0
@@ -98,12 +100,12 @@
 #define configEXPECTED_IDLE_TIME_BEFORE_SLEEP    2 /* Number of ticks must be larger than this to enter tickless idle mode */
 #define configUSE_TICKLESS_IDLE_DECISION_HOOK    0 /* Set to 1 to enable application hook, zero otherwise */
 
-#define configMAX_PRIORITIES                     8
+#define configMAX_PRIORITIES                     5
 #define configMAX_CO_ROUTINE_PRIORITIES          2
 
 /* Software timer definitions. */
 #define configUSE_TIMERS                         1
-#define configTIMER_TASK_PRIORITY                3 
+#define configTIMER_TASK_PRIORITY                4 
 #define configTIMER_QUEUE_LENGTH                 10
 #define configTIMER_TASK_STACK_DEPTH             128 
 
@@ -119,7 +121,7 @@
 #define INCLUDE_xQueueGetMutexHolder             1
 #define INCLUDE_xTaskGetCurrentTaskHandle        1
 #define INCLUDE_xTaskGetIdleTaskHandle           0
-#define INCLUDE_eTaskGetState                    0
+#define INCLUDE_eTaskGetState                    1
 #define INCLUDE_pcTaskGetTaskName                0
 #define INCLUDE_xEventGroupSetBitFromISR         1
 #define INCLUDE_xTimerPendFunctionCall           1

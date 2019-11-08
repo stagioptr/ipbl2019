@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Generated_Code/Cpu.c \
+../Generated_Code/DbgCs1.c \
 ../Generated_Code/MainTask.c \
 ../Generated_Code/Radio1.c \
 ../Generated_Code/Radio2.c \
@@ -19,6 +20,7 @@ C_SRCS += \
 
 OBJS += \
 ./Generated_Code/Cpu.o \
+./Generated_Code/DbgCs1.o \
 ./Generated_Code/MainTask.o \
 ./Generated_Code/Radio1.o \
 ./Generated_Code/Radio2.o \
@@ -33,6 +35,7 @@ OBJS += \
 
 C_DEPS += \
 ./Generated_Code/Cpu.d \
+./Generated_Code/DbgCs1.d \
 ./Generated_Code/MainTask.d \
 ./Generated_Code/Radio1.d \
 ./Generated_Code/Radio2.d \

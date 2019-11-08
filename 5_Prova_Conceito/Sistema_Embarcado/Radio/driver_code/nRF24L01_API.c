@@ -94,7 +94,7 @@ uint8_t nRF24L01_writeRegister(uint8_t registerAddress, uint8_t value) {
 
 	nRF24L01_writeChpSelectPin(0);
 
-	status = nRF24L01_RW( WRITE_REG + registerAddress );                           // select register
+	status = nRF24L01_RW( NRF24L01_WRITE_REG + registerAddress );                           // select register
 	nRF24L01_RW(value);                               // ..and write value to it..
 	nRF24L01_writeChpSelectPin(1);
 
@@ -169,17 +169,42 @@ NRF24L01_state_t nRF24L01_Init(void) {
 	if ( !nRF24L01_SPI_Init_port() )
 		return NRF24L01_STATE_FAIL_INIT;
 
-	nRF24L01_writeRegister(EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
-	nRF24L01_writeRegister(EN_RXADDR, 0x01);        // Enable pipe 0.
-	nRF24L01_writeRegister(SETUP_RETR, 0x1a);  // 500µs + 86µs, 10 retrans...
-	nRF24L01_writeRegister(RF_CH, 40);              // Select RF channel 40
-	nRF24L01_writeRegister(RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
+	nRF24L01_writeRegister(NRF24L01_CONFIG, 0x00); // Disable device
 
-	nRF24L01_writeRegister(CONFIG, 0x00); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
-	nRF24L01_writeRegister(STATUS, 0x70);			// Clear all interrupts
+	nRF24L01_writeRegister(NRF24L01_EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
+	nRF24L01_writeRegister(NRF24L01_EN_RXADDR, 0x01);        // Enable pipe 0.
+	nRF24L01_writeRegister(NRF24L01_SETUP_RETR, 0x1a);  // 500ï¿½s + 86ï¿½s, 10 retrans...
+	nRF24L01_writeRegister(NRF24L01_RF_CH, 40);              // Select RF channel 40
+	nRF24L01_writeRegister(NRF24L01_RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
+
+	nRF24L01_writeRegister(NRF24L01_FLUSH_RX, 0);
+	nRF24L01_writeRegister(NRF24L01_FLUSH_TX, 0);
+	nRF24L01_writeRegister(NRF24L01_STATUS, 0x70);			// Clear all interrupts
 
 	if( !nRF24L01_EXTI_Init_port() )
 		return NRF24L01_STATE_FAIL_INIT;
+
+	return NRF24L01_STATE_SUCCESS;
+}
+
+NRF24L01_state_t nRF24L01_Denit(void) {
+	nRF24L01_writeRegister(NRF24L01_CONFIG, 0x00);
+
+	nRF24L01_writeRegister(NRF24L01_FLUSH_RX, 0);
+	nRF24L01_writeRegister(NRF24L01_FLUSH_TX, 0);
+	nRF24L01_writeRegister(NRF24L01_STATUS, 0x70);
+
+	nRF24L01_writeRegister(NRF24L01_EN_AA, 0x00);
+	nRF24L01_writeRegister(NRF24L01_EN_RXADDR, 0x00);
+	nRF24L01_writeRegister(NRF24L01_SETUP_RETR, 0x00);
+	nRF24L01_writeRegister(NRF24L01_RF_CH, 0);
+	nRF24L01_writeRegister(NRF24L01_RF_SETUP, 0x00);
+
+	if ( !nRF24L01_SPI_Deinit_port() )
+		return NRF24L01_STATE_FAIL_DEINIT;
+
+	if( !nRF24L01_EXTI_Deinit_port() )
+		return NRF24L01_STATE_FAIL_DEINIT;
 
 	return NRF24L01_STATE_SUCCESS;
 }
@@ -224,7 +249,7 @@ NRF24L01_state_t nRF24L01_Init(void) {
 //  fill TX payload, select RF channel, datarate & TX pwr.
 //  PWR_UP is set, CRC(2 uint8_ts) is enabled, & PRIM:TX.
 //
-//  ToDo: One high pulse(>10µs) on CE will now send this
+//  ToDo: One high pulse(>10ï¿½s) on CE will now send this
 //  packet and expext an acknowledgment from the RX device.
 //
 //
@@ -234,13 +259,13 @@ NRF24L01_state_t nRF24L01_transmitPayload( NRF24L01_transferSetupStruct_t* setup
 	if( setup->payloadWidth > 32 || setup->payload == 0 || setup->addressLength > 5 )
 		return NRF24L01_STATE_FAIL_INVALID_INPUT;
 
-	nRF24L01_Write_Buf(WRITE_REG + TX_ADDR, setup->address, setup->addressLength); // Writes TX_Address to nRF24L01
-	nRF24L01_Write_Buf(WR_TX_PLOAD, setup->payload, setup->payloadWidth); // Writes data to TX payload
+	nRF24L01_Write_Buf(NRF24L01_WRITE_REG + NRF24L01_TX_ADDR, setup->address, setup->addressLength); // Writes TX_Address to nRF24L01
+	nRF24L01_Write_Buf(NRF24L01_WR_TX_PLOAD, setup->payload, setup->payloadWidth); // Writes data to TX payload
 
-	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, setup->address, setup->addressLength); // RX_Addr0 same as TX_Adr for Auto.Ack
-	nRF24L01_writeRegister(RX_PW_P0, setup->payloadWidth); // Select same RX payload width as TX Payload width
+	nRF24L01_Write_Buf(NRF24L01_WRITE_REG + NRF24L01_RX_ADDR_P0, setup->address, setup->addressLength); // RX_Addr0 same as TX_Adr for Auto.Ack
+	nRF24L01_writeRegister(NRF24L01_RX_PW_P0, setup->payloadWidth); // Select same RX payload width as TX Payload width
 
-	nRF24L01_writeRegister(CONFIG, 0x0e); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
+	nRF24L01_writeRegister(NRF24L01_CONFIG, 0x0e); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:TX. MAX_RT & TX_DS enabled..
 
 	for (uint32_t tempo = 0; tempo < 1600; tempo++);
 
@@ -250,7 +275,7 @@ NRF24L01_state_t nRF24L01_transmitPayload( NRF24L01_transferSetupStruct_t* setup
 	nRF24L01_writeCEPin(1); // Set CE pin high to enable RX device
 
 	//  This device is now ready to transmit one packet of 16 uint8_ts payload to a RX device at address
-	//  '3443101001', with auto acknowledgment, retransmit count of 10(retransmit delay of 500µs+86µs)
+	//  '3443101001', with auto acknowledgment, retransmit count of 10(retransmit delay of 500ï¿½s+86ï¿½s)
 	//  RF channel 40, datarate = 2Mbps with TX power = 0dBm.
 
 	return NRF24L01_STATE_SUCCESS;
@@ -273,9 +298,9 @@ NRF24L01_state_t nRF24L01_receivePayload( NRF24L01_transferSetupStruct_t* setup 
 	if( setup->payloadWidth > 32 || setup->payload == 0 || setup->addressLength > 5 )
 		return NRF24L01_STATE_FAIL_INVALID_INPUT;
 
-	nRF24L01_Write_Buf(WRITE_REG + RX_ADDR_P0, setup->address, setup->addressLength); // Use the same address on the RX device as the TX device
-	nRF24L01_writeRegister(RX_PW_P0, setup->payloadWidth); // Select same RX payload width as TX Payload width
-	nRF24L01_writeRegister(CONFIG, 0x0f); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:RX. RX_DR enabled..
+	nRF24L01_Write_Buf(NRF24L01_WRITE_REG + NRF24L01_RX_ADDR_P0, setup->address, setup->addressLength); // Use the same address on the RX device as the TX device
+	nRF24L01_writeRegister(NRF24L01_RX_PW_P0, setup->payloadWidth); // Select same RX payload width as TX Payload width
+	nRF24L01_writeRegister(NRF24L01_CONFIG, 0x0f); // Set PWR_UP bit, enable CRC(2 uint8_ts) & Prim:RX. RX_DR enabled..
 
 	nRF24L01_writeCEPin(1); // Set CE pin high to enable RX device
 
@@ -285,69 +310,69 @@ NRF24L01_state_t nRF24L01_receivePayload( NRF24L01_transferSetupStruct_t* setup 
 }
 
 uint8_t nRF24L01_readStatus(void) {
-	return nRF24L01_Read(STATUS);	// Read STATUS
+	return nRF24L01_Read(NRF24L01_STATUS);	// Read STATUS
 }
 
 void L01_Set_Channel(uint8_t rf_ch)                            // Set RF channel
 		{
-	nRF24L01_writeRegister(RF_CH, rf_ch);
+	nRF24L01_writeRegister(NRF24L01_RF_CH, rf_ch);
 }
 
 uint8_t L01_Get_Channel(void)                          // Get current RF channel
 		{
-	return nRF24L01_Read(RF_CH);
+	return nRF24L01_Read(NRF24L01_RF_CH);
 }
 
 uint8_t L01_Clear_IRQ(uint8_t irq_flag){            // Clear nRF24L01 IRQ flag(s)
-	return nRF24L01_writeRegister(STATUS, irq_flag);
+	return nRF24L01_writeRegister(NRF24L01_STATUS, irq_flag);
 }
 
 void L01_Write_TX_Pload(uint8_t *pBuf, uint8_t plWidth) // Write TX payload, payload in *pBuf & #of uint8_ts = plWidth
 		{
-	nRF24L01_Write_Buf(WR_TX_PLOAD, pBuf, plWidth);
+	nRF24L01_Write_Buf(NRF24L01_WR_TX_PLOAD, pBuf, plWidth);
 }
 
 uint8_t L01_Get_Status(void)                              // Read status uint8_t
 		{
-	return nRF24L01_Read(STATUS);
+	return nRF24L01_Read(NRF24L01_STATUS);
 }
 
 uint8_t L01_RD_RX_PW_n(uint8_t pipe)  // Get current RX payload width for pipe.n
 		{
-	return nRF24L01_Read(RX_PW_P0 + pipe);
+	return nRF24L01_Read(NRF24L01_RX_PW_P0 + pipe);
 }
 
 void L01_WR_RX_PW_n(uint8_t pipe, uint8_t plWidth) // Set RX payload width for pipe.n
 		{
-	nRF24L01_writeRegister(RX_PW_P0 + pipe, plWidth);
+	nRF24L01_writeRegister(NRF24L01_RX_PW_P0 + pipe, plWidth);
 }
 
 uint8_t L01_Get_Current_Pipenum(void)                       // Get current pipe#
 		{
-	return ((L01_Get_Status() & RX_P_NO) >> 1);
+	return ((L01_Get_Status() & NRF24L01_RX_P_NO) >> 1);
 }
 
 uint16_t L01_Read_RX_Pload(uint8_t *pBuf) {    // read current pipe#'s RX payload
 	uint8_t plWidth, pipe;
 	plWidth = L01_RD_RX_PW_n(pipe = L01_Get_Current_Pipenum()); // Read current pipe's payload width
-	nRF24L01_Read_Buf(RD_RX_PLOAD, pBuf, plWidth);             // Then get RX data
+	nRF24L01_Read_Buf(NRF24L01_RD_RX_PLOAD, pBuf, plWidth);             // Then get RX data
 
 	return ((pipe << 8) + plWidth);                // return pipe# & pipe#.plWidth
 }
 
 void L01_Flush_TX(void)                                         // Flush TX FIFO
 		{
-	nRF24L01_writeRegister(FLUSH_TX, 0);
+	nRF24L01_writeRegister(NRF24L01_FLUSH_TX, 0);
 }
 
 void L01_Flush_RX(void)                                         // Flush RX FIFO
 		{
-	nRF24L01_writeRegister(FLUSH_RX, 0);
+	nRF24L01_writeRegister(NRF24L01_FLUSH_RX, 0);
 }
 
 uint8_t L01_Get_FIFO(void)                          // Read FIFO_STATUS register
 		{
-	return nRF24L01_Read(FIFO_STATUS);
+	return nRF24L01_Read(NRF24L01_FIFO_STATUS);
 }
 
 void nRF24L01_getAllRegisters (uint8_t *registers) {

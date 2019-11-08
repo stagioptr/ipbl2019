@@ -40,9 +40,9 @@ void sensor_stateMachine(void) {
 
 			estadoSensor = CONFIGURA_SENSOR_PORT();
 
-			if (estadoSensor == CONFIGURACAO_OK)
+			if (estadoSensor == SENSOR_CONFIGURACAO_OK)
 				estadoMaquina = AGUARDANDO_DADOS;
-			else if (estadoSensor == FALHA_CONFIGURACAO)
+			else if (estadoSensor == SENSOR_FALHA_CONFIGURACAO)
 				estadoMaquina = DESCONFIGURANDO_SENSOR;
 
 			break;
@@ -50,9 +50,9 @@ void sensor_stateMachine(void) {
 		case AGUARDANDO_DADOS:
 			estadoSensor = AGUARDA_DADOS_PORT();
 
-			if (estadoSensor == TEMPO_ESGOTADO)
+			if (estadoSensor == SENSOR_TEMPO_ESGOTADO)
 				estadoMaquina = DESCONFIGURANDO_SENSOR;
-			else if (estadoSensor == AMOSTRA_PRONTA)
+			else if (estadoSensor == SENSOR_AMOSTRA_PRONTA)
 				estadoMaquina = LENDO_DADOS;
 
 			break;
@@ -60,9 +60,9 @@ void sensor_stateMachine(void) {
 		case LENDO_DADOS:
 			estadoSensor = LER_DADOS_PORT();
 
-			if (estadoSensor == FALHA_SENSOR)
+			if (estadoSensor == SENSOR_FALHA_SENSOR)
 				estadoMaquina = DESCONFIGURANDO_SENSOR;
-			else if (estadoSensor == AMOSTRA_OK)
+			else if (estadoSensor == SENSOR_AMOSTRA_OK)
 				estadoMaquina = INTERPRETANDO_DADOS;
 
 			break;
@@ -70,9 +70,9 @@ void sensor_stateMachine(void) {
 		case INTERPRETANDO_DADOS:
 			estadoSensor = INTERPRETA_DADOS_PORT();
 
-			if (estadoSensor == DADOS_VALIDOS)
+			if (estadoSensor == SENSOR_DADOS_VALIDOS)
 				estadoMaquina = AGUARDANDO_DADOS;
-			else if (estadoSensor == DADOS_INVALIDOS)
+			else if (estadoSensor == SENSOR_DADOS_INVALIDOS)
 				estadoMaquina = DESCONFIGURANDO_SENSOR;
 
 			break;
@@ -81,20 +81,22 @@ void sensor_stateMachine(void) {
 		case DESCONFIGURANDO_SENSOR:
 			estadoSensor = DESCONFIGURA_SENSOR_PORT();
 
-			if (estadoSensor == DESCONFIGURACAO_OK)
+			if (estadoSensor == SENSOR_DESCONFIGURACAO_OK)
 				estadoMaquina = VERIFICANDO_TIPO_FALHA;
-			else if (estadoSensor == FALHA_DESCONFIGURACAO)
+			else if (estadoSensor == SENSOR_FALHA_DESCONFIGURACAO)
 				estadoMaquina = ENCERRANDO_ROTINA;
 
 			break;
 
 		case VERIFICANDO_TIPO_FALHA:
-			estadoSensor = VERIFICA_TIPO_FALHA_PORT();
+/*			estadoSensor = VERIFICA_TIPO_FALHA_PORT();
 
-			if (estadoSensor == FALHA_RECUPERAVEL)
+			if (estadoSensor == SENSOR_FALHA_RECUPERAVEL)
 				estadoMaquina = CONFIGURANDO_SENSOR;
-			else if (estadoSensor == FALHA_PERMANENTE)
-				estadoMaquina = ENCERRANDO_ROTINA;
+			else if (estadoSensor == SENSOR_FALHA_PERMANENTE)
+				estadoMaquina = ENCERRANDO_ROTINA;*/
+
+			estadoMaquina = AGUARDANDO_DADOS;
 
 			break;
 

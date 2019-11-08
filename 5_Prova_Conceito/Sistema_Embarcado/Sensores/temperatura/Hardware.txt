@@ -1,0 +1,7 @@
+Conexão entre o MAX6675 e o FRDM-KL25Z
+
+VCC  - J14_8
+GND  - J14_12
+CSN  - J2_6
+SCK  - J1_9
+MISO - J2_8

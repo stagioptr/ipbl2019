@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-23, 00:38, # CodeGen: 15
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **     Abstract    :
 **
 **     Settings    :
@@ -109,16 +109,20 @@ void Common_Init(void)
 void Components_Init(void)
 {
 
-  /*! rtcTimer1 Auto initialization start */
-  RTC_DRV_Init(rtcTimer1_IDX);
+  /*! gpio Auto initialization start */
+  GPIO_DRV_Init(NULL,NULL);
+  /*! gpio Auto initialization end */
+  
+  /*! rtcTimer Auto initialization start */
+  RTC_DRV_Init(rtcTimer_IDX);
   /* Enable seconds interrupt */
-  RTC_DRV_SetSecsIntCmd(rtcTimer1_IDX, true);
+  RTC_DRV_SetSecsIntCmd(rtcTimer_IDX, true);
   /* RTC counter(if it isn't already running) */
-  if(RTC_DRV_IsCounterEnabled(rtcTimer1_IDX) == false)
+  if(RTC_DRV_IsCounterEnabled(rtcTimer_IDX) == false)
   {
-    RTC_HAL_EnableCounter(g_rtcBase[rtcTimer1_IDX], true);   
+    RTC_HAL_EnableCounter(g_rtcBase[rtcTimer_IDX], true);   
   }
-  /*! rtcTimer1 Auto initialization end */
+  /*! rtcTimer Auto initialization end */
   /*! tpmTmr1 Auto initialization start */
   TPM_DRV_Init(tpmTmr1_IDX, &tpmTmr1_InitConfig0);
   TPM_DRV_SetClock(tpmTmr1_IDX, kTpmClockSourceModuleClk, kTpmDividedBy64);
@@ -132,18 +136,28 @@ void Components_Init(void)
   TPM_DRV_PwmStart(tpmTmr2_IDX, &tpmTmr2_ChnConfig1, 1U);
   /*! tpmTmr2 Auto initialization end */
   
-  /*! Sensor Auto initialization start */ 
-  (void)Sensor_Init();
-  /*! Sensor Auto initialization end */                       
-  /*! DbgCs1 Auto initialization start */
+  /*! DbgCs Auto initialization start */
   /* Enable clock source for LPSCI - bitfield UART0 within SIM_SOPT2 */
   CLOCK_SYS_SetLpsciSrc(BOARD_DEBUG_UART_INSTANCE,kClockLpsciSrcPllFllSel);
   /* Debug console initialization */
   DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
-  /*! DbgCs1 Auto initialization end */
+  /*! DbgCs Auto initialization end */
+  /*! spiTemp Auto initialization start */
+  SPI_DRV_MasterInit(spiTemp_IDX, &spiTemp_MasterState);
+  SPI_DRV_MasterConfigureBus(spiTemp_IDX, &spiTemp_MasterConfig0, &spiTemp_calculatedBaudRate);
+  /*! spiTemp Auto initialization end */
+  
+  /*! spiRadio Auto initialization start */
+  SPI_DRV_MasterInit(spiRadio_IDX, &spiRadio_MasterState);
+  SPI_DRV_MasterConfigureBus(spiRadio_IDX, &spiRadio_MasterConfig0, &spiRadio_calculatedBaudRate);
+  /*! spiRadio Auto initialization end */
+  
   /*! Radio Auto initialization start */ 
   (void)Radio_Init();
   /*! Radio Auto initialization end */                       
+  /*! tempSensor Auto initialization start */ 
+  (void)tempSensor_Init();
+  /*! tempSensor Auto initialization end */                       
 }
 #endif /* CPU_COMPONENTS_INIT */
 

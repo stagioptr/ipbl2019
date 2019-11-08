@@ -44,6 +44,9 @@ Sources/main.o: ../Sources/main.c N:/Radio/KDS/Generated_Code/Cpu.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
+ N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h \
  ../Sources/Events.h N:/Radio/KDS/Generated_Code/clockMan1.h \
  N:/Radio/KDS/Generated_Code/pin_init.h \
  N:/Radio/KDS/Generated_Code/osa1.h \
@@ -53,7 +56,8 @@ Sources/main.o: ../Sources/main.c N:/Radio/KDS/Generated_Code/Cpu.h \
  N:/Radio/KDS/Generated_Code/clockMan1.h \
  N:/Radio/KDS/Generated_Code/Radio2.h N:/Radio/KDS/Generated_Code/gpio1.h \
  N:/Radio/KDS/Generated_Code/TaskRadio1.h \
- N:/Radio/KDS/Generated_Code/TaskRadio2.h ../Sources/rtos_main_task.h \
+ N:/Radio/KDS/Generated_Code/TaskRadio2.h \
+ N:/Radio/KDS/Generated_Code/DbgCs1.h ../Sources/rtos_main_task.h \
  ../Sources/os_tasks.h
 
 N:/Radio/KDS/Generated_Code/Cpu.h:
@@ -150,6 +154,12 @@ N:/Radio/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
 
 N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
 
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
+
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h:
+
+N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h:
+
 ../Sources/Events.h:
 
 N:/Radio/KDS/Generated_Code/clockMan1.h:
@@ -173,6 +183,8 @@ N:/Radio/KDS/Generated_Code/gpio1.h:
 N:/Radio/KDS/Generated_Code/TaskRadio1.h:
 
 N:/Radio/KDS/Generated_Code/TaskRadio2.h:
+
+N:/Radio/KDS/Generated_Code/DbgCs1.h:
 
 ../Sources/rtos_main_task.h:
 
