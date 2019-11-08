@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-06, 21:29, # CodeGen: 25
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **     Contents    :
 **         Init - osa_status_t Shell_Init(void);
 **
@@ -66,7 +66,7 @@
 /* Shell task stack size */  
 #define SHELL_TASK_STACK_SIZE          1024U
 /* Shell task priority value */  
-#define SHELL_TASK_PRIORITY            4U
+#define SHELL_TASK_PRIORITY            3U
 /*
 ** ===================================================================
 **     Method      :  Init (component OS_Task)

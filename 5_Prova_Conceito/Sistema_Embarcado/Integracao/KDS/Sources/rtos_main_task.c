@@ -48,7 +48,6 @@ QueueHandle_t temperature_msg_queue_handler = NULL;
 
 #if defined DEBUG
 
-uint32_t ulHighFrequencyTimerTicks = 0;
 QueueHandle_t temperature_debug_msg_queue_handler = NULL;
 QueueHandle_t radio_debug_msg_queue_handler = NULL;
 
@@ -85,7 +84,6 @@ void main_task(os_task_param_t task_init_data)
 #if defined DEBUG
 	temperature_debug_msg_queue_handler = xQueueCreate( 4, sizeof(float) );
 	radio_debug_msg_queue_handler = xQueueCreate( 16, sizeof(radioDebugCodeEnum_t) );
-
 
 	/*! Shell Auto initialization start */
 	  (void)Shell_Init();

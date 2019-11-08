@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-06, 21:29, # CodeGen: 25
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **     Contents    :
 **         Init - osa_status_t MainTask_Init(void);
 **
@@ -65,7 +65,7 @@
 /* MainTask task stack size */  
 #define MAINTASK_TASK_STACK_SIZE       1024U
 /* MainTask task priority value */  
-#define MAINTASK_TASK_PRIORITY         4U
+#define MAINTASK_TASK_PRIORITY         0U
 /* Call PEX_components_init() method in MainTask component */ 
 #define MainTask_PEX_RTOS_COMPONENTS_INIT 0x01U     
 

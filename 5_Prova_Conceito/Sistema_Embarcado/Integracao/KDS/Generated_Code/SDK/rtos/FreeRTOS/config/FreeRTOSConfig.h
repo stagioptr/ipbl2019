@@ -6,7 +6,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-07, 13:40, # CodeGen: 33
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -100,12 +100,12 @@
 #define configEXPECTED_IDLE_TIME_BEFORE_SLEEP    2 /* Number of ticks must be larger than this to enter tickless idle mode */
 #define configUSE_TICKLESS_IDLE_DECISION_HOOK    0 /* Set to 1 to enable application hook, zero otherwise */
 
-#define configMAX_PRIORITIES                     6
+#define configMAX_PRIORITIES                     5
 #define configMAX_CO_ROUTINE_PRIORITIES          2
 
 /* Software timer definitions. */
 #define configUSE_TIMERS                         1
-#define configTIMER_TASK_PRIORITY                5 
+#define configTIMER_TASK_PRIORITY                4 
 #define configTIMER_QUEUE_LENGTH                 10
 #define configTIMER_TASK_STACK_DEPTH             128 
 

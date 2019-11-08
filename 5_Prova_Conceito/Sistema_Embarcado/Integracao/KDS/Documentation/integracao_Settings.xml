@@ -175,6 +175,19 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+  <Bean name="gpio" type="fsl_gpio">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="gpio" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
   <Bean name="rtcTimer" type="fsl_rtc">
     <Enabled v="Y" />
     <Properties>
@@ -217,19 +230,6 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="tempSensor" type="OS_Task">
-    <Enabled v="Y" />
-    <Properties>
-      <Name v="tempSensor" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
   <Bean name="DbgCs" type="fsl_debug_console">
     <Enabled v="Y" />
     <Properties>
@@ -244,37 +244,11 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="Radio" type="OS_Task">
-    <Enabled v="Y" />
-    <Properties>
-      <Name v="Radio" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
   <Bean name="spiTemp" type="fsl_spi">
     <Enabled v="Y" />
     <Properties>
       <Component_name v="spiTemp" />
       <Device v="SPI0" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="gpio" type="fsl_gpio">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="gpio" />
       <Component_version v="1.3.0" />
     </Properties>
     <Methods>
@@ -302,6 +276,32 @@
     <Enabled v="Y" />
     <Properties>
       <Name v="Shell" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="Radio" type="OS_Task">
+    <Enabled v="Y" />
+    <Properties>
+      <Name v="Radio" />
+      <Component_version v="1.3.0" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="tempSensor" type="OS_Task">
+    <Enabled v="Y" />
+    <Properties>
+      <Name v="tempSensor" />
       <Component_version v="1.3.0" />
     </Properties>
     <Methods>

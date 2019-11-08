@@ -311,19 +311,5 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="tpmTmr3" type="fsl_tpm">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="tpmTmr3" />
-      <Device v="TPM1" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

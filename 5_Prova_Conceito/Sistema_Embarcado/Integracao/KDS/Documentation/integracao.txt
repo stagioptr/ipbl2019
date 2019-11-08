@@ -225,6 +225,20 @@ Module "osa1"      (component fsl_os_abstraction)
    - osa1_OSA_Init -Initializes the RTOS services.
    - osa1_OSA_Start -Starts the RTOS.
 
+Module "gpio"      (component fsl_gpio)
+   - gpio_GPIO_DRV_Init -Initializes all GPIO pins used by the board.
+   - gpio_GPIO_DRV_InputPinInit -Initializes one GPIO input pin used by the board.
+   - gpio_GPIO_DRV_OutputPinInit -Initializes one GPIO output pin used by the board.
+   - gpio_GPIO_DRV_GetPinDir -Gets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_SetPinDir -Sets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_WritePinOutput -Sets the output level of the individual GPIO pin to the logic 1 or 0.
+   - gpio_GPIO_DRV_SetPinOutput -Sets the output level of the individual GPIO pin to the logic 1.
+   - gpio_GPIO_DRV_ClearPinOutput -Sets the output level of the individual GPIO pin to the logic 0.
+   - gpio_GPIO_DRV_TogglePinOutput -Reverses current output logic of the individual GPIO pin.
+   - gpio_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
+   - gpio_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
+   - gpio_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
+
 Module "rtcTimer"  (component fsl_rtc)
    - rtcTimer_RTC_DRV_Init -Initializes the RTC module.
    - rtcTimer_RTC_DRV_Deinit -Disables the RTC module clock gate control.
@@ -282,9 +296,6 @@ Module "tpmTmr2"   (component fsl_tpm)
    - tpmTmr2_TPM_DRV_Deinit -Shuts down the TPM driver.
    - tpmTmr2_TPM_DRV_IRQHandler -Action to take when an TPM interrupt is triggered.
 
-Module "tempSensor" (component OS_Task)
-   - tempSensor_Init -Creates and starts a task.
-
 Module "DbgCs"     (component fsl_debug_console)
    - DbgCs_DbgConsole_Init -Init the UART/LPUART used for debug messages.
    - DbgCs_DbgConsole_DeInit -Deinit the UART/LPUART used for debug messages.
@@ -292,9 +303,6 @@ Module "DbgCs"     (component fsl_debug_console)
    - DbgCs_debug_putchar -Writes a character to stdout.
    - DbgCs_debug_scanf -Reads formatted data from the standard input stream.
    - DbgCs_debug_getchar -Reads a character from standard input.
-
-Module "Radio"     (component OS_Task)
-   - Radio_Init -Creates and starts a task.
 
 Module "spiTemp"   (component fsl_spi)
    - spiTemp_SPI_DRV_IRQHandler -The function SPI_DRV_IRQHandler passes IRQ control to either the master or slave driver.
@@ -314,20 +322,6 @@ Module "spiTemp"   (component fsl_spi)
    - spiTemp_SPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
    - spiTemp_SPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
    - spiTemp_SPI_DRV_SlaveIRQHandler -SPI Slave Generic IRQ handler.
-
-Module "gpio"      (component fsl_gpio)
-   - gpio_GPIO_DRV_Init -Initializes all GPIO pins used by the board.
-   - gpio_GPIO_DRV_InputPinInit -Initializes one GPIO input pin used by the board.
-   - gpio_GPIO_DRV_OutputPinInit -Initializes one GPIO output pin used by the board.
-   - gpio_GPIO_DRV_GetPinDir -Gets the current direction of the individual GPIO pin.
-   - gpio_GPIO_DRV_SetPinDir -Sets the current direction of the individual GPIO pin.
-   - gpio_GPIO_DRV_WritePinOutput -Sets the output level of the individual GPIO pin to the logic 1 or 0.
-   - gpio_GPIO_DRV_SetPinOutput -Sets the output level of the individual GPIO pin to the logic 1.
-   - gpio_GPIO_DRV_ClearPinOutput -Sets the output level of the individual GPIO pin to the logic 0.
-   - gpio_GPIO_DRV_TogglePinOutput -Reverses current output logic of the individual GPIO pin.
-   - gpio_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
-   - gpio_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
-   - gpio_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
 
 Module "spiRadio"  (component fsl_spi)
    - spiRadio_SPI_DRV_IRQHandler -The function SPI_DRV_IRQHandler passes IRQ control to either the master or slave driver.
@@ -350,6 +344,12 @@ Module "spiRadio"  (component fsl_spi)
 
 Module "Shell"     (component OS_Task)
    - Shell_Init -Creates and starts a task.
+
+Module "Radio"     (component OS_Task)
+   - Radio_Init -Creates and starts a task.
+
+Module "tempSensor" (component OS_Task)
+   - tempSensor_Init -Creates and starts a task.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

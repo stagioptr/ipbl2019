@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-07, 12:02, # CodeGen: 32
+**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
 **     Abstract    :
 **
 **     Settings    :
@@ -109,6 +109,10 @@ void Common_Init(void)
 void Components_Init(void)
 {
 
+  /*! gpio Auto initialization start */
+  GPIO_DRV_Init(NULL,NULL);
+  /*! gpio Auto initialization end */
+  
   /*! rtcTimer Auto initialization start */
   RTC_DRV_Init(rtcTimer_IDX);
   /* Enable seconds interrupt */
@@ -132,32 +136,28 @@ void Components_Init(void)
   TPM_DRV_PwmStart(tpmTmr2_IDX, &tpmTmr2_ChnConfig1, 1U);
   /*! tpmTmr2 Auto initialization end */
   
-  /*! tempSensor Auto initialization start */ 
-  (void)tempSensor_Init();
-  /*! tempSensor Auto initialization end */                       
   /*! DbgCs Auto initialization start */
   /* Enable clock source for LPSCI - bitfield UART0 within SIM_SOPT2 */
   CLOCK_SYS_SetLpsciSrc(BOARD_DEBUG_UART_INSTANCE,kClockLpsciSrcPllFllSel);
   /* Debug console initialization */
   DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
   /*! DbgCs Auto initialization end */
-  /*! Radio Auto initialization start */ 
-  (void)Radio_Init();
-  /*! Radio Auto initialization end */                       
   /*! spiTemp Auto initialization start */
   SPI_DRV_MasterInit(spiTemp_IDX, &spiTemp_MasterState);
   SPI_DRV_MasterConfigureBus(spiTemp_IDX, &spiTemp_MasterConfig0, &spiTemp_calculatedBaudRate);
   /*! spiTemp Auto initialization end */
-  
-  /*! gpio Auto initialization start */
-  GPIO_DRV_Init(NULL,NULL);
-  /*! gpio Auto initialization end */
   
   /*! spiRadio Auto initialization start */
   SPI_DRV_MasterInit(spiRadio_IDX, &spiRadio_MasterState);
   SPI_DRV_MasterConfigureBus(spiRadio_IDX, &spiRadio_MasterConfig0, &spiRadio_calculatedBaudRate);
   /*! spiRadio Auto initialization end */
   
+  /*! Radio Auto initialization start */ 
+  (void)Radio_Init();
+  /*! Radio Auto initialization end */                       
+  /*! tempSensor Auto initialization start */ 
+  (void)tempSensor_Init();
+  /*! tempSensor Auto initialization end */                       
 }
 #endif /* CPU_COMPONENTS_INIT */
 

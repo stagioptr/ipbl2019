@@ -104,11 +104,15 @@ void shell_stateMachine(void) {
 				state = SHOW_TASK_STATES;
 			else if( keyPressed == '3' && systemState == SYSTEM_SUSPENDED )
 				state = RESUMMING_OS;
+			else
+				state = PRINTING_MENU;
 		}
 			break;
 
 		case SHOW_TASK_STATES:
 		{
+			char keyPressed = 0;
+
 			TaskStatus_t *pxTaskStatusArray;
 			volatile UBaseType_t uxArraySize, x;
 			unsigned long ulTotalRunTime;
@@ -193,7 +197,9 @@ void shell_stateMachine(void) {
 
 				/* The array is no longer needed, free the memory it consumes. */
 				vPortFree( pxTaskStatusArray );
-		 }
+				debug_printf("\n\rPress any key to continue...\n\r");
+				keyPressed = debug_getchar();
+		 	}
 		}
 
 			state = PRINTING_MENU;
