@@ -21,5 +21,10 @@ for message in consumer:
     assert isinstance(message, object)
     mjson = json.loads(message.value)
     if type(mjson) is dict:
-        print(mjson)
-        documento_id = album.insert_one(mjson).inserted_id
+        print("dict ok")
+        if "id" in mjson:
+            print("id ok")
+            if "dataHora" in mjson:
+                print("dataHora ok")
+                print(mjson)
+                documento_id = album.insert_one(mjson).inserted_id
