@@ -1,6 +1,7 @@
 from datetime import datetime
 import json
 
+
 def insert_data(message, album, fields_to_convert=[]):
     assert isinstance(message, object)
     mjson = json.loads(message.value)
@@ -19,5 +20,5 @@ def insert_data(message, album, fields_to_convert=[]):
                             if field in mjson:
                                 mjson[field] = float(mjson[field])
                     documento_id = album.insert_one(mjson).inserted_id
-                except Exception:
-                    pass
+                except Exception as e:
+                    print(str(e))
