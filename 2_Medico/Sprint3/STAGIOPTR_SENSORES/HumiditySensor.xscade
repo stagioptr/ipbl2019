@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="HumiditySensor">
+			<declarations>
+				<Constant name="SENSOR_MAX">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="4096"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/4ae8/5BE5/2318/5dbc7b4462d5"/>
+					</pragmas>
+				</Constant>
+				<Constant name="SENSOR_MIN">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/4ae9/5BE5/2318/5dbc7b565486"/>
+					</pragmas>
+				</Constant>
+				<Constant name="HUMIDITY_MIN">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/4b42/5BE5/2318/5dbc7d1f6d70"/>
+					</pragmas>
+				</Constant>
+				<Constant name="HUMIDITY_MAX">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="100"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/4b43/5BE5/2318/5dbc7d37538b"/>
+					</pragmas>
+				</Constant>
+				<Operator name="humiditySensor" href="humiditySensor1.xscade"/>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/49be/5BE5/2318/5dbc74734e6b" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49bf/5BE5/2318/5dbc74737a56" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49c0/5BE5/2318/5dbc747349fc" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/49c1/5BE5/2318/5dbc74732008" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

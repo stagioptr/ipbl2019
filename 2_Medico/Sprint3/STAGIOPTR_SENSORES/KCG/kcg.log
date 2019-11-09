@@ -1,0 +1,16 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/Max/SCADE/STAGIOPTR/KCG/config.txt
+** Generation date: 2019-11-01T16:58:12
+*************************************************************$
+*** Type Warning (WAR_151): Internal state expected
+  at file C:/Users/Max/SCADE/STAGIOPTR\accellerometerSensor1.xscade, line 2, character 230
+  at path AccellerometerSensor::accellerometerSensor/
+ Node accellerometerSensor has no internal state
+ (it should probably be declared as a function)
+1 warning was found
+No error was found
+No failure occurred
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg.log
+** Generation date: 2019-11-01T16:58:20
+*************************************************************$

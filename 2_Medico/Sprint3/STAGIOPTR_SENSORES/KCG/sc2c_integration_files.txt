@@ -1,0 +1,40 @@
+*****************************
+*** Generated KCG H/Ads files ***
+*****************************
+Integration_Integration.h
+accellerometerSensor_AccellerometerSensor.h
+humiditySensor_HumiditySensor.h
+tempratureSensor_TemperatureSensor.h
+rangeChecker_TemperatureSensor.h
+kcg_types.h
+kcg_consts.h
+kcg_sensors.h
+
+*****************************
+*** Generated KCG C/Adb files ***
+*****************************
+Integration_Integration.c
+accellerometerSensor_AccellerometerSensor.c
+humiditySensor_HumiditySensor.c
+tempratureSensor_TemperatureSensor.c
+rangeChecker_TemperatureSensor.c
+kcg_types.c
+kcg_consts.c
+
+*****************************
+*** Generated SC2C Files ***
+*****************************
+user_macros.h
+kcg_imported_types.h
+
+*****************************
+*** Include Directories ***
+*****************************
+.
+$(SCADE)
+$(SCADE)\include
+$(SCADE)\include\C
+$(SCADE)\include\Ada
+$(SCADE)\lib\Ada
+$(SCADE)\libraries\SC65\libmathext
+
