@@ -142,8 +142,8 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 	NRF24L01_transferSetupStruct_t receiveSetup = {
 			.payload = receivePayload,
-			.payloadWidth = 16,
-			.address = { 0x34, 0x43, 0x10, 0x10, 0x01 },
+			.payloadWidth = sizeof(float),
+			.address = { 0x10, 0x20, 0x30, 0x40, 0x01 },
 			.addressLength = 5
 	};
 
@@ -163,6 +163,7 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
 //			while(1);
+			debug_printf("Radio reception timeout...\n\r");
 			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
@@ -174,17 +175,16 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 		if( radio1_status & TX_DS ) {
 			L01_Clear_IRQ( TX_DS );
-			memset(receivePayload, 0, 16);
-			nRF24L01_receivePayload( &receiveSetup );
 		}
 
 		if( radio1_status & RX_DR ) {
+			float temperature = 0.0;
+
 			L01_Read_RX_Pload( receivePayload );
 			L01_Clear_IRQ( RX_DR );
-			if( memcmp( receivePayload, "Trasmitindo2", 16) != 0 )
-				GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
-			OSA_TimeDelay(100); /* Example code (for task release) */
-			nRF24L01_transmitPayload( &transmitSetup );
+
+			temperature = *((float*)receivePayload);
+			debug_printf("Received value: %5.2f Celsius Degree\n\r", temperature );
 		}
 
 #ifdef PEX_USE_RTOS

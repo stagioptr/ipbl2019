@@ -14,53 +14,63 @@
 #include "rtos_main_task.h"
 #include "os_tasks.h"
 
-QueueHandle_t sensor_x_msg_queue_handler = NULL;
+#include "MAX6675_API.h"
 
-#define		SENSOR_RETORNO									uint32_t
+extern QueueHandle_t temperature_msg_queue_handler;
+float temperatureCelsiusDegree = 0.0;
 
-#define 	SENSOR_PRONTO										0
-#define 	CONFIGURACAO_OK									1
-#define 	FALHA_CONFIGURACAO							2
-#define		TEMPO_ESGOTADO									3
-#define		AMOSTRA_PRONTA									4
-#define		FALHA_SENSOR										5
-#define		AMOSTRA_OK											6
-#define		DADOS_VALIDOS										7
-#define		DADOS_INVALIDOS									8
-#define		FALHA_RECUPERAVEL								9
-#define		FALHA_PERMANENTE								10
-#define		DESCONFIGURACAO_OK							11
-#define		FALHA_DESCONFIGURACAO						12
+typedef enum {
+	SENSOR_PRONTO,
+	SENSOR_CONFIGURACAO_OK,
+	SENSOR_FALHA_CONFIGURACAO,
+	SENSOR_TEMPO_ESGOTADO,
+	SENSOR_AMOSTRA_PRONTA,
+	SENSOR_FALHA_SENSOR,
+	SENSOR_AMOSTRA_OK,
+	SENSOR_DADOS_VALIDOS,
+	SENSOR_DADOS_INVALIDOS,
+	SENSOR_FALHA_RECUPERAVEL,
+	SENSOR_FALHA_PERMANENTE,
+	SENSOR_DESCONFIGURACAO_OK,
+	SENSOR_FALHA_DESCONFIGURACAO,
+}SENSOR_RETORNO;
 
-SENSOR_RETORNO CONFIGURA_SENSOR_PORT(void) {
-	sensor_x_msg_queue_handler = xQueueCreate( 5, sizeof(uint32_t) );
-
-	return CONFIGURACAO_OK;
-}
-
-SENSOR_RETORNO AGUARDA_DADOS_PORT(void) {
-	OSA_TimeDelay(1000); /* Example code (for task release) */
-
-	return AMOSTRA_PRONTA;
-}
-
-SENSOR_RETORNO LER_DADOS_PORT(void) {
-	return AMOSTRA_OK;
-}
-
-SENSOR_RETORNO INTERPRETA_DADOS_PORT(void) {
-	uint32_t valorSensor = 2374;
-
-	if( xQueueSendToBack( sensor_x_msg_queue_handler, &valorSensor, 0 ) == pdPASS )
-		return DADOS_VALIDOS;
+static SENSOR_RETORNO CONFIGURA_SENSOR_PORT(void) {
+	if( MAX6675_Init() != MAX6675_STATE_SUCCESS )
+		return SENSOR_FALHA_CONFIGURACAO;
 	else
-		return DADOS_INVALIDOS;
+		return SENSOR_CONFIGURACAO_OK;
 }
 
-SENSOR_RETORNO VERIFICA_TIPO_FALHA_PORT(void) {
-	return FALHA_RECUPERAVEL;
+static SENSOR_RETORNO AGUARDA_DADOS_PORT(void) {
+	OSA_TimeDelay(250); /* Wait conversion time */
+
+	return SENSOR_AMOSTRA_PRONTA;
 }
 
-SENSOR_RETORNO DESCONFIGURA_SENSOR_PORT(void) {
-	return DESCONFIGURACAO_OK;
+static SENSOR_RETORNO LER_DADOS_PORT(void) {
+	uint16_t max6675Value;
+
+	if( MAX6675_readValue( &max6675Value ) )
+		return SENSOR_FALHA_SENSOR;
+
+	temperatureCelsiusDegree = MAX6675_convertValueToCelsiusDegree( max6675Value );
+
+	return SENSOR_AMOSTRA_OK;
+}
+
+static SENSOR_RETORNO INTERPRETA_DADOS_PORT(void) {
+	// Código do SCADE aqui.
+	if( xQueueSendToBack( temperature_msg_queue_handler, &temperatureCelsiusDegree, 0 ) == pdPASS )
+		return SENSOR_DADOS_VALIDOS;
+	else
+		return SENSOR_DADOS_INVALIDOS;
+}
+
+static SENSOR_RETORNO VERIFICA_TIPO_FALHA_PORT(void) {
+	return SENSOR_FALHA_RECUPERAVEL;
+}
+
+static SENSOR_RETORNO DESCONFIGURA_SENSOR_PORT(void) {
+	return SENSOR_DESCONFIGURACAO_OK;
 }

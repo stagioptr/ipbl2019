@@ -21,3 +21,27 @@ MOSI - J2_17
 SCK  - J2_4
 IRQ  - J1_12
 MISO - J2_19
+
+Conexão entre os rádios e o NUCLEO-L496
+
+Rádio 1:
+
+VCC  - CN8_7
+GND  - CN8_11
+CSN  - CN7_16
+CE   - CN7_18
+MOSI - CN7_14
+SCK  - CN7_10
+IRQ  - CN7_20
+MISO - CN7_12
+
+Rádio 2:
+
+VCC  - ----
+GND  - ----
+CSN  - ----
+CE   - ----
+MOSI - ----
+SCK  - ----
+IRQ  - ----
+MISO - ----

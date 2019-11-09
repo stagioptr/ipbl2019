@@ -19,11 +19,11 @@
 ** @brief
 **         Main module.
 **         This module contains user's application code.
-*/         
+*/
 /*!
 **  @addtogroup main_module main module documentation
 **  @{
-*/         
+*/
 /* MODULE main */
 
 
@@ -37,17 +37,20 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer1.h"
+#include "rtcTimer.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
-#include "Sensor.h"
-#include "DbgCs1.h"
+#include "tempSensor.h"
+#include "DbgCs.h"
 #include "Radio.h"
+#include "spiTemp.h"
+#include "gpio.h"
+#include "spiRadio.h"
+#include "Shell.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
-
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */

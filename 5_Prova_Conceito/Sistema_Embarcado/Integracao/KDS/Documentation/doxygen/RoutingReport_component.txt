@@ -173,13 +173,12 @@
 				<td bgcolor='#EBD4BD'>SWD</td><td bgcolor='#EBD4BD'>swd_dio</td><td bgcolor='#EBD4BD'>alt7</td><td bgcolor='#EBD4BD'>Input/Output</td>
 			</tr>
 			<tr>
-				<td rowspan='2'>30</td><td rowspan='2'>TSI0_CH5/PTA4/I2C1_SDA/TPM0_CH1/NMI_b</td><td rowspan='2'>J1_10</td>
-				<td bgcolor='#C7A886'>SystemControl</td><td bgcolor='#C7A886'>scb_nmi</td><td bgcolor='#C7A886'>alt7</td><td bgcolor='#C7A886'>Input</td>
+				<td>30</td><td>TSI0_CH5/PTA4/I2C1_SDA/TPM0_CH1/NMI_b</td><td>J1_10</td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
-			<tr bgcolor='#969696'><td>non-peripheral</td><td>NMI</td><td>alt7</td><td>Not Specified</td></tr>
 			<tr>
 				<td>31</td><td>PTA5/USB_CLKIN/TPM0_CH2</td><td>J1_12</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port5</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
 			<tr>
 				<td>32</td><td>PTA12/TPM1_CH0</td><td>J1_8</td>
@@ -187,7 +186,7 @@
 			</tr>
 			<tr>
 				<td>33</td><td>PTA13/TPM1_CH1</td><td>J2_2</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port13</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
 			<tr>
 				<td>34</td><td>PTA14/SPI0_PCS0/UART0_TX</td><td>ACCEL_INT1</td>
@@ -310,7 +309,7 @@
 			</tr>
 			<tr>
 				<td>62</td><td>PTC5/LLWU_P9/SPI0_SCK/LPTMR0_ALT2/CMP0_OUT</td><td>J1_9</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td rowspan='3'>63</td><td rowspan='3'>CMP0_IN0/PTC6/LLWU_P10/SPI0_MOSI/EXTRG_IN/SPI0_MISO</td><td rowspan='3'>J1_11</td>
@@ -362,7 +361,7 @@
 			</tr>
 			<tr>
 				<td>73</td><td>PTD0/SPI0_PCS0/TPM0_CH0</td><td>J2_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port0</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
 			<tr>
 				<td>74</td><td>ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1</td><td>LEDRGB_BLUE/J2_12</td>
@@ -370,7 +369,7 @@
 			</tr>
 			<tr>
 				<td>75</td><td>PTD2/SPI0_MOSI/UART2_RX/TPM0_CH2/SPI0_MISO</td><td>J2_8</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_miso</td><td bgcolor='#90EE67'>alt5</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>76</td><td>PTD3/SPI0_MISO/UART2_TX/TPM0_CH3/SPI0_MOSI</td><td>J2_10</td>
@@ -382,15 +381,15 @@
 			</tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
-				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb6</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>79</td><td>ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO</td><td>J2_17</td>
-				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb7</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_mosi</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>80</td><td>PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI</td><td>J2_19</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_miso</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 		</table>
 
@@ -1466,13 +1465,12 @@
 				<td bgcolor='#EBD4BD'>SWD</td><td bgcolor='#EBD4BD'>swd_dio</td><td bgcolor='#EBD4BD'>alt7</td><td bgcolor='#EBD4BD'>Input/Output</td>
 			</tr>
 			<tr>
-				<td rowspan='2'>30</td><td rowspan='2'>TSI0_CH5/PTA4/I2C1_SDA/TPM0_CH1/NMI_b</td><td rowspan='2'>J1_10</td>
-				<td bgcolor='#C7A886'>SystemControl</td><td bgcolor='#C7A886'>scb_nmi</td><td bgcolor='#C7A886'>alt7</td><td bgcolor='#C7A886'>Input</td>
+				<td>30</td><td>TSI0_CH5/PTA4/I2C1_SDA/TPM0_CH1/NMI_b</td><td>J1_10</td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
-			<tr bgcolor='#969696'><td>non-peripheral</td><td>NMI</td><td>alt7</td><td>Not Specified</td></tr>
 			<tr>
 				<td>31</td><td>PTA5/USB_CLKIN/TPM0_CH2</td><td>J1_12</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port5</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
 			<tr>
 				<td>32</td><td>PTA12/TPM1_CH0</td><td>J1_8</td>
@@ -1480,7 +1478,7 @@
 			</tr>
 			<tr>
 				<td>33</td><td>PTA13/TPM1_CH1</td><td>J2_2</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOA</td><td bgcolor='#F7DCFF'>port13</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
 			<tr>
 				<td>34</td><td>PTA14/SPI0_PCS0/UART0_TX</td><td>ACCEL_INT1</td>
@@ -1603,7 +1601,7 @@
 			</tr>
 			<tr>
 				<td>62</td><td>PTC5/LLWU_P9/SPI0_SCK/LPTMR0_ALT2/CMP0_OUT</td><td>J1_9</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td rowspan='3'>63</td><td rowspan='3'>CMP0_IN0/PTC6/LLWU_P10/SPI0_MOSI/EXTRG_IN/SPI0_MISO</td><td rowspan='3'>J1_11</td>
@@ -1655,7 +1653,7 @@
 			</tr>
 			<tr>
 				<td>73</td><td>PTD0/SPI0_PCS0/TPM0_CH0</td><td>J2_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port0</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Output</td>
 			</tr>
 			<tr>
 				<td>74</td><td>ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1</td><td>LEDRGB_BLUE/J2_12</td>
@@ -1663,7 +1661,7 @@
 			</tr>
 			<tr>
 				<td>75</td><td>PTD2/SPI0_MOSI/UART2_RX/TPM0_CH2/SPI0_MISO</td><td>J2_8</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI0</td><td bgcolor='#90EE67'>spi_miso</td><td bgcolor='#90EE67'>alt5</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>76</td><td>PTD3/SPI0_MISO/UART2_TX/TPM0_CH3/SPI0_MOSI</td><td>J2_10</td>
@@ -1675,15 +1673,15 @@
 			</tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
-				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb6</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_sck</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>79</td><td>ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO</td><td>J2_17</td>
-				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb7</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_mosi</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 			<tr>
 				<td>80</td><td>PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI</td><td>J2_19</td>
-				<td></td><td></td><td></td><td></td>
+				<td bgcolor='#90EE67'>SPI1</td><td bgcolor='#90EE67'>spi_miso</td><td bgcolor='#90EE67'>alt2</td><td bgcolor='#90EE67'>Not Specified</td>
 			</tr>
 		</table>
 
