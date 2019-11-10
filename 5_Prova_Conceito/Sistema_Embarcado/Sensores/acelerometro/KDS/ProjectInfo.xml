@@ -88,6 +88,7 @@
   <FILES>
     <GeneratedCs>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MCUC1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MainTask.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Task1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\clockMan1.c</PathName>
@@ -137,6 +138,7 @@
       <PathName>N:\Sensores\acelerometro\KDS\SDK\rtos\FreeRTOS\src\tasks.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\rtos\FreeRTOS\src\timers.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\Events.c</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Sources\ledrgb_hal.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\main.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\os_tasks.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\rtos_main_task.c</PathName>
@@ -145,6 +147,8 @@
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MCUC1.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MCUC1config.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MainTask.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
@@ -209,6 +213,7 @@
       <PathName>N:\Sensores\acelerometro\KDS\SDK\rtos\FreeRTOS\port\gcc\portTicks.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\SDK\rtos\FreeRTOS\port\gcc\portmacro.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\Events.h</PathName>
+      <PathName>N:\Sensores\acelerometro\KDS\Sources\ledrgb_hal.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\os_tasks.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Sources\rtos_main_task.h</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\driver_code\MPU6050config.h</PathName>
