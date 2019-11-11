@@ -36,6 +36,16 @@
 			<type>2</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Prova_Conceito</locationURI>
 		</link>
+		<link>
+			<name>Radio</name>
+			<type>2</type>
+			<location>N:/Radio/publish/versao4</location>
+		</link>
+		<link>
+			<name>Temperature</name>
+			<type>2</type>
+			<location>N:/Sensores/temperatura/publish/versao0</location>
+		</link>
 	</linkedResources>
 	<variableList>
 		<variable>

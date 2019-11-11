@@ -11,7 +11,7 @@
 **         Put your event handler code here.
 **     Settings    :
 **     Contents    :
-**         Sensor_task - void Sensor_task(os_task_param_t task_init_data);
+**         tempSensor_task - void tempSensor_task(os_task_param_t task_init_data);
 **
 ** ###################################################################*/
 /*!
@@ -36,12 +36,16 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer1.h"
+#include "rtcTimer.h"
 #include "tpmTmr1.h"
 #include "tpmTmr2.h"
-#include "Sensor.h"
-#include "DbgCs1.h"
+#include "tempSensor.h"
+#include "DbgCs.h"
 #include "Radio.h"
+#include "spiTemp.h"
+#include "gpio.h"
+#include "spiRadio.h"
+#include "Shell.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -49,14 +53,14 @@ extern "C" {
 
 /*
 ** ===================================================================
-**     Callback    : Sensor_task
+**     Callback    : tempSensor_task
 **     Description : Task function entry.
 **     Parameters  :
 **       task_init_data - OS task parameter
 **     Returns : Nothing
 ** ===================================================================
 */
-void Sensor_task(os_task_param_t task_init_data);
+void tempSensor_task(os_task_param_t task_init_data);
 
 
 /*
@@ -69,6 +73,17 @@ void Sensor_task(os_task_param_t task_init_data);
 ** ===================================================================
 */
 void Radio_task(os_task_param_t task_init_data);
+
+/*
+** ===================================================================
+**     Callback    : Shell_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+void Shell_task(os_task_param_t task_init_data);
 
 /* END os_tasks */
 

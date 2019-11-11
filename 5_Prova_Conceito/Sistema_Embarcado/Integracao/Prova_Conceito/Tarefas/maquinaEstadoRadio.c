@@ -40,9 +40,9 @@ void radio_stateMachine(void) {
 
 			estadoRadio = CONFIGURA_RADIO_PORT();
 
-			if (estadoRadio == CONFIGURACAO_OK)
+			if (estadoRadio == RADIO_CONFIGURACAO_OK)
 				estadoMaquina = CONECTANDO;
-			else if (estadoRadio == FALHA_CONFIGURACAO)
+			else if (estadoRadio == RADIO_FALHA_CONFIGURACAO)
 				estadoMaquina = DESCONFIGURANDO_RADIO;
 
 			break;
@@ -50,11 +50,11 @@ void radio_stateMachine(void) {
 		case CONECTANDO:
 			estadoRadio = CONECTAR_PORT();
 
-			if (estadoRadio == FALHA_CONEXAO)
+			if (estadoRadio == RADIO_FALHA_CONEXAO)
 				estadoMaquina = DESCONFIGURANDO_RADIO;
-			else if (estadoRadio == CONECTADO)
+			else if (estadoRadio == RADIO_CONECTADO)
 				estadoMaquina = AGUARDANDO_TEMPO_TRANSMISSAO;
-			else if (estadoRadio == PERIFERICO_OK)
+			else if (estadoRadio == RADIO_PERIFERICO_OK)
 				estadoMaquina = CONECTANDO;
 
 			break;
@@ -69,9 +69,9 @@ void radio_stateMachine(void) {
 		case TRANSMITINDO_AMOSTRAS:
 			estadoRadio = TRANSMITE_AMOSTRAS_PORT();
 
-			if (estadoRadio == SUCESSO_TRANSMISSAO)
+			if (estadoRadio == RADIO_SUCESSO_TRANSMISSAO)
 				estadoMaquina = AGUARDANDO_TEMPO_TRANSMISSAO;
-			else if (estadoRadio == FALHA_TRANSMISSAO)
+			else if (estadoRadio == RADIO_FALHA_TRANSMISSAO)
 				estadoMaquina = DESCONFIGURANDO_RADIO;
 
 			break;
@@ -80,20 +80,21 @@ void radio_stateMachine(void) {
 		case DESCONFIGURANDO_RADIO:
 			estadoRadio = DESCONFIGURA_RADIO_PORT();
 
-			if (estadoRadio == DESCONFIGURACAO_OK)
+			if (estadoRadio == RADIO_DESCONFIGURACAO_OK)
 				estadoMaquina = VERIFICANDO_TIPO_FALHA;
-			else if (estadoRadio == FALHA_DESCONFIGURACAO)
+			else if (estadoRadio == RADIO_FALHA_DESCONFIGURACAO)
 				estadoMaquina = ENCERRANDO_ROTINA;
 
 			break;
 
 		case VERIFICANDO_TIPO_FALHA:
-			estadoRadio = VERIFICA_TIPO_FALHA_PORT();
+/*			estadoRadio = VERIFICA_TIPO_FALHA_PORT();
 
-			if (estadoRadio == FALHA_RECUPERAVEL)
+			if (estadoRadio == RADIO_FALHA_RECUPERAVEL)
 				estadoMaquina = CONFIGURANDO_RADIO;
-			else if (estadoRadio == FALHA_PERMANENTE)
-				estadoMaquina = ENCERRANDO_ROTINA;
+			else if (estadoRadio == RADIO_FALHA_PERMANENTE)
+				estadoMaquina = ENCERRANDO_ROTINA;*/
+			estadoMaquina = CONECTANDO;
 
 			break;
 

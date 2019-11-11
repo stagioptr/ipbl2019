@@ -42,6 +42,7 @@
 #include "gpio1.h"
 #include "TaskRadio1.h"
 #include "TaskRadio2.h"
+#include "DbgCs1.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif

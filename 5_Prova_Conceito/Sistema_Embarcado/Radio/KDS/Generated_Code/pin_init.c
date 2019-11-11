@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-30, 11:09, # CodeGen: 38
+**     Date/Time   : 2019-11-01, 16:00, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -1183,6 +1183,32 @@ void deinit_swd_pins(uint32_t instance)
 {
   PORT_HAL_SetMuxMode(PORTA,0UL,kPortPinDisabled);
   PORT_HAL_SetMuxMode(PORTA,3UL,kPortPinDisabled);
+}
+
+/*FUNCTION**********************************************************************
+*
+* Function Name : init_uart0_pins
+* Description   : UART0 method sets registers according routing settings.
+* Call this method code to route desired pins.
+*END**************************************************************************/
+void init_uart0_pins(uint32_t instance)
+{
+  /* Affects PORTA_PCR1 register */
+  PORT_HAL_SetMuxMode(PORTA,1UL,kPortMuxAlt2);
+  SIM_HAL_SetLpsciRxSrcMode(SIM,UART0_IDX,kSimLpsciRxsrcPin);
+  /* Affects PORTA_PCR2 register */
+  PORT_HAL_SetMuxMode(PORTA,2UL,kPortMuxAlt2);
+}
+/*FUNCTION**********************************************************************
+*
+* Function Name : deinit_uart0_pins
+* Description   : UART0 method sets registers according routing settings.
+* Call this method code to disable routing of desired pins.
+*END**************************************************************************/
+void deinit_uart0_pins(uint32_t instance)
+{
+  PORT_HAL_SetMuxMode(PORTA,1UL,kPortPinDisabled);
+  PORT_HAL_SetMuxMode(PORTA,2UL,kPortPinDisabled);
 }
 
 

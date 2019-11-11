@@ -1,0 +1,527 @@
+﻿<html>
+<head>
+  <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
+  <meta http-equiv="pragma" content="no-cache">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+  <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  
+  <script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "300px";
+      document.getElementsByClassName("openbtn")[0].style.display = "none";
+      document.getElementsByClassName("closebtn")[0].style.display = "inline";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementsByClassName("openbtn")[0].style.display = "inline";
+      document.getElementsByClassName("closebtn")[0].style.display = "none";
+    }
+    $(document).ready(function(){
+      var pages = $('.page').length;
+      $('.navbar-right').css('top',(40*pages+48)+'px');
+
+      if ($(window).width() < 768)
+        $('.nav').hide();
+      
+      var status = 0;
+      $('.navbar-toggle').click(function(){
+        if (status == 0) {
+          $('.nav').slideDown();
+          status = 1;
+        }
+        else {
+          $('.nav').slideUp();
+          status = 0;
+        }
+      });
+      $('.navbar-nav').click(function(){
+        if ($(window).width() < 768) {
+          $('.nav').slideUp();
+          status = 0;
+        }
+      });
+    });
+    
+    var myObject = {};
+    var leit     = {};
+    var monitor  = '';
+    var leituras = 10;
+    var j, l   = 0;
+    
+    function ret(leitura, l2, arquivo) {
+      var saida = '<h2>Monitor</h2>';
+      for (k = 1; k < leituras; k++) {
+        myObject[k-1] = myObject[k];
+        monitor = myObject[k-1];
+      }
+      leit = leitura.split(';');
+      if (arquivo == "texto1.txt") {
+        saida += '<span class="ordem">Temperatura:</span>';
+        saida += '<span class="result"><b>' + leit[0] + '</b>°C<br>';
+        saida += '<span class="ordem">Umidade:</span>';
+        saida += '<span class="result"><b>' + leit[1] + '</b>%';
+      }
+      else if (arquivo == "texto2.txt") {
+        saida += '<span class="ordem">Acelerômetro:</span>';
+        saida += '<span class="result"><b>' + leit[0] + '</b><br>';
+        saida += '<span class="ordem">Giroscópio:</span>';
+        saida += '<span class="result"><b>' + leit[1] + '</b>';
+      }
+      else if (arquivo == "texto3.txt") {
+        saida += '<span class="ordem">Batimentos:</span>';
+        saida += '<span class="result"><b>' + leit[0] + '</b>BPM<br>';
+      }
+      
+      myObject[leituras-1] = leitura;
+      if (l2 >= 3)
+        return saida;
+      else
+        return '<h2>Monitor</h2>Aguardando leitura. ' + (3 - l2) + 's';
+    }
+    
+    function showgraph(container) {
+      $('#container').hide();
+      $('#container2').hide();
+      $('#container3').hide();
+      
+      $('#'+container).show();
+    }
+    
+    function mon(arquivo) {
+      var file   = '';
+      var saida2 = '';
+      
+      if (arquivo == "texto1.txt") {
+        file = '1';
+      }
+      else if (arquivo == "texto2.txt") {
+        file = '2';
+      }
+      else if (arquivo == "texto3.txt") {
+        file = '3';
+      }
+      $.get(arquivo, function(myContentFile) {
+        lines = myContentFile.split("\r");
+        var i = 0;
+//        for (var i in lines) {
+//          console.log("line " + i + " :" + lines[i]);
+//        }
+        saida2 = ret(lines[i], l, arquivo)
+        $('#filecontents'+file).html(saida2);
+      }, 'text');
+      j++;
+      if (j == leituras) {
+        j = 0;
+      }
+      l++;
+    }
+  </script>
+</head>
+<body onclick=''>
+  <script src="js/highcharts.js"></script>
+  <script src="js/modules/data.js"></script>
+  <script src="js/modules/series-label.js"></script>
+  <script src="js/modules/exporting.js"></script>
+  <script src="js/modules/export-data.js"></script>
+
+  <!-- Additional files for the Highslide popup effect -->
+  
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="logo">
+          <a class="navbar-brand" href="#">
+            <img src="img/stagioptr.png">
+          </a>
+        </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="page"><a href="#">Page 1</a></li>
+          <li class="page"><a href="#">Page 2</a></li>
+          <li class="page"><a href="#">Page 3</a></li>
+          <li class="page"><a href="#">Page 4</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <div id="mySidenav" class="col-sm-1 sidenav">
+    <span href="#" onclick="openNav()" class="openbtn">
+      Sensores
+      <span class="glyphicon glyphicon-triangle-bottom maior"></span>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <br>&nbsp;
+    <p>
+      <a href="#" onclick="closeNav(); showgraph('container'); mon('texto1.txt');">
+        <span class="glyphicon glyphicon-fire"></span> Temperatura e Umidade
+      </a>
+    </p>
+    <p>
+      <a href="#" onclick="closeNav(); showgraph('container2'); mon('texto2.txt');;">
+        <span class="glyphicon glyphicon-time"></span> Acelerômetro e Giroscópio
+      </a>
+    </p>
+    <p>
+      <a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">
+        <span class="glyphicon glyphicon-heart"></span> Batimentos Cardíacos
+      </a>
+    </p>
+  </div>
+
+  <!--
+  GRÁFICO 1
+  -->
+  <div id="container" onclick="closeNav()"> 
+    <script type="text/javascript">
+      var arquivo = 'texto1.txt';
+      var y11, y12 = 0;
+      var txt = '';
+      
+      Highcharts.chart('container', {
+        chart: {
+          type: 'spline',
+          animation: false,//Highcharts.svg, // don't animate in old IE
+          marginRight: 10,
+          events: {
+            load: function () {
+              // set up the updating of the chart each second
+              var series1 = this.series[0];
+              var series2 = this.series[1];
+              setInterval(function () {
+                var x = (new Date()).getTime(); // current time
+                fetch('texto1.txt')
+                  .then(response => response.text())
+                  .then(text => {
+                    txt = text.split(";");
+                    y11 = parseFloat(txt[0]);
+                    y12 = parseFloat(txt[1]);
+//                    y  = Math.random();
+//                    y2 = Math.random();
+                  })
+                series1.addPoint([x, y11], true, true);
+                series2.addPoint([x, y12], true, true);
+                mon(arquivo);
+              }, 1000);
+            }
+          }
+        },
+
+        time: {
+          useUTC: false
+        },
+
+        title: {
+          text: 'Umidade e Temperatura'
+        },
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 150
+        },
+        yAxis: {
+          title: {
+            text: 'Value'
+          },
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br/>',
+          pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+        },
+        legend: {
+          enabled: false
+        },
+        exporting: {
+          enabled: false
+        },
+        series: [{
+          name: 'Temperatura',
+          color: '#c00',
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: null
+                });
+            }
+            return data;
+          }())
+        },{
+          name: 'Umidade',
+          color: '#0c0',
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: null
+                });
+            }
+            return data;
+          }())
+        }]
+      });
+    </script>
+    <div id='filecontents1'>
+      <h2>Monitor</h2>
+      Aguardando leitura
+    </div>
+  </div>
+  <!--
+  GRÁFICO 2
+  -->
+  <div id="container2" onclick="closeNav()">
+    <script type="text/javascript">
+      var arquivo = 'texto2.txt';
+      var y21, y22 = 0;
+      var txt = '';
+      
+      Highcharts.chart('container2', {
+        chart: {
+          type: 'spline',
+          animation: false,//Highcharts.svg, // don't animate in old IE
+          marginRight: 10,
+          events: {
+            load: function () {
+              // set up the updating of the chart each second
+              var series1 = this.series[0];
+              var series2 = this.series[1];
+              setInterval(function () {
+                
+                var x = (new Date()).getTime(); // current time
+
+                fetch('texto2.txt')
+                  .then(response => response.text())
+                  .then(text => {
+                    txt = text.split(";");
+                    y21 = parseFloat(txt[0]);
+                    y22 = parseFloat(txt[1]);
+//                    y  = Math.random();
+//                    y2 = Math.random();
+                  })
+                series1.addPoint([x, y21], true, true);
+                series2.addPoint([x, y22], true, true);
+                mon(arquivo);
+              }, 1000);
+            }
+          }
+        },
+
+        time: {
+          useUTC: false
+        },
+
+        title: {
+          text: 'Acelerômetro e Giroscópio'
+        },
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 150
+        },
+        yAxis: {
+          title: {
+            text: 'Value'
+          },
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br/>',
+          pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+        },
+        legend: {
+          enabled: false
+        },
+        exporting: {
+          enabled: false
+        },
+        series: [{
+          name: 'Acelerômetro',
+          color: '#c00',
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: null
+                });
+            }
+            return data;
+          }())
+        },{
+          name: 'Giroscópio',
+          color: '#0c0',
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: null
+                });
+            }
+            return data;
+          }())
+        }]
+      });
+    </script>
+    <div id='filecontents2'>
+      <h2>Monitor</h2>
+      Aguardando leitura
+    </div>
+  </div>
+  <!--
+  GRÁFICO 3
+  -->
+  <div id="container3" onclick="closeNav()">
+    <script type="text/javascript">
+      var arquivo = 'texto3.txt';
+      var y31, y32 = 0;
+      var txt = '';
+      
+      Highcharts.chart('container3', {
+        chart: {
+          type: 'spline',
+          animation: false,//Highcharts.svg, // don't animate in old IE
+          marginRight: 10,
+          events: {
+            load: function () {
+              // set up the updating of the chart each second
+              var series1 = this.series[0];
+              var series2 = this.series[1];
+              setInterval(function () {
+                
+                var x = (new Date()).getTime(); // current time
+
+                fetch('texto3.txt')
+                  .then(response => response.text())
+                  .then(text => {
+                    txt = text.split(";");
+                    y31 = parseFloat(txt[0]);
+//                    y32 = parseFloat(txt[1]);
+//                    y  = Math.random();
+//                    y2 = Math.random();
+                  })
+                series1.addPoint([x, y31], true, true);
+//                series2.addPoint([x, y32], true, true);
+              }, 1000);
+            }
+          }
+        },
+
+        time: {
+          useUTC: false
+        },
+
+        title: {
+          text: 'Batimentos Cardíacos'
+        },
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 150
+        },
+        yAxis: {
+          title: {
+            text: 'Value'
+          },
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br/>',
+          pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+        },
+        legend: {
+          enabled: false
+        },
+        exporting: {
+          enabled: false
+        },
+        series: [{
+          name: 'BPM',
+          color: '#c00',
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: null
+                });
+            }
+            return data;
+          }())
+        }]
+      });
+    </script>
+    <div id='filecontents3'>
+      <h2>Monitor</h2>
+      Aguardando leitura
+    </div>
+  </div>
+  
+  <!-- <input type='number' id='leituras'> -->
+  <!-- <button id='ok'>Ok</button> -->
+  
+  <footer class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-3 col-xs-2">
+        <img src="img/ita.png">
+      </div>
+      <div class="col-sm-9 col-xs-9 assinatura">
+        <h2>STAGIOP-TR</h2>
+        Soluções Tecnológicas Aplicáveis ao Gerenciamento de Informações Ostensivas de Pacientes em Tempo Real
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

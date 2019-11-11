@@ -42,7 +42,10 @@ Generated_Code/free_rtos.o: ../Generated_Code/free_rtos.c \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h \
  N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h \
  N:/Radio/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
- N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h
+ N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
+ N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
+ N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h
 
 ../Generated_Code/free_rtos.h:
 
@@ -135,3 +138,9 @@ N:/Radio/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h:
 N:/Radio/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
 
 N:/Radio/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
+
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
+
+N:/Radio/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h:
+
+N:/Radio/KDS/SDK/platform/utilities/inc/fsl_debug_console.h:

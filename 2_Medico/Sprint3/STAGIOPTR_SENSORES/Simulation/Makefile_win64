@@ -1,0 +1,66 @@
+#############################################################
+######    Begin of Makefile
+#############################################################
+
+SCADE=C:\Program Files\ANSYS Inc\v194\SCADE\SCADE\.
+
+SHELL=cmd.exe
+
+C_FLAGS = -pedantic
+
+all: HumiditySensor__humiditySensor.exe HumiditySensor__humiditySensor.dll 
+
+win64/humiditySensor_HumiditySensor.o: humiditySensor_HumiditySensor.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "humiditySensor_HumiditySensor.c" -o "win64\humiditySensor_HumiditySensor.o"
+
+win64/kcg_types.o: kcg_types.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "kcg_types.c" -o "win64\kcg_types.o"
+
+win64/kcg_consts.o: kcg_consts.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "kcg_consts.c" -o "win64\kcg_consts.o"
+
+win64/STAGIOPTR_type.o: STAGIOPTR_type.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "STAGIOPTR_type.c" -o "win64\STAGIOPTR_type.o"
+
+win64/SmuPredefConv.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuPredefConv.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "$(SCADE)\lib\C\SmuPredefConv.c" -o "win64\SmuPredefConv.o"
+
+win64/SmuConfig.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuConfig.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "$(SCADE)\lib\C\SmuConfig.c" -o "win64\SmuConfig.o"
+
+win64/SmuTypes.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuTypes.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "$(SCADE)\lib\C\SmuTypes.c" -o "win64\SmuTypes.o"
+
+win64/SmuLib.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuLib.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "$(SCADE)\lib\C\SmuLib.c" -o "win64\SmuLib.o"
+
+win64/SmuVTable.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuVTable.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "$(SCADE)\lib\C\SmuVTable.c" -o "win64\SmuVTable.o"
+
+win64/STAGIOPTR_mapping.o: STAGIOPTR_mapping.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "STAGIOPTR_mapping.c" -o "win64\STAGIOPTR_mapping.o"
+
+win64/STAGIOPTR_interface.o: STAGIOPTR_interface.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "STAGIOPTR_interface.c" -o "win64\STAGIOPTR_interface.o"
+
+win64/SmuProxy.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuProxy.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "C:\Program Files\ANSYS Inc\v194\SCADE\SCADE\lib\C\SmuProxy.c" -o "win64\SmuProxy.o"
+
+HumiditySensor__humiditySensor.dll: win64/humiditySensor_HumiditySensor.o win64/kcg_types.o win64/kcg_consts.o win64/STAGIOPTR_type.o win64/SmuPredefConv.o win64/SmuConfig.o win64/SmuTypes.o win64/SmuLib.o win64/SmuVTable.o win64/STAGIOPTR_mapping.o win64/STAGIOPTR_interface.o win64/SmuProxy.o SmuExport.def 
+	gcc -mwindows -mwin32 -shared -static-libgcc  "win64\humiditySensor_HumiditySensor.o" "win64\kcg_types.o" "win64\kcg_consts.o" "win64\STAGIOPTR_type.o" "win64\SmuPredefConv.o" "win64\SmuConfig.o" "win64\SmuTypes.o" "win64\SmuLib.o" "win64\SmuVTable.o" "win64\STAGIOPTR_mapping.o" "win64\STAGIOPTR_interface.o" "win64\SmuProxy.o" -Wl,--output-def,"SmuExport.def" -lm -lwsock32 -m64 -o "HumiditySensor__humiditySensor.dll" 
+
+SmuExport.def: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuExport.def
+	copy "C:\Program Files\ANSYS Inc\v194\SCADE\SCADE\lib\C\SmuExport.def" "SmuExport.def"
+
+win64/STAGIOPTR_dll.o: STAGIOPTR_dll.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "STAGIOPTR_dll.c" -o "win64\STAGIOPTR_dll.o"
+
+win64/SmuMainWindows.o: C:/Program\ Files/ANSYS\ Inc/v194/SCADE/SCADE/lib/C/SmuMainWindows.c
+	gcc -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" -I"$(SCADE)\libraries\SC65\libmathext" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "C:\Program Files\ANSYS Inc\v194\SCADE\SCADE\lib\C\SmuMainWindows.c" -o "win64\SmuMainWindows.o"
+
+HumiditySensor__humiditySensor.exe: win64/STAGIOPTR_dll.o win64/SmuMainWindows.o 
+	gcc "win64\STAGIOPTR_dll.o" "win64\SmuMainWindows.o" -lm -lwsock32 -m64 -o "HumiditySensor__humiditySensor.exe" 
+
+#############################################################
+######    End of Makefile
+#############################################################

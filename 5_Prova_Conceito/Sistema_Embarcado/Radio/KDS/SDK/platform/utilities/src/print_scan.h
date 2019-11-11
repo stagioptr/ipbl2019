@@ -36,7 +36,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-//#define PRINTF_FLOAT_ENABLE   1
+#define PRINTF_FLOAT_ENABLE   1
 //#define PRINT_MAX_COUNT       1
 //#define SCANF_FLOAT_ENABLE    1
 

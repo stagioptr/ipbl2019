@@ -34,7 +34,6 @@ RM := rm -rf
 -include SDK/platform/devices/MKL25Z4/startup/subdir.mk
 -include SDK/platform/devices/subdir.mk
 -include Generated_Code/subdir.mk
--include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
