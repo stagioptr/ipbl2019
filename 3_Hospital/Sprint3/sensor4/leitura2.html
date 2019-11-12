@@ -194,9 +194,9 @@
   -->
   <div id="container" onclick="closeNav()"> 
     <script type="text/javascript">
-      var arquivo = 'texto1.txt';
+      var arquivo1 = 'texto1.txt';
       var y11, y12 = 0;
-      var txt = '';
+      var txt1 = {};
       
       Highcharts.chart('container', {
         chart: {
@@ -210,18 +210,18 @@
               var series2 = this.series[1];
               setInterval(function () {
                 var x = (new Date()).getTime(); // current time
-                fetch('texto1.txt')
+                fetch(arquivo1)
                   .then(response => response.text())
                   .then(text => {
-                    txt = text.split(";");
-                    y11 = parseFloat(txt[0]);
-                    y12 = parseFloat(txt[1]);
+                    txt1 = text.split(";");
+                    y11 = parseFloat(txt1[0]);
+                    y12 = parseFloat(txt1[1]);
 //                    y  = Math.random();
 //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y11], true, true);
                 series2.addPoint([x, y12], true, true);
-                mon(arquivo);
+                mon(arquivo1);
               }, 1000);
             }
           }
@@ -305,9 +305,9 @@
   -->
   <div id="container2" onclick="closeNav()">
     <script type="text/javascript">
-      var arquivo = 'texto2.txt';
+      var arquivo2 = 'texto2.txt';
       var y21, y22 = 0;
-      var txt = '';
+      var txt2 = {};
       
       Highcharts.chart('container2', {
         chart: {
@@ -323,18 +323,18 @@
                 
                 var x = (new Date()).getTime(); // current time
 
-                fetch('texto2.txt')
+                fetch(arquivo2)
                   .then(response => response.text())
                   .then(text => {
-                    txt = text.split(";");
-                    y21 = parseFloat(txt[0]);
-                    y22 = parseFloat(txt[1]);
+                    txt2 = text.split(";");
+                    y21 = parseFloat(txt2[0]);
+                    y22 = parseFloat(txt2[1]);
 //                    y  = Math.random();
 //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y21], true, true);
                 series2.addPoint([x, y22], true, true);
-                mon(arquivo);
+                mon(arquivo2);
               }, 1000);
             }
           }
@@ -418,9 +418,9 @@
   -->
   <div id="container3" onclick="closeNav()">
     <script type="text/javascript">
-      var arquivo = 'texto3.txt';
+      var arquivo3 = 'texto3.txt';
       var y31, y32 = 0;
-      var txt = '';
+      var txt3 = {};
       
       Highcharts.chart('container3', {
         chart: {
@@ -436,16 +436,17 @@
                 
                 var x = (new Date()).getTime(); // current time
 
-                fetch('texto3.txt')
+                fetch(arquivo3)
                   .then(response => response.text())
                   .then(text => {
-                    txt = text.split(";");
-                    y31 = parseFloat(txt[0]);
+                    txt3 = text.split(";");
+                    y31 = parseFloat(txt3[0]);
 //                    y32 = parseFloat(txt[1]);
 //                    y  = Math.random();
 //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y31], true, true);
+                mon(arquivo3);
 //                series2.addPoint([x, y32], true, true);
               }, 1000);
             }
