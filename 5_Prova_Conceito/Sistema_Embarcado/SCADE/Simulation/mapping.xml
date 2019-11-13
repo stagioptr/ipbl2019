@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/Max/SCADE/STAGIOPTR/Simulation/config.txt
+** Generation date: 2019-11-01T16:18:55
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/Simulation/scade_model_without_unused.scade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="2"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="200"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="C:/Users/Max/SCADE/STAGIOPTR/Simulation"/>
+    <option name="target" value="C"/>
+    <option name="root" value="HumiditySensor::humiditySensor"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <package id="14" name="HumiditySensor">
+      <constant id="15" name="SENSOR_MAX" imported="false" type="5"/>
+      <constant id="16" name="SENSOR_MIN" imported="false" type="5"/>
+      <constant id="17" name="HUMIDITY_MIN" imported="false" type="5"/>
+      <constant id="18" name="HUMIDITY_MAX" imported="false" type="5"/>
+      <operator id="19" name="humiditySensor" imported="false" root="true" expanded="false">
+        <input id="20" name="raw" clock="false" type="5"/>
+        <output id="21" name="value" clock="false" type="11"/>
+        <local id="22" name="_L1" clock="false" type="5"/>
+        <local id="23" name="_L2" clock="false" type="5"/>
+        <local id="24" name="_L3" clock="false" type="5"/>
+        <local id="25" name="_L4" clock="false" type="5"/>
+        <local id="26" name="_L5" clock="false" type="11"/>
+        <local id="27" name="_L6" clock="false" type="11"/>
+        <local id="28" name="_L7" clock="false" type="5"/>
+        <local id="29" name="_L8" clock="false" type="5"/>
+        <local id="30" name="_L9" clock="false" type="5"/>
+        <local id="31" name="_L10" clock="false" type="11"/>
+        <local id="32" name="_L11" clock="false" type="11"/>
+        <local id="33" name="_L12" clock="false" type="11"/>
+        <local id="34" name="_L14" clock="false" type="11"/>
+        <local id="35" name="_L16" clock="false" type="11"/>
+      </operator>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="36" name="humiditySensor_HumiditySensor.h">
+        <function id="37" name="humiditySensor_init_HumiditySensor">
+          <parameter id="38" name="outC" type="44" pointer="true"/>
+        </function>
+        <function id="39" name="humiditySensor_reset_HumiditySensor">
+          <parameter id="40" name="outC" type="44" pointer="true"/>
+        </function>
+        <function id="41" name="humiditySensor_HumiditySensor">
+          <parameter id="42" name="inC" type="60" pointer="true"/>
+          <parameter id="43" name="outC" type="44" pointer="true"/>
+        </function>
+        <struct id="44" name="outC_humiditySensor_HumiditySensor">
+          <field id="45" name="value" type="96" pointer="false"/>
+          <field id="46" name="_L1" type="88" pointer="false"/>
+          <field id="47" name="_L2" type="88" pointer="false"/>
+          <field id="48" name="_L3" type="88" pointer="false"/>
+          <field id="49" name="_L4" type="88" pointer="false"/>
+          <field id="50" name="_L5" type="96" pointer="false"/>
+          <field id="51" name="_L6" type="96" pointer="false"/>
+          <field id="52" name="_L7" type="88" pointer="false"/>
+          <field id="53" name="_L8" type="88" pointer="false"/>
+          <field id="54" name="_L9" type="88" pointer="false"/>
+          <field id="55" name="_L10" type="96" pointer="false"/>
+          <field id="56" name="_L11" type="96" pointer="false"/>
+          <field id="57" name="_L12" type="96" pointer="false"/>
+          <field id="58" name="_L14" type="96" pointer="false"/>
+          <field id="59" name="_L16" type="96" pointer="false"/>
+        </struct>
+        <struct id="60" name="inC_humiditySensor_HumiditySensor">
+          <field id="61" name="raw" type="88" pointer="false"/>
+        </struct>
+      </file>
+      <file id="62" name="kcg_types.h">
+        <macro id="63" name="kcg_assign_array"/>
+        <macro id="64" name="kcg_assign_struct"/>
+        <macro id="65" name="kcg_lnot_uint8"/>
+        <macro id="66" name="kcg_lnot_uint16"/>
+        <macro id="67" name="kcg_lnot_uint32"/>
+        <macro id="68" name="kcg_lnot_uint64"/>
+        <macro id="69" name="kcg_lsl_uint8"/>
+        <macro id="70" name="kcg_lsl_uint16"/>
+        <macro id="71" name="kcg_lsl_uint32"/>
+        <macro id="72" name="kcg_lsl_uint64"/>
+        <macro id="73" name="kcg_true"/>
+        <macro id="74" name="kcg_false"/>
+        <macro id="75" name="kcg_lit_int8"/>
+        <macro id="76" name="kcg_lit_int16"/>
+        <macro id="77" name="kcg_lit_int32"/>
+        <macro id="78" name="kcg_lit_int64"/>
+        <macro id="79" name="kcg_lit_uint8"/>
+        <macro id="80" name="kcg_lit_uint16"/>
+        <macro id="81" name="kcg_lit_uint32"/>
+        <macro id="82" name="kcg_lit_uint64"/>
+        <macro id="83" name="kcg_lit_size"/>
+        <macro id="84" name="kcg_lit_float64"/>
+        <macro id="85" name="kcg_lit_float32"/>
+        <predefType id="86" name="kcg_int8"/>
+        <predefType id="87" name="kcg_int16"/>
+        <predefType id="88" name="kcg_int32"/>
+        <predefType id="89" name="kcg_int64"/>
+        <predefType id="90" name="kcg_uint8"/>
+        <predefType id="91" name="kcg_uint16"/>
+        <predefType id="92" name="kcg_uint32"/>
+        <predefType id="93" name="kcg_uint64"/>
+        <predefType id="94" name="kcg_size"/>
+        <predefType id="95" name="kcg_float64"/>
+        <predefType id="96" name="kcg_float32"/>
+        <predefType id="97" name="kcg_bool"/>
+        <predefType id="98" name="kcg_char"/>
+        <macro id="99" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="100" name="kcg_consts.h">
+        <macro id="101" name="SENSOR_MAX_HumiditySensor" type="88"/>
+        <macro id="102" name="SENSOR_MIN_HumiditySensor" type="88"/>
+        <macro id="103" name="HUMIDITY_MIN_HumiditySensor" type="88"/>
+        <macro id="104" name="HUMIDITY_MAX_HumiditySensor" type="88"/>
+      </file>
+      <file id="105" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="95" dstId="84" role="wrapped-lit"/>
+    <map srcId="96" dstId="85" role="wrapped-lit"/>
+    <map srcId="94" dstId="83" role="wrapped-lit"/>
+    <map srcId="93" dstId="82" role="wrapped-lit"/>
+    <map srcId="93" dstId="68" role="wrapped-lnot"/>
+    <map srcId="93" dstId="72" role="wrapped-lsl"/>
+    <map srcId="92" dstId="81" role="wrapped-lit"/>
+    <map srcId="92" dstId="67" role="wrapped-lnot"/>
+    <map srcId="92" dstId="71" role="wrapped-lsl"/>
+    <map srcId="91" dstId="80" role="wrapped-lit"/>
+    <map srcId="91" dstId="66" role="wrapped-lnot"/>
+    <map srcId="91" dstId="70" role="wrapped-lsl"/>
+    <map srcId="90" dstId="79" role="wrapped-lit"/>
+    <map srcId="90" dstId="65" role="wrapped-lnot"/>
+    <map srcId="90" dstId="69" role="wrapped-lsl"/>
+    <map srcId="89" dstId="78" role="wrapped-lit"/>
+    <map srcId="88" dstId="77" role="wrapped-lit"/>
+    <map srcId="87" dstId="76" role="wrapped-lit"/>
+    <map srcId="86" dstId="75" role="wrapped-lit"/>
+  </generated>
+  <map modelId="19" generatedId="38" role="context-parameter"/>
+  <map modelId="19" generatedId="37" role="init-method"/>
+  <map modelId="19" generatedId="40" role="context-parameter"/>
+  <map modelId="19" generatedId="39" role="reset-method"/>
+  <map modelId="19" generatedId="42" role="input-struct-parameter"/>
+  <map modelId="20" generatedId="61"/>
+  <map modelId="19" generatedId="60" role="input-struct-type"/>
+  <map modelId="19" generatedId="43" role="context-parameter"/>
+  <map modelId="35" generatedId="59"/>
+  <map modelId="34" generatedId="58"/>
+  <map modelId="33" generatedId="57"/>
+  <map modelId="32" generatedId="56"/>
+  <map modelId="31" generatedId="55"/>
+  <map modelId="30" generatedId="54"/>
+  <map modelId="29" generatedId="53"/>
+  <map modelId="28" generatedId="52"/>
+  <map modelId="27" generatedId="51"/>
+  <map modelId="26" generatedId="50"/>
+  <map modelId="25" generatedId="49"/>
+  <map modelId="24" generatedId="48"/>
+  <map modelId="23" generatedId="47"/>
+  <map modelId="22" generatedId="46"/>
+  <map modelId="21" generatedId="45"/>
+  <map modelId="19" generatedId="44" role="context-type"/>
+  <map modelId="19" generatedId="36" role="interface-file"/>
+  <map modelId="19" generatedId="41" role="cycle-method"/>
+  <map modelId="18" generatedId="104"/>
+  <map modelId="17" generatedId="103"/>
+  <map modelId="16" generatedId="102"/>
+  <map modelId="15" generatedId="101"/>
+  <map modelId="2" generatedId="98"/>
+  <map modelId="1" generatedId="97"/>
+  <map modelId="12" generatedId="95"/>
+  <map modelId="11" generatedId="96"/>
+  <map modelId="13" generatedId="94"/>
+  <map modelId="10" generatedId="93"/>
+  <map modelId="9" generatedId="92"/>
+  <map modelId="8" generatedId="91"/>
+  <map modelId="7" generatedId="90"/>
+  <map modelId="6" generatedId="89"/>
+  <map modelId="5" generatedId="88"/>
+  <map modelId="4" generatedId="87"/>
+  <map modelId="3" generatedId="86"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2019-11-01T16:18:55
+*************************************************************$-->

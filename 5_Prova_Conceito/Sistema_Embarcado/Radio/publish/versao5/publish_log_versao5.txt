@@ -1,0 +1,5 @@
+Controle de versao do driver Radio 
+
+Versao 5:
+Adicao do codigo para descartar filas de tx e rx ao iniciar o radio. 
+

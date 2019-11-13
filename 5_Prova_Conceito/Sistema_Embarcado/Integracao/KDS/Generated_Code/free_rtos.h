@@ -7,7 +7,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-06, 23:25, # CodeGen: 26
+**     Date/Time   : 2019-11-12, 09:00, # CodeGen: 48
 **     Contents    :
 **         xCoRoutineCreate               - BaseType_t xCoRoutineCreate(crCOROUTINE_CODE pxCoRoutineCode,UBaseType_t...
 **         crDELAY                        - void crDELAY(CoRoutineHandle_t xHandle ,TickType_t xTicksToDelay);
@@ -93,6 +93,7 @@
 **         taskEXIT_CRITICAL              - void taskEXIT_CRITICAL(void);
 **         xTaskGetApplicationTaskTag     - TaskHookFunction_t xTaskGetApplicationTaskTag(TaskHandle_t xTask);
 **         xTaskGetCurrentTaskHandle      - TaskHandle_t xTaskGetCurrentTaskHandle();
+**         xTaskGetIdleTaskHandle         - TaskHandle_t xTaskGetIdleTaskHandle();
 **         uxTaskGetNumberOfTasks         - UBaseType_t uxTaskGetNumberOfTasks();
 **         vTaskGetRunTimeStats           - void vTaskGetRunTimeStats(char * pcWriteBuffer,size_t bufSize);
 **         xTaskGetSchedulerState         - BaseType_t xTaskGetSchedulerState();

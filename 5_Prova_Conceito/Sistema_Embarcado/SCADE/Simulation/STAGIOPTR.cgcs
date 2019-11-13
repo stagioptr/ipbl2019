@@ -1,0 +1,43 @@
+[scade_version: 2019 R2a]
+[scade_project: C:/Users/Max/SCADE/STAGIOPTR/STAGIOPTR.etp]
+[Code Generator]
+e023b22092fd10563cd02ec0f8e99684 C:/Users/Max/SCADE/STAGIOPTR/Simulation/scade_model_without_unused.scade
+f037ee9f9451aa8cef2c82fe23fb6643 C:/Users/Max/SCADE/STAGIOPTR/Simulation/cmd_cg.log
+62202603a2e88a59250c13c733544a6a C:/Users/Max/SCADE/STAGIOPTR/Simulation/config.txt
+591c80ee8ea0f09b3b47dc5fb8328724 C:/Users/Max/SCADE/STAGIOPTR/Simulation/humiditySensor_HumiditySensor.c
+310d5e7a88f3bd1e9ba0a4b82d3c8f73 C:/Users/Max/SCADE/STAGIOPTR/Simulation/humiditySensor_HumiditySensor.h
+8517ee6ab0ef0b47e9eb10655c83a8a8 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_consts.c
+09d168a7a9963620a2c349065d26cd67 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_consts.h
+b799d3b974390abd7c202520c089ce27 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_files.txt
+c570e85441febaa6f6d5e23e14e58b55 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_imported_types.h
+3b878ca50dd44ed0b146dca68317df35 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_metrics.txt
+94547596703a20493108f461130fa5dc C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_sensors.h
+f4e27986c0dfb3af0c12098b3d527cf6 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_types.c
+ad8fd6e05fd20164672175641a992723 C:/Users/Max/SCADE/STAGIOPTR/Simulation/kcg_types.h
+cc599baeeb55edd58edcbf07dea8fc2d C:/Users/Max/SCADE/STAGIOPTR/Simulation/mapping.xml
+ae3eb7ab76cdc5ab7228e39b505e73d6 C:/Users/Max/SCADE/STAGIOPTR/Simulation/user_macros.h
+[Mapping Utils]
+cc599baeeb55edd58edcbf07dea8fc2d C:/Users/Max/SCADE/STAGIOPTR/Simulation/mapping.xml
+e35fa38a5c65554f97685971912af758 C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuConfig.c
+63ca1258f2bc557f4914a90547c1afad C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuLib.c
+97846ecf46f63ce7853bb421d7471f4a C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuTypes.c
+fdc236851fcc107ead222892aa7071b4 C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuVTable.c
+a8712bd5294b7a95218fef49e8014603 C:/Users/Max/SCADE/STAGIOPTR/STAGIOPTR.etp
+d363aef05e0700289314b15149b21722 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_mapping.c
+27e5c774893b3715fc6eb740bdf29c58 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_mapping.h
+[Simulator Wrapper]
+cc599baeeb55edd58edcbf07dea8fc2d C:/Users/Max/SCADE/STAGIOPTR/Simulation/mapping.xml
+a8712bd5294b7a95218fef49e8014603 C:/Users/Max/SCADE/STAGIOPTR/STAGIOPTR.etp
+cfb635e56030a316cd395f874714ef08 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_dll.c
+c0a1c2f0088d0dd99899c83fa1e7b7e6 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_interface.c
+ded9f804736f07bb6934744f56f07862 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_interface.h
+[Type Utils]
+cc599baeeb55edd58edcbf07dea8fc2d C:/Users/Max/SCADE/STAGIOPTR/Simulation/mapping.xml
+e35fa38a5c65554f97685971912af758 C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuConfig.c
+63ca1258f2bc557f4914a90547c1afad C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuLib.c
+2ff4b49fd444307fbe2ac67a8132b9ae C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuPredefConv.c
+97846ecf46f63ce7853bb421d7471f4a C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuTypes.c
+fdc236851fcc107ead222892aa7071b4 C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/lib/C/SmuVTable.c
+a8712bd5294b7a95218fef49e8014603 C:/Users/Max/SCADE/STAGIOPTR/STAGIOPTR.etp
+71bfdef6b1ee6b6a8664d30039e46512 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_type.c
+ed011b74eb399d4cdf6048f689e2a645 C:/Users/Max/SCADE/STAGIOPTR/Simulation/STAGIOPTR_type.h

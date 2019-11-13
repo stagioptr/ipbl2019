@@ -1,0 +1,5 @@
+Controle de versao do driver Temperatura 
+
+Versao 1:
+Implementado tratamento de sensor aberto. 
+

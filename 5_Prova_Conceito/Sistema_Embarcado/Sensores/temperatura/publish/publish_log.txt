@@ -3,3 +3,6 @@ Controle de versao do driver Temperatura
 Versao 0:
 Primeira versao funcional para testes iniciais de integracao do projeto STAGIOP-TR. 
 
+Versao 1:
+Implementado tratamento de sensor aberto. 
+

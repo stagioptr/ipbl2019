@@ -179,6 +179,7 @@ void SPI0_IRQHandler(void)
 void free_rtos_vApplicationIdleHook(void)
 {
   /* Write your code here ... */
+	__WFI();
 }
 
 #ifdef spiRadio_IDX

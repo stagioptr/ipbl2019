@@ -6,7 +6,7 @@
 **     Version     : Component 8.2.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
+**     Date/Time   : 2019-11-12, 09:07, # CodeGen: 50
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -51,6 +51,7 @@
 #define __freertos_config_h__
 
 /* Additional settings can be defined in the property Settings > User settings > Definitions of the FreeRTOS component */
+#define INCLUDE_xTimerGetTimerDaemonTaskHandle             1
 
 /* Miscellaneous settings */
 #define configGENERATE_STATIC_SOURCES            1 /* 1: it will create 'static' sources to be used without Processor Expert; 0: Processor Expert code generated */
@@ -120,7 +121,7 @@
 #define INCLUDE_xTaskGetSchedulerState           1
 #define INCLUDE_xQueueGetMutexHolder             1
 #define INCLUDE_xTaskGetCurrentTaskHandle        1
-#define INCLUDE_xTaskGetIdleTaskHandle           0
+#define INCLUDE_xTaskGetIdleTaskHandle           1
 #define INCLUDE_eTaskGetState                    1
 #define INCLUDE_pcTaskGetTaskName                0
 #define INCLUDE_xEventGroupSetBitFromISR         1

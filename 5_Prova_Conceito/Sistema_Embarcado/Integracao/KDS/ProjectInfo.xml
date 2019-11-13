@@ -60,6 +60,7 @@
       <Path>N:\Integracao\KDS\Generated_Code\</Path>
       <Path>N:\Integracao\KDS\Prova_Conceito\Tarefas\</Path>
       <Path>N:\Integracao\KDS\Radio\</Path>
+      <Path>N:\Integracao\KDS\SCADE\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\drivers\src\gpio\</Path>
@@ -112,6 +113,13 @@
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\shellStateMachine.c</PathName>
       <PathName>N:\Integracao\KDS\Radio\nRF24L01_API.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\accellerometerSensor_AccellerometerSensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\humiditySensor_HumiditySensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_consts.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_types.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\rangeChecker_TemperatureSensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\tempratureSensor_TemperatureSensor.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\startup.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\gpio\fsl_gpio_common.c</PathName>
@@ -191,6 +199,16 @@
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoSensor_port.h</PathName>
       <PathName>N:\Integracao\KDS\Radio\Template\nRF24L01_API_port.h</PathName>
       <PathName>N:\Integracao\KDS\Radio\nRF24L01_API.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\accellerometerSensor_AccellerometerSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\humiditySensor_HumiditySensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_consts.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_imported_types.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_sensors.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_types.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\rangeChecker_TemperatureSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\tempratureSensor_TemperatureSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\user_macros.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_common_tables.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_const_structs.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_math.h</PathName>
