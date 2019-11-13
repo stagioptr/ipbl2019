@@ -1,0 +1,38 @@
+version: "3"
+services:
+  mqtt:
+    image: toke/mosquitto
+    network_mode: bridge
+    container_name: mqtt
+    expose:
+      - 1883
+    ports:
+      - 1883:1883
+    restart: unless-stopped
+
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    expose:
+      - "2181"
+
+  kafka:
+    image: wurstmeister/kafka:2.11-2.0.0
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  kafka-magic:
+    image: digitsy/kafka-magic
+    environment:
+      KAFKA_CREATE_TOPICS: "accelerometer:1:1,humidity:1:1"
+    links:
+      - kafka
+    depends_on:
+      - kafka
+    ports:
+      - "8080:80"
