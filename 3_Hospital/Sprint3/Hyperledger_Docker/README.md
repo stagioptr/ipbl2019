@@ -109,14 +109,14 @@ $ sudo docker exec -ti c-hyperledger bash
 ```
 * os passos abaixo devem ser executados dentro do container:
 ```sh
-$ mkdir stagiop_tr_network && cd stagiop_tr_network
+$ mkdir stagiop_tr && cd stagiop_tr
 $ yo hyperledger-composer:businessnetwork
 ```
 * caso apareça a mensagem "We're constantly looking for ways to make yo better!" apenas digite Y e tecle Enter
 * em seguida:
 ```sh
-			? Business network name: stagiop_tr_network
-			? Description: stagiop_tr_network
+			? Business network name: stagiop_tr
+			? Description: stagiop_tr
 			? Author name: stagioptr
 			? Author email: stagioptr@gmail.com
 			? License: Apache-2.0
@@ -124,7 +124,7 @@ $ yo hyperledger-composer:businessnetwork
 			? Do you want to generate an empty template network? Yes: generate an empty template network
 
 
-$ cd stagiop_tr_network
+$ cd stagiop_tr
 
 $ rm -rf models/br.ita.stagioptr.cto
 
@@ -142,16 +142,16 @@ $ composer archive create -t dir -n .
 
 $ ~/fabric-dev-servers/createPeerAdminCard.sh
 
-$ composer network install --card PeerAdmin@hlfv1 --archiveFile stagiop_tr_network@0.0.1.bna
+$ composer network install --card PeerAdmin@hlfv1 --archiveFile stagiop_tr@0.0.1.bna
 
-$ composer network start --networkName stagiop_tr_network --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+$ composer network start --networkName stagiop_tr --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
 
 $ composer card import --file networkadmin.card
 ```
 * após esses passos, você pode verificar pelo comando que a nossa business foi criada e está rodando com sucesso
 ```sh
 $ sudo docker ps
-$ composer network ping --card admin@stagiop_tr_network
+$ composer network ping --card admin@stagiop_tr
 ```
 
 ### Criação de uma API REST
