@@ -1,27 +1,21 @@
-/* global getAssetRegistry getFactory emit */
-
 /**
- * Notification transaction processor function.
- * @param {stagiopbd.notification.NotificationTransaction} tx The Notification transaction instance.
+ * Sensor transaction processor function.
+ * @param {br.ita.stagioptr.SaveReadTransaction} tx The Sensor transaction instance.
  * @transaction
  */
-async function NotificationTransaction(tx) {  // eslint-disable-line no-unused-vars
+async function SaveReadTransaction(tx) {  // eslint-disable-line no-unused-vars
+    let factory = getFactory()
+    const NS = 'br.ita.stagioptr'
 
-    // Save the old value of the asset.
-    const oldValue = tx.asset.value;
-
-    // Update the asset with the new value.
-    tx.asset.value = tx.newValue;
-
-    // Get the asset registry for the asset.
-    const assetRegistry = await getAssetRegistry('stagiopbd.notification.NotificationAsset');
-    // Update the asset in the asset registry.
-    await assetRegistry.update(tx.asset);
+    var sensor = factory.newResource(NS, 'Sensor', new Date().getTime().toString());
+    sensor.topic = tx.topic;
+    sensor.message = tx.message;
+    sensor.datetime = tx.datetime;
+    let sensorRegistry = await getParticipantRegistry(`${NS}.Sensor`);
+    await sensorRegistry.add(sensor)
 
     // Emit an event for the modified asset.
-    let event = getFactory().newEvent('stagiopbd.notification', 'NotificationEvent');
-    event.asset = tx.asset;
-    event.oldValue = oldValue;
-    event.newValue = tx.newValue;
+    let event = getFactory().newEvent(NS, 'NewReadEvent');
+    event.sensor = sensor;
     emit(event);
 }
