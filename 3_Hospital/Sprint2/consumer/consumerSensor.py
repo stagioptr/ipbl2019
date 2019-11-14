@@ -19,9 +19,11 @@ consumer = KafkaConsumer('sensor')
 print('Iniciando Consumer Sensor!')
 
 for message in consumer:
-    insert_data(message, album, [
-        "temperatura",
-        "giroscopio",
-        "umidade",
-        "acelerometro"
-    ])
+    insert_data(
+        message, album, [
+            "temperatura",
+            "giroscopio",
+            "umidade",
+            "acelerometro"
+        ], topic='sensor'
+    )

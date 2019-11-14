@@ -18,4 +18,4 @@ consumer = KafkaConsumer('sleep')
 print('Iniciando Consumer Sleep!')
 
 for message in consumer:
-    insert_data(message, album)
+    insert_data(message, album, topic='sleep')

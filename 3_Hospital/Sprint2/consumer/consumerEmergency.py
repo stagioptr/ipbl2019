@@ -18,4 +18,4 @@ consumer = KafkaConsumer('emergency')
 print('Iniciando Consumer Emergency!')
 
 for message in consumer:
-    insert_data(message, album)
+    insert_data(message, album, topic='emergency')

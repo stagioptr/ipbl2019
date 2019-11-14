@@ -18,4 +18,4 @@ consumer = KafkaConsumer('feeding')
 print('Iniciando Consumer Feeding!')
 
 for message in consumer:
-    insert_data(message, album)
+    insert_data(message, album, topic='feeding')
