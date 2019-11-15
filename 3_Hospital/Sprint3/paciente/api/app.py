@@ -22,9 +22,4 @@ def create_app(environment=None):
 
         api.add_resource(PacienteController, '/paciente')
 
-        @app.route('/dash/paciente')
-        def index():
-            content = render_template('paciente.html')
-            return Response(content, mimetype="text/html")
-
         return app

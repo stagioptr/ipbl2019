@@ -1,4 +1,5 @@
 ﻿<html>
+
 <head>
   <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
   <meta http-equiv="pragma" content="no-cache">
@@ -10,7 +11,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  
+  <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+
   <script>
     /* Set the width of the side navigation to 250px */
     function openNav() {
@@ -25,15 +29,192 @@
       document.getElementsByClassName("openbtn")[0].style.display = "inline";
       document.getElementsByClassName("closebtn")[0].style.display = "none";
     }
-    $(document).ready(function(){
+    function mostrarSwal(title, type, text, isHtml) {
+      config = {
+        title: title,
+        type: type,
+        showCloseButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'OK'
+      }
+      if (isHtml) {
+        config.html = text
+      } else {
+        config.text = text
+      }
+      swal(config)
+    }
+
+    function mostrarErro(e) {
+      var text = '';
+      if (e.responseJSON.message) {
+        text += e.responseJSON.message + '<br><br>Erro(s):'
+      }
+      if (e.responseJSON.errors) {
+        text += JSON.stringify(e.responseJSON.errors)
+      }
+      mostrarSwal('Atenção', 'error', text, true)
+    }
+
+    function plotGraph(data, name, container, x) {
+      Highcharts.chart(container, {
+        chart: {
+          type: 'line'
+        },
+        line: {
+          marker: {
+            enabled: false
+          }
+        },
+        title: {
+          text: name
+        },
+        xAxis: {
+          categories: x,
+          labels: {
+            format: '{value:%d/%m/%Y %H:%M:%S}'
+          }
+        },
+        yAxis: {
+          title: {
+            text: 'Valor'
+          },
+          plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+          }]
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br/>',
+          pointFormat: '{point.category:%d/%m/%Y %H:%M:%S}<br/>{point.y:.2f}'
+        },
+        legend: {
+          enabled: false
+        },
+        exporting: {
+          enabled: false
+        },
+        series: data
+      });
+    }
+
+    function getPaciente() {
+      const paciente = $("#paciente-busca").val()
+
+      if (paciente === '' || paciente === null) {
+        mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
+      } else {
+        $("#loadingPacientes").show();
+        let url = `http://34.68.34.160:5010/paciente?user=${paciente}`
+
+        let startDate = $("#dataInicial").val()
+        if (startDate !== '' && startDate !== null) {
+          url += `&start_date=${startDate}`
+        }
+        let endDate = $("#dataFinal").val()
+        if (endDate !== '' && endDate !== null) {
+          url += `&end_date=${endDate}`
+        }
+        $("#graficoTemperatura").hide()
+        $("#graficoUmidade").hide()
+        $("#graficoGiroscopio").hide()
+        $("#graficoAcelerometro").hide()
+
+        $.ajax({
+          type: "GET",
+          url: url,
+          success: function (resultado) {
+            let acelerometro = []
+            let giroscopio = []
+            let temperatura = []
+            let umidade = []
+            let x = []
+            resultado.forEach(d => {
+              const bits = d.data_hora.split(/\D/)
+              const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
+              x.push(time)
+              acelerometro.push(d.acelerometro)
+              giroscopio.push(d.giroscopio)
+              temperatura.push(d.temperatura)
+              umidade.push(d.umidade)
+            })
+            const data = [
+              {
+                name: 'Acelerômetro',
+                data: acelerometro
+              },
+              {
+                name: 'Giroscópio',
+                data: giroscopio
+              },
+              {
+                name: 'Temperatura',
+                data: temperatura
+              },
+              {
+                name: 'Umidade',
+                data: umidade
+              }
+            ]
+            $("#loadingPacientes").hide();
+
+            $("#graficoTemperatura").show()
+            $("#graficoUmidade").show()
+            $("#graficoGiroscopio").show()
+            $("#graficoAcelerometro").show()
+
+            plotGraph([{
+              name: 'Temperatura',
+              color: '#c00',
+              data: temperatura
+            }], 'Temperatura', 'graficoTemperatura', x)
+
+            plotGraph([{
+              name: 'Umidade',
+              color: '#0c0',
+              data: umidade
+            }], 'Umidade', 'graficoUmidade', x)
+
+            plotGraph([{
+              name: 'Acelerômetro',
+              color: '#009ccc',
+              data: acelerometro
+            }], 'Acelerômetro', 'graficoAcelerometro', x)
+
+            plotGraph([{
+              name: 'Giroscópio',
+              color: '#d1a506',
+              data: giroscopio
+            }], 'Giroscópio', 'graficoGiroscopio', x)
+
+          },
+          error: function (e) {
+            $("#loadingPacientes").hide();
+            mostrarErro(e)
+          }
+        });
+      }
+    }
+
+    $(document).ready(function () {
+      function formatStr(d) {
+        return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+      }
+      let now = new Date()
+      $("#dataFinal").val(formatStr(now))
+
+      now.setDate(now.getDate() - 4);
+      $("#dataInicial").val(formatStr(now))
+
       var pages = $('.page').length;
-      $('.navbar-right').css('top',(40*pages+48)+'px');
+      $('.navbar-right').css('top', (40 * pages + 48) + 'px');
 
       if ($(window).width() < 768)
         $('.nav').hide();
-      
+
       var status = 0;
-      $('.navbar-toggle').click(function(){
+      $('.navbar-toggle').click(function () {
         if (status == 0) {
           $('.nav').slideDown();
           status = 1;
@@ -43,25 +224,29 @@
           status = 0;
         }
       });
-      $('.navbar-nav').click(function(){
+      $('.navbar-nav').click(function () {
         if ($(window).width() < 768) {
           $('.nav').slideUp();
           status = 0;
         }
       });
+      $('#container').hide();
+      $('#container2').hide();
+      $('#container4').hide();
+      $('#loadingPacientes').hide();
     });
-    
+
     var myObject = {};
-    var leit     = {};
-    var monitor  = '';
+    var leit = {};
+    var monitor = '';
     var leituras = 10;
-    var j, l   = 0;
-    
+    var j, l = 0;
+
     function ret(leitura, l2, arquivo) {
       var saida = '<h2>Monitor</h2>';
       for (k = 1; k < leituras; k++) {
-        myObject[k-1] = myObject[k];
-        monitor = myObject[k-1];
+        myObject[k - 1] = myObject[k];
+        monitor = myObject[k - 1];
       }
       leit = leitura.split(';');
       if (arquivo == "texto1.txt") {
@@ -80,26 +265,28 @@
         saida += '<span class="ordem">Batimentos:</span>';
         saida += '<span class="result"><b>' + leit[0] + '</b>BPM<br>';
       }
-      
-      myObject[leituras-1] = leitura;
+
+      myObject[leituras - 1] = leitura;
       if (l2 >= 3)
         return saida;
       else
         return '<h2>Monitor</h2>Aguardando leitura. ' + (3 - l2) + 's';
     }
-    
+
     function showgraph(container) {
       $('#container').hide();
       $('#container2').hide();
       $('#container3').hide();
-      
-      $('#'+container).show();
+      $('#container4').hide();
+      $('#loadingPacientes').hide();
+
+      $('#' + container).show();
     }
-    
+
     function mon(arquivo) {
-      var file   = '';
+      var file = '';
       var saida2 = '';
-      
+
       if (arquivo == "texto1.txt") {
         file = '1';
       }
@@ -109,14 +296,14 @@
       else if (arquivo == "texto3.txt") {
         file = '3';
       }
-      $.get(arquivo, function(myContentFile) {
+      $.get(arquivo, function (myContentFile) {
         lines = myContentFile.split("\r");
         var i = 0;
-//        for (var i in lines) {
-//          console.log("line " + i + " :" + lines[i]);
-//        }
+        //        for (var i in lines) {
+        //          console.log("line " + i + " :" + lines[i]);
+        //        }
         saida2 = ret(lines[i], l, arquivo)
-        $('#filecontents'+file).html(saida2);
+        $('#filecontents' + file).html(saida2);
       }, 'text');
       j++;
       if (j == leituras) {
@@ -126,6 +313,7 @@
     }
   </script>
 </head>
+
 <body onclick=''>
   <script src="js/highcharts.js"></script>
   <script src="js/modules/data.js"></script>
@@ -134,7 +322,7 @@
   <script src="js/modules/export-data.js"></script>
 
   <!-- Additional files for the Highslide popup effect -->
-  
+
   <header>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -147,11 +335,12 @@
           <button type="button" class="navbar-toggle">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
+            <span class="icon-bar"></span>
           </button>
         </div>
         <ul class="nav navbar-nav">
-          <li class="page"><a href="#">Page 1</a></li>
+          <li class="page"><a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">Home</a></li>
+          <li class="page"><a href="#" onclick="closeNav(); showgraph('container4');">Pacientes</a></li>
           <li class="page"><a href="#">Page 2</a></li>
           <li class="page"><a href="#">Page 3</a></li>
           <li class="page"><a href="#">Page 4</a></li>
@@ -159,12 +348,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          
+
         </ul>
       </div>
     </nav>
   </header>
-  
+
   <div id="mySidenav" class="col-sm-1 sidenav">
     <span href="#" onclick="openNav()" class="openbtn">
       Sensores
@@ -192,12 +381,12 @@
   <!--
   GRÁFICO 1
   -->
-  <div id="container" onclick="closeNav()"> 
+  <div id="container" onclick="closeNav()">
     <script type="text/javascript">
       var arquivo1 = 'texto1.txt';
       var y11, y12 = 0;
       var txt1 = {};
-      
+
       Highcharts.chart('container', {
         chart: {
           type: 'spline',
@@ -216,8 +405,8 @@
                     txt1 = text.split(";");
                     y11 = parseFloat(txt1[0]);
                     y12 = parseFloat(txt1[1]);
-//                    y  = Math.random();
-//                    y2 = Math.random();
+                    //                    y  = Math.random();
+                    //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y11], true, true);
                 series2.addPoint([x, y12], true, true);
@@ -264,31 +453,31 @@
           data: (function () {
             // generate an array of random data
             var data = [],
-                time = (new Date()).getTime(),
-                i;
+              time = (new Date()).getTime(),
+              i;
 
             for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: null
-                });
+              data.push({
+                x: time + i * 1000,
+                y: null
+              });
             }
             return data;
           }())
-        },{
+        }, {
           name: 'Umidade',
           color: '#0c0',
           data: (function () {
             // generate an array of random data
             var data = [],
-                time = (new Date()).getTime(),
-                i;
+              time = (new Date()).getTime(),
+              i;
 
             for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: null
-                });
+              data.push({
+                x: time + i * 1000,
+                y: null
+              });
             }
             return data;
           }())
@@ -308,7 +497,7 @@
       var arquivo2 = 'texto2.txt';
       var y21, y22 = 0;
       var txt2 = {};
-      
+
       Highcharts.chart('container2', {
         chart: {
           type: 'spline',
@@ -320,7 +509,7 @@
               var series1 = this.series[0];
               var series2 = this.series[1];
               setInterval(function () {
-                
+
                 var x = (new Date()).getTime(); // current time
 
                 fetch(arquivo2)
@@ -329,8 +518,8 @@
                     txt2 = text.split(";");
                     y21 = parseFloat(txt2[0]);
                     y22 = parseFloat(txt2[1]);
-//                    y  = Math.random();
-//                    y2 = Math.random();
+                    //                    y  = Math.random();
+                    //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y21], true, true);
                 series2.addPoint([x, y22], true, true);
@@ -377,31 +566,31 @@
           data: (function () {
             // generate an array of random data
             var data = [],
-                time = (new Date()).getTime(),
-                i;
+              time = (new Date()).getTime(),
+              i;
 
             for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: null
-                });
+              data.push({
+                x: time + i * 1000,
+                y: null
+              });
             }
             return data;
           }())
-        },{
+        }, {
           name: 'Giroscópio',
           color: '#0c0',
           data: (function () {
             // generate an array of random data
             var data = [],
-                time = (new Date()).getTime(),
-                i;
+              time = (new Date()).getTime(),
+              i;
 
             for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: null
-                });
+              data.push({
+                x: time + i * 1000,
+                y: null
+              });
             }
             return data;
           }())
@@ -421,7 +610,7 @@
       var arquivo3 = 'texto3.txt';
       var y31, y32 = 0;
       var txt3 = {};
-      
+
       Highcharts.chart('container3', {
         chart: {
           type: 'spline',
@@ -433,7 +622,7 @@
               var series1 = this.series[0];
               var series2 = this.series[1];
               setInterval(function () {
-                
+
                 var x = (new Date()).getTime(); // current time
 
                 fetch(arquivo3)
@@ -441,13 +630,13 @@
                   .then(text => {
                     txt3 = text.split(";");
                     y31 = parseFloat(txt3[0]);
-//                    y32 = parseFloat(txt[1]);
-//                    y  = Math.random();
-//                    y2 = Math.random();
+                    //                    y32 = parseFloat(txt[1]);
+                    //                    y  = Math.random();
+                    //                    y2 = Math.random();
                   })
                 series1.addPoint([x, y31], true, true);
                 mon(arquivo3);
-//                series2.addPoint([x, y32], true, true);
+                //                series2.addPoint([x, y32], true, true);
               }, 1000);
             }
           }
@@ -490,14 +679,14 @@
           data: (function () {
             // generate an array of random data
             var data = [],
-                time = (new Date()).getTime(),
-                i;
+              time = (new Date()).getTime(),
+              i;
 
             for (i = -19; i <= 0; i += 1) {
-                data.push({
-                    x: time + i * 1000,
-                    y: null
-                });
+              data.push({
+                x: time + i * 1000,
+                y: null
+              });
             }
             return data;
           }())
@@ -509,10 +698,37 @@
       Aguardando leitura
     </div>
   </div>
-  
+
+  <!-- PACIENTE -->
+  <div id="container4" onclick="closeNav()" style="overflow-y:auto !important;">
+    <div style="margin-left:32px">
+      <form>
+        <div class="form-group">
+          <label for="paciente-busca" class="titleInput">Paciente</label>
+          <input type="text" class="form-control" id="paciente-busca" required>
+        </div>
+        <div class="form-group">
+          <label for="dataInicial" class="titleInput">Data Inicial</label>
+          <input type="date" class="form-control" id="dataInicial" maxlength="120">
+        </div>
+        <div class="form-group">
+          <label for="dataFinal" class="titleInput">Data Final</label>
+          <input type="date" class="form-control" id="dataFinal" maxlength="120">
+        </div>
+      </form>
+      <button class="btn btn-success" id="buscar" onclick="getPaciente()">Buscar</button>
+      <span id="loadingPacientes" style="margin-left: 16px;font-size:10px">Carregando ...</span>
+
+      <div id="graficoTemperatura"></div><br>
+      <div id="graficoUmidade"></div><br>
+      <div id="graficoGiroscopio"></div><br>
+      <div id="graficoAcelerometro"></div><br>
+    </div>
+  </div>
+
   <!-- <input type='number' id='leituras'> -->
   <!-- <button id='ok'>Ok</button> -->
-  
+
   <footer class="container-fluid text-center">
     <div class="row">
       <div class="col-sm-3 col-xs-2">
@@ -525,4 +741,5 @@
     </div>
   </footer>
 </body>
+
 </html>

@@ -22,7 +22,7 @@
 .navbar-header {
   padding-top: 8px;
 }
-#container, #container2, #container3 {
+#container, #container2, #container3, #container4 {
   box-sizing: border-box;
   left: 5%;
   top: 60px;
@@ -215,7 +215,7 @@ footer h2 {
   #filecontents1, #filecontents2, #filecontents3 {
     display: none;
   }
-  #container, #container2, #container3 {
+  #container, #container2, #container3, #container4 {
     padding: 10px;
     height: 72%;
   }
@@ -245,7 +245,7 @@ footer h2 {
   .logo img {
     width: 70px;
   }
-  #container, #container2, #container3 {
+  #container, #container2, #container3, #container4 {
     padding: 10px;
     height: 75%;
   }
