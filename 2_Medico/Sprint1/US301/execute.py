@@ -28,7 +28,7 @@ def connect(mac, retry):
       band.authenticate()
       return band
     except:
-      print("Oops!",sys.exc_info()[0],"occured."))
+      print("Oops!",sys.exc_info()[0],"occured.")
 
 
 def getHeartRate(band):
