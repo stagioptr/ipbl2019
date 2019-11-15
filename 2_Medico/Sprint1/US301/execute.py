@@ -21,7 +21,7 @@ def init(mac, broker, interval, retry):
 
 
 def connect(mac, retry):
-  for (attempt in retry):
+  for attempt in retry:
     try:
       band = MiBand2(mac, debug=True)
       band.setSecurityLevel(level="medium")
@@ -48,4 +48,4 @@ def sendMessage(broker, message):
 
 if __name__ == '__main__':
   print(args)
-  init(args.mac, args.broker, args.interval, args.retry)
+  # init(args.mac, args.broker, args.interval, args.retry)
