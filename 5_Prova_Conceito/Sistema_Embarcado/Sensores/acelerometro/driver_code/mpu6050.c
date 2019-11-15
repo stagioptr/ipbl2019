@@ -67,7 +67,7 @@ uint8_t MPU6050_Init(void)
 	//local variables
 	uint8_t whoami = 0x68;
 	uint8_t pwr = 0x00;
-	uint8_t smplrt = 0x13;
+	uint8_t smplrt = 0x19;
 	uint8_t config = 0x02;
 	uint8_t gyro_config = MPU6050_GYRO_FS_250;
 	uint8_t accel_config = MPU6050_ACCEL_FS_16;
@@ -79,7 +79,7 @@ uint8_t MPU6050_Init(void)
 			break;
 		if (MPU6050_WriteReg8(MPU6050_PWR_MGMT_1, pwr) != kStatus_I2C_Success) //set clock (0x00) = Internal 8MHz oscillator
 			break;
-		if (MPU6050_WriteReg8(MPU6050_SMPLRT_DIV, smplrt)  != kStatus_I2C_Success)
+		if (MPU6050_WriteReg8(MPU6050_SMPLRT_DIV, smplrt)  != kStatus_I2C_Success) //Accel 1Hhz (100 Hz) = 1000/1 + 19 = 50 Hz
 			break;
 		if (MPU6050_WriteReg8(MPU6050_CONFIG, config) != kStatus_I2C_Success)
 			break;
@@ -394,6 +394,24 @@ uint8_t MPU6050_GetFreeFallDetectionThreshold(uint8_t* threshold) {
 		return kStatus_I2C_Success;
 	}
 }
+
+/** Get free-fall event duration threshold.
+ * This register configures the duration counter threshold for Free Fall event
+ * detection. The duration counter ticks at 1kHz, therefore FF_DUR has a unit
+ * of 1 LSB = 1 ms.
+ *
+ * The Free Fall duration counter increments while the absolute value of the
+ * accelerometer measurements are each less than the detection threshold
+ * (Register 29). The Free Fall interrupt is triggered when the Free Fall
+ * duration counter reaches the time specified in this register.
+ *
+ * For more details on the Free Fall detection interrupt, see Section 8.2 of
+ * the MPU-6000/MPU-6050 Product Specification document as well as Registers 56
+ * and 58 of this document.
+ *
+ * @return Current free-fall duration threshold value (LSB = 1ms)
+ * @see FF_DUR
+ */
 
 uint8_t MPU6050_SetFreeFallDetectionThreshold(uint8_t threshold)
 {

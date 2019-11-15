@@ -57,6 +57,7 @@
       <Path>N:\Sensores\acelerometro\KDS\Generated_Code\</Path>
     </IncludePaths>
     <SourceCodePaths>
+      <Path>N:\Sensores\acelerometro\KDS\.metadata\.plugins\org.eclipse.cdt.make.core\</Path>
       <Path>N:\Sensores\acelerometro\KDS\Generated_Code\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Sensores\acelerometro\KDS\SDK\platform\devices\</Path>
@@ -87,6 +88,7 @@
   </PATHS>
   <FILES>
     <GeneratedCs>
+      <PathName>N:\Sensores\acelerometro\KDS\.metadata\.plugins\org.eclipse.cdt.make.core\specs.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\Cpu.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MCUC1.c</PathName>
       <PathName>N:\Sensores\acelerometro\KDS\Generated_Code\MainTask.c</PathName>

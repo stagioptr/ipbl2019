@@ -153,24 +153,24 @@ void main_task(os_task_param_t task_init_data)
 		  //Int Motion
 		  int_me_set_status_code = MPU6050_SetIntMotionEnabled(0);
 
-		  //Set high-pass filter (NOT OK)
+		  //Set high-pass filter
 		  dhpf_monde_set_status_code = MPU6050_SetDHPFMode(MPU6050_DHPF_5HZ);
 
-		  //Set Free Fall threshold (NOT OK)
-		  ff_th_set_status_code = MPU6050_SetFreeFallDetectionThreshold(50);
+		  //Set Free Fall threshold
+		  ff_th_set_status_code = MPU6050_SetFreeFallDetectionThreshold(25);
 
-		  //Set duration (NOT OK)
-		  ff_dr_set_status_code = MPU6050_SetFreeFallDetectionDuration(2);
+		  //Set duration
+		  ff_dr_set_status_code = MPU6050_SetFreeFallDetectionDuration(5);
 
-		  //Get free fall (NOT OK)
+		  //Get free fall
 		  free_fall_get_status_code = MPU6050_GetFreeFallDetectionThreshold(&free_fall_threshold);
 
 		  while (1) {
 			  activites_status_code = MPU6050_ReadActivites(&is_free_fall);
+			  OSA_TimeDelay(100);
 			  if (is_free_fall) {
 				  ledrgb_clearGreenLed();
 				  ledrgb_setRedLed();
-				  OSA_TimeDelay(100);
 			  } else {
 				  ledrgb_clearRedLed();
 				  //ledrgb_setGreenLed();

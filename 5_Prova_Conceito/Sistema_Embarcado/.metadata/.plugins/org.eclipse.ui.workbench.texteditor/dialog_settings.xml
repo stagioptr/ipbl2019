@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="38" key="selection"/>
+		<item value="MPU6050_DHPF_5HZ" key="selection"/>
 		<list key="findhistory">
+			<item value="MPU6050_DHPF_5HZ"/>
+			<item value="util"/>
 			<item value="38"/>
 			<item value="3a"/>
 			<item value="MPU6050_REG_MOT_DETECT_CTRL"/>
 			<item value="0x69"/>
 			<item value="bits"/>
 			<item value="dh"/>
-			<item value="MPU6050_ACCEL_CONFIG"/>
-			<item value="init"/>
 		</list>
 		<list key="replacehistory">
 			<item value="MMA1_WriteReg8"/>

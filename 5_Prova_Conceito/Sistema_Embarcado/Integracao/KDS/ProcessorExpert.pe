@@ -27426,8 +27426,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>type_debugconsole_lpsci_clock_source</TypeSpecNameState>
-        <Index>1</Index>
-        <EnumSymbVal>kClockLpsciSrcPllFllSel</EnumSymbVal>
+        <Index>0</Index>
+        <EnumSymbVal>kClockLpsciSrcNone</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>LinkItem</ItemSymbol>
