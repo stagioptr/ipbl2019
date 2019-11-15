@@ -18,4 +18,4 @@ EXPOSE 5010
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT python3 -u api.py
+ENTRYPOINT gunicorn --workers 4 --timeout 300 --bind 0.0.0.0:5010 server:app

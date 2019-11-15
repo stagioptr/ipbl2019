@@ -1,27 +1,10 @@
-# coding: utf-8
-
 from pymongo import MongoClient, ASCENDING
 import os
-from flask import Flask, request
-from flask_compress import Compress
-from flask_cors import CORS
-from flask_restful import Api, Resource
+from flask import request
+from flask_restful import Resource
 from datetime import datetime, timedelta
 
-compress = Compress()
-
-MONGO_URI = 'mongodb://stagioptr:ipbl2019@localhost:27017/'
-
-
-def create_app(environment=None):
-    app = Flask(__name__)
-    with app.app_context():
-        api = Api(app)
-        CORS(app, resources=r'/*', origins='*')
-        compress.init_app(app)
-        app.wsgi_app
-        api.add_resource(PacienteController, '/paciente')
-        return app
+MONGO_URI = 'mongodb://stagioptr:ipbl2019@34.68.34.160:27017/'
 
 
 class PacienteController(Resource):
@@ -65,18 +48,3 @@ class PacienteController(Resource):
                 "data_hora": item['dataHora']
             })
         return tmp, 200
-
-
-if __name__ == '__main__':
-    app = create_app('ProductionConfig')
-
-    app.secret_key = os.urandom(32)
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('PORT', '5010'))
-    except ValueError:
-        PORT = 5010
-
-    print("Server listening at " + str(PORT))
-
-    app.run(HOST, PORT)
