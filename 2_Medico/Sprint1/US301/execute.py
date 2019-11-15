@@ -48,4 +48,4 @@ def sendMessage(broker, message):
 
 if __name__ == '__main__':
   print(args)
-  # init(args.mac, args.broker, args.interval, args.retry)
+  init(args.mac, args.broker, args.interval, args.retry)
