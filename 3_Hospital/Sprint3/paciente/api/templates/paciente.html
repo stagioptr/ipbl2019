@@ -1,0 +1,566 @@
+<html>
+
+<head>
+    <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+
+    <style>
+        body {
+            background-color: #5bb2f7;
+        }
+
+        .logo {
+            z-index: 1000;
+            width: 100px;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            z-index: 2;
+            position: fixed;
+            width: 100%;
+        }
+
+        .navbar-header {
+            padding-top: 8px;
+        }
+
+        #container,
+        #container2,
+        #container3 {
+            box-sizing: border-box;
+            left: 5%;
+            top: 60px;
+            position: fixed;
+            z-index: 0;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: #fff;
+            height: 75%;
+            margin-bottom: 100px;
+            width: 90%;
+        }
+
+        #filecontents1,
+        #filecontents2,
+        #filecontents3 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 180px;
+            height: auto;
+            z-index: 1001;
+            background-color: #2096f6;
+            padding: 10px;
+            border-radius: 10px 0 0 0;
+        }
+
+        #filecontents1 h2,
+        #filecontents2 h2,
+        #filecontents3 h2 {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 0;
+            padding-bottom: 10px;
+            margin: 0;
+            color: #fff;
+        }
+
+        .ordem {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            height: 100%;
+            /* 100% Full-height */
+            width: 0;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Stay on top */
+            top: 50px;
+            /* Stay at the top */
+            left: 0;
+            background-color: rgba(50, 50, 50, .9);
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 60px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in the sidenav */
+            z-index: 1;
+            font-size: 25px;
+            color: #ddd;
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #ccc;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            display: inline-block;
+            position: absolute;
+            text-align: right;
+            top: 150px;
+            right: -60px;
+            transform: rotate(-90deg);
+            color: #fff;
+            margin: 0;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .openbtn .maior {
+            padding-top: 5px;
+            font-size: 18px;
+        }
+
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            height: 80px;
+            bottom: 0;
+            z-index: 1002;
+        }
+
+        footer img {
+            margin-top: -30px;
+            width: 220px;
+        }
+
+        footer h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .assinatura {
+            left: 0;
+        }
+
+        /* On medium screens, set monitor's width */
+        @media screen and (min-width: 1280px) {
+
+            #filecontents1,
+            #filecontents2,
+            #filecontents3 {
+                width: 200px;
+            }
+
+            .ordem {
+                width: 120px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            footer h2 {
+                font-size: 20px;
+            }
+
+            footer img {
+                margin-top: -30px;
+                width: 250px;
+            }
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .logo {
+                margin-top: -10px;
+                margin-left: -20px;
+            }
+
+            .sidenav {
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+
+            .navbar-nav {
+                position: relative;
+                display: inline;
+                width: 200px;
+                right: 0;
+                z-index: 999;
+                float: right;
+            }
+
+            .navbar-right {
+                position: absolute;
+                display: inline;
+                right: 20px;
+                top: 120px;
+                width: 190px;
+                background-color: #333;
+            }
+
+            #filecontents1,
+            #filecontents2,
+            #filecontents3 {
+                display: none;
+            }
+
+            #container,
+            #container2,
+            #container3 {
+                padding: 10px;
+                height: 72%;
+            }
+
+            footer {
+                height: 62px;
+                bottom: 0;
+                padding: 4px;
+                font-size: 9pt;
+            }
+
+            footer img {
+                width: 150px;
+                margin-top: -20px;
+            }
+
+            .assinatura {
+                left: 30px;
+            }
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-width: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 15px;
+            }
+
+            .logo img {
+                width: 70px;
+            }
+
+            #container,
+            #container2,
+            #container3 {
+                padding: 10px;
+                height: 75%;
+            }
+
+            footer {
+                height: 124px;
+                padding: 5px;
+                bottom: 0;
+                font-size: 8pt;
+            }
+
+            footer img {
+                margin: 0;
+                width: 120px;
+            }
+        }
+
+        .titleInput {
+            color: white;
+            font-size: 18px;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #0275d8;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -60px;
+            margin-left: -60px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(() => {
+            function formatStr(d) {
+                return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+            }
+            let now = new Date()
+            $("#dataFinal").val(formatStr(now))
+
+            now.setDate(now.getDate() - 5);
+            $("#dataInicial").val(formatStr(now))
+        })
+
+        function mostrarSwal(title, type, text, isHtml) {
+            config = {
+                title: title,
+                type: type,
+                showCloseButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'OK'
+            }
+            if (isHtml) {
+                config.html = text
+            } else {
+                config.text = text
+            }
+            swal(config)
+        }
+
+        function mostrarErro(e) {
+            var text = '';
+            if (e.responseJSON.message) {
+                text += e.responseJSON.message + '<br><br>Erro(s):'
+            }
+            if (e.responseJSON.errors) {
+                text += JSON.stringify(e.responseJSON.errors)
+            }
+            mostrarSwal('Atenção', 'error', text, true)
+        }
+
+        function plotGraph(data, name, container, x) {
+            Highcharts.chart(container, {
+                chart: {
+                    type: 'line'
+                },
+                line: {
+                    marker: {
+                        enabled: false
+                    }
+                },
+                title: {
+                    text: name
+                },
+                xAxis: {
+                    type: 'datetime',
+                    categories: x,
+                    labels: {
+                        format: '{value:%d/%m/%Y %H:%M:%S}'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Valor'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br/>',
+                    pointFormat: '{point.category:%d/%m/%Y %H:%M:%S}<br/>{point.y:.2f}'
+                },
+                legend: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: data
+            });
+        }
+
+        function getPaciente() {
+            const paciente = $("#paciente-busca").val()
+
+            if (paciente === '' || paciente === null) {
+                mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
+            } else {
+                $("#loading").show();
+                let url = `http://34.68.34.160:5010/paciente?user=${paciente}`
+
+                let startDate = $("#dataInicial").val()
+                if (startDate !== '' && startDate !== null) {
+                    url += `&start_date=${startDate}`
+                }
+                let endDate = $("#dataFinal").val()
+                if (endDate !== '' && endDate !== null) {
+                    url += `&end_date=${endDate}`
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (resultado) {
+                        let acelerometro = []
+                        let giroscopio = []
+                        let temperatura = []
+                        let umidade = []
+                        let x = []
+                        resultado.forEach(d => {
+                            const time = new Date(d.data_hora)
+                            x.push(time)
+                            acelerometro.push(d.acelerometro)
+                            giroscopio.push(d.giroscopio)
+                            temperatura.push(d.temperatura)
+                            umidade.push(d.umidade)
+                        })
+                        const data = [
+                            {
+                                name: 'Acelerômetro',
+                                data: acelerometro
+                            },
+                            {
+                                name: 'Giroscópio',
+                                data: giroscopio
+                            },
+                            {
+                                name: 'Temperatura',
+                                data: temperatura
+                            },
+                            {
+                                name: 'Umidade',
+                                data: umidade
+                            }
+                        ]
+                        $("#loading").hide();
+
+                        plotGraph([{
+                            name: 'Temperatura',
+                            color: '#c00',
+                            data: temperatura
+                        }], 'Temperatura', 'graficoTemperatura', x)
+
+                        plotGraph([{
+                            name: 'Umidade',
+                            color: '#0c0',
+                            data: umidade
+                        }], 'Umidade', 'graficoUmidade', x)
+
+                        plotGraph([{
+                            name: 'Acelerômetro',
+                            color: '#009ccc',
+                            data: acelerometro
+                        }], 'Acelerômetro', 'graficoAcelerometro', x)
+
+                        plotGraph([{
+                            name: 'Giroscópio',
+                            color: '#d1a506',
+                            data: giroscopio
+                        }], 'Giroscópio', 'graficoGiroscopio', x)
+
+                    },
+                    error: function (e) {
+                        $("#loading").hide();
+                        mostrarErro(e)
+                    }
+                });
+            }
+
+        }
+    </script>
+</head>
+
+<body onclick=''>
+    <script src="js/highcharts.js"></script>
+    <script src="js/modules/data.js"></script>
+    <script src="js/modules/series-label.js"></script>
+    <script src="js/modules/exporting.js"></script>
+    <script src="js/modules/export-data.js"></script>
+
+    <!-- Additional files for the Highslide popup effect -->
+
+    <div id="div-buscar" style="padding: 16px">
+        <form>
+            <div class="form-group">
+                <label for="paciente-busca" class="titleInput">Paciente</label>
+                <input type="text" class="form-control" id="paciente-busca" required>
+            </div>
+            <div class="form-group">
+                <label for="dataInicial" class="titleInput">Data Inicial</label>
+                <input type="date" class="form-control" id="dataInicial" maxlength="120">
+            </div>
+            <div class="form-group">
+                <label for="dataFinal" class="titleInput">Data Final</label>
+                <input type="date" class="form-control" id="dataFinal" maxlength="120">
+            </div>
+        </form>
+        <button class="btn btn-success" id="buscar" onclick="getPaciente()">Buscar</button>
+    </div>
+
+    <div class="loader" id="loading" style="display:none;"></div>
+
+    <div id="graficoTemperatura"></div><br>
+    <div id="graficoUmidade"></div><br>
+    <div id="graficoGiroscopio"></div><br>
+    <div id="graficoAcelerometro"></div><br>
+</body>
+
+</html>

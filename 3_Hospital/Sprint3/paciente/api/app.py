@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, Response, render_template
 from flask_compress import Compress
 from flask_cors import CORS
 from flask_restful import Api
@@ -21,5 +21,10 @@ def create_app(environment=None):
         from api.paciente_resource import PacienteController
 
         api.add_resource(PacienteController, '/paciente')
+
+        @app.route('/dash/paciente')
+        def index():
+            content = render_template('paciente.html')
+            return Response(content, mimetype="text/html")
 
         return app
