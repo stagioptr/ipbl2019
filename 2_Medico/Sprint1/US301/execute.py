@@ -34,8 +34,10 @@ def connect(mac, retry):
 
 def getHeartRate(band):
   data = {
+    'deviceid': args.mac,
     'time': datetime.now().strftime("%Y%m%dT%H%M%S"),
-    'value': band.get_heart_rate_one_time()
+    'value': band.get_heart_rate_one_time(),
+    'unit': 'HB/min'
   }
   return data
 
