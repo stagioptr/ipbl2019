@@ -8,6 +8,7 @@
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
     <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+    <script src="https://code.highcharts.com/highcharts.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
@@ -362,7 +363,7 @@
             let now = new Date()
             $("#dataFinal").val(formatStr(now))
 
-            now.setDate(now.getDate() - 5);
+            now.setDate(now.getDate() - 4);
             $("#dataInicial").val(formatStr(now))
         })
 
@@ -529,14 +530,6 @@
 </head>
 
 <body onclick=''>
-    <script src="js/highcharts.js"></script>
-    <script src="js/modules/data.js"></script>
-    <script src="js/modules/series-label.js"></script>
-    <script src="js/modules/exporting.js"></script>
-    <script src="js/modules/export-data.js"></script>
-
-    <!-- Additional files for the Highslide popup effect -->
-
     <div id="div-buscar" style="padding: 16px">
         <form>
             <div class="form-group">
