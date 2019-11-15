@@ -2,20 +2,21 @@ import argparse
 from base import MiBand2
 import time
 from datetime import datetime
+import paho.mqtt.publish as publish
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-m', '--mac', required=True, help='Mac address of the device')
-parser.add_argument('-k', '--kafka', required=True, help='Kafka server where the data will be send')
+parser.add_argument('-b', '--broker', required=True, help='MQTT broker where the data will be send (example: 127.0.0.1:1883)')
 parser.add_argument('-i', '--interval', help='Interval for reading and sending data', default=30)
 parser.add_argument('-r', '--retry', help='Number of retries if cannot connect to the smartband', default=1)
 args = parser.parse_args()
 
 
-def init(mac, kafka, interval, retry):
+def init(mac, broker, interval, retry):
   band = connect(mac, retry)
   while True:
     message = getHeartRate(band)
-    sendMessage(kafka, message)
+    sendMessage(broker, message)
     time.sleep(float(interval))
 
 
@@ -38,7 +39,7 @@ def getHeartRate(band):
   return data
 
 
-def sendMessage(kafka, message):
+def sendMessage(broker, message):
   import json
   from pprint import pprint
   pprint(json.dumps(message))
@@ -47,4 +48,4 @@ def sendMessage(kafka, message):
 
 if __name__ == '__main__':
   print(args)
-  init(args.mac, args.kafka, args.interval, args.retry)
+  init(args.mac, args.broker, args.interval, args.retry)
