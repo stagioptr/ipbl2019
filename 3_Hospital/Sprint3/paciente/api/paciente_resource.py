@@ -19,12 +19,22 @@ class PacienteController(Resource):
         end_date = request.args.get('end_date', None)
 
         if end_date:
-            end_date = datetime.strptime(end_date, '%Y-%m-%d')
+            try:
+                end_date = datetime.strptime(end_date, '%Y-%m-%d')
+            except Exception:
+                return {
+                    'message': "Formato de data incorreto. O formato esperado é: yyyy-mm-dd"
+                }
         else:
             end_date = datetime.now()
 
         if start_date:
-            start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            try:
+                start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            except Exception:
+                return {
+                    'message': "Formato de data incorreto. O formato esperado é: yyyy-mm-dd"
+                }
         else:
             start_date = datetime.now() - timedelta(days=4)
 
