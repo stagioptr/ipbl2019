@@ -39,7 +39,10 @@ def insert_data(message, album, fields_to_convert=[], topic=''):
                     if fields_to_convert:
                         for field in fields_to_convert:
                             if field in mjson:
-                                mjson[field] = float(mjson[field].replace(',', '.'))
+                                tmp = mjson[field]
+                                if isinstance(mjson[field], str):
+                                    tmp = mjson[field].replace(',', '.') 
+                                mjson[field] = float(tmp) 
                     documento_id = album.insert_one(mjson).inserted_id
 
                     save_in_blockchain(mjson, topic)
