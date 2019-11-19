@@ -51,10 +51,11 @@ class PacienteController(Resource):
         tmp = []
         for item in data:
             tmp.append({
-                "temperatura": item['temperatura'],
-                "giroscopio": item['giroscopio'],
-                "umidade": item['umidade'],
-                "acelerometro": item['acelerometro'],
+                "temperatura": item.get('temperatura'),
+                "giroscopio": item.get('giroscopio'),
+                "umidade": item.get('umidade'),
+                "acelerometro": item.get('acelerometro'),
+                "batimento": item.get('batimento'),
                 "data_hora": item['dataHora']
             })
         return tmp, 200
