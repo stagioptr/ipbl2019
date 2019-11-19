@@ -118,15 +118,13 @@
         }
         $("#graficoTemperatura").hide()
         $("#graficoUmidade").hide()
-        $("#graficoGiroscopio").hide()
-        $("#graficoAcelerometro").hide()
+        $("#graficoBatimento").hide()
 
         $.ajax({
           type: "GET",
           url: url,
           success: function (resultado) {
-            let acelerometro = []
-            let giroscopio = []
+            let batimento = []
             let temperatura = []
             let umidade = []
             let x = []
@@ -134,35 +132,15 @@
               const bits = d.data_hora.split(/\D/)
               const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
               x.push(time)
-              acelerometro.push(d.acelerometro)
-              giroscopio.push(d.giroscopio)
+              batimento.push(d.batimento)
               temperatura.push(d.temperatura)
               umidade.push(d.umidade)
             })
-            const data = [
-              {
-                name: 'Acelerômetro',
-                data: acelerometro
-              },
-              {
-                name: 'Giroscópio',
-                data: giroscopio
-              },
-              {
-                name: 'Temperatura',
-                data: temperatura
-              },
-              {
-                name: 'Umidade',
-                data: umidade
-              }
-            ]
             $("#loadingPacientes").hide();
 
             $("#graficoTemperatura").show()
             $("#graficoUmidade").show()
-            $("#graficoGiroscopio").show()
-            $("#graficoAcelerometro").show()
+            $("#graficoBatimento").show()
 
             plotGraph([{
               name: 'Temperatura',
@@ -177,16 +155,10 @@
             }], 'Umidade', 'graficoUmidade', x)
 
             plotGraph([{
-              name: 'Acelerômetro',
-              color: '#009ccc',
-              data: acelerometro
-            }], 'Acelerômetro', 'graficoAcelerometro', x)
-
-            plotGraph([{
-              name: 'Giroscópio',
+              name: 'Batimentos Cardíacos',
               color: '#d1a506',
-              data: giroscopio
-            }], 'Giroscópio', 'graficoGiroscopio', x)
+              data: batimento
+            }], 'Batimentos Cardíacos', 'graficoBatimento', x)
 
           },
           error: function (e) {
@@ -721,8 +693,7 @@
 
       <div id="graficoTemperatura"></div><br>
       <div id="graficoUmidade"></div><br>
-      <div id="graficoGiroscopio"></div><br>
-      <div id="graficoAcelerometro"></div><br>
+      <div id="graficoBatimento"></div><br>
     </div>
   </div>
 
