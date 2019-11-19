@@ -45,7 +45,7 @@ def insert_data(message, album, fields_to_convert=[], topic=''):
                                 mjson[field] = float(tmp) 
                     documento_id = album.insert_one(mjson).inserted_id
 
-                    save_in_blockchain(mjson, topic)
+                   # save_in_blockchain(mjson, topic)
 
                 except Exception as e:
                     print(str(e))
