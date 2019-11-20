@@ -18,8 +18,16 @@ def create_app(environment=None):
 
         app.wsgi_app
 
-        from api.paciente_resource import PacienteController
+        from api.paciente_resource import PacienteController, PacienteAllController
+        from api.paciente_online import PacienteOnlineController
 
         api.add_resource(PacienteController, '/paciente')
+        api.add_resource(PacienteAllController, '/ids-paciente')
+        api.add_resource(PacienteOnlineController, '/online')
+
+        @app.route('/dash/paciente')
+        def index():
+            content = render_template('paciente.html')
+            return Response(content, mimetype="text/html")
 
         return app

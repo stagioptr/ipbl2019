@@ -59,3 +59,12 @@ class PacienteController(Resource):
                 "data_hora": item['dataHora']
             })
         return tmp, 200
+
+
+class PacienteAllController(Resource):
+
+    def get(self):
+        mongo = MongoClient(MONGO_URI)
+        data = list(mongo.stagioptr.sensor.distinct("id"))
+        mongo.close()
+        return data, 200

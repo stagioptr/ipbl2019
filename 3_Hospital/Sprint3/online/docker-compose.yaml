@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  api-online:
-    build: ./
-    container_name: api-online
-    ports:
-      - "5011:5011"
-    restart: always
