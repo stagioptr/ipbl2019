@@ -1,0 +1,788 @@
+﻿<html>
+  <head>
+    <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+
+    <script>
+      function nivel(niv) {
+        if (niv == 1)
+          $('.nivel').css('color','lightgreen');
+        else if (niv == 2)
+          $('.nivel').css('color','yellow');
+        else
+          $('.nivel').css('color','red');
+          
+        $('.nivel').css('transition','font-size .1s, top .1s, left .1s');
+        
+        setInterval(function () {
+            $('.nivel').css('font-size','13px');
+            $('.nivel').css('top','0');
+            $('.nivel').css('left','-1px');
+        }, 200);
+        setInterval(function () {
+            $('.nivel').css('font-size','16px');
+            $('.nivel').css('top','2px');
+            $('.nivel').css('left','0');
+        }, 600);
+      }
+      /* Set the width of the side navigation to 250px */
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "300px";
+        document.getElementsByClassName("openbtn")[0].style.display = "none";
+        document.getElementsByClassName("closebtn")[0].style.display = "inline";
+      }
+      /* Set the width of the side navigation to 0 */
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementsByClassName("openbtn")[0].style.display = "inline";
+        document.getElementsByClassName("closebtn")[0].style.display = "none";
+      }
+      function mostrarSwal(title, type, text, isHtml) {
+        config = {
+          title: title,
+          type: type,
+          showCloseButton: true,
+          showCancelButton: false,
+          confirmButtonText: 'OK'
+        }
+        if (isHtml) {
+          config.html = text
+        } else {
+          config.text = text
+        }
+        swal(config)
+      }
+      function mostrarErro(e) {
+        var text = '';
+        if (e.responseJSON.message) {
+          text += e.responseJSON.message + '<br><br>Erro(s):'
+        }
+        if (e.responseJSON.errors) {
+          text += JSON.stringify(e.responseJSON.errors)
+        }
+        mostrarSwal('Atenção', 'error', text, true)
+      }
+      function plotGraph(data, name, container, x) {
+        Highcharts.chart(container, {
+          boost: {
+              useGPUTranslations: true
+          },
+          chart: {
+            type: 'line'
+          },
+          line: {
+            marker: {
+              enabled: false
+            }
+          },
+          title: {
+            text: name
+          },
+          xAxis: {
+            categories: x,
+            labels: {
+              format: '{value:%d/%m/%Y %H:%M:%S}'
+            }
+          },
+          yAxis: {
+            title: {
+              text: 'Valor'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.category:%d/%m/%Y %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: data
+        });
+      }
+      function getPaciente() {
+        const paciente = $("#paciente-busca").val();
+        
+        $('#icons').css('display','inline-block');
+        
+        if ($(window).width() < 450) {
+          $('#field2').hide();
+          $('#field3').hide();
+          $('#buscar').hide();
+          $('#form').height(60);
+        }
+        else if ($(window).width() < 768) {
+          $('#paciente-busca').hide();
+          $('#dataInicial').hide();
+          $('#dataFinal').hide();
+          $('#buscar').hide();
+          $('#form').height(40);
+          $('.setaV').show();
+        }
+        
+        if (paciente === '' || paciente === null) {
+          mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
+        } else {
+          $("#loadingPacientes").show();
+          let url = `http://34.68.34.160:5010/paciente?user=${paciente}`
+          let startDate = $("#dataInicial").val()
+          if (startDate !== '' && startDate !== null) {
+            url += `&start_date=${startDate}`
+          }
+          let endDate = $("#dataFinal").val()
+          if (endDate !== '' && endDate !== null) {
+            url += `&end_date=${endDate}`
+          }
+          $("#graficoTemperatura").hide()
+          $("#graficoUmidade").hide()
+          $("#graficoGiroscopio").hide()
+          $("#graficoAcelerometro").hide()
+          $.ajax({
+            type: "GET",
+            url: url,
+            success: function (resultado) {
+              let acelerometro = []
+              let giroscopio = []
+              let temperatura = []
+              let umidade = []
+              let x = []
+              resultado.forEach(d => {
+                const bits = d.data_hora.split(/\D/)
+                const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
+                x.push(time)
+                acelerometro.push(d.acelerometro)
+                giroscopio.push(d.giroscopio)
+                temperatura.push(d.temperatura)
+                umidade.push(d.umidade)
+              })
+              const data = [
+                {
+                  name: 'Acelerômetro',
+                  data: acelerometro
+                },
+                {
+                  name: 'Giroscópio',
+                  data: giroscopio
+                },
+                {
+                  name: 'Temperatura',
+                  data: temperatura
+                },
+                {
+                  name: 'Umidade',
+                  data: umidade
+                }
+              ]
+              $("#loadingPacientes").hide();
+              $("#graficoTemperatura").show()
+              $("#graficoUmidade").show()
+              $("#graficoGiroscopio").show()
+              $("#graficoAcelerometro").show()
+              plotGraph([{
+                name: 'Temperatura',
+                color: '#c00',
+                data: temperatura
+              }], 'Temperatura', 'graficoTemperatura', x)
+              plotGraph([{
+                name: 'Umidade',
+                color: '#0c0',
+                data: umidade
+              }], 'Umidade', 'graficoUmidade', x)
+              plotGraph([{
+                name: 'Acelerômetro',
+                color: '#009ccc',
+                data: acelerometro
+              }], 'Acelerômetro', 'graficoAcelerometro', x)
+              plotGraph([{
+                name: 'Giroscópio',
+                color: '#d1a506',
+                data: giroscopio
+              }], 'Giroscópio', 'graficoGiroscopio', x)
+            },
+            error: function (e) {
+              $("#loadingPacientes").hide();
+              mostrarErro(e)
+            }
+          });
+        }
+      }
+      $(document).ready(function () {
+        function formatStr(d) {
+          return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+        }
+        let now = new Date()
+        $("#dataFinal").val(formatStr(now))
+        now.setDate(now.getDate() - 4);
+        $("#dataInicial").val(formatStr(now))
+        var pages = $('.page').length;
+        $('.navbar-right').css('top', (40 * pages + 48) + 'px');
+        if ($(window).width() < 768)
+          $('.nav').hide();
+        var status = 0;
+        $('.navbar-toggle').click(function () {
+          if (status == 0) {
+            $('.nav').slideDown();
+            status = 1;
+          }
+          else {
+            $('.nav').slideUp();
+            status = 0;
+          }
+        });
+        $('.navbar-nav').click(function () {
+          if ($(window).width() < 768) {
+            $('.nav').slideUp();
+            status = 0;
+          }
+        });
+        if ($(window).width() < 768) {
+          $('#paciente-busca').hide();
+          $('#dataInicial').hide();
+          $('#dataFinal').hide();
+          $('#buscar').hide();
+        }
+        if ($(window).width() < 450) {
+          $('#paciente-busca').show();
+          $('#dataInicial').show();
+          $('#dataFinal').show();
+          $('#field1').removeClass('col-xs-4').addClass('col-xs-12');
+          $('#field2').removeClass('col-xs-3').addClass('col-xs-12');
+          $('#field3').removeClass('col-xs-3').addClass('col-xs-12');
+          $('#buscar').removeClass('col-xs-2').addClass('col-xs-12');
+          $('#loadingPacientes').removeClass('col-xs-2').addClass('col-xs-12');
+        }
+        $('#container').hide();
+        $('#container2').hide();
+        $('#container4').hide();
+        $('#loadingPacientes').hide();
+      });
+      var myObject = {};
+      var leit = {};
+      var monitor = '';
+      var leituras = 10;
+      var j, l = 0;
+      function ret(leitura, l2, arquivo) {
+        var saida = '<h2>Monitor</h2>';
+        for (k = 1; k < leituras; k++) {
+          myObject[k - 1] = myObject[k];
+          monitor = myObject[k - 1];
+        }
+        leit = leitura.split(';');
+        if (arquivo == "texto1.txt") {
+          saida += '<span class="ordem">Temperatura:</span>';
+          saida += '<span class="result"><b>' + leit[0] + '</b>°C<br>';
+          saida += '<span class="ordem">Umidade:</span>';
+          saida += '<span class="result"><b>' + leit[1] + '</b>%';
+        }
+        else if (arquivo == "texto2.txt") {
+          saida += '<span class="ordem">Acelerômetro:</span>';
+          saida += '<span class="result"><b>' + leit[0] + '</b><br>';
+          saida += '<span class="ordem">Giroscópio:</span>';
+          saida += '<span class="result"><b>' + leit[1] + '</b>';
+        }
+        else if (arquivo == "texto3.txt") {
+          saida += '<span class="ordem">Batimentos:</span>';
+          saida += '<span class="result"><b>' + leit[0] + '</b>BPM<br>';
+        }
+        myObject[leituras - 1] = leitura;
+        if (l2 >= 3)
+          return saida;
+        else
+          return '<h2>Monitor</h2>Aguardando leitura. ' + (3 - l2) + 's';
+      }
+      function showFields(tipo) {
+        $('#form').height('auto');
+        if (tipo == 2) {
+          $('#field1').show();
+          $('#field2').show();
+          $('#field3').show();
+          $('#buscar').show();
+        }
+        else {
+          $('#paciente-busca').show();
+          $('#dataInicial').show();
+          $('#dataFinal').show();
+          $('#buscar').show();
+          $('.setaV').hide();
+        }
+      }
+      function showgraph(container) {
+        $('#container').hide();
+        $('#container2').hide();
+        $('#container3').hide();
+        $('#container4').hide();
+        $('#loadingPacientes').hide();
+        $('#' + container).show();
+      }
+      function mon(arquivo) {
+        var file = '';
+        var saida2 = '';
+        if (arquivo == "texto1.txt") {
+          file = '1';
+        }
+        else if (arquivo == "texto2.txt") {
+          file = '2';
+        }
+        else if (arquivo == "texto3.txt") {
+          file = '3';
+        }
+        $.get(arquivo, function (myContentFile) {
+          lines = myContentFile.split("\r");
+          var i = 0;
+          saida2 = ret(lines[i], l, arquivo)
+          $('#filecontents' + file).html(saida2);
+        }, 'text');
+        j++;
+        if (j == leituras) {
+          j = 0;
+        }
+        l++;
+      }
+    </script>
+  </head>
+
+  <body onload='nivel(1)'>
+    <script src="js/highcharts.js"></script>
+    <script src="js/modules/data.js"></script>
+    <script src="js/modules/series-label.js"></script>
+    <script src="js/modules/exporting.js"></script>
+    <script src="js/modules/export-data.js"></script>
+
+    <!-- Additional files for the Highslide popup effect -->
+
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="logo">
+            <a class="navbar-brand" href="#">
+              <img src="img/stagioptr.png">
+            </a>
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="page"><a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">Home</a></li>
+            <li class="page"><a href="#" onclick="closeNav(); showgraph('container4');">Pacientes</a></li>
+<!--             <li class="page"><a href="#">Page 2</a></li>
+            <li class="page"><a href="#">Page 3</a></li>
+            <li class="page"><a href="#">Page 4</a></li>
+ -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-heart nivel" style="font-size:14pt;"></span> Nível de alerta</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="mySidenav" class="col-sm-1 sidenav">
+      <span href="#" onclick="openNav()" class="openbtn">
+        Tempo Real
+        <span class="glyphicon glyphicon-triangle-bottom maior"></span>
+      </span>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <br>&nbsp;
+      <p>
+        <a href="#" onclick="closeNav(); showgraph('container'); mon('texto1.txt');">
+          <span class="glyphicon glyphicon-fire"></span> Temperatura e Umidade
+        </a>
+      </p>
+      <p>
+        <a href="#" onclick="closeNav(); showgraph('container2'); mon('texto2.txt');;">
+          <span class="glyphicon glyphicon-time"></span> Acelerômetro e Giroscópio
+        </a>
+      </p>
+      <p>
+        <a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">
+          <span class="glyphicon glyphicon-heart"></span> Batimentos Cardíacos
+        </a>
+      </p>
+    </div>
+
+    <!--
+    GRÁFICO 1
+    -->
+    <div id="container" onclick="closeNav()">
+      <script type="text/javascript">
+        var arquivo1 = 'texto1.txt';
+        var y11, y12 = 0;
+        var txt1 = {};
+        Highcharts.chart('container', {
+          chart: {
+            type: 'spline',
+            animation: false,//Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+              load: function () {
+                // set up the updating of the chart each second
+                var series1 = this.series[0];
+                var series2 = this.series[1];
+                setInterval(function () {
+                  var x = (new Date()).getTime(); // current time
+                  fetch(arquivo1)
+                    .then(response => response.text())
+                    .then(text => {
+                      txt1 = text.split(";");
+                      y11 = parseFloat(txt1[0]);
+                      y12 = parseFloat(txt1[1]);
+                      //                    y  = Math.random();
+                      //                    y2 = Math.random();
+                    })
+                  series1.addPoint([x, y11], true, true);
+                  series2.addPoint([x, y12], true, true);
+                  mon(arquivo1);
+                }, 1000);
+              }
+            }
+          },
+          time: {
+            useUTC: false
+          },
+          title: {
+            text: 'Umidade e Temperatura'
+          },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+          },
+          yAxis: {
+            title: {
+              text: 'Value'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Temperatura',
+            color: '#c00',
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }, {
+            name: 'Umidade',
+            color: '#0c0',
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }]
+        });
+      </script>
+      <div id='filecontents1'>
+        <h2>Monitor</h2>
+        Aguardando leitura
+      </div>
+    </div>
+    <!--
+    GRÁFICO 2
+    -->
+    <div id="container2" onclick="closeNav()">
+      <script type="text/javascript">
+        var arquivo2 = 'texto2.txt';
+        var y21, y22 = 0;
+        var txt2 = {};
+        Highcharts.chart('container2', {
+          chart: {
+            type: 'spline',
+            animation: false,//Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+              load: function () {
+                // set up the updating of the chart each second
+                var series1 = this.series[0];
+                var series2 = this.series[1];
+                setInterval(function () {
+                  var x = (new Date()).getTime(); // current time
+                  fetch(arquivo2)
+                    .then(response => response.text())
+                    .then(text => {
+                      txt2 = text.split(";");
+                      y21 = parseFloat(txt2[0]);
+                      y22 = parseFloat(txt2[1]);
+                      //                    y  = Math.random();
+                      //                    y2 = Math.random();
+                    })
+                  series1.addPoint([x, y21], true, true);
+                  series2.addPoint([x, y22], true, true);
+                  mon(arquivo2);
+                }, 1000);
+              }
+            }
+          },
+          time: {
+            useUTC: false
+          },
+          title: {
+            text: 'Acelerômetro e Giroscópio'
+          },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+          },
+          yAxis: {
+            title: {
+              text: 'Value'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Acelerômetro',
+            color: '#c00',
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }, {
+            name: 'Giroscópio',
+            color: '#0c0',
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }]
+        });
+      </script>
+      <div id='filecontents2'>
+        <h2>Monitor</h2>
+        Aguardando leitura
+      </div>
+    </div>
+    <!--
+    GRÁFICO 3
+    -->
+    <div id="container3" onclick="closeNav()">
+      <script type="text/javascript">
+        var arquivo3 = 'texto3.txt';
+        var y31, y32 = 0;
+        var txt3 = {};
+        Highcharts.chart('container3', {
+          chart: {
+            type: 'spline',
+            animation: false,//Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+              load: function () {
+                // set up the updating of the chart each second
+                var series1 = this.series[0];
+                var series2 = this.series[1];
+                setInterval(function () {
+                  var x = (new Date()).getTime(); // current time
+                  fetch(arquivo3)
+                    .then(response => response.text())
+                    .then(text => {
+                      txt3 = text.split(";");
+                      y31 = parseFloat(txt3[0]);
+                      //                    y32 = parseFloat(txt[1]);
+                      //                    y  = Math.random();
+                      //                    y2 = Math.random();
+                    })
+                  series1.addPoint([x, y31], true, true);
+                  mon(arquivo3);
+                  //                series2.addPoint([x, y32], true, true);
+                }, 1000);
+              }
+            }
+          },
+          time: {
+            useUTC: false
+          },
+          title: {
+            text: 'Batimentos Cardíacos'
+          },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+          },
+          yAxis: {
+            title: {
+              text: 'Value'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'BPM',
+            color: '#c00',
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }]
+        });
+      </script>
+      <div id='filecontents3'>
+        <h2>Monitor</h2>
+        Aguardando leitura
+      </div>
+    </div>
+
+    <!-- PACIENTE -->
+    <div id="container4" onclick="closeNav()">
+      <div id="form">
+        <form>
+          <div id="field1" class="col-sm-4 col-xs-4 form-group">
+            <label for="paciente-busca" class="titleInput">Paciente</label>
+            <select class="form-control" id="paciente-busca" required onclick="showFields(2)">
+              <option value="">Escolha o paciente</option>
+              <option value="404217">404217</option>
+              <option value="video">Video</option>
+            </select>
+          </div>
+          <div id="field2" class="col-sm-3 col-xs-3 form-group">
+            <label for="dataInicial" class="titleInput">Data Inicial</label>
+            <input type="date" class="form-control" id="dataInicial" maxlength="120">
+          </div>
+          <div id="field3" class="col-sm-3 col-xs-3 form-group">
+            <label for="dataFinal" class="titleInput">Data Final</label>
+            <input type="date" class="form-control" id="dataFinal" maxlength="120">
+          </div>
+          <div class="form-group">
+            <button class="col-sm-2 col-xs-2 btn btn-success" id="buscar" onclick="getPaciente()" style="margin-top: 25px;">Buscar</button>
+          </div>
+        </form>
+        <div class="setaV" onclick="showFields(1)" >
+          <span class="glyphicon glyphicon-chevron-down"></span>
+        </div>
+        <span id="loadingPacientes" class="col-sm-2 col-xs-2 btn btn-warning">Carregando...</span>
+      </div>
+      <div id="graph">
+        <div id="graficoTemperatura" style="height:100%;"></div><br>
+        <div id="graficoUmidade" style="height:100%;"></div><br>
+        <div id="graficoGiroscopio" style="height:100%;"></div><br>
+        <div id="graficoAcelerometro" style="height:100%;"></div><br>
+      </div>
+      <div id="icons">
+        <a href="#graficoTemperatura"><span class="glyphicon glyphicon-fire"></span></a>
+        <a href="#graficoUmidade"><span class="glyphicon glyphicon-tint"></span></a>
+        <a href="#graficoGiroscopio"><span class="glyphicon glyphicon-repeat"></span></a>
+        <a href="#graficoAcelerometro"><span class="glyphicon glyphicon-dashboard"></span></a>
+      </div>
+    </div>
+
+    <!-- <input type='number' id='leituras'> -->
+    <!-- <button id='ok'>Ok</button> -->
+
+    <footer class="container-fluid text-center">
+      <div class="row">
+        <div class="col-sm-3 col-xs-2">
+          <img src="img/ita.png">
+        </div>
+        <div class="col-sm-9 col-xs-9 assinatura">
+          <h2>STAGIOP-TR</h2>
+          Soluções Tecnológicas Aplicáveis ao Gerenciamento de Informações Ostensivas de Pacientes em Tempo Real
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
