@@ -17,12 +17,8 @@
 
 #include "MAX6675_API.h"
 
-extern QueueHandle_t temperature_msg_queue_handler;
+extern msg_queue_handler_t temperature_msg_queue_handler;
 float temperatureCelsiusDegree = 0.0;
-
-#if defined DEBUG
-	extern QueueHandle_t temperature_debug_msg_queue_handler;
-#endif
 
 typedef enum {
 	SENSOR_PRONTO,
@@ -52,7 +48,7 @@ static SENSOR_RETORNO CONFIGURA_SENSOR_PORT(void) {
 }
 
 static SENSOR_RETORNO AGUARDA_DADOS_PORT(void) {
-	OSA_TimeDelay(250); /* Wait conversion time */
+	OSA_TimeDelay(1000); /* Wait conversion time */
 
 	return SENSOR_AMOSTRA_PRONTA;
 }
@@ -60,9 +56,9 @@ static SENSOR_RETORNO AGUARDA_DADOS_PORT(void) {
 static SENSOR_RETORNO LER_DADOS_PORT(void) {
 	uint16_t max6675Value;
 	inC_tempratureSensor_TemperatureSensor value = {
-			0,
-			0,
-			4095
+			.min = 0.0,
+			.max = 100.0,
+			.raw = 4095
 	};
 
 	if( MAX6675_readValue( &max6675Value ) != MAX6675_STATE_SUCCESS )
@@ -75,16 +71,11 @@ static SENSOR_RETORNO LER_DADOS_PORT(void) {
 	// Código do SCADE aqui.
 	tempratureSensor_TemperatureSensor( &value, &SCADEtemperature );
 
-
 	return SENSOR_AMOSTRA_OK;
 }
 
 static SENSOR_RETORNO INTERPRETA_DADOS_PORT(void) {
-#if defined DEBUG
-	xQueueSendToBack( temperature_debug_msg_queue_handler, &SCADEtemperature.meanValue, 0 );
-#endif
-
-	if( xQueueSendToBack( temperature_msg_queue_handler, &SCADEtemperature.meanValue, 0 ) == pdPASS )
+	if( OSA_MsgQPut(temperature_msg_queue_handler, &SCADEtemperature.meanValue ) == kStatus_OSA_Success )
 		return SENSOR_DADOS_VALIDOS;
 	else
 		return SENSOR_DADOS_INVALIDOS;

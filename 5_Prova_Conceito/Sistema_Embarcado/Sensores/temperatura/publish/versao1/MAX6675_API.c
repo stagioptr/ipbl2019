@@ -48,12 +48,12 @@ MAX6675_state_t MAX6675_Init ( void ) {
 MAX6675_state_t MAX6675_readValue ( uint16_t* valuePointer ) {
 	uint8_t buffer[2];
 
-	nRF24L01_writeChpSelectPin( 0 );
+	MAX6675_writeChipSelectPin( 0 );
 
 	if( !MAX6675_SPI_TransferBlocking( buffer, 2 ) )
 		return MAX6675_STATE_FAIL_SPI;
 
-	nRF24L01_writeChpSelectPin( 1 );
+	MAX6675_writeChipSelectPin( 1 );
 
 	if( MAX6675_DATA_ACCESS(buffer)->state )
 		return MAX6675_STATE_SENSOR_OPENED;

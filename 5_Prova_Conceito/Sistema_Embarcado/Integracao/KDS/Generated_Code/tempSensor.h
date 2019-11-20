@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
+**     Date/Time   : 2019-11-16, 19:49, # CodeGen: 2
 **     Contents    :
 **         Init - osa_status_t tempSensor_Init(void);
 **
@@ -66,7 +66,7 @@
 /* tempSensor task stack size */  
 #define TEMPSENSOR_TASK_STACK_SIZE     1024U
 /* tempSensor task priority value */  
-#define TEMPSENSOR_TASK_PRIORITY       2U
+#define TEMPSENSOR_TASK_PRIORITY       6U
 /*
 ** ===================================================================
 **     Method      :  Init (component OS_Task)

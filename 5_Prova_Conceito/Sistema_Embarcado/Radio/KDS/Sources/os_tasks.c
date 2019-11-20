@@ -161,9 +161,9 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 #endif
 	/* Write your code here ... */
 
-		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
+		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(2000) ) == pdFALSE ){
 //			while(1);
-			debug_printf("Radio reception timeout...\n\r");
+			debug_printf("-1.00\n");
 			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
@@ -184,7 +184,7 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 			L01_Clear_IRQ( NRF24L01_RX_DR );
 
 			temperature = *((float*)receivePayload);
-			debug_printf("Received value: %5.2f Celsius Degree\n\r", temperature );
+			debug_printf("%5.2f\n", temperature );
 		}
 
 #ifdef PEX_USE_RTOS

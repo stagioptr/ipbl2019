@@ -65,12 +65,12 @@ uint8_t nRF24L01_RW(uint8_t byte) {
 uint8_t nRF24L01_Read(uint8_t reg) {
 	uint8_t reg_val;
 
-	nRF24L01_writeChpSelectPin(0);
+	nRF24L01_writeChipSelectPin(0);
 
 	nRF24L01_RW(reg);                            // Select register to read from..
 	reg_val = nRF24L01_RW(0);                         // ..then read registervalue
 
-	nRF24L01_writeChpSelectPin(1);
+	nRF24L01_writeChipSelectPin(1);
 
 	return (reg_val);                                // return register value
 }
@@ -91,11 +91,11 @@ uint8_t nRF24L01_Read(uint8_t reg) {
 //  Author: RSK   Date: 28.11.05
 //**********************************************************//
 void nRF24L01_Write(uint8_t cmd) {
-	nRF24L01_writeChpSelectPin(0);
+	nRF24L01_writeChipSelectPin(0);
 
 	nRF24L01_RW(cmd);                            // Select register to read from..
 
-	nRF24L01_writeChpSelectPin(1);
+	nRF24L01_writeChipSelectPin(1);
 }
 
 //**********************************************************//
@@ -115,11 +115,11 @@ void nRF24L01_Write(uint8_t cmd) {
 uint8_t nRF24L01_writeRegister(uint8_t registerAddress, uint8_t value) {
 	uint8_t status;
 
-	nRF24L01_writeChpSelectPin(0);
+	nRF24L01_writeChipSelectPin(0);
 
 	status = nRF24L01_RW( NRF24L01_WRITE_REG + registerAddress );                           // select register
 	nRF24L01_RW(value);                               // ..and write value to it..
-	nRF24L01_writeChpSelectPin(1);
+	nRF24L01_writeChipSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }
@@ -144,13 +144,13 @@ uint8_t nRF24L01_writeRegister(uint8_t registerAddress, uint8_t value) {
 uint8_t nRF24L01_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 	uint8_t status, byte_ctr;
 
-	nRF24L01_writeChpSelectPin(0);
+	nRF24L01_writeChipSelectPin(0);
 	status = nRF24L01_RW(reg); // Select register to write to and read status byte
 
 	for (byte_ctr = 0; byte_ctr < bytes; byte_ctr++) // then write all byte in buffer(*pBuf)
 		nRF24L01_RW(*pBuf++);
 
-	nRF24L01_writeChpSelectPin(1);
+	nRF24L01_writeChipSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }
@@ -175,13 +175,13 @@ uint8_t nRF24L01_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 uint8_t nRF24L01_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes) {
 	uint8_t status, byte_ctr;
 
-	nRF24L01_writeChpSelectPin(0);
+	nRF24L01_writeChipSelectPin(0);
 	status = nRF24L01_RW(reg); // Select register to write to and read status byte
 
 	for (byte_ctr = 0; byte_ctr < bytes; byte_ctr++)
 		pBuf[byte_ctr] = nRF24L01_RW(0); // Perform nRF24L01_RW to read byte from nRF24L01
 
-	nRF24L01_writeChpSelectPin(1);
+	nRF24L01_writeChipSelectPin(1);
 
 	return (status);                                // return nRF24L01 status byte
 }

@@ -5,13 +5,14 @@
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-12, 14:38, # CodeGen: 11
+**     Date/Time   : 2019-11-16, 19:49, # CodeGen: 2
 **     Abstract    :
 **         This is user's event module.
 **         Put your event handler code here.
 **     Settings    :
 **     Contents    :
 **         tempSensor_task - void tempSensor_task(os_task_param_t task_init_data);
+**         Radio_task      - void Radio_task(os_task_param_t task_init_data);
 **
 ** ###################################################################*/
 /*!
@@ -36,16 +37,12 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer.h"
-#include "tpmTmr1.h"
-#include "tpmTmr2.h"
-#include "tempSensor.h"
-#include "DbgCs.h"
 #include "Radio.h"
-#include "spiTemp.h"
+#include "tempSensor.h"
+#include "spiRadioTemp.h"
 #include "gpio.h"
-#include "spiRadio.h"
-#include "Shell.h"
+#include "DbgCs1.h"
+#include "i2cCom1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -62,7 +59,6 @@ extern "C" {
 */
 void tempSensor_task(os_task_param_t task_init_data);
 
-
 /*
 ** ===================================================================
 **     Callback    : Radio_task
@@ -74,16 +70,6 @@ void tempSensor_task(os_task_param_t task_init_data);
 */
 void Radio_task(os_task_param_t task_init_data);
 
-/*
-** ===================================================================
-**     Callback    : Shell_task
-**     Description : Task function entry.
-**     Parameters  :
-**       task_init_data - OS task parameter
-**     Returns : Nothing
-** ===================================================================
-*/
-void Shell_task(os_task_param_t task_init_data);
 
 /* END os_tasks */
 
