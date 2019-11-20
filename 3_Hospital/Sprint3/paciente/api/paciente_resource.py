@@ -38,6 +38,9 @@ class PacienteController(Resource):
         else:
             start_date = datetime.now() - timedelta(days=4)
 
+        start_date = datetime.combine(start_date, datetime.min.time())
+        end_date = datetime.combine(end_date, datetime.max.time())
+
         mongo = MongoClient(MONGO_URI)
 
         data = list(mongo.stagioptr.sensor.find({
