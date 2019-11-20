@@ -22,8 +22,8 @@ for i in range(10):
     documento = {
         'id' : paciente,
         'dataHora' : dt_string,
-        'temperatura' : '37,1',
-        'umidade' : '50',
+        'temperatura' : '40',
+        'umidade' : '40',
         'acelerometro' : '0',
         'giroscopio' : '0'
     }

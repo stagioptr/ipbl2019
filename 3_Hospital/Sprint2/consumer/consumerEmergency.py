@@ -1,6 +1,6 @@
-import json
 from pymongo import MongoClient
 from kafka import KafkaConsumer
+from utils import insert_data
 
 # mongo =====
 ## Connect
@@ -18,8 +18,4 @@ consumer = KafkaConsumer('emergency')
 print('Iniciando Consumer Emergency!')
 
 for message in consumer:
-    assert isinstance(message, object)
-    mjson = json.loads(message.value)
-    if type(mjson) is dict:
-        print(mjson)
-        documento_id = album.insert_one(mjson).inserted_id
+    insert_data(message, album, topic='emergency')

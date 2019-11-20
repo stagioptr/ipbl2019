@@ -99,31 +99,36 @@ $ ./stop_composer_playground.sh
 ### Criação de uma business network
 * com o hyperledger fabric rodando no host e o container em execução, chegou a hora de criarmos nossa primeira business network. Para isto, utilizaremos Yeoman Generator.
 
+```sh
+$ sudo docker cp /ipbl2019/3_Hospital/Sprint3/Hyperledger_Docker/business_network/ c-hyperledger:/home/docker
+```
+
 * caso você já tenha saída do container:
 ```sh
 $ sudo docker exec -ti c-hyperledger bash
 ```
 * os passos abaixo devem ser executados dentro do container:
 ```sh
-$ mkdir stagiop_bd_network && cd stagiop_bd_network
+$ mkdir stagiop_tr && cd stagiop_tr
 $ yo hyperledger-composer:businessnetwork
 ```
 * caso apareça a mensagem "We're constantly looking for ways to make yo better!" apenas digite Y e tecle Enter
 * em seguida:
 ```sh
-			? Business network name: stagiop_bd_network
-			? Description: stagiop_bd_network
-			? Author name: stagiop
-			? Author email: stagiopbd@gmai.com
+			? Business network name: stagiop_tr
+			? Description: stagiop_tr
+			? Author name: stagioptr
+			? Author email: stagioptr@gmail.com
 			? License: Apache-2.0
-			? Namespace: stagiopbd.notification
+			? Namespace: br.ita.stagioptr
 			? Do you want to generate an empty template network? Yes: generate an empty template network
-	
-$ cd stagiop_bd_network
 
-$ rm -rf models/stagiopbd.notification.cto
 
-$ cp ~/business_network/model.cto models/stagiopbd.notification.cto
+$ cd stagiop_tr
+
+$ rm -rf models/br.ita.stagioptr.cto
+
+$ cp ~/business_network/model.cto models/br.ita.stagioptr.cto
 
 $ mkdir lib
 
@@ -137,16 +142,16 @@ $ composer archive create -t dir -n .
 
 $ ~/fabric-dev-servers/createPeerAdminCard.sh
 
-$ composer network install --card PeerAdmin@hlfv1 --archiveFile stagiop_bd_network@0.0.1.bna
+$ composer network install --card PeerAdmin@hlfv1 --archiveFile stagiop_tr@0.0.1.bna
 
-$ composer network start --networkName stagiop_bd_network --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+$ composer network start --networkName stagiop_tr --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
 
 $ composer card import --file networkadmin.card
 ```
 * após esses passos, você pode verificar pelo comando que a nossa business foi criada e está rodando com sucesso
 ```sh
 $ sudo docker ps
-$ composer network ping --card admin@stagiop_bd_network
+$ composer network ping --card admin@stagiop_tr
 ```
 
 ### Criação de uma API REST
