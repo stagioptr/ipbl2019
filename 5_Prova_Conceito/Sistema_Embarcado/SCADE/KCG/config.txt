@@ -1,0 +1,16 @@
+-target_dir "C:/Users/Max/SCADE/STAGIOPTR/KCG" -target C -name_length 200 -significance_length 200 -user_config "./user_macros.h" -input_threshold 2 -probes -debug 
+-root Integration::Integration
+"C:/Users/Max/SCADE/STAGIOPTR/TemperatureSensor.xscade"
+"C:/Users/Max/SCADE/STAGIOPTR/HumiditySensor.xscade"
+"C:/Users/Max/SCADE/STAGIOPTR/AccellerometerSensor.xscade"
+"C:/Users/Max/SCADE/STAGIOPTR/Integration.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/digital.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/TruthTables.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/linear.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/filters.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/vect.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/math.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmathext/mathext.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/pwlinear.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/lut.xscade"
+"C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libverif/libverif.xscade"

@@ -5,7 +5,7 @@
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:34, # CodeGen: 1
+**     Date/Time   : 2019-11-16, 19:39, # CodeGen: 1
 **     Abstract    :
 **         This is user's event module.
 **         Put your event handler code here.
@@ -36,16 +36,12 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer.h"
-#include "tpmTmr1.h"
-#include "tpmTmr2.h"
-#include "tempSensor.h"
-#include "DbgCs.h"
 #include "Radio.h"
-#include "spiTemp.h"
+#include "tempSensor.h"
+#include "spiRadioTemp.h"
 #include "gpio.h"
-#include "spiRadio.h"
-#include "Shell.h"
+#include "DbgCs1.h"
+#include "i2cCom1.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -26,7 +26,7 @@
       <Compiler v="GNU C Compiler" />
       <boolgroup name="Generate linker file" v="yes">
         <Stack_size v="1024" />
-        <Heap_size v="0" />
+        <Heap_size v="8192" />
         <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
         <Vector_table_copy_in_RAM v="yes" />
         <Default_memory_for_interrupts v="INTERNAL FLASH" />
@@ -149,10 +149,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="intMan" type="fsl_interrupt_manager">
+  <Bean name="intMan1" type="fsl_interrupt_manager">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="intMan" />
+      <Component_name v="intMan1" />
       <Component_version v="1.3.0" />
     </Properties>
     <Methods>
@@ -175,39 +175,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="rtcTimer" type="fsl_rtc">
+  <Bean name="Radio" type="OS_Task">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="rtcTimer" />
-      <Device v="RTC" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="tpmTmr1" type="fsl_tpm">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="tpmTmr1" />
-      <Device v="TPM0" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="tpmTmr2" type="fsl_tpm">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="tpmTmr2" />
-      <Device v="TPM2" />
+      <Name v="Radio" />
       <Component_version v="1.3.0" />
     </Properties>
     <Methods>
@@ -230,37 +201,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="DbgCs" type="fsl_debug_console">
+  <Bean name="spiRadioTemp" type="fsl_spi">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="DbgCs" />
-      <Device v="UART0" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="Radio" type="OS_Task">
-    <Enabled v="Y" />
-    <Properties>
-      <Name v="Radio" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="spiTemp" type="fsl_spi">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="spiTemp" />
+      <Component_name v="spiRadioTemp" />
       <Device v="SPI0" />
       <Component_version v="1.3.0" />
     </Properties>
@@ -284,24 +228,11 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="spiRadio" type="fsl_spi">
+  <Bean name="DbgCs1" type="fsl_debug_console">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="spiRadio" />
-      <Device v="SPI1" />
-      <Component_version v="1.3.0" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="Shell" type="OS_Task">
-    <Enabled v="Y" />
-    <Properties>
-      <Name v="Shell" />
+      <Component_name v="DbgCs1" />
+      <Device v="UART0" />
       <Component_version v="1.3.0" />
     </Properties>
     <Methods>

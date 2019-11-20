@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libverif/libverif.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/lut.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/pwlinear.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmathext/mathext.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/math.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/vect.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/filters.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/linear.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/TruthTables.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/digital.xscade"/>
+    <Option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/Integration.xscade"/>
+    <Option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/AccellerometerSensor.xscade"/>
+    <Option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/HumiditySensor.xscade"/>
+    <Option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/TemperatureSensor.xscade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="2"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="200"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/Max/SCADE/STAGIOPTR/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="Integration::Integration"/>
+    <Option name="auth" value="#off#"/>
+    <Package scadeName="TemperatureSensor">
+      <Constant macroDef="true" scadeName="CONVERSION_FACTOR" scadeType="float32" targetName="CONVERSION_FACTOR_TemperatureSensor" targetType="kcg_float32"/>
+      <NoExpNode headerFile="tempratureSensor_TemperatureSensor.h" scadeName="tempratureSensor" targetCycleFct="tempratureSensor_TemperatureSensor" targetInitFct="tempratureSensor_reset_TemperatureSensor" targetInitializationFct="tempratureSensor_init_TemperatureSensor">
+        <Input inCtx="true" scadeName="raw" scadeType="uint16" targetName="raw" targetType="kcg_uint16"/>
+        <Input inCtx="true" scadeName="max" scadeType="float32" targetName="max" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="min" scadeType="float32" targetName="min" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="value" scadeType="float32" targetName="value" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="validity" scadeType="bool" targetName="validity" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="meanValue" scadeType="float32" targetName="meanValue" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="delayInput" scadeType="float32" targetName="delayInput" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L7" scadeType="uint16" targetName="_L7" targetType="kcg_uint16"/>
+        <Local inCtx="true" scadeName="_L8" scadeType="float32" targetName="_L8" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L9" scadeType="float32" targetName="_L9" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L12" scadeType="float32" targetName="_L12" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L13" scadeType="bool" targetName="_L13" targetType="kcg_bool"/>
+        <Local inCtx="true" scadeName="_L14" scadeType="float32" targetName="_L14" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L16" scadeType="float32" targetName="_L16" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L17" scadeType="float32" targetName="_L17" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L18" scadeType="float32" targetName="_L18" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L19" scadeType="float32" targetName="_L19" targetType="kcg_float32"/>
+        <NodeInstance instName="1" refName="rangeChecker_TemperatureSensor" scadeName="TemperatureSensor::rangeChecker">
+          <OutCtxVar targetName="Context_rangeChecker_1"/>
+        </NodeInstance>
+        <FbyOp instName="1">
+          <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+          <Memory inCtx="true" targetName="delayInput" targetType="kcg_float32"/>
+        </FbyOp>
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="delayInput" targetType="kcg_float32"/>
+        <OutCtxType targetName="outC_tempratureSensor_TemperatureSensor"/>
+        <InCtxType targetName="inC_tempratureSensor_TemperatureSensor"/>
+      </NoExpNode>
+      <NoExpNode headerFile="rangeChecker_TemperatureSensor.h" scadeName="rangeChecker" targetCycleFct="rangeChecker_TemperatureSensor" targetInitFct="rangeChecker_reset_TemperatureSensor" targetInitializationFct="rangeChecker_init_TemperatureSensor">
+        <Input inCtx="true" scadeName="Input3" scadeType="float32" targetName="Input3" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="max" scadeType="float32" targetName="max" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="min" scadeType="float32" targetName="min" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="Output1" scadeType="bool" targetName="Output1" targetType="kcg_bool"/>
+        <Local inCtx="true" scadeName="_L3" scadeType="float32" targetName="_L3" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L2" scadeType="float32" targetName="_L2" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L1" scadeType="float32" targetName="_L1" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L4" scadeType="bool" targetName="_L4" targetType="kcg_bool"/>
+        <Local inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5" targetType="kcg_bool"/>
+        <Local inCtx="true" scadeName="_L6" scadeType="bool" targetName="_L6" targetType="kcg_bool"/>
+        <OutCtxType targetName="outC_rangeChecker_TemperatureSensor"/>
+        <InCtxType targetName="inC_rangeChecker_TemperatureSensor"/>
+      </NoExpNode>
+    </Package>
+    <Package scadeName="HumiditySensor">
+      <Constant macroDef="true" scadeName="SENSOR_MAX" scadeType="int32" targetName="SENSOR_MAX_HumiditySensor" targetType="kcg_int32"/>
+      <Constant macroDef="true" scadeName="SENSOR_MIN" scadeType="int32" targetName="SENSOR_MIN_HumiditySensor" targetType="kcg_int32"/>
+      <Constant macroDef="true" scadeName="HUMIDITY_MIN" scadeType="int32" targetName="HUMIDITY_MIN_HumiditySensor" targetType="kcg_int32"/>
+      <Constant macroDef="true" scadeName="HUMIDITY_MAX" scadeType="int32" targetName="HUMIDITY_MAX_HumiditySensor" targetType="kcg_int32"/>
+      <NoExpNode headerFile="humiditySensor_HumiditySensor.h" scadeName="humiditySensor" targetCycleFct="humiditySensor_HumiditySensor" targetInitFct="humiditySensor_reset_HumiditySensor" targetInitializationFct="humiditySensor_init_HumiditySensor">
+        <Input scadeName="raw" scadeType="int32" targetName="raw" targetType="kcg_int32"/>
+        <Output inCtx="true" scadeName="value" scadeType="float32" targetName="value" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L1" scadeType="int32" targetName="_L1" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L2" scadeType="int32" targetName="_L2" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L3" scadeType="int32" targetName="_L3" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L4" scadeType="int32" targetName="_L4" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L5" scadeType="float32" targetName="_L5" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L6" scadeType="float32" targetName="_L6" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L7" scadeType="int32" targetName="_L7" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L8" scadeType="int32" targetName="_L8" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L9" scadeType="int32" targetName="_L9" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L10" scadeType="float32" targetName="_L10" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L11" scadeType="float32" targetName="_L11" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L12" scadeType="float32" targetName="_L12" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L14" scadeType="float32" targetName="_L14" targetType="kcg_float32"/>
+        <OutCtxType targetName="outC_humiditySensor_HumiditySensor"/>
+      </NoExpNode>
+    </Package>
+    <Package scadeName="AccellerometerSensor">
+      <NoExpNode headerFile="accellerometerSensor_AccellerometerSensor.h" scadeName="accellerometerSensor" targetCycleFct="accellerometerSensor_AccellerometerSensor" targetInitFct="accellerometerSensor_reset_AccellerometerSensor" targetInitializationFct="accellerometerSensor_init_AccellerometerSensor">
+        <Input inCtx="true" scadeName="aX" scadeType="float32" targetName="aX" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="aY" scadeType="float32" targetName="aY" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="aZ" scadeType="float32" targetName="aZ" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gX" scadeType="float32" targetName="gX" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gY" scadeType="float32" targetName="gY" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gZ" scadeType="float32" targetName="gZ" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAX" scadeType="float32" targetName="deltaAX" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAY" scadeType="float32" targetName="deltaAY" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAZ" scadeType="float32" targetName="deltaAZ" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGX" scadeType="float32" targetName="deltaGX" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGY" scadeType="float32" targetName="deltaGY" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGZ" scadeType="float32" targetName="deltaGZ" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L1" scadeType="float32" targetName="_L1" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L2" scadeType="float32" targetName="_L2" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L3" scadeType="float32" targetName="_L3" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L4" scadeType="float32" targetName="_L4" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L5" scadeType="float32" targetName="_L5" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L6" scadeType="float32" targetName="_L6" targetType="kcg_float32"/>
+        <OutCtxType targetName="outC_accellerometerSensor_AccellerometerSensor"/>
+        <InCtxType targetName="inC_accellerometerSensor_AccellerometerSensor"/>
+      </NoExpNode>
+    </Package>
+    <Package scadeName="Integration">
+      <RootNode headerFile="Integration_Integration.h" scadeName="Integration" targetCycleFct="Integration_Integration" targetInitFct="Integration_reset_Integration" targetInitializationFct="Integration_init_Integration">
+        <Input inCtx="true" scadeName="tempRaw" scadeType="uint16" targetName="tempRaw" targetType="kcg_uint16"/>
+        <Input inCtx="true" scadeName="humRaw" scadeType="int32" targetName="humRaw" targetType="kcg_int32"/>
+        <Input inCtx="true" scadeName="aX" scadeType="float32" targetName="aX" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="aY" scadeType="float32" targetName="aY" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="aZ" scadeType="float32" targetName="aZ" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gX" scadeType="float32" targetName="gX" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gY" scadeType="float32" targetName="gY" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="gZ" scadeType="float32" targetName="gZ" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="tempMax" scadeType="float32" targetName="tempMax" targetType="kcg_float32"/>
+        <Input inCtx="true" scadeName="tempMin" scadeType="float32" targetName="tempMin" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="tempValue" scadeType="float32" targetName="tempValue" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="tempValidity" scadeType="bool" targetName="tempValidity" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="tempMeanValue" scadeType="float32" targetName="tempMeanValue" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="humValue" scadeType="float32" targetName="humValue" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAX" scadeType="float32" targetName="deltaAX" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAY" scadeType="float32" targetName="deltaAY" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaAZ" scadeType="float32" targetName="deltaAZ" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGX" scadeType="float32" targetName="deltaGX" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGY" scadeType="float32" targetName="deltaGY" targetType="kcg_float32"/>
+        <Output inCtx="true" scadeName="deltaGZ" scadeType="float32" targetName="deltaGZ" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L3" scadeType="float32" targetName="_L3" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2" targetType="kcg_bool"/>
+        <Local inCtx="true" scadeName="_L1" scadeType="float32" targetName="_L1" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L4" scadeType="uint16" targetName="_L4" targetType="kcg_uint16"/>
+        <Local inCtx="true" scadeName="_L5" scadeType="float32" targetName="_L5" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L6" scadeType="float32" targetName="_L6" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L7" scadeType="float32" targetName="_L7" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L8" scadeType="int32" targetName="_L8" targetType="kcg_int32"/>
+        <Local inCtx="true" scadeName="_L9" scadeType="float32" targetName="_L9" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L10" scadeType="float32" targetName="_L10" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L11" scadeType="float32" targetName="_L11" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L12" scadeType="float32" targetName="_L12" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L13" scadeType="float32" targetName="_L13" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L14" scadeType="float32" targetName="_L14" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L15" scadeType="float32" targetName="_L15" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L16" scadeType="float32" targetName="_L16" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L17" scadeType="float32" targetName="_L17" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L18" scadeType="float32" targetName="_L18" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L19" scadeType="float32" targetName="_L19" targetType="kcg_float32"/>
+        <Local inCtx="true" scadeName="_L20" scadeType="float32" targetName="_L20" targetType="kcg_float32"/>
+        <NodeInstance instName="1" refName="tempratureSensor_TemperatureSensor" scadeName="TemperatureSensor::tempratureSensor">
+          <OutCtxVar targetName="Context_tempratureSensor_1"/>
+        </NodeInstance>
+        <NodeInstance instName="1" refName="humiditySensor_HumiditySensor" scadeName="HumiditySensor::humiditySensor">
+          <OutCtxVar targetName="Context_humiditySensor_1"/>
+        </NodeInstance>
+        <NodeInstance instName="1" refName="accellerometerSensor_AccellerometerSensor" scadeName="AccellerometerSensor::accellerometerSensor">
+          <OutCtxVar targetName="Context_accellerometerSensor_1"/>
+        </NodeInstance>
+        <OutCtxType targetName="outC_Integration_Integration"/>
+        <InCtxType targetName="inC_Integration_Integration"/>
+      </RootNode>
+    </Package>
+    <Package scadeName="digital"/>
+    <Package scadeName="truthtables">
+      <EnumType scadeName="TruthTableValues" targetName="TruthTableValues_truthtables">
+        <EnumVal scadeName="T" targetName="T_truthtables"/>
+        <EnumVal scadeName="F" targetName="F_truthtables"/>
+        <EnumVal scadeName="X" targetName="X_truthtables"/>
+      </EnumType>
+    </Package>
+    <Package scadeName="linear"/>
+    <Package scadeName="filters"/>
+    <Package scadeName="vect"/>
+    <Package scadeName="math"/>
+    <Package scadeName="mathext">
+      <Package scadeName="mathextimpl"/>
+    </Package>
+    <Package scadeName="pwlinear"/>
+    <Package scadeName="lut"/>
+    <Package scadeName="verif"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

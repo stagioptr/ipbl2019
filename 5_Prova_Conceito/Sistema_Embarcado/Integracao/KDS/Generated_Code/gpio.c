@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-31, 19:57, # CodeGen: 21
+**     Date/Time   : 2019-11-16, 20:40, # CodeGen: 4
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -55,9 +55,9 @@
 #include "gpio.h"
 #include <stdbool.h>
 
-const gpio_input_pin_user_config_t gpio_InpRadio[] = {
+const gpio_input_pin_user_config_t gpio_InpConfig0[] = {
   {
-    .pinName = IRQ_Radio,
+    .pinName = Radio_IRQ,
     .config.isPullEnable = true, 
     .config.isPassiveFilterEnabled = true,
     .config.interrupt = kPortIntFallingEdge
@@ -67,27 +67,21 @@ const gpio_input_pin_user_config_t gpio_InpRadio[] = {
   }
 };
       
-const gpio_output_pin_user_config_t gpio_OutTemp[] = {
+const gpio_output_pin_user_config_t gpio_OutConfig0[] = {
   {
-    .pinName = tempCSN,
+    .pinName = Radio_CE,
     .config.outputLogic = 1,
     .config.slewRate = kPortFastSlewRate,
     .config.driveStrength = kPortHighDriveStrength,
   },
   {
-    .pinName = GPIO_PINS_OUT_OF_RANGE,
-  }
-};
-      
-const gpio_output_pin_user_config_t gpio_OutRadio[] = {
-  {
-    .pinName = CSN_Radio,
+    .pinName = Radio_CSN,
     .config.outputLogic = 1,
     .config.slewRate = kPortFastSlewRate,
     .config.driveStrength = kPortHighDriveStrength,
   },
   {
-    .pinName = CE_Radio,
+    .pinName = Temp_CSN,
     .config.outputLogic = 1,
     .config.slewRate = kPortFastSlewRate,
     .config.driveStrength = kPortHighDriveStrength,

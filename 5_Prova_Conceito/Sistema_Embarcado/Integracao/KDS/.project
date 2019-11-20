@@ -32,19 +32,24 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>MAX6675</name>
+			<type>2</type>
+			<location>N:/Sensores/temperatura/publish/versao1</location>
+		</link>
+		<link>
 			<name>Prova_Conceito</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Prova_Conceito</locationURI>
+			<location>N:/Integracao/Prova_Conceito</location>
 		</link>
 		<link>
-			<name>Radio</name>
+			<name>SCADE</name>
 			<type>2</type>
-			<location>N:/Radio/publish/versao4</location>
+			<location>N:/SCADE/publish/versao0</location>
 		</link>
 		<link>
-			<name>Temperature</name>
+			<name>nRF24L01</name>
 			<type>2</type>
-			<location>N:/Sensores/temperatura/publish/versao0</location>
+			<location>N:/Radio/publish/versao5</location>
 		</link>
 	</linkedResources>
 	<variableList>

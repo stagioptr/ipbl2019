@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/Max/SCADE/STAGIOPTR/KCG/config.txt
+** Generation date: 2019-11-01T16:58:20
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libverif/libverif.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/lut.xscade"/>
+    <option name="input_file"
+        value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libpwlinear/pwlinear.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmathext/mathext.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/math.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libmath/vect.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/filters.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/liblinear/linear.xscade"/>
+    <option name="input_file"
+        value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/TruthTables.xscade"/>
+    <option name="input_file" value="C:/Program Files/ANSYS Inc/v194/SCADE/SCADE/libraries/SC65/libdigital/digital.xscade"/>
+    <option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/Integration.xscade"/>
+    <option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/AccellerometerSensor.xscade"/>
+    <option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/HumiditySensor.xscade"/>
+    <option name="input_file" value="C:/Users/Max/SCADE/STAGIOPTR/TemperatureSensor.xscade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="2"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="200"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="C:/Users/Max/SCADE/STAGIOPTR/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="Integration::Integration"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <package id="14" name="TemperatureSensor">
+      <constant id="15" name="CONVERSION_FACTOR" imported="false" type="11"/>
+      <operator id="16" name="tempratureSensor" imported="false" root="false" expanded="false">
+        <input id="17" name="raw" clock="false" type="8"/>
+        <input id="18" name="max" clock="false" type="11"/>
+        <input id="19" name="min" clock="false" type="11"/>
+        <output id="20" name="value" clock="false" type="11"/>
+        <output id="21" name="validity" clock="false" type="1"/>
+        <output id="22" name="meanValue" clock="false" type="11"/>
+        <local id="23" name="delayInput" clock="false" type="11"/>
+        <local id="24" name="_L7" clock="false" type="8"/>
+        <local id="25" name="_L8" clock="false" type="11"/>
+        <local id="26" name="_L9" clock="false" type="11"/>
+        <local id="27" name="_L12" clock="false" type="11"/>
+        <local id="28" name="_L13" clock="false" type="1"/>
+        <local id="29" name="_L14" clock="false" type="11"/>
+        <local id="30" name="_L16" clock="false" type="11"/>
+        <local id="31" name="_L17" clock="false" type="11"/>
+        <local id="32" name="_L18" clock="false" type="11"/>
+        <local id="33" name="_L19" clock="false" type="11"/>
+        <instance id="34" name="1" op="36" expanded="false"/>
+        <fby id="35" name="1"/>
+      </operator>
+      <operator id="36" name="rangeChecker" imported="false" root="false" expanded="false">
+        <input id="37" name="Input3" clock="false" type="11"/>
+        <input id="38" name="max" clock="false" type="11"/>
+        <input id="39" name="min" clock="false" type="11"/>
+        <output id="40" name="Output1" clock="false" type="1"/>
+        <local id="41" name="_L3" clock="false" type="11"/>
+        <local id="42" name="_L2" clock="false" type="11"/>
+        <local id="43" name="_L1" clock="false" type="11"/>
+        <local id="44" name="_L4" clock="false" type="1"/>
+        <local id="45" name="_L5" clock="false" type="1"/>
+        <local id="46" name="_L6" clock="false" type="1"/>
+      </operator>
+    </package>
+    <package id="47" name="HumiditySensor">
+      <constant id="48" name="SENSOR_MAX" imported="false" type="5"/>
+      <constant id="49" name="SENSOR_MIN" imported="false" type="5"/>
+      <constant id="50" name="HUMIDITY_MIN" imported="false" type="5"/>
+      <constant id="51" name="HUMIDITY_MAX" imported="false" type="5"/>
+      <operator id="52" name="humiditySensor" imported="false" root="false" expanded="false">
+        <input id="53" name="raw" clock="false" type="5"/>
+        <output id="54" name="value" clock="false" type="11"/>
+        <local id="55" name="_L1" clock="false" type="5"/>
+        <local id="56" name="_L2" clock="false" type="5"/>
+        <local id="57" name="_L3" clock="false" type="5"/>
+        <local id="58" name="_L4" clock="false" type="5"/>
+        <local id="59" name="_L5" clock="false" type="11"/>
+        <local id="60" name="_L6" clock="false" type="11"/>
+        <local id="61" name="_L7" clock="false" type="5"/>
+        <local id="62" name="_L8" clock="false" type="5"/>
+        <local id="63" name="_L9" clock="false" type="5"/>
+        <local id="64" name="_L10" clock="false" type="11"/>
+        <local id="65" name="_L11" clock="false" type="11"/>
+        <local id="66" name="_L12" clock="false" type="11"/>
+        <local id="67" name="_L14" clock="false" type="11"/>
+      </operator>
+    </package>
+    <package id="68" name="AccellerometerSensor">
+      <operator id="69" name="accellerometerSensor" imported="false" root="false" expanded="false">
+        <input id="70" name="aX" clock="false" type="11"/>
+        <input id="71" name="aY" clock="false" type="11"/>
+        <input id="72" name="aZ" clock="false" type="11"/>
+        <input id="73" name="gX" clock="false" type="11"/>
+        <input id="74" name="gY" clock="false" type="11"/>
+        <input id="75" name="gZ" clock="false" type="11"/>
+        <output id="76" name="deltaAX" clock="false" type="11"/>
+        <output id="77" name="deltaAY" clock="false" type="11"/>
+        <output id="78" name="deltaAZ" clock="false" type="11"/>
+        <output id="79" name="deltaGX" clock="false" type="11"/>
+        <output id="80" name="deltaGY" clock="false" type="11"/>
+        <output id="81" name="deltaGZ" clock="false" type="11"/>
+        <local id="82" name="_L1" clock="false" type="11"/>
+        <local id="83" name="_L2" clock="false" type="11"/>
+        <local id="84" name="_L3" clock="false" type="11"/>
+        <local id="85" name="_L4" clock="false" type="11"/>
+        <local id="86" name="_L5" clock="false" type="11"/>
+        <local id="87" name="_L6" clock="false" type="11"/>
+      </operator>
+    </package>
+    <package id="88" name="Integration">
+      <operator id="89" name="Integration" imported="false" root="true" expanded="false">
+        <input id="90" name="tempRaw" clock="false" type="8"/>
+        <input id="91" name="humRaw" clock="false" type="5"/>
+        <input id="92" name="aX" clock="false" type="11"/>
+        <input id="93" name="aY" clock="false" type="11"/>
+        <input id="94" name="aZ" clock="false" type="11"/>
+        <input id="95" name="gX" clock="false" type="11"/>
+        <input id="96" name="gY" clock="false" type="11"/>
+        <input id="97" name="gZ" clock="false" type="11"/>
+        <input id="98" name="tempMax" clock="false" type="11"/>
+        <input id="99" name="tempMin" clock="false" type="11"/>
+        <output id="100" name="tempValue" clock="false" type="11"/>
+        <output id="101" name="tempValidity" clock="false" type="1"/>
+        <output id="102" name="tempMeanValue" clock="false" type="11"/>
+        <output id="103" name="humValue" clock="false" type="11"/>
+        <output id="104" name="deltaAX" clock="false" type="11"/>
+        <output id="105" name="deltaAY" clock="false" type="11"/>
+        <output id="106" name="deltaAZ" clock="false" type="11"/>
+        <output id="107" name="deltaGX" clock="false" type="11"/>
+        <output id="108" name="deltaGY" clock="false" type="11"/>
+        <output id="109" name="deltaGZ" clock="false" type="11"/>
+        <local id="110" name="_L3" clock="false" type="11"/>
+        <local id="111" name="_L2" clock="false" type="1"/>
+        <local id="112" name="_L1" clock="false" type="11"/>
+        <local id="113" name="_L4" clock="false" type="8"/>
+        <local id="114" name="_L5" clock="false" type="11"/>
+        <local id="115" name="_L6" clock="false" type="11"/>
+        <local id="116" name="_L7" clock="false" type="11"/>
+        <local id="117" name="_L8" clock="false" type="5"/>
+        <local id="118" name="_L9" clock="false" type="11"/>
+        <local id="119" name="_L10" clock="false" type="11"/>
+        <local id="120" name="_L11" clock="false" type="11"/>
+        <local id="121" name="_L12" clock="false" type="11"/>
+        <local id="122" name="_L13" clock="false" type="11"/>
+        <local id="123" name="_L14" clock="false" type="11"/>
+        <local id="124" name="_L15" clock="false" type="11"/>
+        <local id="125" name="_L16" clock="false" type="11"/>
+        <local id="126" name="_L17" clock="false" type="11"/>
+        <local id="127" name="_L18" clock="false" type="11"/>
+        <local id="128" name="_L19" clock="false" type="11"/>
+        <local id="129" name="_L20" clock="false" type="11"/>
+        <instance id="130" name="1" op="16" expanded="false"/>
+        <instance id="131" name="1" op="52" expanded="false"/>
+        <instance id="132" name="1" op="69" expanded="false"/>
+      </operator>
+    </package>
+    <package id="133" name="digital"/>
+    <package id="134" name="truthtables">
+      <enum id="135" name="TruthTableValues">
+        <value id="136" name="T" default="false"/>
+        <value id="137" name="F" default="false"/>
+        <value id="138" name="X" default="false"/>
+      </enum>
+    </package>
+    <package id="139" name="linear"/>
+    <package id="140" name="filters"/>
+    <package id="141" name="vect"/>
+    <package id="142" name="math"/>
+    <package id="143" name="mathext">
+      <package id="144" name="mathextimpl"/>
+    </package>
+    <package id="145" name="pwlinear"/>
+    <package id="146" name="lut"/>
+    <package id="147" name="verif"/>
+  </model>
+  <generated>
+    <c>
+      <file id="148" name="Integration_Integration.h">
+        <function id="149" name="Integration_init_Integration">
+          <parameter id="150" name="outC" type="156" pointer="true"/>
+        </function>
+        <function id="151" name="Integration_reset_Integration">
+          <parameter id="152" name="outC" type="156" pointer="true"/>
+        </function>
+        <function id="153" name="Integration_Integration">
+          <parameter id="154" name="inC" type="190" pointer="true"/>
+          <parameter id="155" name="outC" type="156" pointer="true"/>
+        </function>
+        <struct id="156" name="outC_Integration_Integration">
+          <field id="157" name="tempValue" type="339" pointer="false"/>
+          <field id="158" name="tempValidity" type="340" pointer="false"/>
+          <field id="159" name="tempMeanValue" type="339" pointer="false"/>
+          <field id="160" name="humValue" type="339" pointer="false"/>
+          <field id="161" name="deltaAX" type="339" pointer="false"/>
+          <field id="162" name="deltaAY" type="339" pointer="false"/>
+          <field id="163" name="deltaAZ" type="339" pointer="false"/>
+          <field id="164" name="deltaGX" type="339" pointer="false"/>
+          <field id="165" name="deltaGY" type="339" pointer="false"/>
+          <field id="166" name="deltaGZ" type="339" pointer="false"/>
+          <field id="167" name="Context_tempratureSensor_1" type="260" pointer="false"/>
+          <field id="168" name="Context_humiditySensor_1" type="237" pointer="false"/>
+          <field id="169" name="Context_accellerometerSensor_1" type="209" pointer="false"/>
+          <field id="170" name="_L3" type="339" pointer="false"/>
+          <field id="171" name="_L2" type="340" pointer="false"/>
+          <field id="172" name="_L1" type="339" pointer="false"/>
+          <field id="173" name="_L4" type="334" pointer="false"/>
+          <field id="174" name="_L5" type="339" pointer="false"/>
+          <field id="175" name="_L6" type="339" pointer="false"/>
+          <field id="176" name="_L7" type="339" pointer="false"/>
+          <field id="177" name="_L8" type="331" pointer="false"/>
+          <field id="178" name="_L9" type="339" pointer="false"/>
+          <field id="179" name="_L10" type="339" pointer="false"/>
+          <field id="180" name="_L11" type="339" pointer="false"/>
+          <field id="181" name="_L12" type="339" pointer="false"/>
+          <field id="182" name="_L13" type="339" pointer="false"/>
+          <field id="183" name="_L14" type="339" pointer="false"/>
+          <field id="184" name="_L15" type="339" pointer="false"/>
+          <field id="185" name="_L16" type="339" pointer="false"/>
+          <field id="186" name="_L17" type="339" pointer="false"/>
+          <field id="187" name="_L18" type="339" pointer="false"/>
+          <field id="188" name="_L19" type="339" pointer="false"/>
+          <field id="189" name="_L20" type="339" pointer="false"/>
+        </struct>
+        <struct id="190" name="inC_Integration_Integration">
+          <field id="191" name="tempRaw" type="334" pointer="false"/>
+          <field id="192" name="humRaw" type="331" pointer="false"/>
+          <field id="193" name="aX" type="339" pointer="false"/>
+          <field id="194" name="aY" type="339" pointer="false"/>
+          <field id="195" name="aZ" type="339" pointer="false"/>
+          <field id="196" name="gX" type="339" pointer="false"/>
+          <field id="197" name="gY" type="339" pointer="false"/>
+          <field id="198" name="gZ" type="339" pointer="false"/>
+          <field id="199" name="tempMax" type="339" pointer="false"/>
+          <field id="200" name="tempMin" type="339" pointer="false"/>
+        </struct>
+      </file>
+      <file id="201" name="accellerometerSensor_AccellerometerSensor.h">
+        <function id="202" name="accellerometerSensor_init_AccellerometerSensor">
+          <parameter id="203" name="outC" type="209" pointer="true"/>
+        </function>
+        <function id="204" name="accellerometerSensor_reset_AccellerometerSensor">
+          <parameter id="205" name="outC" type="209" pointer="true"/>
+        </function>
+        <function id="206" name="accellerometerSensor_AccellerometerSensor">
+          <parameter id="207" name="inC" type="222" pointer="true"/>
+          <parameter id="208" name="outC" type="209" pointer="true"/>
+        </function>
+        <struct id="209" name="outC_accellerometerSensor_AccellerometerSensor">
+          <field id="210" name="deltaAX" type="339" pointer="false"/>
+          <field id="211" name="deltaAY" type="339" pointer="false"/>
+          <field id="212" name="deltaAZ" type="339" pointer="false"/>
+          <field id="213" name="deltaGX" type="339" pointer="false"/>
+          <field id="214" name="deltaGY" type="339" pointer="false"/>
+          <field id="215" name="deltaGZ" type="339" pointer="false"/>
+          <field id="216" name="_L1" type="339" pointer="false"/>
+          <field id="217" name="_L2" type="339" pointer="false"/>
+          <field id="218" name="_L3" type="339" pointer="false"/>
+          <field id="219" name="_L4" type="339" pointer="false"/>
+          <field id="220" name="_L5" type="339" pointer="false"/>
+          <field id="221" name="_L6" type="339" pointer="false"/>
+        </struct>
+        <struct id="222" name="inC_accellerometerSensor_AccellerometerSensor">
+          <field id="223" name="aX" type="339" pointer="false"/>
+          <field id="224" name="aY" type="339" pointer="false"/>
+          <field id="225" name="aZ" type="339" pointer="false"/>
+          <field id="226" name="gX" type="339" pointer="false"/>
+          <field id="227" name="gY" type="339" pointer="false"/>
+          <field id="228" name="gZ" type="339" pointer="false"/>
+        </struct>
+      </file>
+      <file id="229" name="humiditySensor_HumiditySensor.h">
+        <function id="230" name="humiditySensor_init_HumiditySensor">
+          <parameter id="231" name="outC" type="237" pointer="true"/>
+        </function>
+        <function id="232" name="humiditySensor_reset_HumiditySensor">
+          <parameter id="233" name="outC" type="237" pointer="true"/>
+        </function>
+        <function id="234" name="humiditySensor_HumiditySensor">
+          <parameter id="235" name="raw" type="331" pointer="false"/>
+          <parameter id="236" name="outC" type="237" pointer="true"/>
+        </function>
+        <struct id="237" name="outC_humiditySensor_HumiditySensor">
+          <field id="238" name="value" type="339" pointer="false"/>
+          <field id="239" name="_L1" type="331" pointer="false"/>
+          <field id="240" name="_L2" type="331" pointer="false"/>
+          <field id="241" name="_L3" type="331" pointer="false"/>
+          <field id="242" name="_L4" type="331" pointer="false"/>
+          <field id="243" name="_L5" type="339" pointer="false"/>
+          <field id="244" name="_L6" type="339" pointer="false"/>
+          <field id="245" name="_L7" type="331" pointer="false"/>
+          <field id="246" name="_L8" type="331" pointer="false"/>
+          <field id="247" name="_L9" type="331" pointer="false"/>
+          <field id="248" name="_L10" type="339" pointer="false"/>
+          <field id="249" name="_L11" type="339" pointer="false"/>
+          <field id="250" name="_L12" type="339" pointer="false"/>
+          <field id="251" name="_L14" type="339" pointer="false"/>
+        </struct>
+      </file>
+      <file id="252" name="tempratureSensor_TemperatureSensor.h">
+        <function id="253" name="tempratureSensor_init_TemperatureSensor">
+          <parameter id="254" name="outC" type="260" pointer="true"/>
+        </function>
+        <function id="255" name="tempratureSensor_reset_TemperatureSensor">
+          <parameter id="256" name="outC" type="260" pointer="true"/>
+        </function>
+        <function id="257" name="tempratureSensor_TemperatureSensor">
+          <parameter id="258" name="inC" type="277" pointer="true"/>
+          <parameter id="259" name="outC" type="260" pointer="true"/>
+        </function>
+        <struct id="260" name="outC_tempratureSensor_TemperatureSensor">
+          <field id="261" name="value" type="339" pointer="false"/>
+          <field id="262" name="validity" type="340" pointer="false"/>
+          <field id="263" name="meanValue" type="339" pointer="false"/>
+          <field id="264" name="init" type="340" pointer="false"/>
+          <field id="265" name="delayInput" type="339" pointer="false"/>
+          <field id="266" name="Context_rangeChecker_1" type="289" pointer="false"/>
+          <field id="267" name="_L7" type="334" pointer="false"/>
+          <field id="268" name="_L8" type="339" pointer="false"/>
+          <field id="269" name="_L9" type="339" pointer="false"/>
+          <field id="270" name="_L12" type="339" pointer="false"/>
+          <field id="271" name="_L13" type="340" pointer="false"/>
+          <field id="272" name="_L14" type="339" pointer="false"/>
+          <field id="273" name="_L16" type="339" pointer="false"/>
+          <field id="274" name="_L17" type="339" pointer="false"/>
+          <field id="275" name="_L18" type="339" pointer="false"/>
+          <field id="276" name="_L19" type="339" pointer="false"/>
+        </struct>
+        <struct id="277" name="inC_tempratureSensor_TemperatureSensor">
+          <field id="278" name="raw" type="334" pointer="false"/>
+          <field id="279" name="max" type="339" pointer="false"/>
+          <field id="280" name="min" type="339" pointer="false"/>
+        </struct>
+      </file>
+      <file id="281" name="rangeChecker_TemperatureSensor.h">
+        <function id="282" name="rangeChecker_init_TemperatureSensor">
+          <parameter id="283" name="outC" type="289" pointer="true"/>
+        </function>
+        <function id="284" name="rangeChecker_reset_TemperatureSensor">
+          <parameter id="285" name="outC" type="289" pointer="true"/>
+        </function>
+        <function id="286" name="rangeChecker_TemperatureSensor">
+          <parameter id="287" name="inC" type="297" pointer="true"/>
+          <parameter id="288" name="outC" type="289" pointer="true"/>
+        </function>
+        <struct id="289" name="outC_rangeChecker_TemperatureSensor">
+          <field id="290" name="Output1" type="340" pointer="false"/>
+          <field id="291" name="_L3" type="339" pointer="false"/>
+          <field id="292" name="_L2" type="339" pointer="false"/>
+          <field id="293" name="_L1" type="339" pointer="false"/>
+          <field id="294" name="_L4" type="340" pointer="false"/>
+          <field id="295" name="_L5" type="340" pointer="false"/>
+          <field id="296" name="_L6" type="340" pointer="false"/>
+        </struct>
+        <struct id="297" name="inC_rangeChecker_TemperatureSensor">
+          <field id="298" name="Input3" type="339" pointer="false"/>
+          <field id="299" name="max" type="339" pointer="false"/>
+          <field id="300" name="min" type="339" pointer="false"/>
+        </struct>
+      </file>
+      <file id="301" name="kcg_types.h">
+        <enum id="302" name="TruthTableValues_truthtables" tagName="kcg_tag_TruthTableValues_truthtables">
+          <value id="303" name="T_truthtables"/>
+          <value id="304" name="F_truthtables"/>
+          <value id="305" name="X_truthtables"/>
+        </enum>
+        <macro id="306" name="kcg_assign_array"/>
+        <macro id="307" name="kcg_assign_struct"/>
+        <macro id="308" name="kcg_lnot_uint8"/>
+        <macro id="309" name="kcg_lnot_uint16"/>
+        <macro id="310" name="kcg_lnot_uint32"/>
+        <macro id="311" name="kcg_lnot_uint64"/>
+        <macro id="312" name="kcg_lsl_uint8"/>
+        <macro id="313" name="kcg_lsl_uint16"/>
+        <macro id="314" name="kcg_lsl_uint32"/>
+        <macro id="315" name="kcg_lsl_uint64"/>
+        <macro id="316" name="kcg_true"/>
+        <macro id="317" name="kcg_false"/>
+        <macro id="318" name="kcg_lit_int8"/>
+        <macro id="319" name="kcg_lit_int16"/>
+        <macro id="320" name="kcg_lit_int32"/>
+        <macro id="321" name="kcg_lit_int64"/>
+        <macro id="322" name="kcg_lit_uint8"/>
+        <macro id="323" name="kcg_lit_uint16"/>
+        <macro id="324" name="kcg_lit_uint32"/>
+        <macro id="325" name="kcg_lit_uint64"/>
+        <macro id="326" name="kcg_lit_size"/>
+        <macro id="327" name="kcg_lit_float64"/>
+        <macro id="328" name="kcg_lit_float32"/>
+        <predefType id="329" name="kcg_int8"/>
+        <predefType id="330" name="kcg_int16"/>
+        <predefType id="331" name="kcg_int32"/>
+        <predefType id="332" name="kcg_int64"/>
+        <predefType id="333" name="kcg_uint8"/>
+        <predefType id="334" name="kcg_uint16"/>
+        <predefType id="335" name="kcg_uint32"/>
+        <predefType id="336" name="kcg_uint64"/>
+        <predefType id="337" name="kcg_size"/>
+        <predefType id="338" name="kcg_float64"/>
+        <predefType id="339" name="kcg_float32"/>
+        <predefType id="340" name="kcg_bool"/>
+        <predefType id="341" name="kcg_char"/>
+        <macro id="342" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="343" name="kcg_consts.h">
+        <macro id="344" name="CONVERSION_FACTOR_TemperatureSensor" type="339"/>
+        <macro id="345" name="SENSOR_MAX_HumiditySensor" type="331"/>
+        <macro id="346" name="SENSOR_MIN_HumiditySensor" type="331"/>
+        <macro id="347" name="HUMIDITY_MIN_HumiditySensor" type="331"/>
+        <macro id="348" name="HUMIDITY_MAX_HumiditySensor" type="331"/>
+      </file>
+      <file id="349" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="338" dstId="327" role="wrapped-lit"/>
+    <map srcId="339" dstId="328" role="wrapped-lit"/>
+    <map srcId="337" dstId="326" role="wrapped-lit"/>
+    <map srcId="336" dstId="325" role="wrapped-lit"/>
+    <map srcId="336" dstId="311" role="wrapped-lnot"/>
+    <map srcId="336" dstId="315" role="wrapped-lsl"/>
+    <map srcId="335" dstId="324" role="wrapped-lit"/>
+    <map srcId="335" dstId="310" role="wrapped-lnot"/>
+    <map srcId="335" dstId="314" role="wrapped-lsl"/>
+    <map srcId="334" dstId="323" role="wrapped-lit"/>
+    <map srcId="334" dstId="309" role="wrapped-lnot"/>
+    <map srcId="334" dstId="313" role="wrapped-lsl"/>
+    <map srcId="333" dstId="322" role="wrapped-lit"/>
+    <map srcId="333" dstId="308" role="wrapped-lnot"/>
+    <map srcId="333" dstId="312" role="wrapped-lsl"/>
+    <map srcId="332" dstId="321" role="wrapped-lit"/>
+    <map srcId="331" dstId="320" role="wrapped-lit"/>
+    <map srcId="330" dstId="319" role="wrapped-lit"/>
+    <map srcId="329" dstId="318" role="wrapped-lit"/>
+  </generated>
+  <map modelId="138" generatedId="305"/>
+  <map modelId="137" generatedId="304"/>
+  <map modelId="136" generatedId="303"/>
+  <map modelId="89" generatedId="150" role="context-parameter"/>
+  <map modelId="89" generatedId="149" role="init-method"/>
+  <map modelId="89" generatedId="152" role="context-parameter"/>
+  <map modelId="89" generatedId="151" role="reset-method"/>
+  <map modelId="89" generatedId="154" role="input-struct-parameter"/>
+  <map modelId="99" generatedId="200"/>
+  <map modelId="98" generatedId="199"/>
+  <map modelId="97" generatedId="198"/>
+  <map modelId="96" generatedId="197"/>
+  <map modelId="95" generatedId="196"/>
+  <map modelId="94" generatedId="195"/>
+  <map modelId="93" generatedId="194"/>
+  <map modelId="92" generatedId="193"/>
+  <map modelId="91" generatedId="192"/>
+  <map modelId="90" generatedId="191"/>
+  <map modelId="89" generatedId="190" role="input-struct-type"/>
+  <map modelId="89" generatedId="155" role="context-parameter"/>
+  <map modelId="129" generatedId="189"/>
+  <map modelId="128" generatedId="188"/>
+  <map modelId="127" generatedId="187"/>
+  <map modelId="126" generatedId="186"/>
+  <map modelId="125" generatedId="185"/>
+  <map modelId="124" generatedId="184"/>
+  <map modelId="123" generatedId="183"/>
+  <map modelId="122" generatedId="182"/>
+  <map modelId="121" generatedId="181"/>
+  <map modelId="120" generatedId="180"/>
+  <map modelId="119" generatedId="179"/>
+  <map modelId="118" generatedId="178"/>
+  <map modelId="117" generatedId="177"/>
+  <map modelId="116" generatedId="176"/>
+  <map modelId="115" generatedId="175"/>
+  <map modelId="114" generatedId="174"/>
+  <map modelId="113" generatedId="173"/>
+  <map modelId="112" generatedId="172"/>
+  <map modelId="111" generatedId="171"/>
+  <map modelId="110" generatedId="170"/>
+  <map modelId="132" generatedId="169"/>
+  <map modelId="131" generatedId="168"/>
+  <map modelId="130" generatedId="167"/>
+  <map modelId="109" generatedId="166"/>
+  <map modelId="108" generatedId="165"/>
+  <map modelId="107" generatedId="164"/>
+  <map modelId="106" generatedId="163"/>
+  <map modelId="105" generatedId="162"/>
+  <map modelId="104" generatedId="161"/>
+  <map modelId="103" generatedId="160"/>
+  <map modelId="102" generatedId="159"/>
+  <map modelId="101" generatedId="158"/>
+  <map modelId="100" generatedId="157"/>
+  <map modelId="89" generatedId="156" role="context-type"/>
+  <map modelId="89" generatedId="148" role="interface-file"/>
+  <map modelId="89" generatedId="153" role="cycle-method"/>
+  <map modelId="69" generatedId="203" role="context-parameter"/>
+  <map modelId="69" generatedId="202" role="init-method"/>
+  <map modelId="69" generatedId="205" role="context-parameter"/>
+  <map modelId="69" generatedId="204" role="reset-method"/>
+  <map modelId="69" generatedId="207" role="input-struct-parameter"/>
+  <map modelId="75" generatedId="228"/>
+  <map modelId="74" generatedId="227"/>
+  <map modelId="73" generatedId="226"/>
+  <map modelId="72" generatedId="225"/>
+  <map modelId="71" generatedId="224"/>
+  <map modelId="70" generatedId="223"/>
+  <map modelId="69" generatedId="222" role="input-struct-type"/>
+  <map modelId="69" generatedId="208" role="context-parameter"/>
+  <map modelId="87" generatedId="221"/>
+  <map modelId="86" generatedId="220"/>
+  <map modelId="85" generatedId="219"/>
+  <map modelId="84" generatedId="218"/>
+  <map modelId="83" generatedId="217"/>
+  <map modelId="82" generatedId="216"/>
+  <map modelId="81" generatedId="215"/>
+  <map modelId="80" generatedId="214"/>
+  <map modelId="79" generatedId="213"/>
+  <map modelId="78" generatedId="212"/>
+  <map modelId="77" generatedId="211"/>
+  <map modelId="76" generatedId="210"/>
+  <map modelId="69" generatedId="209" role="context-type"/>
+  <map modelId="69" generatedId="201" role="interface-file"/>
+  <map modelId="69" generatedId="206" role="cycle-method"/>
+  <map modelId="52" generatedId="231" role="context-parameter"/>
+  <map modelId="52" generatedId="230" role="init-method"/>
+  <map modelId="52" generatedId="233" role="context-parameter"/>
+  <map modelId="52" generatedId="232" role="reset-method"/>
+  <map modelId="53" generatedId="235"/>
+  <map modelId="52" generatedId="236" role="context-parameter"/>
+  <map modelId="67" generatedId="251"/>
+  <map modelId="66" generatedId="250"/>
+  <map modelId="65" generatedId="249"/>
+  <map modelId="64" generatedId="248"/>
+  <map modelId="63" generatedId="247"/>
+  <map modelId="62" generatedId="246"/>
+  <map modelId="61" generatedId="245"/>
+  <map modelId="60" generatedId="244"/>
+  <map modelId="59" generatedId="243"/>
+  <map modelId="58" generatedId="242"/>
+  <map modelId="57" generatedId="241"/>
+  <map modelId="56" generatedId="240"/>
+  <map modelId="55" generatedId="239"/>
+  <map modelId="54" generatedId="238"/>
+  <map modelId="52" generatedId="237" role="context-type"/>
+  <map modelId="52" generatedId="229" role="interface-file"/>
+  <map modelId="52" generatedId="234" role="cycle-method"/>
+  <map modelId="16" generatedId="254" role="context-parameter"/>
+  <map modelId="16" generatedId="253" role="init-method"/>
+  <map modelId="16" generatedId="256" role="context-parameter"/>
+  <map modelId="16" generatedId="255" role="reset-method"/>
+  <map modelId="16" generatedId="258" role="input-struct-parameter"/>
+  <map modelId="19" generatedId="280"/>
+  <map modelId="18" generatedId="279"/>
+  <map modelId="17" generatedId="278"/>
+  <map modelId="16" generatedId="277" role="input-struct-type"/>
+  <map modelId="16" generatedId="259" role="context-parameter"/>
+  <map modelId="33" generatedId="276"/>
+  <map modelId="32" generatedId="275"/>
+  <map modelId="31" generatedId="274"/>
+  <map modelId="30" generatedId="273"/>
+  <map modelId="29" generatedId="272"/>
+  <map modelId="28" generatedId="271"/>
+  <map modelId="27" generatedId="270"/>
+  <map modelId="26" generatedId="269"/>
+  <map modelId="25" generatedId="268"/>
+  <map modelId="24" generatedId="267"/>
+  <map modelId="34" generatedId="266"/>
+  <map modelId="23" generatedId="265"/>
+  <map modelId="35" generatedId="265" role="memory"/>
+  <map modelId="35" generatedId="264" role="init"/>
+  <map modelId="22" generatedId="263"/>
+  <map modelId="21" generatedId="262"/>
+  <map modelId="20" generatedId="261"/>
+  <map modelId="16" generatedId="260" role="context-type"/>
+  <map modelId="16" generatedId="252" role="interface-file"/>
+  <map modelId="16" generatedId="257" role="cycle-method"/>
+  <map modelId="36" generatedId="283" role="context-parameter"/>
+  <map modelId="36" generatedId="282" role="init-method"/>
+  <map modelId="36" generatedId="285" role="context-parameter"/>
+  <map modelId="36" generatedId="284" role="reset-method"/>
+  <map modelId="36" generatedId="287" role="input-struct-parameter"/>
+  <map modelId="39" generatedId="300"/>
+  <map modelId="38" generatedId="299"/>
+  <map modelId="37" generatedId="298"/>
+  <map modelId="36" generatedId="297" role="input-struct-type"/>
+  <map modelId="36" generatedId="288" role="context-parameter"/>
+  <map modelId="46" generatedId="296"/>
+  <map modelId="45" generatedId="295"/>
+  <map modelId="44" generatedId="294"/>
+  <map modelId="43" generatedId="293"/>
+  <map modelId="42" generatedId="292"/>
+  <map modelId="41" generatedId="291"/>
+  <map modelId="40" generatedId="290"/>
+  <map modelId="36" generatedId="289" role="context-type"/>
+  <map modelId="36" generatedId="281" role="interface-file"/>
+  <map modelId="36" generatedId="286" role="cycle-method"/>
+  <map modelId="51" generatedId="348"/>
+  <map modelId="50" generatedId="347"/>
+  <map modelId="49" generatedId="346"/>
+  <map modelId="48" generatedId="345"/>
+  <map modelId="15" generatedId="344"/>
+  <map modelId="135" generatedId="302"/>
+  <map modelId="2" generatedId="341"/>
+  <map modelId="1" generatedId="340"/>
+  <map modelId="12" generatedId="338"/>
+  <map modelId="11" generatedId="339"/>
+  <map modelId="13" generatedId="337"/>
+  <map modelId="10" generatedId="336"/>
+  <map modelId="9" generatedId="335"/>
+  <map modelId="8" generatedId="334"/>
+  <map modelId="7" generatedId="333"/>
+  <map modelId="6" generatedId="332"/>
+  <map modelId="5" generatedId="331"/>
+  <map modelId="4" generatedId="330"/>
+  <map modelId="3" generatedId="329"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2019-11-01T16:58:20
+*************************************************************$-->

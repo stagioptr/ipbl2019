@@ -95,19 +95,19 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
 
 		radio2_status = nRF24L01_readStatus();
 
-		if( radio2_status & MAX_RT ) {
-			L01_Clear_IRQ( MAX_RT );
+		if( radio2_status & NRF24L01_MAX_RT ) {
+			L01_Clear_IRQ( NRF24L01_MAX_RT );
 		}
 
-		if( radio2_status & TX_DS ) {
-			L01_Clear_IRQ( TX_DS );
+		if( radio2_status & NRF24L01_TX_DS ) {
+			L01_Clear_IRQ( NRF24L01_TX_DS );
 			memset(receivePayload, 0, 16);
 			nRF24L01_receivePayload( &receiveSetup );
 		}
 
-		if( radio2_status & RX_DR ) {
+		if( radio2_status & NRF24L01_RX_DR ) {
 			L01_Read_RX_Pload( receivePayload );
-			L01_Clear_IRQ( RX_DR );
+			L01_Clear_IRQ( NRF24L01_RX_DR );
 			if( memcmp( receivePayload, "Trasmitindo1", 16) != 0 )
 				GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 			OSA_TimeDelay(100); /* Example code (for task release) */
@@ -161,30 +161,30 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 #endif
 	/* Write your code here ... */
 
-		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(1000) ) == pdFALSE ){
+		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(2000) ) == pdFALSE ){
 //			while(1);
-			debug_printf("Radio reception timeout...\n\r");
+			debug_printf("-1.00\n");
 			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
 		radio1_status = nRF24L01_readStatus();
 
-		if( radio1_status & MAX_RT ) {
-			L01_Clear_IRQ( MAX_RT );
+		if( radio1_status & NRF24L01_MAX_RT ) {
+			L01_Clear_IRQ( NRF24L01_MAX_RT );
 		}
 
-		if( radio1_status & TX_DS ) {
-			L01_Clear_IRQ( TX_DS );
+		if( radio1_status & NRF24L01_TX_DS ) {
+			L01_Clear_IRQ( NRF24L01_TX_DS );
 		}
 
-		if( radio1_status & RX_DR ) {
+		if( radio1_status & NRF24L01_RX_DR ) {
 			float temperature = 0.0;
 
 			L01_Read_RX_Pload( receivePayload );
-			L01_Clear_IRQ( RX_DR );
+			L01_Clear_IRQ( NRF24L01_RX_DR );
 
 			temperature = *((float*)receivePayload);
-			debug_printf("Received value: %5.2f Celsius Degree\n\r", temperature );
+			debug_printf("%5.2f\n", temperature );
 		}
 
 #ifdef PEX_USE_RTOS

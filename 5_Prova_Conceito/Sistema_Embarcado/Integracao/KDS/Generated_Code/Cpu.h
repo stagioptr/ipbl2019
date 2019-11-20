@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-08, 10:27, # CodeGen: 43
+**     Date/Time   : 2019-11-18, 12:34, # CodeGen: 5
 **     Abstract    :
 **
 **     Settings    :
@@ -78,18 +78,19 @@
 #include "fsl_osc_hal.h"
 #include "fsl_rtc_hal.h"
 #include "fsl_port_hal.h"
-#include "fsl_gpio_hal.h"
-#include "fsl_gpio_driver.h"
-#include "fsl_rtc_driver.h"
-#include "fsl_tpm_hal.h"
-#include "fsl_tpm_driver.h"
-#include "fsl_uart_hal.h"
-#include "fsl_lpsci_hal.h"
-#include "fsl_debug_console.h"
 #include "fsl_spi_hal.h"
 #include "fsl_spi_master_driver.h"
 #include "fsl_spi_slave_driver.h"
 #include "fsl_spi_shared_function.h"
+#include "fsl_gpio_hal.h"
+#include "fsl_gpio_driver.h"
+#include "fsl_uart_hal.h"
+#include "fsl_lpsci_hal.h"
+#include "fsl_debug_console.h"
+#include "fsl_i2c_hal.h"
+#include "fsl_i2c_master_driver.h"
+#include "fsl_i2c_slave_driver.h"
+#include "fsl_i2c_shared_function.h"
 #include <assert.h>
 
 #ifdef __cplusplus

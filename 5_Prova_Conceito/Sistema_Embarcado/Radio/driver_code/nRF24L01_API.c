@@ -77,6 +77,29 @@ uint8_t nRF24L01_Read(uint8_t reg) {
 
 //**********************************************************//
 //
+//  Function: nRF24L01_Read
+//
+//  Description:
+//  Read one byte from nRF24L01 register, 'reg'
+//
+//
+//  In/Out parameters:
+//  In: reg, register to read
+//  Out: return reg_val, register value.
+//
+//
+//  Author: RSK   Date: 28.11.05
+//**********************************************************//
+void nRF24L01_Write(uint8_t cmd) {
+	nRF24L01_writeChpSelectPin(0);
+
+	nRF24L01_RW(cmd);                            // Select register to read from..
+
+	nRF24L01_writeChpSelectPin(1);
+}
+
+//**********************************************************//
+//
 //  Function: nRF24L01_writeRegister
 //
 //  Description:
@@ -171,15 +194,26 @@ NRF24L01_state_t nRF24L01_Init(void) {
 
 	nRF24L01_writeRegister(NRF24L01_CONFIG, 0x00); // Disable device
 
+/*
+	nRF24L01_writeCEPin(0); // Set CE pin low to enable TX device
+	for (uint32_t tempo = 0; tempo < 3000; tempo++);
+	nRF24L01_writeCEPin(1); // Set CE pin low to enable TX device
+
+*/
 	nRF24L01_writeRegister(NRF24L01_EN_AA, 0x01);            // Enable Auto.Ack:Pipe0
 	nRF24L01_writeRegister(NRF24L01_EN_RXADDR, 0x01);        // Enable pipe 0.
 	nRF24L01_writeRegister(NRF24L01_SETUP_RETR, 0x1a);  // 500�s + 86�s, 10 retrans...
 	nRF24L01_writeRegister(NRF24L01_RF_CH, 40);              // Select RF channel 40
 	nRF24L01_writeRegister(NRF24L01_RF_SETUP, 0x0f); // TX_PWR:0dBm, Datarate:2Mbps, LNA:HCURR
 
-	nRF24L01_writeRegister(NRF24L01_FLUSH_RX, 0);
-	nRF24L01_writeRegister(NRF24L01_FLUSH_TX, 0);
+	nRF24L01_Write(NRF24L01_FLUSH_RX);
+	nRF24L01_Write(NRF24L01_FLUSH_TX);
+
 	nRF24L01_writeRegister(NRF24L01_STATUS, 0x70);			// Clear all interrupts
+
+//	void nRF24L01_getAllRegisters (uint8_t *registers);
+
+//	nRF24L01_getAllRegisters(registers);
 
 	if( !nRF24L01_EXTI_Init_port() )
 		return NRF24L01_STATE_FAIL_INIT;
@@ -362,12 +396,12 @@ uint16_t L01_Read_RX_Pload(uint8_t *pBuf) {    // read current pipe#'s RX payloa
 
 void L01_Flush_TX(void)                                         // Flush TX FIFO
 		{
-	nRF24L01_writeRegister(NRF24L01_FLUSH_TX, 0);
+	nRF24L01_Write(NRF24L01_FLUSH_TX);
 }
 
 void L01_Flush_RX(void)                                         // Flush RX FIFO
 		{
-	nRF24L01_writeRegister(NRF24L01_FLUSH_RX, 0);
+	nRF24L01_Write(NRF24L01_FLUSH_RX);
 }
 
 uint8_t L01_Get_FIFO(void)                          // Read FIFO_STATUS register

@@ -1,0 +1,5 @@
+*** Type Warning (WAR_151): Internal state expected
+  at file C:\Users\Max\AppData\Local\Temp\ScadeChecker\8984\checker_file.scade, line 1722, character 0
+  at path AccellerometerSensor::accellerometerSensor/
+ Node accellerometerSensor has no internal state
+ (it should probably be declared as a function)

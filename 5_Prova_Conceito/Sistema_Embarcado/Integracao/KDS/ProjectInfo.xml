@@ -58,15 +58,17 @@
     </IncludePaths>
     <SourceCodePaths>
       <Path>N:\Integracao\KDS\Generated_Code\</Path>
+      <Path>N:\Integracao\KDS\MAX6675\</Path>
       <Path>N:\Integracao\KDS\Prova_Conceito\Tarefas\</Path>
-      <Path>N:\Integracao\KDS\Radio\</Path>
+      <Path>N:\Integracao\KDS\SCADE\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\drivers\src\gpio\</Path>
+      <Path>N:\Integracao\KDS\SDK\platform\drivers\src\i2c\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\drivers\src\rtc\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\drivers\src\spi\</Path>
-      <Path>N:\Integracao\KDS\SDK\platform\drivers\src\tpm\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\gpio\</Path>
+      <Path>N:\Integracao\KDS\SDK\platform\hal\src\i2c\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\lpsci\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\mcg\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\osc\</Path>
@@ -74,7 +76,6 @@
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\rtc\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\sim\MKL25Z4\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\spi\</Path>
-      <Path>N:\Integracao\KDS\SDK\platform\hal\src\tpm\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\hal\src\uart\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\osa\src\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\system\src\clock\MKL25Z4\</Path>
@@ -85,46 +86,50 @@
       <Path>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\</Path>
       <Path>N:\Integracao\KDS\Sources\</Path>
       <Path>N:\Integracao\KDS\Static_Code\System\</Path>
-      <Path>N:\Integracao\KDS\Temperature\</Path>
+      <Path>N:\Integracao\KDS\nRF24L01\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\gcc\</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
     <GeneratedCs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Radio.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\Shell.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\hardware_init.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\i2cCom1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\spiRadio.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\spiTemp.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\spiRadioTemp.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr1.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr2.c</PathName>
+      <PathName>N:\Integracao\KDS\MAX6675\MAX6675_API.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.c</PathName>
-      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\shellStateMachine.c</PathName>
-      <PathName>N:\Integracao\KDS\Radio\nRF24L01_API.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\accellerometerSensor_AccellerometerSensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\humiditySensor_HumiditySensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_consts.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_types.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\rangeChecker_TemperatureSensor.c</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\tempratureSensor_TemperatureSensor.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\startup.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\gpio\fsl_gpio_common.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\gpio\fsl_gpio_driver.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_common.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_master_driver.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_shared_function.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\i2c\fsl_i2c_slave_driver.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\rtc\fsl_rtc_common.c</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\rtc\fsl_rtc_driver.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\spi\fsl_spi_common.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\spi\fsl_spi_master_driver.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\spi\fsl_spi_shared_function.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\spi\fsl_spi_slave_driver.c</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\tpm\fsl_tpm_common.c</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\drivers\src\tpm\fsl_tpm_driver.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\gpio\fsl_gpio_hal.c</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\hal\src\i2c\fsl_i2c_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\lpsci\fsl_lpsci_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\mcg\fsl_mcg_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\mcg\fsl_mcg_hal_modes.c</PathName>
@@ -133,7 +138,6 @@
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\rtc\fsl_rtc_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\sim\MKL25Z4\fsl_sim_hal_MKL25Z4.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\spi\fsl_spi_hal.c</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\hal\src\tpm\fsl_tpm_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\uart\fsl_uart_hal.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\osa\src\fsl_os_abstraction_free_rtos.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\system\src\clock\MKL25Z4\fsl_clock_MKL25Z4.c</PathName>
@@ -144,7 +148,6 @@
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\fsl_misc_utilities.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\print_scan.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\port\gcc\port.c</PathName>
-      <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\Utility.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\croutine.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\event_groups.c</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\src\heap_1.c</PathName>
@@ -161,36 +164,41 @@
       <PathName>N:\Integracao\KDS\Sources\os_tasks.c</PathName>
       <PathName>N:\Integracao\KDS\Sources\rtos_main_task.c</PathName>
       <PathName>N:\Integracao\KDS\Static_Code\System\PE_low_level_init.c</PathName>
-      <PathName>N:\Integracao\KDS\Temperature\MAX6675_API.c</PathName>
+      <PathName>N:\Integracao\KDS\nRF24L01\nRF24L01_API.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
       <PathName>N:\Integracao\KDS\Generated_Code\Cpu.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\DbgCs1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\MainTask.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\PE_low_level_init.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\Radio.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\platform\devices\MKL25Z4\startup\system_MKL25Z4.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\SDK\rtos\FreeRTOS\config\FreeRTOSConfig.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\Shell.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\board.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\i2cCom1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\rtcTimer.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\spiRadio.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\spiTemp.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\spiRadioTemp.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr1.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\tpmTmr2.h</PathName>
+      <PathName>N:\Integracao\KDS\MAX6675\MAX6675_API.h</PathName>
+      <PathName>N:\Integracao\KDS\MAX6675\Template\MAX6675_API_port.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.h</PathName>
-      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\shellStateMachine.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoRadio_port.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoSensor_port.h</PathName>
-      <PathName>N:\Integracao\KDS\Radio\Template\nRF24L01_API_port.h</PathName>
-      <PathName>N:\Integracao\KDS\Radio\nRF24L01_API.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\accellerometerSensor_AccellerometerSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\humiditySensor_HumiditySensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_consts.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_imported_types.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_sensors.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\kcg_types.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\rangeChecker_TemperatureSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\tempratureSensor_TemperatureSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\SCADE\user_macros.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_common_tables.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_const_structs.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\CMSIS\Include\arm_math.h</PathName>
@@ -205,12 +213,14 @@
       <PathName>N:\Integracao\KDS\SDK\platform\devices\fsl_device_registers.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\startup.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_gpio_driver.h</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_rtc_driver.h</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_i2c_master_driver.h</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_i2c_shared_function.h</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_i2c_slave_driver.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_spi_master_driver.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_spi_shared_function.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_spi_slave_driver.h</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\drivers\inc\fsl_tpm_driver.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_gpio_hal.h</PathName>
+      <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_i2c_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_lpsci_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_mcg_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_mcg_hal_modes.h</PathName>
@@ -219,7 +229,6 @@
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_rtc_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_sim_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_spi_hal.h</PathName>
-      <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_tpm_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\inc\fsl_uart_hal.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\hal\src\sim\MKL25Z4\fsl_sim_hal_MKL25Z4.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\platform\osa\inc\fsl_os_abstraction.h</PathName>
@@ -232,7 +241,6 @@
       <PathName>N:\Integracao\KDS\SDK\platform\utilities\src\print_scan.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\FreeRTOS.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\StackMacros.h</PathName>
-      <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\Utility.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\croutine.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\deprecated_definitions.h</PathName>
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\include\event_groups.h</PathName>
@@ -248,12 +256,11 @@
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\port\gcc\portmacro.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\Events.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\MAX6675_API_port.h</PathName>
-      <PathName>N:\Integracao\KDS\Sources\PE_KSDK_Types.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\nRF24L01_API_port.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\os_tasks.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\rtos_main_task.h</PathName>
-      <PathName>N:\Integracao\KDS\Temperature\MAX6675_API.h</PathName>
-      <PathName>N:\Integracao\KDS\Temperature\Template\MAX6675_API_port.h</PathName>
+      <PathName>N:\Integracao\KDS\nRF24L01\Template\nRF24L01_API_port.h</PathName>
+      <PathName>N:\Integracao\KDS\nRF24L01\nRF24L01_API.h</PathName>
     </GeneratedHs>
     <GeneratedASMs>
       <PathName>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\gcc\startup_MKL25Z4.S</PathName>

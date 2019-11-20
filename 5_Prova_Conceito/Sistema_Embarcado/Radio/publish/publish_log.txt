@@ -15,3 +15,6 @@ Corigido o arquivo do template para portabilidade, adicao do led para indicar fa
 Versao 4:
 Inclusao das rotinas de desinicializacao, adiá∆o da limpeza da fila de recepá∆o e transmiss∆o durante a inicializaá∆o. 
 
+Versao 5:
+Adicao do codigo para descartar filas de tx e rx ao iniciar o radio. 
+

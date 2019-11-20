@@ -4,7 +4,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-10-03, 17:31, # CodeGen: 0
+**     Date/Time   : 2019-11-16, 19:37, # CodeGen: 0
 **     Abstract    :
 **         Main module.
 **         This module contains user's application code.
@@ -37,25 +37,31 @@
 #include "osa1.h"
 #include "free_rtos.h"
 #include "MainTask.h"
-#include "rtcTimer.h"
-#include "tpmTmr1.h"
-#include "tpmTmr2.h"
-#include "tempSensor.h"
-#include "DbgCs.h"
 #include "Radio.h"
-#include "spiTemp.h"
+#include "tempSensor.h"
+#include "spiRadioTemp.h"
 #include "gpio.h"
-#include "spiRadio.h"
-#include "Shell.h"
+#include "DbgCs1.h"
+#include "i2cCom1.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
+semaphore_t radioIRQ_semaphore = NULL;
+semaphore_t SPI0_Semaphore = NULL;
+msg_queue_t temperature_msg_queue[4];
+msg_queue_handler_t temperature_msg_queue_handler = NULL;
+
+
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
   /* Write your local variable definition here */
+	OSA_SemaCreate(&radioIRQ_semaphore, 0);
+	OSA_SemaCreate(&SPI0_Semaphore, 1);
+
+	temperature_msg_queue_handler = OSA_MsgQCreate(temperature_msg_queue, 4, sizeof(float));
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();

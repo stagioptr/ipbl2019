@@ -1,0 +1,5 @@
+Controle de versao do lib SCADE 
+
+Versao 0:
+Primeira versao da bilioteca para teste de integracao. 
+

@@ -16,6 +16,7 @@
       <COMP relation="OwnedBehavior">
         <COMPID name="Sensor" mc="Standard.StateMachine" uid="82626877-1cf7-4ddf-a519-d54bca58df82"/>
         <COMPID name="Radio" mc="Standard.StateMachine" uid="83a9cb9a-fa2f-4b3f-8bf0-48e28efdcc00"/>
+        <COMPID name="State Machine" mc="Standard.StateMachine" uid="4c91e8f9-3cc3-48a1-85af-cd6eb4c91d16"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

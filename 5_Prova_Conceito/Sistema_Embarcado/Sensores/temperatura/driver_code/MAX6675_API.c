@@ -51,9 +51,12 @@ MAX6675_state_t MAX6675_readValue ( uint16_t* valuePointer ) {
 	nRF24L01_writeChpSelectPin( 0 );
 
 	if( !MAX6675_SPI_TransferBlocking( buffer, 2 ) )
-		return MAX6675_STATE_FAIL_INIT;
+		return MAX6675_STATE_FAIL_SPI;
 
 	nRF24L01_writeChpSelectPin( 1 );
+
+	if( MAX6675_DATA_ACCESS(buffer)->state )
+		return MAX6675_STATE_SENSOR_OPENED;
 
 	MAX6675_DATA_CONVERSION(valuePointer)->byte.HighSB = MAX6675_DATA_ACCESS(buffer)->temperatureReadingHigh;
 	MAX6675_DATA_CONVERSION(valuePointer)->byte.MiddleSB = MAX6675_DATA_ACCESS(buffer)->temperatureReadingMiddle;
