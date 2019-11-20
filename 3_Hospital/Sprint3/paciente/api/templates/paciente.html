@@ -561,6 +561,23 @@
       });
     }
 
+    function getAllPacientes() {
+      $.ajax({
+        type: "GET",
+        url: `http://34.68.34.160:5010/ids-paciente`,
+        success: function (resultado) {
+          resultado.forEach(d => {
+            var o = new Option(d, d);
+            $(o).html(d);
+            $("#paciente-busca").append(o);
+          })
+        },
+        error: function (e) {
+          mostrarErro(e)
+        }
+      });
+    }
+
     function getPaciente() {
       const paciente = $("#paciente-busca").val();
 
@@ -643,6 +660,8 @@
       }
     }
     $(document).ready(function () {
+      getAllPacientes()
+
       function formatStr(d) {
         return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
       }
@@ -799,10 +818,6 @@
         <ul class="nav navbar-nav">
           <li class="page"><a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">Home</a></li>
           <li class="page"><a href="#" onclick="closeNav(); showgraph('container4');">Pacientes</a></li>
-          <!--             <li class="page"><a href="#">Page 2</a></li>
-            <li class="page"><a href="#">Page 3</a></li>
-            <li class="page"><a href="#">Page 4</a></li>
- -->
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-heart nivel" style="font-size:14pt;"></span> Nível de
@@ -1149,9 +1164,6 @@
           <label for="paciente-busca" class="titleInput">Paciente</label>
           <select class="form-control" id="paciente-busca" required onclick="showFields(2)">
             <option value="">Escolha o paciente</option>
-            <option value="404217">404217</option>
-            <option value="Video">Video</option>
-            <option value="20112019">20112019</option>
           </select>
         </div>
         <div id="field2" class="col-sm-3 col-xs-3 form-group">
