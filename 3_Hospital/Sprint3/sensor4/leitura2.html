@@ -99,6 +99,43 @@
       });
     }
 
+    function monitorarPaciente() {
+      const paciente = $("#paciente-monitorar").val()
+
+      $("#temperaturaMonitoramento").text("")
+      $("#umidadeMonitoramento").text("")
+      $("#batimentoMonitoramento").text("")
+
+      if (paciente === '' || paciente === null) {
+        mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
+      } else {
+        $("#loadingPacientesMonitoramento").show();
+        let url = `http://localhost:5011/online?user=${paciente}`
+
+        $("#monitoramentoPaciente").hide()
+
+        setInterval(() => {
+          $.ajax({
+            type: "GET",
+            url: url,
+            success: function (resultado) {
+              $("#loadingPacientesMonitoramento").hide();
+
+              $("#temperaturaMonitoramento").text(resultado.temperatura)
+              $("#umidadeMonitoramento").text(resultado.umidade)
+              $("#batimentoMonitoramento").text(resultado.batimento)
+              $("#monitoramentoPaciente").show()
+            },
+            error: function (e) {
+              $("#loadingPacientesMonitoramento").hide();
+              mostrarErro(e)
+            }
+          });
+        }, 1500)
+
+      }
+    }
+
     function getPaciente() {
       const paciente = $("#paciente-busca").val()
 
@@ -205,7 +242,10 @@
       $('#container').hide();
       $('#container2').hide();
       $('#container4').hide();
+      $('#container5').hide();
       $('#loadingPacientes').hide();
+      $('#loadingPacientesMonitoramento').hide();
+      $("#monitoramentoPaciente").hide();
     });
 
     var myObject = {};
@@ -250,6 +290,7 @@
       $('#container2').hide();
       $('#container3').hide();
       $('#container4').hide();
+      $('#container5').hide();
       $('#loadingPacientes').hide();
 
       $('#' + container).show();
@@ -313,7 +354,7 @@
         <ul class="nav navbar-nav">
           <li class="page"><a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">Home</a></li>
           <li class="page"><a href="#" onclick="closeNav(); showgraph('container4');">Pacientes</a></li>
-          <li class="page"><a href="#">Page 2</a></li>
+          <li class="page"><a href="#" onclick="closeNav(); showgraph('container5');">Monitoramento</a></li>
           <li class="page"><a href="#">Page 3</a></li>
           <li class="page"><a href="#">Page 4</a></li>
         </ul>
@@ -694,6 +735,48 @@
       <div id="graficoTemperatura"></div><br>
       <div id="graficoUmidade"></div><br>
       <div id="graficoBatimento"></div><br>
+    </div>
+  </div>
+
+  <!-- PACIENTE ULTIMO -->
+  <div id="container5" onclick="closeNav()" style="overflow-y:auto !important;">
+    <div style="margin-left:32px">
+      <form>
+        <div class="form-group">
+          <label for="paciente-monitorar" class="titleInput">Paciente</label>
+          <input type="text" class="form-control" id="paciente-monitorar" required>
+        </div>
+      </form>
+      <button class="btn btn-success" id="monitorar" onclick="monitorarPaciente()">Monitorar</button>
+      <span id="loadingPacientesMonitoramento" style="margin-left: 16px;font-size:10px">Carregando ...</span>
+
+      <div id="monitoramentoPaciente" class="geral">
+        <div id="cabecalho"></div>
+        <div id="principal">
+          <div id="conteudo-1">
+            <strong style="font-size: 18px">Temperatura</strong>
+            <div style="margin-top: 16px;">
+              <span id="temperaturaMonitoramento" style="font-size: 16px;"></span>
+            </div>
+          </div>
+          <div id="conteudo-2">
+            <div id="conteudo-2-1">
+              <strong style="font-size: 18px">Umidade</strong>
+              <div style="margin-top: 16px;">
+                <span id="umidadeMonitoramento" style="font-size: 16px;"></span>
+              </div>
+            </div>
+            <div id="conteudo-2-2">
+              <strong style="font-size: 18px">Batimento</strong>
+              <div style="margin-top: 16px;">
+                <span id="batimentoMonitoramento" style="font-size: 16px;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div id="rodape"></div> -->
+      </div>
+
     </div>
   </div>
 

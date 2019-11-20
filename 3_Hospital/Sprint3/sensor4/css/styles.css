@@ -22,7 +22,7 @@
 .navbar-header {
   padding-top: 8px;
 }
-#container, #container2, #container3, #container4 {
+#container, #container2, #container3, #container4, #container5 {
   box-sizing: border-box;
   left: 5%;
   top: 60px;
@@ -215,7 +215,7 @@ footer h2 {
   #filecontents1, #filecontents2, #filecontents3 {
     display: none;
   }
-  #container, #container2, #container3, #container4 {
+  #container, #container2, #container3, #container4, #container5 {
     padding: 10px;
     height: 72%;
   }
@@ -245,7 +245,7 @@ footer h2 {
   .logo img {
     width: 70px;
   }
-  #container, #container2, #container3, #container4 {
+  #container, #container2, #container3, #container4, #container5 {
     padding: 10px;
     height: 75%;
   }
@@ -259,4 +259,43 @@ footer h2 {
     margin: 0;
     width: 120px;
   }
+}
+
+.geral {
+  margin:0;
+  padding:0;
+  color:#000;
+  background:#fff;
+}
+.geral {
+  width:960px;
+  margin:0 auto;
+  background:#ddd;
+  text-align: center;
+}
+#cabecalho {
+  padding:10px;
+  background:#ffffff;
+}
+#conteudo-1 {
+  float:left;
+  width:210px;
+  background:#cc000087;
+  padding:10px;
+}
+#conteudo-2 {
+  float:right;
+  width:720px;
+}
+#conteudo-2-1 {
+  float:left;
+  width:480px;
+  background:#65ce2a82;
+  padding:10px;
+}
+#conteudo-2-2 {
+  float:right;
+  width:200px;
+  background:#d1a52b85;
+  padding:10px;
 }

@@ -14,8 +14,8 @@ RUN	apt-get update && \
 COPY . ${APP_DIR}
 WORKDIR ${APP_DIR}
 
-EXPOSE 5010
+EXPOSE 5011
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT gunicorn --workers 4 --timeout 300 --bind 0.0.0.0:5010 server:app
+ENTRYPOINT gunicorn --workers 4 --timeout 300 --bind 0.0.0.0:5011 server:app
