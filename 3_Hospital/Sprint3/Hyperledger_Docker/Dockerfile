@@ -16,6 +16,8 @@ COPY ./build ${APP_DIR}
 COPY ./composer_playground ${APP_DIR}
 COPY ./composer_rest_server ${APP_DIR}
 COPY ./app.py ${APP_DIR}
+COPY ./business_network ${APP_DIR}
+
 WORKDIR ${APP_DIR}
 
 # REQUIREMENTS

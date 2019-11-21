@@ -62,11 +62,11 @@ $ ./teardownFabric.sh
 * antes de iniciar o container é necessário que você tenha a imagem docker na sua máquina. Para isto, você deve dar o pull da imagem disponível no DockerHub. Esta imagem contem todos os requisitos para a execução do Hyperledger Composer Playground, yo, criação e execução de business networks.
 * pull da imagem disponível no DockerHub:
 ```sh
-$ sudo docker pull gustavogomides/hyperledger
+$ sudo docker pull gustavogomides/hyperledger:stagiop_tr
 ```
 * agora que você tem a imagem, chegou a hora de rodar o container:
 ```sh
-$ sudo docker run -d -v /var/run/docker.sock:/var/run/docker.sock --network=host --name c-hyperledger gustavogomides/hyperledger
+$ sudo docker run -d -v /var/run/docker.sock:/var/run/docker.sock --network=host --name c-hyperledger gustavogomides/hyperledger:stagiop_tr
 ```
 * se você utilizar o comando verá que o container c-hyperledger está rodando
 ```sh
@@ -99,10 +99,6 @@ $ ./stop_composer_playground.sh
 ### Criação de uma business network
 * com o hyperledger fabric rodando no host e o container em execução, chegou a hora de criarmos nossa primeira business network. Para isto, utilizaremos Yeoman Generator.
 
-```sh
-$ sudo docker cp /ipbl2019/3_Hospital/Sprint3/Hyperledger_Docker/business_network/ c-hyperledger:/home/docker
-```
-
 * caso você já tenha saída do container:
 ```sh
 $ sudo docker exec -ti c-hyperledger bash
@@ -128,15 +124,15 @@ $ cd stagiop_tr
 
 $ rm -rf models/br.ita.stagioptr.cto
 
-$ cp ~/business_network/model.cto models/br.ita.stagioptr.cto
+$ cp ~/model.cto models/br.ita.stagioptr.cto
 
 $ mkdir lib
 
-$ cp ~/business_network/logic.js lib/logic.js
+$ cp ~/logic.js lib/logic.js
 
 $ rm -rf models/permissions.acl
 
-$ cp ~/business_network/permissions.acl models/permissions.acl
+$ cp ~/permissions.acl models/permissions.acl
 
 $ composer archive create -t dir -n .
 

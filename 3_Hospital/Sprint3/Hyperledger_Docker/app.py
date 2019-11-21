@@ -1,2 +1,4 @@
+from time import sleep
+
 while True:
-    pass
+    sleep(1)
