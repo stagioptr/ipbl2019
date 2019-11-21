@@ -8,12 +8,14 @@ participant Sensor identified by sensorId {
   o String topic
   o String message
   o String datetime
+  o String paciente
 }
 
 transaction SaveReadTransaction {
   o String topic
   o String message
   o String datetime
+  o String paciente
 }
 
 event NewReadEvent {

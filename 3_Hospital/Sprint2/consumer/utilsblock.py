@@ -12,7 +12,8 @@ def save_in_blockchain(message, topic):
     data = {
         "topic": topic,
         "message": json.dumps(msg),
-        "datetime": msg['dataHora']
+        "datetime": msg['dataHora'],
+        "paciente": msg["id"]
     }
     url = 'http://localhost:3002/api/br.ita.stagioptr.SaveReadTransaction'
     try:

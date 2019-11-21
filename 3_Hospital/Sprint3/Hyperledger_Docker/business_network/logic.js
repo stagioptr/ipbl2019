@@ -11,6 +11,7 @@ async function SaveReadTransaction(tx) {  // eslint-disable-line no-unused-vars
     sensor.topic = tx.topic;
     sensor.message = tx.message;
     sensor.datetime = tx.datetime;
+    sensor.paciente = tx.paciente;
     let sensorRegistry = await getParticipantRegistry(`${NS}.Sensor`);
     await sensorRegistry.add(sensor)
 
