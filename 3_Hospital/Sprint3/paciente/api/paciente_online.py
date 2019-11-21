@@ -23,11 +23,13 @@ class PacienteOnlineController(Resource):
         )
 
         mongo.close()
+        tmp = {}
         if data:
-            return {
-                "dataHoraObj": data[0]['dataHoraObj'],
-                "temperatura": data[0]['temperatura'],
-                "umidade": data[0]['umidade'],
-                "batimento": data[0]['batimento']
-            }, 200
-        return {}, 200
+            data = data[0]
+            fields = ['dataHora', 'temperatura', 'umidade', 'batimento']
+            for item in fields:
+                tmp[item] = None
+                if item in data:
+                    tmp[item] = data[item]
+            return tmp, 200
+        return tmp, 200
