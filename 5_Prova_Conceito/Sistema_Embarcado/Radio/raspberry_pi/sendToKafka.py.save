@@ -25,14 +25,14 @@ producer = KafkaProducer(bootstrap_servers=['34.68.34.160:9092'],
 	dumps(x).encode('utf-8'))
 
 while 1:
-	valor=ser.readline()
-	now = datetime.now()
-	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-	documento = {
-		"sensor": "Temperatura",
-		"hora": dt_string,
-		"valor": valor
-	}
-	producer.send('SPRINT01', documento)
-	print(documento)
-# print(type(documento))
+	start=ser.readline().rstrip()
+	if start == str(!https://hangouts.google.com/call/xTEI7w2-VBNxx1ZxXdTaAEEE"Start
+		now = datetime.now()
+		dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+		documento = {
+			'id' : '12345',
+			'dataHora' : dt_string,
+			'temperatura' : valor
+		}
+		producer.send('sensor', documento)
+		print(documento)
