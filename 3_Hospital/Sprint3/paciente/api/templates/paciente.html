@@ -5,19 +5,22 @@
   <meta http-equiv="pragma" content="no-cache">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
-  <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+  <link rel="stylesheet" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+  <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+  <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
   <script src="https://code.highcharts.com/7.2.0/highcharts.js"></script>
   <script src="https://code.highcharts.com/7.2.0/modules/data.js"></script>
   <script src="https://code.highcharts.com/7.2.0/modules/series-label.js"></script>
   <script src="https://code.highcharts.com/7.2.0/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/7.2.0/modules/export-data.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
   <style>
     body {
       background-color: #5bb2f7;
@@ -42,6 +45,20 @@
 
     .navbar-header {
       padding-top: 8px;
+    }
+
+    .separador {
+      color: #fff;
+      padding-top: 16px;
+      font-weight: bold;
+    }
+
+    .alerta {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      z-index: 1000;
+      color: white;
     }
 
     #container,
@@ -119,31 +136,6 @@
       background-color: #448bc8;
     }
 
-    #filecontents1,
-    #filecontents2,
-    #filecontents3 {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 180px;
-      height: auto;
-      z-index: 1001;
-      background-color: #2096f6;
-      padding: 10px;
-      border-radius: 10px 0 0 0;
-    }
-
-    #filecontents1 h2,
-    #filecontents2 h2,
-    #filecontents3 h2 {
-      font-size: 20px;
-      font-weight: bold;
-      padding: 0;
-      padding-bottom: 10px;
-      margin: 0;
-      color: #fff;
-    }
-
     #graficoTemperatura,
     #graficoUmidade,
     #graficoGiroscopio,
@@ -163,86 +155,6 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-    }
-
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {
-      height: 450px
-    }
-
-    /* Set gray background color and 100% height */
-    .sidenav {
-      height: 100%;
-      /* 100% Full-height */
-      width: 0;
-      /* 0 width - change this with JavaScript */
-      position: fixed;
-      /* Stay in place */
-      z-index: 1;
-      /* Stay on top */
-      top: 50px;
-      /* Stay at the top */
-      left: 0;
-      background-color: rgba(50, 50, 50, .9);
-      /* Black*/
-      overflow-x: hidden;
-      /* Disable horizontal scroll */
-      padding-top: 60px;
-      /* Place content 60px from the top */
-      transition: 0.5s;
-      /* 0.5 second transition effect to slide in the sidenav */
-      z-index: 1;
-      font-size: 14pt;
-      color: #ddd;
-    }
-
-    /* The navigation menu links */
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 15px;
-      color: #ccc;
-      display: block;
-      transition: 0.3s;
-    }
-
-    /* When you mouse over the navigation links, change their color */
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-
-    /* Position and style the close button (top right corner) */
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-
-    .openbtn {
-      display: inline-block;
-      position: absolute;
-      text-align: right;
-      top: 150px;
-      right: -75px;
-      transform: rotate(-90deg);
-      color: #fff;
-      margin: 0;
-      width: 180px;
-      cursor: pointer;
-    }
-
-    .openbtn .maior {
-      padding-top: 5px;
-      font-size: 14px;
-    }
-
-
-    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-    #main {
-      transition: margin-left .5s;
-      padding: 20px;
     }
 
     footer {
@@ -269,15 +181,7 @@
       left: 0;
     }
 
-    /* On medium screens, set monitor's width */
     @media screen and (min-width: 1280px) {
-
-      #filecontents1,
-      #filecontents2,
-      #filecontents3 {
-        width: 200px;
-      }
-
       .ordem {
         width: 120px;
       }
@@ -296,7 +200,13 @@
       }
     }
 
-    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 850px) {
+      .separador:first-child {
+        width: 0;
+        opacity: 0;
+      }
+    }
+
     @media screen and (max-width: 767px) {
       .logo {
         margin-top: -10px;
@@ -305,10 +215,6 @@
 
       .logo img {
         width: 90px;
-      }
-
-      .sidenav {
-        padding: 15px;
       }
 
       .row.content {
@@ -333,6 +239,15 @@
         background-color: #333;
       }
 
+      .separador:first-child {
+        width: 100px;
+        opacity: 1;
+      }
+
+      .alerta {
+        right: 100px;
+      }
+
       #form {
         background-color: #ddf;
         height: 40px;
@@ -348,12 +263,6 @@
 
       .setaV {
         display: inline-block;
-      }
-
-      #filecontents1,
-      #filecontents2,
-      #filecontents3 {
-        display: none;
       }
 
       #icons {
@@ -393,16 +302,7 @@
       }
     }
 
-    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-width: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
-
-      .sidenav a {
-        font-size: 15px;
-      }
-
       .logo img {
         width: 70px;
       }
@@ -443,7 +343,7 @@
       }
 
       footer {
-        height: 124px;
+        height: 64px;
         padding: 5px;
         bottom: 0;
         font-size: 8pt;
@@ -460,6 +360,14 @@
     const BASE_URL = 'http://34.68.34.160:5010'
     let realTimeInterval = null
 
+    function getPacienteId() {
+      var address = window.location.href;
+      var resto = address.split('=');
+      var id_pac = resto[1].split('#');
+
+      console.log(id_pac[0]);
+      $('#paciente-busca').val(id_pac[0]);
+    }
     function nivel(niv) {
       if (niv == 1)
         $('.nivel').css('color', 'lightgreen');
@@ -467,31 +375,17 @@
         $('.nivel').css('color', 'yellow');
       else
         $('.nivel').css('color', 'red');
-
       $('.nivel').css('transition', 'font-size .1s, top .1s, left .1s');
-
       setInterval(function () {
         $('.nivel').css('font-size', '13px');
         $('.nivel').css('top', '0');
-        $('.nivel').css('left', '-1px');
+        $('.nivel').css('left', '0');
       }, 200);
       setInterval(function () {
         $('.nivel').css('font-size', '16px');
         $('.nivel').css('top', '2px');
-        $('.nivel').css('left', '0');
+        $('.nivel').css('left', '-1px');
       }, 600);
-    }
-    /* Set the width of the side navigation to 250px */
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "300px";
-      document.getElementsByClassName("openbtn")[0].style.display = "none";
-      document.getElementsByClassName("closebtn")[0].style.display = "inline";
-    }
-    /* Set the width of the side navigation to 0 */
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementsByClassName("openbtn")[0].style.display = "inline";
-      document.getElementsByClassName("closebtn")[0].style.display = "none";
     }
     function mostrarSwal(title, type, text, isHtml) {
       config = {
@@ -537,7 +431,7 @@
         xAxis: {
           categories: x,
           labels: {
-            format: '{value:%d/%m/%Y %H:%M:%S}'
+            format: '{value:%H:%M:%S}'
           }
         },
         yAxis: {
@@ -563,7 +457,6 @@
         series: data
       });
     }
-
     function getAllPacientes() {
       $.ajax({
         type: "GET",
@@ -580,7 +473,6 @@
         }
       });
     }
-
     function plotGraphRealTime(value, container) {
       Highcharts.chart(container, {
         chart: {
@@ -596,7 +488,7 @@
         },
         xAxis: {
           labels: {
-            format: '{value:%d/%m/%Y %H:%M:%S}'
+            format: '{value:%H:%M:%S}'
           }
         },
         yAxis: {
@@ -627,7 +519,7 @@
             var data = [],
               time = (new Date()).getTime(),
               i;
-            for (i = -19; i <= 0; i += 1) {
+            for (i = -59; i <= 0; i += 1) {
               data.push({
                 x: time + i * 1000,
                 y: null
@@ -638,22 +530,18 @@
         }]
       });
     }
-
     var getUrlParameter = function getUrlParameter(sParam) {
       var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
         i;
-
       for (i = 0; i < sURLVariables.length; i++) {
         sParameterName = sURLVariables[i].split('=');
-
         if (sParameterName[0] === sParam) {
           return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
         }
       }
     };
-
     function updateGraphData(container, resultado, value) {
       var chart = $(`#${container}`).highcharts();
       if (chart) {
@@ -662,7 +550,6 @@
         chart.series[0].addPoint([time.getTime(), value], true, true);
       }
     }
-
     function getPacienteRealTime(paciente, setGraph) {
       $.ajax({
         type: "GET",
@@ -673,18 +560,15 @@
               name: 'Temperatura',
               color: '#c00'
             }, 'container')
-
             plotGraphRealTime({
               name: 'Umidade',
               color: '#0c0'
             }, 'container2')
-
             plotGraphRealTime({
               name: 'Batimentos Cardíacos',
               color: '#d1a506'
             }, 'container3')
           }
-
           updateGraphData('container', resultado, resultado.temperatura)
           updateGraphData('container2', resultado, resultado.umidade)
           updateGraphData('container3', resultado, resultado.batimento)
@@ -694,7 +578,6 @@
         }
       });
     }
-
     function initRealTime(paciente) {
       if (realTimeInterval) {
         clearInterval(realTimeInterval)
@@ -702,26 +585,18 @@
         $("#container2").hide()
         $("#container3").hide()
       }
-
       getPacienteRealTime(paciente, true)
       $("#container").show()
       $("#container2").show()
       $("#container3").show()
       realTimeInterval = setInterval(() => {
         getPacienteRealTime(paciente, false)
-      }, 1500)
+      }, 1000)
     }
-
     function getPaciente() {
-
       const paciente = $("#paciente-busca").val();
-
       $('#icons').css('display', 'inline-block');
-
       if ($(window).width() < 450) {
-        $('#field2').hide();
-        $('#field3').hide();
-        $('#buscar').hide();
         $('#form').height(60);
       }
       else if ($(window).width() < 768) {
@@ -732,7 +607,6 @@
         $('#form').height(40);
         $('.setaV').show();
       }
-
       if (paciente === '' || paciente === null) {
         mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
       } else {
@@ -774,19 +648,16 @@
               color: '#c00',
               data: temperatura
             }], 'Temperatura', 'graficoTemperatura', x)
-
             plotGraph([{
               name: 'Umidade',
               color: '#0c0',
               data: umidade
             }], 'Umidade', 'graficoUmidade', x)
-
             plotGraph([{
               name: 'Batimentos Cardíacos',
               color: '#d1a506',
               data: batimento
             }], 'Batimentos Cardíacos', 'graficoBatimento', x)
-
             initRealTime(paciente)
           },
           error: function (e) {
@@ -798,7 +669,6 @@
     }
     $(document).ready(function () {
       getAllPacientes()
-
       function formatStr(d) {
         return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
       }
@@ -834,25 +704,23 @@
         $('#buscar').hide();
       }
       if ($(window).width() < 450) {
-        $('#paciente-busca').show();
+        $('#paciente-busca').hide();
         $('#dataInicial').show();
         $('#dataFinal').show();
-        $('#field1').removeClass('col-xs-4').addClass('col-xs-12');
-        $('#field2').removeClass('col-xs-3').addClass('col-xs-12');
-        $('#field3').removeClass('col-xs-3').addClass('col-xs-12');
-        $('#buscar').removeClass('col-xs-2').addClass('col-xs-12');
+        $('#field1').hide();
+        $('#field2').show().removeClass('col-xs-4').addClass('col-xs-5');
+        $('#field3').show().removeClass('col-xs-4').addClass('col-xs-5');
+        $('#buscar').show().removeClass('col-xs-3').addClass('col-xs-1').html('<b>></b>');
         $('#loadingPacientes').removeClass('col-xs-2').addClass('col-xs-12');
       }
       $('#container').hide();
       $('#container2').hide();
       $('#container4').hide();
       $('#loadingPacientes').hide();
-
       var tech = getUrlParameter('paciente');
       if (tech) {
         initRealTime(tech)
       }
-
     });
     function showFields(tipo) {
       $('#form').height('auto');
@@ -881,10 +749,11 @@
   </script>
 </head>
 
-<body onload='nivel(1)'>
-  <!-- Additional files for the Highslide popup effect -->
-
+<body onload='nivel(1); getPacienteId()'>
   <header>
+    <div class="alerta">
+      <span class="glyphicon glyphicon-heart nivel" style="width:16px; font-size:14pt;"></span> Nível de alerta
+    </div>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="logo">
@@ -901,93 +770,55 @@
           </button>
         </div>
         <ul class="nav navbar-nav">
-          <!-- <li class="page"><a href="#" onclick="closeNav(); showgraph('container3'); mon('texto3.txt');;">Home</a></li> -->
-          <li class="page"><a href="#" onclick="closeNav(); showgraph('container4');">Pacientes</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-heart nivel" style="font-size:14pt;"></span> Nível de
-              alerta</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li class="page separador">TEMPO REAL</li>
+          <li class="page"><a href="#" onclick="showgraph('container');"><span class="glyphicon glyphicon-fire"></span>
+              Temperatura</a></li>
+          <li class="page"><a href="#" onclick="showgraph('container2');"><span class="glyphicon glyphicon-tint"></span>
+              Umidade</a></li>
+          <li class="page"><a href="#" onclick="showgraph('container3');"><span
+                class="glyphicon glyphicon-heart"></span> Batimentos</a></li>
+          <li class="page separador">CONSULTAS</li>
+          <li class="page"><a href="#" onclick="showgraph('container4');">Por data</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <div id="mySidenav" class="col-sm-1 sidenav">
-    <span href="#" onclick="openNav()" class="openbtn">
-      Tempo Real
-      <span class="glyphicon glyphicon-triangle-bottom maior"></span>
-    </span>
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <br>&nbsp;
-    <p>
-      <a href="#" onclick="closeNav(); showgraph('container');">
-        <span class="glyphicon glyphicon-fire"></span> Temperatura
-      </a>
-    </p>
-    <p>
-      <a href="#" onclick="closeNav(); showgraph('container2');">
-        <span class="glyphicon glyphicon-time"></span> Umidade
-      </a>
-    </p>
-    <p>
-      <a href="#" onclick="closeNav(); showgraph('container3');">
-        <span class="glyphicon glyphicon-heart"></span> Batimentos Cardíacos
-      </a>
-    </p>
+  <!--
+      GRÁFICO TEMPERATURA
+    -->
+  <div id="container">
   </div>
 
   <!--
-    GRÁFICO TEMPERATURA
-  -->
-  <div id="container" onclick="closeNav()">
-    <div id='filecontents1'>
-      <h2>Monitor</h2>
-      Aguardando leitura
-    </div>
+      GRÁFICO UMIDADE
+    -->
+  <div id="container2">
   </div>
 
   <!--
-    GRÁFICO UMIDADE
-  -->
-  <div id="container2" onclick="closeNav()">
-    <div id='filecontents2'>
-      <h2>Monitor</h2>
-      Aguardando leitura
-    </div>
-  </div>
-
-  <!--
-    GRÁFICO BATIMENTOS
-  -->
-  <div id="container3" onclick="closeNav()">
-    <div id='filecontents3'>
-      <h2>Monitor</h2>
-      Aguardando leitura
-    </div>
+      GRÁFICO BATIMENTOS
+    -->
+  <div id="container3">
   </div>
 
   <!-- PACIENTE -->
-  <div id="container4" onclick="closeNav()">
+  <div id="container4">
     <div id="form">
       <form onsubmit="return false">
-        <div id="field1" class="col-sm-4 col-xs-4 form-group">
-          <label for="paciente-busca" class="titleInput">Paciente</label>
-          <select class="form-control" id="paciente-busca" required onclick="showFields(2)">
-            <option value="">Escolha o paciente</option>
-          </select>
+        <div id="field1" class="col-sm-4 col-xs-1 form-group">
+          <input type="hidden" id="paciente-busca" value="">
         </div>
-        <div id="field2" class="col-sm-3 col-xs-3 form-group">
+        <div id="field2" class="col-sm-3 col-xs-4 form-group">
           <label for="dataInicial" class="titleInput">Data Inicial</label>
           <input type="date" class="form-control" id="dataInicial" maxlength="120">
         </div>
-        <div id="field3" class="col-sm-3 col-xs-3 form-group">
+        <div id="field3" class="col-sm-3 col-xs-4 form-group">
           <label for="dataFinal" class="titleInput">Data Final</label>
           <input type="date" class="form-control" id="dataFinal" maxlength="120">
         </div>
         <div class="form-group">
-          <button class="col-sm-2 col-xs-2 btn btn-success" id="buscar" onclick="getPaciente()"
+          <button class="col-sm-2 col-xs-3 btn btn-success" id="buscar" onclick="getPaciente()"
             style="margin-top: 25px;">Buscar</button>
         </div>
       </form>
