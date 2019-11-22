@@ -3,19 +3,19 @@ import json
 import requests
 from copy import deepcopy
 
-def save_in_blockchain(message, topic):
+def save_in_blockchain(message):
     msg = deepcopy(message)
     if 'dataHoraObj' in msg:
         del msg['dataHoraObj']
     if '_id' in msg:
         del msg['_id']
     data = {
-        "topic": topic,
+        "topic": "sensor",
         "message": json.dumps(msg),
         "datetime": msg['dataHora'],
         "paciente": msg["id"]
     }
-    url = 'http://localhost:3002/api/br.ita.stagioptr.SaveReadTransaction'
+    url = 'http://localhost:3000/api/br.ita.stagioptr.SaveReadTransaction'
     try:
         r = requests.post(url, json=data)
         print(r.json())

@@ -22,7 +22,7 @@ def insert_data(message, album, fields_to_convert=[], topic=''):
                                 tmp = mjson[field]
                                 if isinstance(mjson[field], str):
                                     tmp = mjson[field].replace(',', '.') 
-                                mjson[field] = float(tmp) 
+                                #mjson[field] = float(tmp) 
                     documento_id = album.insert_one(mjson).inserted_id
 
                 except Exception as e:
