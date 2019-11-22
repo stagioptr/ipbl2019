@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using STAGIOPTR.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -24,6 +25,8 @@ namespace STAGIOPTR.Database
             _connection.CreateTable<Emotional>();
             _connection.CreateTable<User>();
             _connection.CreateTable<UserLogged>();
+            _connection.CreateTable<Drugs>();
+            _connection.CreateTable<Buttons>();
         }
 
         // CRUD PATIENTS
@@ -42,7 +45,7 @@ namespace STAGIOPTR.Database
             _connection.Delete(Patient);
         }
 
-        public async Task<List<Patient>> ListPatients()
+        public List<Patient> ListPatients()
         {
             return _connection.Table<Patient>().ToList();
         }
@@ -82,7 +85,7 @@ namespace STAGIOPTR.Database
             _connection.Delete(Food);
         }
 
-        public async Task<List<Food>> ListFood()
+        public List<Food> ListFood()
         {
             return _connection.Table<Food>().ToList();
         }
@@ -115,7 +118,7 @@ namespace STAGIOPTR.Database
         {
             _connection.Insert(Feeding);
         }
-        public async Task<List<Feeding>> ListFeeding(int id)
+        public List<Feeding> ListFeeding(int id)
         {
             return _connection.Query<Feeding>("select *from Feeding where IdPatient=? order by FoodTime desc limit 6", id);
         }
@@ -126,7 +129,7 @@ namespace STAGIOPTR.Database
             _connection.Insert(Sleep);
         }
 
-        public async Task<List<Sleep>> GetSleep(int id)
+        public List<Sleep> GetSleep(int id)
         {
             return _connection.Query<Sleep>("select *from Sleep where IdPatient=? order by SleepTime desc", id);
         }
@@ -137,7 +140,7 @@ namespace STAGIOPTR.Database
             _connection.Insert(Emotional);
         }
 
-        public async Task<List<Emotional>> GetEmotional(int id)
+        public List<Emotional> GetEmotional(int id)
         {
             return _connection.Query<Emotional>("select *from Emotional where IdPatient=? order by EmotionalTime desc",id);
         }
@@ -172,6 +175,43 @@ namespace STAGIOPTR.Database
         public void DeleteLoggedUser()
         {
             _connection.DeleteAll<UserLogged>();
+        }
+
+        // CRUD BUTTONS
+        public void InsertButtons(Buttons Buttons)
+        {
+            _connection.Insert(Buttons);
+        }
+
+        public void UpdateButtons(Buttons Buttons)
+        {
+            _connection.Update(Buttons);
+        }
+
+        public void DeleteButtons(Buttons Buttons)
+        {
+            _connection.Delete(Buttons);
+        }
+
+        public List<Buttons> ListButtons(int id)
+        {
+            return _connection.Query<Buttons>("select *from Buttons where IdPatient=?", id);
+        }
+
+        //Drugs
+        public void InsertDrugs(Drugs Drugs)
+        {
+            _connection.Insert(Drugs);
+        }
+
+        public List<Drugs> GetDrugs(int id)
+        {
+            return _connection.Query<Drugs>("select *from Drugs where IdPatient=? order by Id desc", id);
+        }
+
+        public void DeleteDrugs(Drugs Drugs)
+        {
+            _connection.Delete(Drugs);
         }
     }
 }

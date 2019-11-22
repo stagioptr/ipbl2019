@@ -60,7 +60,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var foods = await database.ListFeeding(this.Patient.Id);
+            var foods = database.ListFeeding(this.Patient.Id);
             this.Feedings.Clear();
             foreach (var food in foods)
             {

@@ -1,5 +1,6 @@
 ﻿using Plugin.Messaging;
 using STAGIOPTR.Database;
+using STAGIOPTR.Helpers;
 using STAGIOPTR.Models;
 using System;
 using System.Diagnostics;
@@ -44,24 +45,21 @@ namespace STAGIOPTR.ViewModels
         public Command ShowEmotionalCommand { get; set; }
         public Command AlterPatientCommand { get; }
         public Command DelPatientCommand { get; }
-        public Command CallCommand { get; set; }
+        public Command EmergencyCommand { get; set; }
 
         public PatientViewModel()
         {
             User User = database.GetLoggedUser();
-            Debug.WriteLine("NOME DO SUJEITO: " + User.Name);
             this.Patient = database.GetPatientPerId(User.IdPatient);
             UserLogged = User;
             this.SetAccessLevel();
-            Debug.WriteLine("Button: " + this.ValidationButton);
-            Debug.WriteLine("Settings: " + this.ValidationSettings);
             LogoutCommand = new Command(this.Logout);
             ShowFeedingCommand = new Command(ExecuteShowFeedingCommand);
             ShowSleepCommand = new Command(ExecuteShowSleepCommand);
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);
             AlterPatientCommand = new Command(ExecuteAlterPatientCommand);
             DelPatientCommand = new Command(ExecuteDelPatientCommand);
-            CallCommand = new Command(ExecuteCallCommand);
+            EmergencyCommand = new Command(ExecuteEmergencyCommand);
         }
 
         public PatientViewModel(Patient patient)
@@ -77,7 +75,7 @@ namespace STAGIOPTR.ViewModels
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);
             AlterPatientCommand = new Command(ExecuteAlterPatientCommand);
             DelPatientCommand = new Command(ExecuteDelPatientCommand);
-            CallCommand = new Command(ExecuteCallCommand);
+            EmergencyCommand = new Command(ExecuteEmergencyCommand);
         }
 
         public PatientViewModel(User User)
@@ -93,7 +91,7 @@ namespace STAGIOPTR.ViewModels
             ShowEmotionalCommand = new Command(ExecuteShowEmotionalCommand);
             AlterPatientCommand = new Command(ExecuteAlterPatientCommand);
             DelPatientCommand = new Command(ExecuteDelPatientCommand);
-            CallCommand = new Command(ExecuteCallCommand);
+            EmergencyCommand = new Command(ExecuteEmergencyCommand);
         }
 
         private async void ExecuteShowFeedingCommand()
@@ -126,7 +124,7 @@ namespace STAGIOPTR.ViewModels
                 await PushAsync<PatientDeleteViewModel>(Patient);
         }
 
-        private async void ExecuteCallCommand()
+        private async void ExecuteEmergencyCommand()
         {
             if (this.ValidationButton)
             {
@@ -140,7 +138,6 @@ namespace STAGIOPTR.ViewModels
         {
             this.ValidationButton = false;
             this.ValidationSettings = false;
-            Debug.WriteLine("AccessLevel: " + this.UserLogged.AccessLevel);
             if (this.UserLogged.AccessLevel == 3)
                 this.ValidationButton = true;
             if(this.UserLogged.AccessLevel != 4 && this.UserLogged.AccessLevel != 3)

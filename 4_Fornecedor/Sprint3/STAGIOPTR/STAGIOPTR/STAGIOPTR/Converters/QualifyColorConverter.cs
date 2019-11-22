@@ -8,18 +8,18 @@ namespace STAGIOPTR.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string qualify = (string)value;
+            int qualify = (int)value;
             switch (qualify)
             {
-                case "Ótimo":
+                case 5:
                     return "#28a745";
-                case "Bom":
+                case 4:
                     return "#17a2b8";
-                case "Regular":
+                case 3:
                     return "#6c757d";
-                case "Ruim":
+                case 2:
                     return "#ffc107";
-                case "Péssimo":
+                case 1:
                     return "#dc3545";
                 default:
                     return null;

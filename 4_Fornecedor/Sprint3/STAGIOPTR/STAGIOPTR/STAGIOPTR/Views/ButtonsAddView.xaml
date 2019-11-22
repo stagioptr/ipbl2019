@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helper="clr-namespace:STAGIOPTR.Helpers"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.ButtonsAddView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Center" Text="Tipo:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Título:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Telefone:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Email:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                <Picker Title="Tipo" SelectedItem="{Binding Buttons.Type}" Grid.Row="0" Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>Familiar</x:String>
+                        <x:String>Parente</x:String>
+                        <x:String>Amigos</x:String>
+                        <x:String>Médico</x:String>
+                        <x:String>Cuidador</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry Placeholder="Título" Text="{Binding Buttons.Title}" Grid.Row="1" Grid.Column="1"/>
+                <Entry Placeholder="Telefone" Text="{Binding Buttons.Number, Mode=OneWayToSource}" Grid.Row="2" Grid.Column="1">
+                    <Entry.Behaviors>
+                        <helper:MaskBehaviorEntry MaskType="CelularTelefone" MaxLength="12"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry Placeholder="Email" Text="{Binding Buttons.Email}" Grid.Row="3" Grid.Column="1">
+                    <Entry.Behaviors>
+                        <helper:MaskBehaviorEntry MaskType="Email"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+            <Button Text="CADASTRAR" Style="{StaticResource ButtonPrimary}" Command="{Binding ButtonAddCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

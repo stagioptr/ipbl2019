@@ -89,7 +89,8 @@
                     <Label Text="Descrição" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </Frame>
-            <Button Text="HELP ME PLEASE ! ! !" Style="{StaticResource ButtonDanger}" Command="{Binding CallCommand}" IsVisible="{Binding ValidationButton}"/>
+            <Button Text="HELP ME PLEASE ! ! !" Style="{StaticResource ButtonDanger}" Command="{Binding EmergencyCommand}" IsVisible="{Binding ValidationButton}"/>
+            <Button Text="TEMPO REAL" Style="{StaticResource ButtonPrimary}" Command="{Binding RealTimeCommand}" IsVisible="{Binding ValidationButtonRealTime}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

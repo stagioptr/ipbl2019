@@ -2,13 +2,17 @@
 using STAGIOPTR.Models;
 using System;
 using System.Globalization;
+using STAGIOPTR.MongoModels;
 using Xamarin.Forms;
+using STAGIOPTR.Helpers;
 
 namespace STAGIOPTR.ViewModels
 {
     public class EmotionalAddViewModel : BaseViewModel
     {
         DatabaseConnection database = new DatabaseConnection();
+        MongoDatabase mongo = new MongoDatabase();
+
         private Patient _patient;
         public Command LogoutCommand { get; set; }
         public Command VerySatisfiedCommand { get; }
@@ -63,32 +67,52 @@ namespace STAGIOPTR.ViewModels
 
         public void ExecuteVerySatisfiedCommand()
         {
-            this.Emotional.Quality = "Ótimo";
+            this.Emotional.Quality = 5;
             this.ExecuteAddEmotionalCommand();
+            this.SendMongo();
         }
 
         public void ExecuteSatisfiedCommand()
         {
-            this.Emotional.Quality = "Bom";
+            this.Emotional.Quality = 4;
             this.ExecuteAddEmotionalCommand();
+            this.SendMongo();
         }
 
         public void ExecuteNormalCommand()
         {
-            this.Emotional.Quality = "Regular";
+            this.Emotional.Quality = 3;
             this.ExecuteAddEmotionalCommand();
+            this.SendMongo();
         }
 
         public void ExecuteDissatisfiedCommand()
         {
-            this.Emotional.Quality = "Ruim";
+            this.Emotional.Quality = 2;
             this.ExecuteAddEmotionalCommand();
+            this.SendMongo();
         }
 
         public void ExecuteVeryDissatisfiedCommand()
         {
-            this.Emotional.Quality = "Péssimo";
+            this.Emotional.Quality = 1;
             this.ExecuteAddEmotionalCommand();
+            this.SendMongo();
+        }
+
+        private async void SendMongo()
+        {
+            Coordinates Coordinates = await Location.GetLocation();
+            EmotionalTopic emotional = new EmotionalTopic()
+            {
+                IdPatient = this.Patient.CPF,
+                DataHora = this.Emotional.EmotionalTime,
+                Quality = this.Emotional.Quality,
+                Latitude = Coordinates.Latitude,
+                Longitude = Coordinates.Longitude,
+                Altitude = Coordinates.Altitude
+            };
+            mongo.InsertEmotional(emotional);
         }
 
     }

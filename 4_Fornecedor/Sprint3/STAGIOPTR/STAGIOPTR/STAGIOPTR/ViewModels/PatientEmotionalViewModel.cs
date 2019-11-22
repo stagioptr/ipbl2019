@@ -60,7 +60,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var emotionals = await database.GetEmotional(this.Patient.Id);
+            var emotionals = database.GetEmotional(this.Patient.Id);
             this.Emotional.Clear();
             foreach (var emotional in emotionals)
             {

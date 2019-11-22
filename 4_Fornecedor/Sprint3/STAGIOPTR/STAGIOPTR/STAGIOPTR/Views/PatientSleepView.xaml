@@ -11,6 +11,7 @@
         <ResourceDictionary>
             <converter:QualifyConverter x:Key="QualifyConverter"/>
             <converter:QualifyColorConverter x:Key="QualifyColorConverter"/>
+            <converter:QualifyNameConverter x:Key="QualifyNameConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -44,7 +45,7 @@
                                WidthRequest="60" 
                                BackgroundColor="{Binding Quality, Converter={StaticResource QualifyColorConverter}}"/>
                                 <Label Grid.Column="1"
-                               Text="{Binding Quality}"
+                               Text="{Binding Quality, Converter={StaticResource QualifyNameConverter}}"
                                TextColor="{Binding Quality, Converter={StaticResource QualifyColorConverter}}"
                                FontAttributes="Bold" />
                                 <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">

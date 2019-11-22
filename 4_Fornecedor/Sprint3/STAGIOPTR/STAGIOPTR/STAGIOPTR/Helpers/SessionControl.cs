@@ -7,9 +7,10 @@ namespace STAGIOPTR.Helpers
     {
         DatabaseConnection Database = new DatabaseConnection();
 
-        public User GetSession()
+        public int GetSession()
         {
-            return Database.GetLoggedUser();
+            User User = Database.GetLoggedUser();
+            return (User == null) ? 0 : User.AccessLevel;
         }
     }
 }

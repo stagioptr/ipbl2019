@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.PatientDrugsView"
+             Title="Medicamentos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ADD" Command="{Binding AddDrugsCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Drugs}"
+                ItemSelected="ListView_ItemSelected"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadDrugsCommand}"
+                IsRefreshing="{Binding IsLoading}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ImageButton CornerRadius="10" Grid.RowSpan="2"
+                               Source="healing_white.png"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60" 
+                               BackgroundColor="{StaticResource Primary}"/>
+                                <Label Grid.Column="1"
+                               Text="{Binding Name}"
+                               TextColor="{StaticResource Dark}"
+                               FontAttributes="Bold" 
+                               FontSize="Large"/>
+                                <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                    <Label Text="{Binding Start, StringFormat='Inicio: {0}'}"/>
+                                    <Label Text="{Binding Period, StringFormat='| Durante: {0} mês(s)'}"/>
+                                </StackLayout>
+                            </Grid>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir" IsDestructive="true" Clicked="DeleteAction" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

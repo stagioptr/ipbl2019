@@ -61,7 +61,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var sleeps = await database.GetSleep(this.Patient.Id);
+            var sleeps = database.GetSleep(this.Patient.Id);
             this.Sleep.Clear();
             foreach (var sleep in sleeps)
             {

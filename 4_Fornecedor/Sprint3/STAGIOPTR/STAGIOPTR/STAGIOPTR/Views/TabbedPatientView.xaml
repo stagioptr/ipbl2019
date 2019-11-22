@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:STAGIOPTR.Views"
+             x:Class="STAGIOPTR.Views.TabbedPatientView"
+             Title="STAGIOP-TR">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem IconImageSource="power.png" Command="{Binding LogoutCommand}" Priority="1"/>
+    </TabbedPage.ToolbarItems>
+    <TabbedPage.Children>
+        <views:ButtonsView Title="Comunicação" IconImageSource="buttons.png"/>
+        <views:PatientDrugsView Title="Medicamentos" IconImageSource="healing_white.png"/>
+    </TabbedPage.Children>
+</TabbedPage>

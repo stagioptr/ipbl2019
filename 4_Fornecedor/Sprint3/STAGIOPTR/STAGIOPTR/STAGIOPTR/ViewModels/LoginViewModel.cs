@@ -2,12 +2,15 @@
 using STAGIOPTR.Database;
 using Xamarin.Forms;
 using System.Diagnostics;
+using STAGIOPTR.Helpers;
 
 namespace STAGIOPTR.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
         DatabaseConnection database = new DatabaseConnection();
+
+        MongoDatabase mongoDatabase = new MongoDatabase();
 
         public Command LoginCommand { get; }
 
@@ -47,6 +50,7 @@ namespace STAGIOPTR.ViewModels
 
         public LoginViewModel()
         {
+            //this.mongoDatabase.GetSensor();
             this.User = new User();
             LoginCommand = new Command(ExecuteLoginCommand);
             SignupCommand = new Command(ExecuteSignupCommand);
@@ -74,10 +78,18 @@ namespace STAGIOPTR.ViewModels
             User User = this.ValidationRules();
             if (User != null)
             {
-                if(User.AccessLevel==1)
-                    LoginAsync<MainViewModel>();
-                else
-                    LoginAsync<PatientViewModel>(User);
+                switch (User.AccessLevel)
+                {
+                    case 1:
+                        LoginAsync<MainViewModel>();
+                        break;
+                    case 3:
+                        LoginAsync<TabbedPatientViewModel>();
+                        break;
+                    case 4:
+                        LoginAsync<PatientViewModel>(User);
+                        break;
+                }
             }
         }
 

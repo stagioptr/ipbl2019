@@ -22,6 +22,7 @@ namespace STAGIOPTR.Views
             {
                 _viewModel.ShowPatientCommand.Execute(e.SelectedItem);
             }
+            ((ListView)sender).SelectedItem = null;
         }
 
         protected override void OnAppearing()

@@ -15,6 +15,6 @@ namespace STAGIOPTR.Models
         [NotNull]
         public DateTime EmotionalTime { get; set; }
         [NotNull]
-        public string Quality { get; set; } 
+        public int Quality { get; set; } 
     }
 }

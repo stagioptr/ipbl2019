@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.DrugsAddView">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Center" Text="Medicamento:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Inicio Tratamento:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Periodo:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                <Label VerticalOptions="Center" Text="Qtd/Dia:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                <Entry Placeholder="Nome" Text="{Binding Drugs.Name}" Grid.Row="0" Grid.Column="1"/>
+                <DatePicker Format="dd/MM/yyyy" Date="{Binding Drugs.Start, StringFormat='{0:dd/MM/yyyy}', Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1"/>
+                <Entry Placeholder="Período(mês)" Keyboard="Numeric" Text="{Binding Drugs.Period, Mode=OneWayToSource}" Grid.Row="2" Grid.Column="1"/>
+                <Entry Placeholder="QTD/DIA" Keyboard="Numeric" Text="{Binding Drugs.Period, Mode=OneWayToSource}" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
+            <Editor AutoSize="TextChanges" Text="{Binding Drugs.Comments}"/>
+            <Button Text="CADASTRAR" Style="{StaticResource ButtonPrimary}" Command="{Binding AddDrugsCommand}" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

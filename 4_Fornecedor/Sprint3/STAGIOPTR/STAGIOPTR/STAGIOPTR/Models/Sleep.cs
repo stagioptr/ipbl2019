@@ -13,7 +13,7 @@ namespace STAGIOPTR.Models
         [Ignore]
         public Patient Patient { get; set; }
         public DateTime SleepTime { get; set; } 
-        public float Duration { get; set; }
-        public string Quality { get; set; }
+        public int Duration { get; set; }
+        public int Quality { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using STAGIOPTR.Views;
 using STAGIOPTR.Helpers;
 using Xamarin.Forms;
+using System;
 
 namespace STAGIOPTR
 {
@@ -10,14 +11,21 @@ namespace STAGIOPTR
         {
             InitializeComponent();
             SessionControl Session = new SessionControl();
-            if(Session.GetSession()==null)
-                MainPage = new NavigationPage(new LoginView());
-            else
+            int AccessLevel = Session.GetSession();
+            switch (AccessLevel)
             {
-                if(Session.GetSession().AccessLevel == 1)
+                case 0:
+                    MainPage = new NavigationPage(new LoginView());
+                    break;
+                case 1:
                     MainPage = new NavigationPage(new MainView());
-                else
+                    break;
+                case 3:
+                    MainPage = new NavigationPage(new TabbedPatientView());
+                    break;
+                case 4:
                     MainPage = new NavigationPage(new PatientView());
+                    break;
             }
         }
 

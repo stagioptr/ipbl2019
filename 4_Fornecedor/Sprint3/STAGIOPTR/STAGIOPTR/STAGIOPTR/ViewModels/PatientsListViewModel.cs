@@ -34,7 +34,7 @@ namespace STAGIOPTR.ViewModels
 
         public PatientsListViewModel()
         {
-            _patients = new ObservableCollection<Patient>();
+            Patients = new ObservableCollection<Patient>();
             this.IsLoading = true;
             _ = this.LoadAsync();
             AddPatientCommand = new Command(ExecuteAddPatientCommand);
@@ -54,7 +54,7 @@ namespace STAGIOPTR.ViewModels
 
         public override async Task LoadAsync()
         {
-            var patients = await database.ListPatients();
+            var patients = database.ListPatients();
             this.Patients.Clear();
             foreach (var patient in patients)
             {

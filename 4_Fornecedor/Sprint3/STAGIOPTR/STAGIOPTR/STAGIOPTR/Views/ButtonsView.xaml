@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAGIOPTR.Views.ButtonsView"
+             Title="STAGIOP-TR">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ADD" Command="{Binding AddButtonCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView                
+                HasUnevenRows="true"
+                SeparatorVisibility="None"
+                ItemsSource="{Binding Buttons}"
+                ItemSelected="ListView_ItemSelected"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding LoadButtonsCommand}"
+                IsRefreshing="{Binding IsLoading}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="{StaticResource Primary}" Margin="15,5" Padding="20" CornerRadius="10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                    <Frame HeightRequest="80" WidthRequest="80" CornerRadius="40" Padding="0" VerticalOptions="CenterAndExpand" IsClippedToBounds="True">
+                                        <Image Source="perm_identity_black_2dp.png" Aspect="AspectFill"/>
+                                    </Frame>
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="0">
+                                        <Label Text="{Binding Title}" TextColor="{StaticResource Light}" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Number}" TextColor="{StaticResource Light}" FontSize="Large"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir" IsDestructive="true" Clicked="DeleteAction" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="EMERGÊNCIA" Command="{Binding EmergencyCommand}" Style="{StaticResource ButtonDanger}" Margin="15,5" Padding="20" CornerRadius="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,6 +9,18 @@ namespace STAGIOPTR.Droid
     [Activity(Label = "STAGIOPTR", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        readonly string[] Permission =
+        {
+            Android.Manifest.Permission.CallPhone,
+            Android.Manifest.Permission.AccessCoarseLocation,
+            Android.Manifest.Permission.AccessFineLocation,
+            Android.Manifest.Permission.AccessNetworkState,
+            Android.Manifest.Permission.ReadContacts,
+            Android.Manifest.Permission.Internet
+        };
+
+        const int RequestId = 0;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -18,6 +30,7 @@ namespace STAGIOPTR.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             CrossMessaging.Current.Settings().Phone.AutoDial = true;
+            RequestPermissions(Permission, RequestId);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

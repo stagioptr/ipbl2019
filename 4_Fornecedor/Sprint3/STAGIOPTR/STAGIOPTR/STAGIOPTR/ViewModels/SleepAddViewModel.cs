@@ -1,5 +1,7 @@
 ﻿using STAGIOPTR.Database;
+using STAGIOPTR.Helpers;
 using STAGIOPTR.Models;
+using STAGIOPTR.MongoModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +12,8 @@ namespace STAGIOPTR.ViewModels
     public class SleepAddViewModel : BaseViewModel
     {
         DatabaseConnection database = new DatabaseConnection();
+        MongoDatabase mongo = new MongoDatabase();
+
         private Patient _patient;
         public Command LogoutCommand { get; set; }
         public Command VerySatisfiedCommand { get; }
@@ -65,32 +69,53 @@ namespace STAGIOPTR.ViewModels
 
         public void ExecuteVerySatisfiedCommand()
         {
-            this.Sleep.Quality = "Ótimo";
+            this.Sleep.Quality = 5;
             this.ExecuteAddSleepCommand();
+            this.SendMongo();
         }
 
         public void ExecuteSatisfiedCommand()
         {
-            this.Sleep.Quality = "Bom";
+            this.Sleep.Quality = 4;
             this.ExecuteAddSleepCommand();
+            this.SendMongo();
         }
 
         public void ExecuteNormalCommand()
         {
-            this.Sleep.Quality = "Regular";
+            this.Sleep.Quality = 3;
             this.ExecuteAddSleepCommand();
+            this.SendMongo();
         }
 
         public void ExecuteDissatisfiedCommand()
         {
-            this.Sleep.Quality = "Ruim";
+            this.Sleep.Quality = 2;
             this.ExecuteAddSleepCommand();
+            this.SendMongo();
         }
 
         public void ExecuteVeryDissatisfiedCommand()
         {
-            this.Sleep.Quality = "Péssimo";
+            this.Sleep.Quality = 1;
             this.ExecuteAddSleepCommand();
+            this.SendMongo();
+        }
+
+        private async void SendMongo()
+        {
+            Coordinates Coordinates = await Location.GetLocation();
+            SleepTopic sleep = new SleepTopic()
+            {
+                IdPatient = this.Patient.CPF,
+                DataHora = this.Sleep.SleepTime,
+                Quality = this.Sleep.Quality,
+                Duration = this.Sleep.Duration,
+                Latitude = Coordinates.Latitude,
+                Longitude = Coordinates.Longitude,
+                Altitude = Coordinates.Altitude
+            };
+            mongo.InsertSleep(sleep);
         }
     }
 }
