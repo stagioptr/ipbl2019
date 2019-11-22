@@ -549,7 +549,7 @@ msg_queue_handler_t OSA_MsgQCreate(msg_queue_t *queue,
                                         uint16_t  message_number,
                                         uint16_t  message_size)
 {
-    return xQueueCreate(message_number, message_size*sizeof(uint32_t));
+    return xQueueCreate(message_number, message_size);
 }
 
 static osa_status_t OSA_MessageQueuePutFromTask(msg_queue_handler_t handler, void* pMessage)

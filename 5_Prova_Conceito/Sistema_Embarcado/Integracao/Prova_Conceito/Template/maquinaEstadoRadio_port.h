@@ -34,11 +34,29 @@ typedef enum {
 	RADIO_FALHA_DESCONFIGURACAO,
 }RADIO_RETORNO;
 
-float valorATransmitir = 0;
+struct {
+	float temperature;
+	float acceletrometer_x;
+	float acceletrometer_y;
+	float acceletrometer_z;
+	float gyro_x;
+	float gyro_y;
+	float gyro_z;
+	uint32_t deviceID;
+}sendPackage = {
+		.temperature = 0.0,
+		.acceletrometer_x = 0.0,
+		.acceletrometer_y = 0.0,
+		.acceletrometer_z = 0.0,
+		.gyro_x = 0.0,
+		.gyro_y = 0.0,
+		.gyro_z = 0.0,
+		.deviceID = 0
+};
 
 static NRF24L01_transferSetupStruct_t transmitSetup = {
-		.payload = (uint8_t*)&valorATransmitir,
-		.payloadWidth = sizeof(float),
+		.payload = (uint8_t*)&sendPackage,
+		.payloadWidth = sizeof(sendPackage),
 		.address = { 0x10, 0x20, 0x30, 0x40, 0x01 },
 		.addressLength = 5
 };
@@ -48,6 +66,8 @@ static NRF24L01_transferSetupStruct_t transmitSetup = {
 static RADIO_RETORNO CONFIGURA_RADIO_PORT(void) {
 	if( nRF24L01_Init() != NRF24L01_STATE_SUCCESS )
 		return RADIO_FALHA_CONFIGURACAO;
+
+	sendPackage.deviceID = SIM_UIDMH;
 
 	return RADIO_CONFIGURACAO_OK;
 }
@@ -65,13 +85,16 @@ static RADIO_RETORNO AGUARDA_TEMPO_TRANSMISSAO_PORT(void) {
 static RADIO_RETORNO TRANSMITE_AMOSTRAS_PORT(void) {
 	uint8_t radio_status = 0;
 
-	if( OSA_MsgQGet( temperature_msg_queue_handler, &valorATransmitir, 2000 ) != kStatus_OSA_Success ) {
+	if( OSA_MsgQGet( temperature_msg_queue_handler, &sendPackage.temperature, 2000 ) != kStatus_OSA_Success ) {
 		debug_printf("No data to send!\n\r");
 		return RADIO_FALHA_TRANSMISSAO;
 	}
 
 #if DEBUG
-	debug_printf("%5.2f Celsius Degree: ", valorATransmitir );
+	debug_printf("%5.2f Celsius Degree\r\n", sendPackage.temperature );
+	debug_printf("X: %5.2f; Y: %5.2f; Z: %5.2f\r\n", sendPackage.acceletrometer_x, sendPackage.acceletrometer_y, sendPackage.acceletrometer_z );
+	debug_printf("X: %5.2f; Y: %5.2f; Z: %5.2f\r\n", sendPackage.gyro_x, sendPackage.gyro_y, sendPackage.gyro_z );
+	debug_printf("Device ID: %d\r\n\r\n", sendPackage.deviceID );
 #endif
 
 	if( nRF24L01_transmitPayload( &transmitSetup ) != NRF24L01_STATE_SUCCESS )

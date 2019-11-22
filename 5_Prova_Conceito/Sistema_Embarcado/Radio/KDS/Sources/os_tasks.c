@@ -128,6 +128,20 @@ void TaskRadio2_task(os_task_param_t task_init_data) {
  **     Returns : Nothing
  ** ===================================================================
  */
+
+typedef struct {
+	float temperature;
+	float acceletrometer_x;
+	float acceletrometer_y;
+	float acceletrometer_z;
+	float gyro_x;
+	float gyro_y;
+	float gyro_z;
+	uint32_t deviceID;
+}receivedPackage_s;
+
+#define	RECEIVE_STRUCT(BUFF)			((receivedPackage_s*)BUFF)
+
 void TaskRadio1_task(os_task_param_t task_init_data) {
 	/* Write your local variable definition here */
 	uint8_t transmitPayload[16] = "Trasmitindo1";
@@ -142,7 +156,7 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 	NRF24L01_transferSetupStruct_t receiveSetup = {
 			.payload = receivePayload,
-			.payloadWidth = sizeof(float),
+			.payloadWidth = sizeof(receivedPackage_s),
 			.address = { 0x10, 0x20, 0x30, 0x40, 0x01 },
 			.addressLength = 5
 	};
@@ -163,7 +177,12 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 
 		if( xSemaphoreTake( nRF24L01_Radio1_IRQ, pdMS_TO_TICKS(2000) ) == pdFALSE ){
 //			while(1);
+			debug_printf("Start\n");
 			debug_printf("-1.00\n");
+			debug_printf("-1.00\n");
+			debug_printf("X: -1.00; Y: -1.00; Z: -1.00\n");
+			debug_printf("X: -1.00; Y: -1.00; Z: -1.00\n");
+			debug_printf("End\n");
 			GPIO_DRV_WritePinOutput(LEDRGB_RED, 0);
 		}
 
@@ -178,13 +197,19 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 		}
 
 		if( radio1_status & NRF24L01_RX_DR ) {
-			float temperature = 0.0;
-
 			L01_Read_RX_Pload( receivePayload );
 			L01_Clear_IRQ( NRF24L01_RX_DR );
 
-			temperature = *((float*)receivePayload);
-			debug_printf("%5.2f\n", temperature );
+			debug_printf("Start\n%d\n%5.2f\nX: %5.2f; Y: %5.2f; Z: %5.2f\nX: %5.2f; Y: %5.2f; Z: %5.2f\nEnd\n",
+					RECEIVE_STRUCT(receivePayload)->deviceID,
+					RECEIVE_STRUCT(receivePayload)->temperature,
+					RECEIVE_STRUCT(receivePayload)->acceletrometer_x,
+					RECEIVE_STRUCT(receivePayload)->acceletrometer_y,
+					RECEIVE_STRUCT(receivePayload)->acceletrometer_z,
+					RECEIVE_STRUCT(receivePayload)->gyro_x,
+					RECEIVE_STRUCT(receivePayload)->gyro_y,
+					RECEIVE_STRUCT(receivePayload)->gyro_z
+			);
 		}
 
 #ifdef PEX_USE_RTOS
