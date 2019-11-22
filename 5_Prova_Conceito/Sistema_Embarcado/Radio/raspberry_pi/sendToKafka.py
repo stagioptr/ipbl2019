@@ -25,6 +25,7 @@ while 1:
 	start=ser.readline().rstrip()
 	if (start == "Start"):
 		deviceID = ser.readline().rstrip()
+		deviceID = ("200.234.583-05")
 		temperature = ser.readline().rstrip()
 		accelerometer = ser.readline().rstrip()
 		gyro = ser.readline().rstrip()
@@ -35,8 +36,8 @@ while 1:
 			documento = {
 				'id' : deviceID,
 				'dataHora' : dt_string,
-				'temperatura' : temperature,
-				'umidade' : 0,
+				'temperatura' : float(temperature),
+				'umidade' : 40,
 				'acelerometro' : accelerometer,
 				'giroscopio' : gyro
 			}
