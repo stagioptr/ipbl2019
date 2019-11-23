@@ -1,855 +1,937 @@
-﻿<html>
-
-<head>
-  <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
-  <meta http-equiv="pragma" content="no-cache">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
-
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
-  <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
-  <script src="https://code.highcharts.com/7.2.0/highcharts.js"></script>
-  <script src="https://code.highcharts.com/7.2.0/modules/data.js"></script>
-  <script src="https://code.highcharts.com/7.2.0/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/7.2.0/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/7.2.0/modules/export-data.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-  <style>
-    body {
-      background-color: #5bb2f7;
-    }
-
-    .logo {
-      z-index: 1000;
-      width: 100px;
-    }
-
-    .logo img {
-      width: 100px;
-    }
-
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-      z-index: 2;
-      position: fixed;
-      width: 100%;
-    }
-
-    .navbar-header {
-      padding-top: 8px;
-    }
-
-    .separador {
-      color: #fff;
-      padding-top: 16px;
-      font-weight: bold;
-    }
-
-    .alerta {
-      position: absolute;
-      top: 15px;
-      right: 10px;
-      z-index: 1000;
-      color: white;
-    }
-
-    #container,
-    #container2,
-    #container3,
-    #container4 {
-      box-sizing: border-box;
-      left: 5%;
-      top: 60px;
-      position: fixed;
-      z-index: 0;
-      border-radius: 10px;
-      padding: 30px;
-      background-color: #fff;
-      height: 75%;
-      margin-bottom: 100px;
-      width: 90%;
-    }
-
-    #form {
-      position: absolute;
-      background-color: #ddf;
-      height: 80px;
-      border-radius: 10px 10px 0 0;
-      margin-left: -30px;
-      margin-top: -30px;
-      width: 100%;
-      padding-left: 10%;
-      padding-right: 90px;
-      box-sizing: border-box;
-    }
-
-    #loadingPacientes {
-      margin-top: -34px;
-    }
-
-    .setaV {
-      display: none;
-    }
-
-    #graph {
-      box-sizing: border-box;
-      position: absolute;
-      top: 80px;
-      width: calc(100% - 50px);
-      height: calc(100% - 80px);
-      left: 0;
-      overflow: hidden;
-    }
-
-    #icons {
-      position: absolute;
-      right: 0;
-      width: 50px;
-      top: 80px;
-      font-size: 24px;
-      color: #fff;
-      background-color: #337ab7;
-      height: calc(100% - 80px);
-      border-radius: 0 0 10px 0;
-      display: none;
-    }
-
-    #icons a:link,
-    #icons a:visited {
-      color: #fff;
-    }
-
-    #icons span {
-      padding: 10px;
-      left: 3px;
-    }
-
-    #icons span:hover {
-      background-color: #448bc8;
-    }
-
-    #graficoTemperatura,
-    #graficoUmidade,
-    #graficoGiroscopio,
-    #graficoAcelerometro {
-      height: 100%;
-      border-radius: 0 0 0 10px;
-    }
-
-    .ordem {
-      display: inline-block;
-      width: 100px;
-      text-align: right;
-      padding-right: 10px;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 10px;
-      height: 80px;
-      bottom: 0;
-      z-index: 1002;
-    }
-
-    footer img {
-      margin-top: -30px;
-      width: 220px;
-    }
-
-    footer h2 {
-      font-size: 16px;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .assinatura {
-      left: 0;
-    }
-
-    @media screen and (min-width: 1280px) {
+<html>
+  <head>
+    <title>Projeto STAGIOP-TR - Programa de Pós-Gradução do ITA</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.highcharts.com/media/com_demo/css/highslide.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.5.6/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+    <script src="https://code.highcharts.com/7.2.0/highcharts.js"></script>
+    <script src="https://code.highcharts.com/7.2.0/modules/data.js"></script>
+    <script src="https://code.highcharts.com/7.2.0/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/7.2.0/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/7.2.0/modules/export-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    
+    <style>
+      body {
+        background-color: #5bb2f7;
+      }
+      .logo {
+        z-index: 1000;
+        width: 100px;
+      }
+      .logo img {
+        width: 100px;
+      }
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        z-index: 2;
+        position: fixed;
+        width: 100%;
+      }
+      .navbar-header {
+        padding-top: 8px;
+      }
+      .separador {
+        color: #fff;
+        padding-top: 16px;
+        font-weight: bold;
+      }
+      .alerta {
+        position: absolute; 
+        top: 15px; 
+        right: 10px; 
+        z-index: 1000; 
+        color: white;
+      }
+      .mensagem {
+        position: absolute;
+        top: 37px;
+        right: -10px;
+        padding: 10px;
+        padding-left: 20px;
+        background-color: #3990d5;
+        width: 250px;
+        height: auto;
+        z-index: 2000;
+        color: #fff;
+        border-radius: 0 0 0 10px;
+      }
+      #container,
+      #container2,
+      #container3,
+      #container4 {
+        box-sizing: border-box;
+        left: 5%;
+        top: 60px;
+        position: fixed;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 30px;
+        background-color: #fff;
+        height: 75%;
+        margin-bottom: 100px;
+        width: 90%;
+      }
+      #form {
+        position: absolute;
+        background-color: #ddf;
+        height: 80px;
+        border-radius: 10px 10px 0 0;
+        margin-left: -30px;
+        margin-top: -30px;
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 90px;
+        box-sizing: border-box;
+      }
+      #loadingPacientes {
+        margin-top: -34px;
+      }
+      .setaV {
+        display: none;
+      }
+      #graph {
+        box-sizing: border-box;
+        position: absolute;
+        top: 80px;
+        width: calc(100% - 50px);
+        height: calc(100% - 80px);
+        left: 0;
+        overflow: hidden;
+      }
+      #icons {
+        position: absolute;
+        right: 0;
+        width: 50px;
+        top: 80px;
+        font-size: 24px;
+        color: #fff;
+        background-color: #337ab7;
+        height: calc(100% - 80px);
+        border-radius: 0 0 10px 0;
+        display: none;
+      }
+      #icons a:link,
+      #icons a:visited {
+        color: #fff;
+      }
+      #icons span {
+        padding: 10px;
+        left: 3px;
+      }
+      #icons span:hover {
+        background-color: #448bc8;
+      }
+      #graficoTemperatura,
+      #graficoUmidade,
+      #graficoGiroscopio,
+      #graficoAcelerometro {
+        height: 100%;
+        border-radius: 0 0 0 10px;
+      }
       .ordem {
-        width: 120px;
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        padding-right: 10px;
       }
-
       footer {
-        font-size: 16px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
       }
-
-      footer h2 {
-        font-size: 20px;
+      footer {
+        background-color: #555;
+        color: white;
+        padding: 10px;
+        height: 80px;
+        bottom: 0;
+        z-index: 1002;
       }
-
       footer img {
         margin-top: -30px;
-        width: 250px;
+        width: 220px;
       }
-    }
-
-    @media screen and (max-width: 850px) {
-      .separador:first-child {
-        width: 0;
-        opacity: 0;
-      }
-    }
-
-    @media screen and (max-width: 767px) {
-      .logo {
-        margin-top: -10px;
-        margin-left: -20px;
-      }
-
-      .logo img {
-        width: 90px;
-      }
-
-      .row.content {
-        height: auto;
-      }
-
-      .navbar-nav {
-        position: relative;
-        display: inline;
-        width: 200px;
-        right: 0;
-        z-index: 999;
-        float: right;
-      }
-
-      .navbar-right {
-        position: absolute;
-        display: inline;
-        right: 20px;
-        top: 120px;
-        width: 190px;
-        background-color: #333;
-      }
-
-      .separador:first-child {
-        width: 100px;
-        opacity: 1;
-      }
-
-      .alerta {
-        right: 100px;
-      }
-
-      #form {
-        background-color: #ddf;
-        height: 40px;
-        margin-left: -10px;
-        margin-top: -20px;
-        padding-right: 10px;
-        z-index: 2000 !important;
-      }
-
-      #loadingPacientes {
-        margin-top: -26px;
-      }
-
-      .setaV {
-        display: inline-block;
-      }
-
-      #icons {
-        top: 30px;
-        height: 100%;
-      }
-
-      #container,
-      #container2,
-      #container3,
-      #container4 {
-        padding: 10px;
-        height: 72%;
-        left: 45px;
-      }
-
-      #graph {
-        top: 30px;
-        z-index: 0 !important;
-        height: 100%;
-      }
-
-      footer {
-        height: 62px;
-        bottom: 0;
-        padding: 4px;
-        font-size: 9pt;
-      }
-
-      footer img {
-        width: 150px;
-        margin-top: -20px;
-      }
-
-      .assinatura {
-        left: 30px;
-      }
-    }
-
-    @media screen and (max-width: 450px) {
-      .logo img {
-        width: 70px;
-      }
-
-      #form {
-        height: 90px;
-        padding-bottom: 20px;
-        z-index: 2000;
-        overflow: none;
-      }
-
-      #field2,
-      #field3,
-      #buscar {
-        display: none;
-      }
-
-      #loadingPacientes {
-        margin-top: -50px;
-      }
-
-      .setaV {
-        display: none;
-      }
-
-      #container,
-      #container2,
-      #container3,
-      #container4 {
-        padding: 10px;
-        height: 75%;
-        left: 30px;
-      }
-
-      #graph,
-      #icons {
-        top: 70px;
-      }
-
-      footer {
-        height: 64px;
-        padding: 5px;
-        bottom: 0;
-        font-size: 8pt;
-      }
-
-      footer img {
+      footer h2 {
+        font-size: 16px;
+        font-weight: bold;
         margin: 0;
-        width: 120px;
       }
-    }
-  </style>
-
-  <script>
-    const BASE_URL = 'http://34.68.34.160:5010'
-    let realTimeInterval = null
-
-    function getPacienteId() {
-      var address = window.location.href;
-      var resto = address.split('=');
-      var id_pac = resto[1].split('#');
-
-      console.log(id_pac[0]);
-      $('#paciente-busca').val(id_pac[0]);
-    }
-    function nivel(niv) {
-      if (niv == 1)
-        $('.nivel').css('color', 'lightgreen');
-      else if (niv == 2)
-        $('.nivel').css('color', 'yellow');
-      else
-        $('.nivel').css('color', 'red');
-      $('.nivel').css('transition', 'font-size .1s, top .1s, left .1s');
-      setInterval(function () {
-        $('.nivel').css('font-size', '13px');
-        $('.nivel').css('top', '0');
-        $('.nivel').css('left', '0');
-      }, 200);
-      setInterval(function () {
-        $('.nivel').css('font-size', '16px');
-        $('.nivel').css('top', '2px');
-        $('.nivel').css('left', '-1px');
-      }, 600);
-    }
-    function mostrarSwal(title, type, text, isHtml) {
-      config = {
-        title: title,
-        type: type,
-        showCloseButton: true,
-        showCancelButton: false,
-        confirmButtonText: 'OK'
+      .assinatura {
+        left: 0;
       }
-      if (isHtml) {
-        config.html = text
-      } else {
-        config.text = text
-      }
-      swal(config)
-    }
-    function mostrarErro(e) {
-      var text = '';
-      if (e.responseJSON.message) {
-        text += e.responseJSON.message + '<br><br>Erro(s):'
-      }
-      if (e.responseJSON.errors) {
-        text += JSON.stringify(e.responseJSON.errors)
-      }
-      mostrarSwal('Atenção', 'error', text, true)
-    }
-    function plotGraph(data, name, container, x) {
-      Highcharts.chart(container, {
-        boost: {
-          useGPUTranslations: true
-        },
-        chart: {
-          type: 'line'
-        },
-        line: {
-          marker: {
-            enabled: false
-          }
-        },
-        title: {
-          text: name
-        },
-        xAxis: {
-          categories: x,
-          labels: {
-            format: '{value:%H:%M:%S}'
-          }
-        },
-        yAxis: {
-          title: {
-            text: 'Valor'
-          },
-          plotLines: [{
-            value: 0,
-            width: 1,
-            color: '#808080'
-          }]
-        },
-        tooltip: {
-          headerFormat: '<b>{series.name}</b><br/>',
-          pointFormat: '{point.category:%d/%m/%Y %H:%M:%S}<br/>{point.y:.2f}'
-        },
-        legend: {
-          enabled: false
-        },
-        exporting: {
-          enabled: false
-        },
-        series: data
-      });
-    }
-    function getAllPacientes() {
-      $.ajax({
-        type: "GET",
-        url: `${BASE_URL}/ids-paciente`,
-        success: function (resultado) {
-          resultado.forEach(d => {
-            var o = new Option(d, d);
-            $(o).html(d);
-            $("#paciente-busca").append(o);
-          })
-        },
-        error: function (e) {
-          mostrarErro(e)
+      @media screen and (min-width: 1280px) {
+        .ordem {
+          width: 120px;
         }
-      });
-    }
-    function plotGraphRealTime(value, container) {
-      Highcharts.chart(container, {
-        chart: {
-          type: 'spline',
-          animation: false,//Highcharts.svg, // don't animate in old IE
-          marginRight: 10,
-        },
-        time: {
-          useUTC: false
-        },
-        title: {
-          text: value.name
-        },
-        xAxis: {
-          labels: {
-            format: '{value:%H:%M:%S}'
+        footer {
+          font-size: 16px;
+        }
+        footer h2 {
+          font-size: 20px;
+        }
+        footer img {
+          margin-top: -30px;
+          width: 250px;
+        }
+      }
+      @media screen and (max-width: 850px) {
+        .separador:first-child {
+          width: 0;
+          opacity: 0;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        .logo {
+          margin-top: -10px;
+          margin-left: -20px;
+        }
+        .logo img {
+          width: 90px;
+        }
+        .row.content {
+          height: auto;
+        }
+        .navbar-nav {
+          position: relative;
+          display: inline;
+          width: 200px;
+          right: 0;
+          z-index: 999;
+          float: right;
+        }
+        .navbar-right {
+          position: absolute;
+          display: inline;
+          right: 20px;
+          top: 120px;
+          width: 190px;
+          background-color: #333;
+        }
+        .separador:first-child {
+          width: 100px;
+          opacity: 1;
+        }
+        .alerta {
+          right: 100px; 
+        }
+        .mensagem {
+          top: -100px;
+          right: 120px;
+          border-radius: 0 0 10px 10px;
+          text-align: center;
+          padding: 10px;
+        }
+        #form {
+          background-color: #ddf;
+          height: 40px;
+          margin-left: -10px;
+          margin-top: -20px;
+          padding-right: 10px;
+          z-index: 2000 !important;
+        }
+        #loadingPacientes {
+          margin-top: -26px;
+        }
+        .setaV {
+          display: inline-block;
+        }
+        #icons {
+          top: 30px;
+          height: 100%;
+        }
+        #container,
+        #container2,
+        #container3,
+        #container4 {
+          padding: 10px;
+          height: 72%;
+          left: 45px;
+        }
+        #graph {
+          top: 30px;
+          z-index: 0 !important;
+          height: 100%;
+        }
+        footer {
+          height: 62px;
+          bottom: 0;
+          padding: 4px;
+          font-size: 9pt;
+        }
+        footer img {
+          width: 150px;
+          margin-top: -20px;
+        }
+        .assinatura {
+          left: 30px;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        .logo img {
+          width: 90px;
+          z-index: 2002;
+        }
+        .alerta {
+          left: 50%;
+          margin-left: -60px;
+          z-index: 2000;
+        }
+        .mensagem {
+          width: 220px;
+          top: -100px;
+          left: 50%;
+          margin-left: -70px;
+          padding: 5px;
+        }
+        #form {
+          height: 90px;
+          padding-bottom: 20px;
+          z-index: 2000;
+          overflow: none;
+        }
+        #field2,
+        #field3,
+        #buscar {
+          display: none;
+        }
+        #loadingPacientes {
+          margin-top: -50px;
+        }
+        .setaV {
+          display: none;
+        }
+        #container,
+        #container2,
+        #container3,
+        #container4 {
+          top: 105px;
+          padding: 10px;
+          height: 75%;
+          left: 30px;
+        }
+        #graph,
+        #icons {
+          top: 70px;
+        }
+        footer {
+          height: 64px;
+          padding: 5px;
+          bottom: 0;
+          font-size: 8pt;
+        }
+        footer img {
+          margin: 0;
+          width: 120px;
+        }
+      }
+    </style>
+
+    <script>
+      const BASE_URL = 'http://34.68.34.160:5010';
+      let realTimeInterval = null;
+      
+      function getPacienteId() {
+        var address = window.location.href;
+        var resto   = address.split('=');
+        var id_pac  = resto[1].split('#');
+        
+        console.log(id_pac[0]);
+        $('#paciente-busca').val(id_pac[0]);
+      }
+      function alerta(temp, umid, bpm) {
+        var niv = {};
+        var mot = "";
+        var alerta, acum = 0;
+        //Verifica temperatura
+        if (temp >= 39) {
+          niv[0] = 2;
+          mot = "Febre muito alta: " + temp + "°C<br>";
+        }
+        else if (temp >= 38) {
+          niv[0] = 2;
+          mot = "Febre alta: " + temp + "°C<br>";
+        }
+        else if (temp > 37) {
+          niv[0] = 1;
+          mot = "Febre baixa: " + temp + "°C<br>";
+        }
+        else if (temp < 34) {
+          niv[0] = 1;
+          mot = "Hipotermia: " + temp + "°C<br>";
+        }
+        else if (temp < 30) {
+          niv[0] = 2;
+          mot = "Hipotermia severa: " + temp + "°C<br>";
+        }
+        else
+          niv[0] = 0;
+        //Verifica unidade
+        if (umid >= 55) {
+          niv[1] = 2;
+          mot += 'Nível de umidade muito alto!<br>';
+        }
+        else if (umid >= 40) {
+          niv[1] = 1;
+          mot += 'Verificar umidade na cadeira!<br>';
+        }
+        else
+          niv[1] = 0
+        //Verifica batimentos
+        if (bpm == null)
+          bpm = 40;
+        bpm = parseFloat(bpm);
+        if (bpm >= 120 || bpm <= 40) {
+          niv[2] = 2;
+          if (bpm >= 120)
+            mot += 'BPM muito alto: '  + bpm + 'BPM<br>';
+          else
+            mot += 'BPM muito baixo: ' + bpm + 'BPM<br>';
+        }
+        else if (bpm >= 100 || bpm <= 60) {
+          niv[2] = 1;
+          if (bpm >= 100)
+            mot += 'BPM acima do normal: '  + bpm + 'BPM<br>';
+          else
+            mot += 'BPM abaixo do normal: ' + bpm + 'BPM<br>';
+        }
+        else
+          niv[2] = 0;
+        
+        for (i = 0; i <= 2; i++) {
+          if (niv[i] == 2)
+            acum += 1;
+          acum += niv[i];
+        }
+        if (acum >= 3)
+          alerta = 2;
+        else if (acum < 1)
+          alerta = 0;
+        else
+          alerta = 1;
+        nivel(alerta, mot);
+      }
+      function nivel(niv, mot) {
+        if (niv == 0) {
+          $('.nivel').css('color', 'lightgreen');
+          $('.mensagem').css('top', '-120px');
+        }
+        else if (niv == 1) {
+          $('.nivel').css('color', 'yellow');
+          $('.mensagem').css('background-color', 'yellow');
+          $('.mensagem').css('color', 'black');
+          $('.mensagem').css('top', '37px');
+          if ($(window).width() < 450)
+            $('.mensagem').css('top', '35px');
+          else if ($(window).width() < 768)
+            $('.mensagem').css('top', '-15px');
+        }
+        else {
+          $('.nivel').css('color', 'red');
+          $('.mensagem').css('background-color', 'red');
+          $('.mensagem').css('color', 'white');
+          $('.mensagem').css('top', '37px');
+          if ($(window).width() < 450)
+            $('.mensagem').css('top', '35px');
+          else if ($(window).width() < 768)
+            $('.mensagem').css('top', '-15px');
+        }
+        $('.nivel').css('transition', 'font-size .1s, top .1s, left .1s');
+        $('.mensagem').css('transition', 'top .2s');
+        setInterval(function () {
+          $('.nivel').css('font-size', '13px');
+          $('.nivel').css('top', '0');
+          $('.nivel').css('left', '0');
+        }, 200);
+        setInterval(function () {
+          $('.nivel').css('font-size', '16px');
+          $('.nivel').css('top', '2px');
+          $('.nivel').css('left', '-1px');
+        }, 600);
+        $('.nivel').prop('title', mot);
+        $('.mensagem').html(mot);
+      }
+      function hideAlert() {
+        if ($(window).width() < 768) {
+          if (status == 0) {
+            $('.mensagem').slideUp();
+            status = 1;
           }
-        },
-        yAxis: {
-          title: {
-            text: 'Value'
+          else {
+            $('.mensagem').slideDown();
+            status = 0;
+          }
+        }
+      }
+      function mostrarSwal(title, type, text, isHtml) {
+        config = {
+          title: title,
+          type: type,
+          showCloseButton: true,
+          showCancelButton: false,
+          confirmButtonText: 'OK'
+        }
+        if (isHtml) {
+          config.html = text
+        } else {
+          config.text = text
+        }
+        swal(config)
+      }
+      function mostrarErro(e) {
+        var text = '';
+        if (e.responseJSON.message) {
+          text += e.responseJSON.message + '<br><br>Erro(s):'
+        }
+        if (e.responseJSON.errors) {
+          text += JSON.stringify(e.responseJSON.errors)
+        }
+        mostrarSwal('Atenção', 'error', text, true)
+      }
+      function plotGraph(data, name, container, x) {
+        Highcharts.chart(container, {
+          boost: {
+            useGPUTranslations: true
           },
-          plotLines: [{
-            value: 0,
-            width: 1,
-            color: '#808080'
-          }]
-        },
-        tooltip: {
-          headerFormat: '<b>{series.name}</b><br/>',
-          pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
-        },
-        legend: {
-          enabled: false
-        },
-        exporting: {
-          enabled: false
-        },
-        series: [{
-          name: value.name,
-          color: value.color,
-          data: (function () {
-            // generate an array of random data
-            var data = [],
-              time = (new Date()).getTime(),
-              i;
-            for (i = -59; i <= 0; i += 1) {
-              data.push({
-                x: time + i * 1000,
-                y: null
-              });
+          chart: {
+            type: 'line'
+          },
+          line: {
+            marker: {
+              enabled: false
             }
-            return data;
-          }())
-        }]
-      });
-    }
-    var getUrlParameter = function getUrlParameter(sParam) {
-      var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-      for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] === sParam) {
-          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
+          },
+          title: {
+            text: name
+          },
+          xAxis: {
+            categories: x,
+            labels: {
+              format: '{value:%H:%M:%S}'
+            }
+          },
+          yAxis: {
+            title: {
+              text: 'Valor'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.category:%d/%m/%Y %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: data
+        });
       }
-    };
-    function updateGraphData(container, resultado, value) {
-      var chart = $(`#${container}`).highcharts();
-      if (chart) {
-        const bits = resultado.dataHora.split(/\D/)
-        const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
-        chart.series[0].addPoint([time.getTime(), value], true, true);
-      }
-    }
-    function getPacienteRealTime(paciente, setGraph) {
-      $.ajax({
-        type: "GET",
-        url: `${BASE_URL}/online?user=${paciente}`,
-        success: function (resultado) {
-          if (setGraph) {
-            plotGraphRealTime({
-              name: 'Temperatura',
-              color: '#c00'
-            }, 'container')
-            plotGraphRealTime({
-              name: 'Umidade',
-              color: '#0c0'
-            }, 'container2')
-            plotGraphRealTime({
-              name: 'Batimentos Cardíacos',
-              color: '#d1a506'
-            }, 'container3')
-          }
-          updateGraphData('container', resultado, resultado.temperatura)
-          updateGraphData('container2', resultado, resultado.umidade)
-          updateGraphData('container3', resultado, resultado.batimento)
-        },
-        error: function (e) {
-          mostrarErro(e)
-        }
-      });
-    }
-    function initRealTime(paciente) {
-      if (realTimeInterval) {
-        clearInterval(realTimeInterval)
-        $("#container").hide()
-        $("#container2").hide()
-        $("#container3").hide()
-      }
-      getPacienteRealTime(paciente, true)
-      $("#container").show()
-      $("#container2").show()
-      $("#container3").show()
-      realTimeInterval = setInterval(() => {
-        getPacienteRealTime(paciente, false)
-      }, 1000)
-    }
-    function getPaciente() {
-      const paciente = $("#paciente-busca").val();
-      $('#icons').css('display', 'inline-block');
-      if ($(window).width() < 450) {
-        $('#form').height(60);
-      }
-      else if ($(window).width() < 768) {
-        $('#paciente-busca').hide();
-        $('#dataInicial').hide();
-        $('#dataFinal').hide();
-        $('#buscar').hide();
-        $('#form').height(40);
-        $('.setaV').show();
-      }
-      if (paciente === '' || paciente === null) {
-        mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
-      } else {
-        $("#loadingPacientes").show();
-        let url = `${BASE_URL}/paciente?user=${paciente}`
-        let startDate = $("#dataInicial").val()
-        if (startDate !== '' && startDate !== null) {
-          url += `&start_date=${startDate}`
-        }
-        let endDate = $("#dataFinal").val()
-        if (endDate !== '' && endDate !== null) {
-          url += `&end_date=${endDate}`
-        }
-        $("#graficoTemperatura").hide()
-        $("#graficoUmidade").hide()
-        $("#graficoBatimento").hide()
+      function getAllPacientes() {
         $.ajax({
           type: "GET",
-          url: url,
+          url: `${BASE_URL}/ids-paciente`,
           success: function (resultado) {
-            let batimento = []
-            let temperatura = []
-            let umidade = []
-            let x = []
             resultado.forEach(d => {
-              const bits = d.data_hora.split(/\D/)
-              const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
-              x.push(time)
-              batimento.push(d.batimento)
-              temperatura.push(d.temperatura)
-              umidade.push(d.umidade)
+              var o = new Option(d, d);
+              $(o).html(d);
+              $("#paciente-busca").append(o);
             })
-            $("#loadingPacientes").hide();
-            $("#graficoTemperatura").show()
-            $("#graficoUmidade").show()
-            $("#graficoBatimento").show()
-            plotGraph([{
-              name: 'Temperatura',
-              color: '#c00',
-              data: temperatura
-            }], 'Temperatura', 'graficoTemperatura', x)
-            plotGraph([{
-              name: 'Umidade',
-              color: '#0c0',
-              data: umidade
-            }], 'Umidade', 'graficoUmidade', x)
-            plotGraph([{
-              name: 'Batimentos Cardíacos',
-              color: '#d1a506',
-              data: batimento
-            }], 'Batimentos Cardíacos', 'graficoBatimento', x)
-            initRealTime(paciente)
           },
           error: function (e) {
-            $("#loadingPacientes").hide();
             mostrarErro(e)
           }
         });
       }
-    }
-    $(document).ready(function () {
-      getAllPacientes()
-      function formatStr(d) {
-        return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+      function plotGraphRealTime(value, container) {
+        Highcharts.chart(container, {
+          chart: {
+            type: 'spline',
+            animation: false,//Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+          },
+          time: {
+            useUTC: false
+          },
+          title: {
+            text: value.name
+          },
+          xAxis: {
+            labels: {
+              format: '{value:%H:%M:%S}'
+            }
+          },
+          yAxis: {
+            title: {
+              text: 'Value'
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+            }]
+          },
+          tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: value.name,
+            color: value.color,
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+              for (i = -59; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 1000,
+                  y: null
+                });
+              }
+              return data;
+            }())
+          }]
+        });
       }
-      let now = new Date()
-      $("#dataFinal").val(formatStr(now))
-      now.setDate(now.getDate() - 4);
-      $("#dataInicial").val(formatStr(now))
-      var pages = $('.page').length;
-      $('.navbar-right').css('top', (40 * pages + 48) + 'px');
-      if ($(window).width() < 768)
-        $('.nav').hide();
-      var status = 0;
-      $('.navbar-toggle').click(function () {
-        if (status == 0) {
-          $('.nav').slideDown();
-          status = 1;
+      var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+          }
+        }
+      };
+      function updateGraphData(container, resultado, value) {
+        var chart = $(`#${container}`).highcharts();
+        if (chart) {
+          const bits = resultado.dataHora.split(/\D/)
+          const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
+          chart.series[0].addPoint([time.getTime(), value], true, true);
+        }
+      }
+      function getPacienteRealTime(paciente, setGraph) {
+        $.ajax({
+          type: "GET",
+          url: `${BASE_URL}/online?user=${paciente}`,
+          success: function (resultado) {
+            if (setGraph) {
+              plotGraphRealTime({
+                name: 'Temperatura',
+                color: '#c00'
+              }, 'container')
+              plotGraphRealTime({
+                name: 'Umidade',
+                color: '#0c0'
+              }, 'container2')
+              plotGraphRealTime({
+                name: 'Batimentos Cardíacos',
+                color: '#d1a506'
+              }, 'container3')
+            }
+            updateGraphData('container',  resultado, resultado.temperatura)
+            updateGraphData('container2', resultado, resultado.umidade)
+            updateGraphData('container3', resultado, resultado.batimento)
+            alerta(resultado.temperatura, resultado.umidade, resultado.batimento);
+          },
+          error: function (e) {
+            mostrarErro(e)
+          }
+        });
+      }
+      function initRealTime(paciente) {
+        if (realTimeInterval) {
+          clearInterval(realTimeInterval)
+          $("#container").hide()
+          $("#container2").hide()
+          $("#container3").hide()
+        }
+        getPacienteRealTime(paciente, true)
+        $("#container").show()
+        $("#container2").show()
+        $("#container3").show()
+        realTimeInterval = setInterval(() => {
+          getPacienteRealTime(paciente, false)
+        }, 1000)
+      }
+      function getPaciente() {
+        const paciente = $("#paciente-busca").val();
+        $('#icons').css('display', 'inline-block');
+        if ($(window).width() < 450) {
+          $('#form').height(60);
+        }
+        else if ($(window).width() < 768) {
+          $('#paciente-busca').hide();
+          $('#dataInicial').hide();
+          $('#dataFinal').hide();
+          $('#buscar').hide();
+          $('#form').height(40);
+          $('.setaV').show();
+        }
+        if (paciente === '' || paciente === null) {
+          mostrarSwal('Atenção', 'warning', "Favor informar o paciente!")
+        } else {
+          $("#loadingPacientes").show();
+          let url = `${BASE_URL}/paciente?user=${paciente}`
+          let startDate = $("#dataInicial").val()
+          if (startDate !== '' && startDate !== null) {
+            url += `&start_date=${startDate}`
+          }
+          let endDate = $("#dataFinal").val()
+          if (endDate !== '' && endDate !== null) {
+            url += `&end_date=${endDate}`
+          }
+          $("#graficoTemperatura").hide()
+          $("#graficoUmidade").hide()
+          $("#graficoBatimento").hide()
+          $.ajax({
+            type: "GET",
+            url: url,
+            success: function (resultado) {
+              let batimento = []
+              let temperatura = []
+              let umidade = []
+              let x = []
+              resultado.forEach(d => {
+                const bits = d.data_hora.split(/\D/)
+                const time = new Date(bits[2], --bits[1], bits[0], bits[3], bits[4], bits[5])
+                x.push(time)
+                batimento.push(d.batimento)
+                temperatura.push(d.temperatura)
+                umidade.push(d.umidade)
+              })
+              $("#loadingPacientes").hide();
+              $("#graficoTemperatura").show()
+              $("#graficoUmidade").show()
+              $("#graficoBatimento").show()
+              plotGraph([{
+                name: 'Temperatura',
+                color: '#c00',
+                data: temperatura
+              }], 'Temperatura', 'graficoTemperatura', x)
+              plotGraph([{
+                name: 'Umidade',
+                color: '#0c0',
+                data: umidade
+              }], 'Umidade', 'graficoUmidade', x)
+              plotGraph([{
+                name: 'Batimentos Cardíacos',
+                color: '#d1a506',
+                data: batimento
+              }], 'Batimentos Cardíacos', 'graficoBatimento', x)
+              initRealTime(paciente)
+            },
+            error: function (e) {
+              $("#loadingPacientes").hide();
+              mostrarErro(e)
+            }
+          });
+        }
+      }
+      $(document).ready(function () {
+        getAllPacientes()
+        function formatStr(d) {
+          return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+        }
+        let now = new Date()
+        $("#dataFinal").val(formatStr(now))
+        now.setDate(now.getDate() - 4);
+        $("#dataInicial").val(formatStr(now))
+        var pages = $('.page').length;
+        $('.navbar-right').css('top', (40 * pages + 48) + 'px');
+        if ($(window).width() < 768)
+          $('.nav').hide();
+        var status = 0;
+        $('.navbar-toggle').click(function () {
+          if (status == 0) {
+            $('.nav').slideDown();
+            status = 1;
+          }
+          else {
+            $('.nav').slideUp();
+            status = 0;
+          }
+        });
+        $('.navbar-nav').click(function () {
+          if ($(window).width() < 768) {
+            $('.nav').slideUp();
+            status = 0;
+          }
+        });
+        if ($(window).width() < 768) {
+          $('#paciente-busca').hide();
+          $('#dataInicial').hide();
+          $('#dataFinal').hide();
+          $('#buscar').hide();
+        }
+        if ($(window).width() < 450) {
+          $('#paciente-busca').hide();
+          $('#dataInicial').show();
+          $('#dataFinal').show();
+          $('#field1').hide();
+          $('#field2').show().removeClass('col-xs-4').addClass('col-xs-5');
+          $('#field3').show().removeClass('col-xs-4').addClass('col-xs-5');
+          $('#buscar').show().removeClass('col-xs-3').addClass('col-xs-1').html('<b>></b>');
+          $('#loadingPacientes').removeClass('col-xs-2').addClass('col-xs-12');
+        }
+        $('#container').hide();
+        $('#container2').hide();
+        $('#container4').hide();
+        $('#loadingPacientes').hide();
+        var tech = getUrlParameter('paciente');
+        if (tech) {
+          initRealTime(tech)
+        }
+      });
+      function showFields(tipo) {
+        $('#form').height('auto');
+        if (tipo == 2) {
+          $('#field1').show();
+          $('#field2').show();
+          $('#field3').show();
+          $('#buscar').show();
         }
         else {
-          $('.nav').slideUp();
-          status = 0;
+          $('#paciente-busca').show();
+          $('#dataInicial').show();
+          $('#dataFinal').show();
+          $('#buscar').show();
+          $('.setaV').hide();
         }
-      });
-      $('.navbar-nav').click(function () {
-        if ($(window).width() < 768) {
-          $('.nav').slideUp();
-          status = 0;
-        }
-      });
-      if ($(window).width() < 768) {
-        $('#paciente-busca').hide();
-        $('#dataInicial').hide();
-        $('#dataFinal').hide();
-        $('#buscar').hide();
       }
-      if ($(window).width() < 450) {
-        $('#paciente-busca').hide();
-        $('#dataInicial').show();
-        $('#dataFinal').show();
-        $('#field1').hide();
-        $('#field2').show().removeClass('col-xs-4').addClass('col-xs-5');
-        $('#field3').show().removeClass('col-xs-4').addClass('col-xs-5');
-        $('#buscar').show().removeClass('col-xs-3').addClass('col-xs-1').html('<b>></b>');
-        $('#loadingPacientes').removeClass('col-xs-2').addClass('col-xs-12');
+      function showgraph(container) {
+        $('#container').hide();
+        $('#container2').hide();
+        $('#container3').hide();
+        $('#container4').hide();
+        $('#loadingPacientes').hide();
+        $('#' + container).show();
       }
-      $('#container').hide();
-      $('#container2').hide();
-      $('#container4').hide();
-      $('#loadingPacientes').hide();
-      var tech = getUrlParameter('paciente');
-      if (tech) {
-        initRealTime(tech)
-      }
-    });
-    function showFields(tipo) {
-      $('#form').height('auto');
-      if (tipo == 2) {
-        $('#field1').show();
-        $('#field2').show();
-        $('#field3').show();
-        $('#buscar').show();
-      }
-      else {
-        $('#paciente-busca').show();
-        $('#dataInicial').show();
-        $('#dataFinal').show();
-        $('#buscar').show();
-        $('.setaV').hide();
-      }
-    }
-    function showgraph(container) {
-      $('#container').hide();
-      $('#container2').hide();
-      $('#container3').hide();
-      $('#container4').hide();
-      $('#loadingPacientes').hide();
-      $('#' + container).show();
-    }
-  </script>
-</head>
-
-<body onload='nivel(1); getPacienteId()'>
-  <header>
-    <div class="alerta">
-      <span class="glyphicon glyphicon-heart nivel" style="width:16px; font-size:14pt;"></span> Nível de alerta
-    </div>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="logo">
-          <a class="navbar-brand" href="#">
-            <img
-              src="https://github.com/stagioptr/ipbl2019/blob/master/3_Hospital/Sprint3/public/img/stagioptr.png?raw=true">
-          </a>
-        </div>
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="page separador">TEMPO REAL</li>
-          <li class="page"><a href="#" onclick="showgraph('container');"><span class="glyphicon glyphicon-fire"></span>
-              Temperatura</a></li>
-          <li class="page"><a href="#" onclick="showgraph('container2');"><span class="glyphicon glyphicon-tint"></span>
-              Umidade</a></li>
-          <li class="page"><a href="#" onclick="showgraph('container3');"><span
-                class="glyphicon glyphicon-heart"></span> Batimentos</a></li>
-          <li class="page separador">CONSULTAS</li>
-          <li class="page"><a href="#" onclick="showgraph('container4');">Por data</a></li>
-        </ul>
+    </script>
+  </head>
+  <body onload='getPacienteId()'>
+    <header>
+      <div class="alerta">
+        <span class="glyphicon glyphicon-heart nivel" style="width:16px; font-size:14pt;"></span> Nível de alerta
+        <div class="mensagem"></div>
       </div>
-    </nav>
-  </header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="logo">
+            <a class="navbar-brand" href="#">
+              <img src="https://github.com/stagioptr/ipbl2019/blob/master/3_Hospital/Sprint3/public/img/stagioptr.png?raw=true">
+            </a>
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" onclick="hideAlert()">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="page separador">TEMPO REAL</li>
+            <li class="page"><a href="#" onclick="showgraph('container');  hideAlert();"><span class="glyphicon glyphicon-fire" ></span> Temperatura</a></li>
+            <li class="page"><a href="#" onclick="showgraph('container2'); hideAlert();"><span class="glyphicon glyphicon-tint" ></span> Umidade</a></li>
+            <li class="page"><a href="#" onclick="showgraph('container3'); hideAlert();"><span class="glyphicon glyphicon-heart"></span> Batimentos</a></li>
+            <li class="page separador">CONSULTAS</li>
+            <li class="page"><a href="#" onclick="showgraph('container4'); hideAlert();">Por data</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-  <!--
+    <!--
       GRÁFICO TEMPERATURA
     -->
-  <div id="container">
-  </div>
+    <div id="container">
+    </div>
 
-  <!--
+    <!--
       GRÁFICO UMIDADE
     -->
-  <div id="container2">
-  </div>
+    <div id="container2">
+    </div>
 
-  <!--
+    <!--
       GRÁFICO BATIMENTOS
     -->
-  <div id="container3">
-  </div>
+    <div id="container3">
+    </div>
 
-  <!-- PACIENTE -->
-  <div id="container4">
-    <div id="form">
-      <form onsubmit="return false">
-        <div id="field1" class="col-sm-4 col-xs-1 form-group">
-          <input type="hidden" id="paciente-busca" value="">
+    <!-- PACIENTE -->
+    <div id="container4">
+      <div id="form">
+        <form onsubmit="return false">
+          <div id="field1" class="col-sm-4 col-xs-1 form-group">
+            <input type="hidden" id="paciente-busca" value="">
+          </div>
+          <div id="field2" class="col-sm-3 col-xs-4 form-group">
+            <label for="dataInicial" class="titleInput">Data Inicial</label>
+            <input type="date" class="form-control" id="dataInicial" maxlength="120">
+          </div>
+          <div id="field3" class="col-sm-3 col-xs-4 form-group">
+            <label for="dataFinal" class="titleInput">Data Final</label>
+            <input type="date" class="form-control" id="dataFinal" maxlength="120">
+          </div>
+          <div class="form-group">
+            <button class="col-sm-2 col-xs-3 btn btn-success" id="buscar" onclick="getPaciente()" style="margin-top: 25px;">Buscar</button>
+          </div>
+        </form>
+        <div class="setaV" onclick="showFields(1)">
+          <span class="glyphicon glyphicon-chevron-down"></span>
         </div>
-        <div id="field2" class="col-sm-3 col-xs-4 form-group">
-          <label for="dataInicial" class="titleInput">Data Inicial</label>
-          <input type="date" class="form-control" id="dataInicial" maxlength="120">
-        </div>
-        <div id="field3" class="col-sm-3 col-xs-4 form-group">
-          <label for="dataFinal" class="titleInput">Data Final</label>
-          <input type="date" class="form-control" id="dataFinal" maxlength="120">
-        </div>
-        <div class="form-group">
-          <button class="col-sm-2 col-xs-3 btn btn-success" id="buscar" onclick="getPaciente()"
-            style="margin-top: 25px;">Buscar</button>
-        </div>
-      </form>
-      <div class="setaV" onclick="showFields(1)">
-        <span class="glyphicon glyphicon-chevron-down"></span>
+        <span id="loadingPacientes" class="col-sm-2 col-xs-2 btn btn-warning">Carregando...</span>
       </div>
-      <span id="loadingPacientes" class="col-sm-2 col-xs-2 btn btn-warning">Carregando...</span>
+      <div id="graph">
+        <div id="graficoTemperatura" style="height:100%;"></div><br>
+        <div id="graficoUmidade" style="height:100%;"></div><br>
+        <div id="graficoBatimento" style="height:100%;"></div><br>
+      </div>
+      <div id="icons">
+        <a href="#graficoTemperatura"><span class="glyphicon glyphicon-fire"></span></a>
+        <a href="#graficoUmidade"><span class="glyphicon glyphicon-tint"></span></a>
+        <a href="#graficoBatimento"><span class="glyphicon glyphicon-heart"></span></a>
+      </div>
     </div>
-    <div id="graph">
-      <div id="graficoTemperatura" style="height:100%;"></div><br>
-      <div id="graficoUmidade" style="height:100%;"></div><br>
-      <div id="graficoBatimento" style="height:100%;"></div><br>
-    </div>
-    <div id="icons">
-      <a href="#graficoTemperatura"><span class="glyphicon glyphicon-fire"></span></a>
-      <a href="#graficoUmidade"><span class="glyphicon glyphicon-tint"></span></a>
-      <a href="#graficoBatimento"><span class="glyphicon glyphicon-heart"></span></a>
-    </div>
-  </div>
 
-  <footer class="container-fluid text-center">
-    <div class="row">
-      <div class="col-sm-3 col-xs-2">
-        <img src="https://github.com/stagioptr/ipbl2019/blob/master/3_Hospital/Sprint3/public/img/ita.png?raw=true">
+    <footer class="container-fluid text-center">
+      <div class="row">
+        <div class="col-sm-3 col-xs-2">
+          <img src="https://github.com/stagioptr/ipbl2019/blob/master/3_Hospital/Sprint3/public/img/ita.png?raw=true">
+        </div>
+        <div class="col-sm-9 col-xs-9 assinatura">
+          <h2>STAGIOP-TR</h2>
+          Soluções Tecnológicas Aplicáveis ao Gerenciamento de Informações Ostensivas de Pacientes em Tempo Real
+        </div>
       </div>
-      <div class="col-sm-9 col-xs-9 assinatura">
-        <h2>STAGIOP-TR</h2>
-        Soluções Tecnológicas Aplicáveis ao Gerenciamento de Informações Ostensivas de Pacientes em Tempo Real
-      </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 
 </html>
