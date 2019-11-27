@@ -39,6 +39,7 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 extern semaphore_t radioIRQ_semaphore;
+extern semaphore_t inertialIRQ_semaphore;
 
 /*
 ** ===================================================================
@@ -89,32 +90,50 @@ void SPI0_IRQHandler(void)
            modify it according to possible new request.
 #endif
 
-#ifdef i2cCom1_IDX
+#ifdef i2cInertial_IDX
 /*
 ** ===================================================================
 **     Interrupt handler : I2C1_IRQHandler
 **
 **     Description :
-**         User interrupt service routine. 
+**         User interrupt service routine.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
 */
 void I2C1_IRQHandler(void)
 {
-  I2C_DRV_IRQHandler(i2cCom1_IDX);
+  I2C_DRV_IRQHandler(i2cInertial_IDX);
   /* Write your code here ... */
 }
 #else
-  /* This IRQ handler is not used by i2cCom1 component. The purpose may be
-   * that the component has been removed or disabled. It is recommended to 
-   * remove this handler because Processor Expert cannot modify it according to 
+  /* This IRQ handler is not used by i2cInertial component. The purpose may be
+   * that the component has been removed or disabled. It is recommended to
+   * remove this handler because Processor Expert cannot modify it according to
    * possible new request (e.g. in case that another component uses this
    * interrupt vector). */
-  #warning This IRQ handler is not used by i2cCom1 component.\
+  #warning This IRQ handler is not used by i2cInertial component.\
            It is recommended to remove this because Processor Expert cannot\
            modify it according to possible new request.
 #endif
+
+/*
+** ===================================================================
+**     Interrupt handler : PORTD_IRQHandler
+**
+**     Description :
+**         User interrupt service routine.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTD_IRQHandler(void)
+{
+  /* Clear interrupt flag.*/
+  PORT_HAL_ClearPortIntFlag(PORTD_BASE_PTR);
+  /* Write your code here ... */
+//  OSA_SemaPost(&inertialIRQ_semaphore);
+}
 
 /* END Events */
 

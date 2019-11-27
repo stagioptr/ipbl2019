@@ -37,6 +37,11 @@
 			<location>N:/Sensores/temperatura/publish/versao1</location>
 		</link>
 		<link>
+			<name>MPU6050</name>
+			<type>2</type>
+			<location>N:/Sensores/acelerometro/publish/versao0</location>
+		</link>
+		<link>
 			<name>Prova_Conceito</name>
 			<type>2</type>
 			<location>N:/Integracao/Prova_Conceito</location>

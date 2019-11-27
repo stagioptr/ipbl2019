@@ -37,6 +37,7 @@ RM := rm -rf
 -include SDK/platform/devices/subdir.mk
 -include SCADE/subdir.mk
 -include Prova_Conceito/Tarefas/subdir.mk
+-include MPU6050/subdir.mk
 -include MAX6675/subdir.mk
 -include Generated_Code/subdir.mk
 -include subdir.mk

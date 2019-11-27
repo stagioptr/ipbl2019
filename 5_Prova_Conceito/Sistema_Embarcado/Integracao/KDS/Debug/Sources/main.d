@@ -39,12 +39,12 @@ Sources/main.o: ../Sources/main.c N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
+ N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
+ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h \
- N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
- N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
  N:/Integracao/KDS/SDK/platform/utilities/inc/fsl_debug_console.h \
@@ -59,12 +59,13 @@ Sources/main.o: ../Sources/main.c N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/Generated_Code/MainTask.h \
  N:/Integracao/KDS/Generated_Code/Radio.h \
  N:/Integracao/KDS/Generated_Code/tempSensor.h \
+ N:/Integracao/KDS/Generated_Code/inertialTask.h \
  N:/Integracao/KDS/Generated_Code/spiRadioTemp.h \
  N:/Integracao/KDS/Generated_Code/clockMan1.h \
  N:/Integracao/KDS/Generated_Code/gpio.h \
  N:/Integracao/KDS/Generated_Code/DbgCs1.h \
- N:/Integracao/KDS/Generated_Code/i2cCom1.h ../Sources/rtos_main_task.h \
- ../Sources/os_tasks.h
+ N:/Integracao/KDS/Generated_Code/i2cInertial.h \
+ ../Sources/rtos_main_task.h ../Sources/os_tasks.h
 
 N:/Integracao/KDS/Generated_Code/Cpu.h:
 
@@ -148,6 +149,10 @@ N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h:
 
+N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
+
+N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
+
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h:
@@ -155,10 +160,6 @@ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h:
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h:
-
-N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
-
-N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
 
@@ -190,6 +191,8 @@ N:/Integracao/KDS/Generated_Code/Radio.h:
 
 N:/Integracao/KDS/Generated_Code/tempSensor.h:
 
+N:/Integracao/KDS/Generated_Code/inertialTask.h:
+
 N:/Integracao/KDS/Generated_Code/spiRadioTemp.h:
 
 N:/Integracao/KDS/Generated_Code/clockMan1.h:
@@ -198,7 +201,7 @@ N:/Integracao/KDS/Generated_Code/gpio.h:
 
 N:/Integracao/KDS/Generated_Code/DbgCs1.h:
 
-N:/Integracao/KDS/Generated_Code/i2cCom1.h:
+N:/Integracao/KDS/Generated_Code/i2cInertial.h:
 
 ../Sources/rtos_main_task.h:
 

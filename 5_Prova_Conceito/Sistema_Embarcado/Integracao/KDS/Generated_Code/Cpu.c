@@ -8,7 +8,7 @@
 **     Repository  : KSDK 1.3.0
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-18, 12:34, # CodeGen: 5
+**     Date/Time   : 2019-11-26, 09:42, # CodeGen: 8
 **     Abstract    :
 **
 **     Settings    :
@@ -109,20 +109,14 @@ void Common_Init(void)
 void Components_Init(void)
 {
 
-  /*! Radio Auto initialization start */ 
-  (void)Radio_Init();
-  /*! Radio Auto initialization end */                       
-  /*! tempSensor Auto initialization start */ 
-  (void)tempSensor_Init();
-  /*! tempSensor Auto initialization end */                       
+  /*! gpio Auto initialization start */
+  GPIO_DRV_Init(gpio_InpConfig0,gpio_OutConfig0);
+  /*! gpio Auto initialization end */
+  
   /*! spiRadioTemp Auto initialization start */
   SPI_DRV_MasterInit(spiRadioTemp_IDX, &spiRadioTemp_MasterState);
   SPI_DRV_MasterConfigureBus(spiRadioTemp_IDX, &spiRadioTemp_MasterConfig0, &spiRadioTemp_calculatedBaudRate);
   /*! spiRadioTemp Auto initialization end */
-  
-  /*! gpio Auto initialization start */
-  GPIO_DRV_Init(gpio_InpConfig0,gpio_OutConfig0);
-  /*! gpio Auto initialization end */
   
   /*! DbgCs1 Auto initialization start */
   /* Enable clock source for LPSCI - bitfield UART0 within SIM_SOPT2 */
@@ -130,11 +124,20 @@ void Components_Init(void)
   /* Debug console initialization */
   DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
   /*! DbgCs1 Auto initialization end */
-  /*! i2cCom1 Auto initialization start */
-  I2C_DRV_MasterInit(i2cCom1_IDX, &i2cCom1_MasterState);
-  I2C_DRV_MasterSetBaudRate(i2cCom1_IDX, &i2cCom1_MasterConfig0);
-  /*! i2cCom1 Auto initialization end */
+  /*! i2cInertial Auto initialization start */
+  I2C_DRV_MasterInit(i2cInertial_IDX, &i2cInertial_MasterState);
+  I2C_DRV_MasterSetBaudRate(i2cInertial_IDX, &i2cInertialConfig);
+  /*! i2cInertial Auto initialization end */
   
+  /*! Radio Auto initialization start */ 
+  (void)Radio_Init();
+  /*! Radio Auto initialization end */                       
+  /*! tempSensor Auto initialization start */ 
+  (void)tempSensor_Init();
+  /*! tempSensor Auto initialization end */                       
+  /*! inertialTask Auto initialization start */ 
+  (void)inertialTask_Init();
+  /*! inertialTask Auto initialization end */                       
 }
 #endif /* CPU_COMPONENTS_INIT */
 

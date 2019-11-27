@@ -37,12 +37,12 @@ Generated_Code/osa1.o: ../Generated_Code/osa1.c ../Generated_Code/osa1.h \
  N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/timers.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
+ N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
+ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h \
- N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
- N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
  N:/Integracao/KDS/SDK/platform/utilities/inc/fsl_debug_console.h \
@@ -131,6 +131,10 @@ N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h:
 
+N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
+
+N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
+
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h:
@@ -138,10 +142,6 @@ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h:
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h:
-
-N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
-
-N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
 

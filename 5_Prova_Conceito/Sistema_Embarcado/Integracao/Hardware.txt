@@ -2,21 +2,32 @@ Conexão entre o MAX6675 e o FRDM-KL25Z
 
 VCC  - J14_8
 GND  - J14_12
-CSN  - J2_6
+CSN  - J1_3
 SCK  - J1_9
-MISO - J2_8
+MISO - J1_1
 
 Taxa de transmissão 4 MHz
 
-Conexão entre o Rádio e o FRDM-KL25Z
+Conexão entre o nRF24L01 e o FRDM-KL25Z
 
 VCC  - J14_4
 GND  - J14_14
-CSN  - J2_2
+CSN  - J1_14
 CE   - J1_10
-MOSI - J2_17
-SCK  - J2_4
+MOSI - J1_11
+SCK  - J1_9
 IRQ  - J1_12
-MISO - J2_19
+MISO - J1_1
 
 Taxa de transmissão 8 MHz
+
+Conexão entre o MPU6050 e o FRDM-KL25Z
+
+VCC  - J14_4
+GND  - J14_14
+SDA  - J1_15
+SCL  - J1_13
+INT  - J1_6
+
+Taxa de transmissão 400 kHz
+

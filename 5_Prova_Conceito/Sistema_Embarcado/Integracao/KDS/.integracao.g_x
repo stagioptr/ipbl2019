@@ -46,11 +46,11 @@
         <Line>"${ProjDirPath}/SDK/platform/hal/src/sim/MKL25Z4"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
@@ -119,11 +119,11 @@
         <Line>"${ProjDirPath}/SDK/platform/hal/src/sim/MKL25Z4"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
-        <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
+        <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/drivers/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
         <Line>"${ProjDirPath}/SDK/platform/hal/inc"</Line>
@@ -185,35 +185,35 @@
       <File Name="SDK/platform/drivers/inc/fsl_spi_shared_function.h" FileDate="2019-11-16, 19:49:55" FileAge="1573940995087" FileType="1048576" CompNumb="18" />
       <File Name="SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/utilities/inc/fsl_misc_utilities.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241724" FileType="1048576" CompNumb="0" />
-      <File Name="Generated_Code/i2cCom1.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="26" />
       <File Name="SDK/platform/hal/inc/fsl_sim_hal.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241657" FileType="1048576" CompNumb="0" />
-      <File Name="Generated_Code/i2cCom1.c" FileDate="2019-11-20, 15:51:10" FileAge="1574272270379" FileType="45637" CompNumb="26" />
-      <File Name="Sources/main.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="128" />
-      <File Name="Generated_Code/gpio.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="20" />
+      <File Name="Sources/main.c" FileDate="2019-11-26, 11:49:36" FileAge="1574776176437" FileType="128" />
+      <File Name="Generated_Code/gpio.h" FileDate="2019-11-26, 13:03:36" FileAge="1574780616694" FileType="45637" CompNumb="20" />
       <File Name="SDK/rtos/FreeRTOS/include/portable.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405658" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/hal/src/i2c/fsl_i2c_hal.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="1048576" CompNumb="27" />
-      <File Name="Generated_Code/gpio.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="20" />
+      <File Name="Generated_Code/gpio.c" FileDate="2019-11-26, 10:12:19" FileAge="1574770339198" FileType="45637" CompNumb="20" />
       <File Name="Static_Code/System/PE_low_level_init.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241724" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portmacro.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405689" FileType="1048576" CompNumb="14" />
       <File Name="SDK/rtos/FreeRTOS/include/StackMacros.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405674" FileType="1048576" CompNumb="14" />
       <File Name="SDK/rtos/FreeRTOS/include/mpu_wrappers.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405658" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/CMSIS/Include/core_cm0plus.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
+      <File Name="Generated_Code/i2cInertial.h" FileDate="2019-11-26, 09:42:27" FileAge="1574768547450" FileType="45637" CompNumb="26" />
       <File Name="Generated_Code/osa1.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="12" />
       <File Name="SDK/rtos/FreeRTOS/src/timers.c" FileDate="2019-11-16, 19:40:05" FileAge="1573940405712" FileType="1048576" CompNumb="14" />
+      <File Name="Generated_Code/i2cInertial.c" FileDate="2019-11-26, 09:42:27" FileAge="1574768547450" FileType="45637" CompNumb="26" />
       <File Name="Generated_Code/osa1.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="12" />
       <File Name="SDK/platform/drivers/inc/fsl_spi_master_driver.h" FileDate="2019-11-16, 19:49:55" FileAge="1573940995087" FileType="1048576" CompNumb="18" />
-      <File Name="Sources/rtos_main_task.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
+      <File Name="Sources/rtos_main_task.h" FileDate="2019-11-26, 09:42:27" FileAge="1574768547482" FileType="131328" />
       <File Name="SDK/rtos/FreeRTOS/include/croutine.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405643" FileType="1048576" CompNumb="14" />
       <File Name="Sources/rtos_main_task.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portasm.S" FileDate="2019-11-16, 19:40:05" FileAge="1573940405689" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/drivers/src/spi/fsl_spi_common.c" FileDate="2019-11-16, 19:49:55" FileAge="1573940995077" FileType="1048576" CompNumb="18" />
       <File Name="SDK/platform/devices/MKL25Z4/include/MKL25Z4_extension.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="1" />
       <File Name="Generated_Code/MainTask.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="15" />
-      <File Name="Sources/Events.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
+      <File Name="Sources/Events.h" FileDate="2019-11-26, 13:03:36" FileAge="1574780616719" FileType="131328" />
       <File Name="SDK/platform/utilities/src/fsl_misc_utilities.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/hal/inc/fsl_lpsci_hal.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="0" />
       <File Name="Generated_Code/MainTask.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="15" />
-      <File Name="Sources/Events.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
+      <File Name="Sources/Events.c" FileDate="2019-11-26, 13:03:36" FileAge="1574780616724" FileType="131328" />
       <File Name="SDK/platform/hal/inc/fsl_rtc_hal.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241667" FileType="1048576" CompNumb="6" />
       <File Name="SDK/platform/devices/MKL25Z4/include/MKL25Z4.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/hal/inc/fsl_spi_hal.h" FileDate="2019-11-16, 19:49:55" FileAge="1573940995069" FileType="1048576" CompNumb="19" />
@@ -242,26 +242,28 @@
       <File Name="SDK/platform/hal/inc/fsl_i2c_hal.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="1048576" CompNumb="27" />
       <File Name="SDK/rtos/FreeRTOS/port/gcc/portTicks.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405689" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/hal/src/rtc/fsl_rtc_hal.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241667" FileType="1048576" CompNumb="6" />
-      <File Name="Sources/os_tasks.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
+      <File Name="Sources/os_tasks.h" FileDate="2019-11-26, 09:42:27" FileAge="1574768547497" FileType="131328" />
+      <File Name="Generated_Code/inertialTask.h" FileDate="2019-11-26, 09:42:27" FileAge="1574768547397" FileType="45637" CompNumb="30" />
       <File Name="SDK/platform/CMSIS/Include/core_cmSimd.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/hal/inc/fsl_port_hal.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241677" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/drivers/inc/fsl_i2c_master_driver.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="1048576" CompNumb="26" />
-      <File Name="Sources/os_tasks.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="131328" />
+      <File Name="Sources/os_tasks.c" FileDate="2019-11-26, 09:42:27" FileAge="1574768547513" FileType="131328" />
       <File Name="SDK/platform/utilities/src/print_scan.h" FileDate="2019-11-16, 20:28:57" FileAge="1573943337277" FileType="1048576" CompNumb="0" />
+      <File Name="Generated_Code/inertialTask.c" FileDate="2019-11-26, 09:42:27" FileAge="1574768547397" FileType="45637" CompNumb="30" />
       <File Name="SDK/platform/utilities/src/print_scan.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/CMSIS/Include/arm_common_tables.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/devices/startup.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241724" FileType="1048576" CompNumb="1" />
-      <File Name="Documentation/integracao.txt" FileDate="2019-11-20, 15:51:09" FileAge="1574272269755" FileType="3072" />
+      <File Name="Documentation/integracao.txt" FileDate="2019-11-26, 10:12:19" FileAge="1574770339807" FileType="3072" />
       <File Name="SDK/platform/devices/startup.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241724" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/drivers/src/spi/fsl_spi_shared_function.c" FileDate="2019-11-16, 19:49:55" FileAge="1573940995077" FileType="1048576" CompNumb="18" />
-      <File Name="Documentation/integracao_Settings.xml" FileDate="2019-11-20, 15:51:09" FileAge="1574272269755" FileType="3072" />
-      <File Name="SDK/platform/osa/src/fsl_os_abstraction_free_rtos.c" FileDate="2019-11-16, 19:40:05" FileAge="1573940405727" FileType="1048576" CompNumb="12" />
+      <File Name="Documentation/integracao_Settings.xml" FileDate="2019-11-26, 09:42:27" FileAge="1574768547698" FileType="3072" />
+      <File Name="SDK/platform/osa/src/fsl_os_abstraction_free_rtos.c" FileDate="2019-11-22, 00:34:13" FileAge="1574390053138" FileType="1048576" CompNumb="12" />
       <File Name="SDK/platform/CMSIS/Include/core_cmFunc.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
       <File Name="SDK/platform/system/src/interrupt/fsl_interrupt_manager.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241677" FileType="1048576" CompNumb="11" />
       <File Name="SDK/rtos/FreeRTOS/include/deprecated_definitions.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405658" FileType="1048576" CompNumb="14" />
-      <File Name="ProjectInfo.xml" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" />
-      <File Name="Generated_Code/Cpu.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="1" />
-      <File Name="Generated_Code/Cpu.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269755" FileType="45637" CompNumb="1" />
+      <File Name="ProjectInfo.xml" FileDate="2019-11-26, 13:03:37" FileAge="1574780617354" FileType="45637" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2019-11-26, 09:42:27" FileAge="1574768547466" FileType="45637" CompNumb="1" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2019-11-26, 09:42:27" FileAge="1574768547482" FileType="45637" CompNumb="1" />
       <File Name="Generated_Code/Radio.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="16" />
       <File Name="Generated_Code/Radio.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269770" FileType="45637" CompNumb="16" />
       <File Name="SDK/platform/drivers/inc/fsl_spi_slave_driver.h" FileDate="2019-11-16, 19:49:55" FileAge="1573940995087" FileType="1048576" CompNumb="18" />
@@ -270,15 +272,15 @@
       <File Name="SDK/platform/drivers/src/i2c/fsl_i2c_slave_driver.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="1048576" CompNumb="26" />
       <File Name="SDK/platform/hal/src/lpsci/fsl_lpsci_hal.c" FileDate="2019-11-16, 19:37:21" FileAge="1573940241708" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/CMSIS/Include/core_cmInstr.h" FileDate="2019-11-16, 19:37:21" FileAge="1573940241692" FileType="1048576" CompNumb="1" />
-      <File Name="Generated_Code/pin_init.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="7" />
-      <File Name="Generated_Code/pin_init.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/pin_init.h" FileDate="2019-11-26, 10:12:19" FileAge="1574770339167" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/pin_init.c" FileDate="2019-11-26, 13:03:36" FileAge="1574780616604" FileType="45637" CompNumb="7" />
       <File Name="SDK/rtos/FreeRTOS/include/task.h" FileDate="2019-11-16, 19:40:05" FileAge="1573940405674" FileType="1048576" CompNumb="14" />
-      <File Name="Generated_Code/hardware_init.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/hardware_init.c" FileDate="2019-11-26, 13:03:36" FileAge="1574780616614" FileType="45637" CompNumb="7" />
       <File Name="SDK/platform/drivers/src/spi/fsl_spi_slave_driver.c" FileDate="2019-11-16, 19:49:55" FileAge="1573940995087" FileType="1048576" CompNumb="18" />
       <File Name="SDK/platform/drivers/inc/fsl_i2c_slave_driver.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="1048576" CompNumb="26" />
       <File Name="SDK/platform/drivers/src/i2c/fsl_i2c_master_driver.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269801" FileType="1048576" CompNumb="26" />
       <File Name="Generated_Code/tempSensor.h" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="17" />
-      <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2019-11-20, 15:51:09" FileAge="1574272269755" FileType="45637" CompNumb="1" />
+      <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2019-11-26, 13:03:36" FileAge="1574780616704" FileType="45637" CompNumb="1" />
       <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2019-11-16, 19:37:21" FileAge="1573940241724" FileType="45637" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/src/event_groups.c" FileDate="2019-11-16, 19:40:05" FileAge="1573940405689" FileType="1048576" CompNumb="14" />
       <File Name="Generated_Code/tempSensor.c" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="45637" CompNumb="17" />
@@ -309,5 +311,5 @@
       <File Name="Project_Settings/Linker_Files/ProcessorExpert.ld" FileDate="2019-11-20, 15:51:09" FileAge="1574272269786" FileType="8" CompNumb="1" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>7</CodeGenReference>
+  <CodeGenReference>11</CodeGenReference>
 </CodeGenerationInfo>

@@ -227,7 +227,7 @@
       <File Name="Sources/os_tasks.h" FileDate="2019-11-08, 10:38:54" FileAge="1573216734654" FileType="131328" />
       <File Name="SDK/platform/devices/startup.h" FileDate="2019-10-13, 15:02:36" FileAge="1570989756170" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/include/event_groups.h" FileDate="2019-10-14, 12:02:25" FileAge="1571065345881" FileType="1048576" CompNumb="25" />
-      <File Name="Sources/os_tasks.c" FileDate="2019-11-08, 15:06:05" FileAge="1573232765039" FileType="131328" />
+      <File Name="Sources/os_tasks.c" FileDate="2019-11-22, 00:34:13" FileAge="1574390053170" FileType="131328" />
       <File Name="SDK/platform/devices/startup.c" FileDate="2019-10-13, 15:02:36" FileAge="1570989756165" FileType="1048576" CompNumb="1" />
       <File Name="Static_Code/System/PE_low_level_init.c" FileDate="2019-10-13, 15:02:36" FileAge="1570989756196" FileType="1048576" CompNumb="1" />
       <File Name="SDK/rtos/FreeRTOS/src/list.c" FileDate="2019-10-14, 12:02:25" FileAge="1571065345943" FileType="1048576" CompNumb="25" />
@@ -312,11 +312,11 @@
       <File Name="SDK/platform/hal/inc/fsl_mcg_hal_modes.h" FileDate="2019-10-13, 15:02:35" FileAge="1570989755941" FileType="1048576" CompNumb="0" />
       <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2019-10-13, 15:02:36" FileAge="1570989756210" FileType="45637" CompNumb="1" />
       <File Name="SDK/platform/utilities/src/fsl_misc_utilities.c" FileDate="2019-10-13, 15:02:36" FileAge="1570989756150" FileType="1048576" CompNumb="1" />
-      <File Name="SDK/platform/hal/src/uart/fsl_uart_hal.c" FileDate="2019-10-13, 15:02:36" FileAge="1570989756120" FileType="1048576" CompNumb="0" />
       <File Name="SDK/rtos/FreeRTOS/src/timers.c" FileDate="2019-10-14, 12:02:25" FileAge="1571065345943" FileType="1048576" CompNumb="25" />
-      <File Name="Documentation/doxygen/pex.css" FileDate="2019-10-13, 15:02:35" FileAge="1570989755760" FileType="16384" CompNumb="1" />
+      <File Name="SDK/platform/hal/src/uart/fsl_uart_hal.c" FileDate="2019-10-13, 15:02:36" FileAge="1570989756120" FileType="1048576" CompNumb="0" />
       <File Name="SDK/rtos/FreeRTOS/include/projdefs.h" FileDate="2019-10-14, 12:02:25" FileAge="1571065345896" FileType="1048576" CompNumb="25" />
+      <File Name="Documentation/doxygen/pex.css" FileDate="2019-10-13, 15:02:35" FileAge="1570989755760" FileType="16384" CompNumb="1" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>46</CodeGenReference>
+  <CodeGenReference>47</CodeGenReference>
 </CodeGenerationInfo>

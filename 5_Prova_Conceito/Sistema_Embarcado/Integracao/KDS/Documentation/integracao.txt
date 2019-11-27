@@ -145,6 +145,13 @@ Module "pin_init"  (component PinSettings)
    - pin_init_deinit_i2c_pins -I2C method de-configures registers according to settings of routing. This method is enabled only 
                 if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or pins 
                 selected in pin items in components. Call this method code to un-route desired pins into I2C0, I2C1 peripherals.
+   - pin_init_init_llwu_pins -LLWU method configures registers according to settings  of routing and electrical features. This 
+                method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
+                selected pins or pins selected in pin items in components. Call this method code to route desired pins into 
+                LLWU peripheral.
+   - pin_init_deinit_llwu_pins -LLWU method de-configures registers according to settings of routing. This method is enabled 
+                only if any pin of corresponding peripheral type is selected. Selected pins are either user selected pins or 
+                pins selected in pin items in components. Call this method code to un-route desired pins into LLWU peripheral.
    - pin_init_init_osc_pins -OSC method configures registers according to settings  of routing and electrical features. This 
                 method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either user 
                 selected pins or pins selected in pin items in components. Call this method code to route desired pins into 
@@ -224,11 +231,19 @@ Module "osa1"      (component fsl_os_abstraction)
    - osa1_OSA_Init -Initializes the RTOS services.
    - osa1_OSA_Start -Starts the RTOS.
 
-Module "Radio"     (component OS_Task)
-   - Radio_Init -Creates and starts a task.
-
-Module "tempSensor" (component OS_Task)
-   - tempSensor_Init -Creates and starts a task.
+Module "gpio"      (component fsl_gpio)
+   - gpio_GPIO_DRV_Init -Initializes all GPIO pins used by the board.
+   - gpio_GPIO_DRV_InputPinInit -Initializes one GPIO input pin used by the board.
+   - gpio_GPIO_DRV_OutputPinInit -Initializes one GPIO output pin used by the board.
+   - gpio_GPIO_DRV_GetPinDir -Gets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_SetPinDir -Sets the current direction of the individual GPIO pin.
+   - gpio_GPIO_DRV_WritePinOutput -Sets the output level of the individual GPIO pin to the logic 1 or 0.
+   - gpio_GPIO_DRV_SetPinOutput -Sets the output level of the individual GPIO pin to the logic 1.
+   - gpio_GPIO_DRV_ClearPinOutput -Sets the output level of the individual GPIO pin to the logic 0.
+   - gpio_GPIO_DRV_TogglePinOutput -Reverses current output logic of the individual GPIO pin.
+   - gpio_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
+   - gpio_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
+   - gpio_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
 
 Module "spiRadioTemp" (component fsl_spi)
    - spiRadioTemp_SPI_DRV_IRQHandler -The function SPI_DRV_IRQHandler passes IRQ control to either the master or slave driver.
@@ -249,20 +264,6 @@ Module "spiRadioTemp" (component fsl_spi)
    - spiRadioTemp_SPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
    - spiRadioTemp_SPI_DRV_SlaveIRQHandler -SPI Slave Generic IRQ handler.
 
-Module "gpio"      (component fsl_gpio)
-   - gpio_GPIO_DRV_Init -Initializes all GPIO pins used by the board.
-   - gpio_GPIO_DRV_InputPinInit -Initializes one GPIO input pin used by the board.
-   - gpio_GPIO_DRV_OutputPinInit -Initializes one GPIO output pin used by the board.
-   - gpio_GPIO_DRV_GetPinDir -Gets the current direction of the individual GPIO pin.
-   - gpio_GPIO_DRV_SetPinDir -Sets the current direction of the individual GPIO pin.
-   - gpio_GPIO_DRV_WritePinOutput -Sets the output level of the individual GPIO pin to the logic 1 or 0.
-   - gpio_GPIO_DRV_SetPinOutput -Sets the output level of the individual GPIO pin to the logic 1.
-   - gpio_GPIO_DRV_ClearPinOutput -Sets the output level of the individual GPIO pin to the logic 0.
-   - gpio_GPIO_DRV_TogglePinOutput -Reverses current output logic of the individual GPIO pin.
-   - gpio_GPIO_DRV_ReadPinInput -Reads the current input value of the individual GPIO pin.
-   - gpio_GPIO_DRV_IsPinIntPending -Reads the individual pin-interrupt status flag.
-   - gpio_GPIO_DRV_ClearPinIntFlag -Clears the individual GPIO pin interrupt status flag.
-
 Module "DbgCs1"    (component fsl_debug_console)
    - DbgCs1_DbgConsole_Init -Init the UART/LPUART used for debug messages.
    - DbgCs1_DbgConsole_DeInit -Deinit the UART/LPUART used for debug messages.
@@ -271,36 +272,45 @@ Module "DbgCs1"    (component fsl_debug_console)
    - DbgCs1_debug_scanf -Reads formatted data from the standard input stream.
    - DbgCs1_debug_getchar -Reads a character from standard input.
 
-Module "i2cCom1"   (component fsl_i2c)
-   - i2cCom1_I2C_DRV_IRQHandler -Pass IRQ control to either the master or slave driver.
-   - i2cCom1_I2C_DRV_MasterInit -Initializes the I2C master mode driver.
-   - i2cCom1_I2C_DRV_MasterDeinit -Shuts down the driver.
-   - i2cCom1_I2C_DRV_MasterSetBaudRate -Configures the I2C bus to access a device.
-   - i2cCom1_I2C_DRV_MasterSendDataBlocking -Performs a blocking send transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterSendData -Performs a non-blocking send transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterGetSendStatus -Gets the current status of the I2C master transmit.
-   - i2cCom1_I2C_DRV_MasterAbortSendData -Terminates a non-blocking I2C Master transmission early.
-   - i2cCom1_I2C_DRV_MasterReceiveDataBlocking -Performs a blocking receive transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterReceiveData -Performs a non-blocking receive transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterGetReceiveStatus -Gets the current status of the I2C master receive.
-   - i2cCom1_I2C_DRV_MasterReceiveDataPolling -Performs a polling receive transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterSendDataPolling -Performs a polling send transaction on the I2C bus.
-   - i2cCom1_I2C_DRV_MasterIRQHandler -The interrupt handler for I2C master mode.
-   - i2cCom1_I2C_DRV_SlaveInit -Initializes the I2C module.
-   - i2cCom1_I2C_DRV_SlaveDeinit -Shuts down the I2C slave driver.
-   - i2cCom1_I2C_DRV_SlaveGetHandler -Gets the I2C slave run-time state structure.
-   - i2cCom1_I2C_DRV_SlaveSendData -Sends/transmits data by using a non-blocking method.
-   - i2cCom1_I2C_DRV_SlaveSendDataBlocking -Sends (transmits) data by using a blocking method.
-   - i2cCom1_I2C_DRV_SlaveReceiveData -Receives the data by using a non-blocking method.
-   - i2cCom1_I2C_DRV_SlaveReceiveDataBlocking -Receives data by using a blocking method.
-   - i2cCom1_I2C_DRV_SlaveGetReceiveStatus -Gets the current status of the I2C slave driver.
-   - i2cCom1_I2C_DRV_SlaveGetTransmitStatus -Gets the current status of the I2C slave driver.
-   - i2cCom1_I2C_DRV_SlaveAbortReceiveData -Terminates a non-blocking receive of the I2C slave early.
-   - i2cCom1_I2C_DRV_SlaveAbortSendData -Terminates a non-blocking send of the I2C slave early.
-   - i2cCom1_I2C_DRV_SlaveIsBusBusy -Gets the current status of the I2C slave bus.
-   - i2cCom1_I2C_DRV_SlaveSendDataPolling -Sends out multiple bytes of data using a polling method.
-   - i2cCom1_I2C_DRV_SlaveReceiveDataPolling -Receives multiple bytes of data using a polling method.
-   - i2cCom1_I2C_DRV_SlaveIRQHandler -The interrupt handler for I2C slave mode.
+Module "i2cInertial" (component fsl_i2c)
+   - i2cInertial_I2C_DRV_IRQHandler -Pass IRQ control to either the master or slave driver.
+   - i2cInertial_I2C_DRV_MasterInit -Initializes the I2C master mode driver.
+   - i2cInertial_I2C_DRV_MasterDeinit -Shuts down the driver.
+   - i2cInertial_I2C_DRV_MasterSetBaudRate -Configures the I2C bus to access a device.
+   - i2cInertial_I2C_DRV_MasterSendDataBlocking -Performs a blocking send transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterSendData -Performs a non-blocking send transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterGetSendStatus -Gets the current status of the I2C master transmit.
+   - i2cInertial_I2C_DRV_MasterAbortSendData -Terminates a non-blocking I2C Master transmission early.
+   - i2cInertial_I2C_DRV_MasterReceiveDataBlocking -Performs a blocking receive transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterReceiveData -Performs a non-blocking receive transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterGetReceiveStatus -Gets the current status of the I2C master receive.
+   - i2cInertial_I2C_DRV_MasterReceiveDataPolling -Performs a polling receive transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterSendDataPolling -Performs a polling send transaction on the I2C bus.
+   - i2cInertial_I2C_DRV_MasterIRQHandler -The interrupt handler for I2C master mode.
+   - i2cInertial_I2C_DRV_SlaveInit -Initializes the I2C module.
+   - i2cInertial_I2C_DRV_SlaveDeinit -Shuts down the I2C slave driver.
+   - i2cInertial_I2C_DRV_SlaveGetHandler -Gets the I2C slave run-time state structure.
+   - i2cInertial_I2C_DRV_SlaveSendData -Sends/transmits data by using a non-blocking method.
+   - i2cInertial_I2C_DRV_SlaveSendDataBlocking -Sends (transmits) data by using a blocking method.
+   - i2cInertial_I2C_DRV_SlaveReceiveData -Receives the data by using a non-blocking method.
+   - i2cInertial_I2C_DRV_SlaveReceiveDataBlocking -Receives data by using a blocking method.
+   - i2cInertial_I2C_DRV_SlaveGetReceiveStatus -Gets the current status of the I2C slave driver.
+   - i2cInertial_I2C_DRV_SlaveGetTransmitStatus -Gets the current status of the I2C slave driver.
+   - i2cInertial_I2C_DRV_SlaveAbortReceiveData -Terminates a non-blocking receive of the I2C slave early.
+   - i2cInertial_I2C_DRV_SlaveAbortSendData -Terminates a non-blocking send of the I2C slave early.
+   - i2cInertial_I2C_DRV_SlaveIsBusBusy -Gets the current status of the I2C slave bus.
+   - i2cInertial_I2C_DRV_SlaveSendDataPolling -Sends out multiple bytes of data using a polling method.
+   - i2cInertial_I2C_DRV_SlaveReceiveDataPolling -Receives multiple bytes of data using a polling method.
+   - i2cInertial_I2C_DRV_SlaveIRQHandler -The interrupt handler for I2C slave mode.
+
+Module "Radio"     (component OS_Task)
+   - Radio_Init -Creates and starts a task.
+
+Module "tempSensor" (component OS_Task)
+   - tempSensor_Init -Creates and starts a task.
+
+Module "inertialTask" (component OS_Task)
+   - inertialTask_Init -Creates and starts a task.
 
 Module "Cpu"       (component MKL25Z128LK4_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

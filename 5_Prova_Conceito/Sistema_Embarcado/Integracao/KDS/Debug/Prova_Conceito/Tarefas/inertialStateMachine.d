@@ -1,5 +1,7 @@
-Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
- N:/Integracao/KDS/Sources/Events.h \
+Prova_Conceito/Tarefas/inertialStateMachine.o: \
+ N:/Integracao/Prova_Conceito/Tarefas/inertialStateMachine.c \
+ N:\Integracao\Prova_Conceito\Template/inertialStateMachine_port.h \
+ N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/SDK/platform/devices/fsl_device_registers.h \
  N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  N:/Integracao/KDS/SDK/platform/CMSIS/Include/core_cm0plus.h \
@@ -10,11 +12,6 @@ Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
  N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h \
  N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h \
- N:/Integracao/KDS/Generated_Code/clockMan1.h \
- N:/Integracao/KDS/Generated_Code/osa1.h \
- N:/Integracao/KDS/Generated_Code/free_rtos.h \
- N:/Integracao/KDS/Generated_Code/MainTask.h \
- N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/SDK/platform/system/inc/fsl_clock_manager.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_sim_hal.h \
  n:\integracao\kds\sdk\platform\hal\src\sim\mkl25z4\fsl_sim_hal_mkl25z4.h \
@@ -39,14 +36,18 @@ Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
  N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/queue.h \
  N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/event_groups.h \
  N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/timers.h \
+ N:/Integracao/KDS/Generated_Code/osa1.h \
+ N:/Integracao/KDS/Generated_Code/free_rtos.h \
+ N:/Integracao/KDS/Generated_Code/MainTask.h \
+ N:/Integracao/KDS/Generated_Code/Cpu.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h \
+ N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
+ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h \
- N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h \
- N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h \
  N:/Integracao/KDS/SDK/platform/hal/inc/fsl_lpsci_hal.h \
  N:/Integracao/KDS/SDK/platform/utilities/inc/fsl_debug_console.h \
@@ -54,19 +55,29 @@ Generated_Code/i2cCom1.o: ../Generated_Code/i2cCom1.c \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_i2c_master_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h \
  N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h \
+ N:/Integracao/KDS/Sources/Events.h \
+ N:/Integracao/KDS/Generated_Code/clockMan1.h \
  N:/Integracao/KDS/Generated_Code/pin_init.h \
  N:/Integracao/KDS/Generated_Code/osa1.h \
  N:/Integracao/KDS/Generated_Code/free_rtos.h \
  N:/Integracao/KDS/Generated_Code/MainTask.h \
  N:/Integracao/KDS/Generated_Code/Radio.h \
  N:/Integracao/KDS/Generated_Code/tempSensor.h \
+ N:/Integracao/KDS/Generated_Code/inertialTask.h \
  N:/Integracao/KDS/Generated_Code/spiRadioTemp.h \
  N:/Integracao/KDS/Generated_Code/clockMan1.h \
  N:/Integracao/KDS/Generated_Code/gpio.h \
  N:/Integracao/KDS/Generated_Code/DbgCs1.h \
- N:/Integracao/KDS/Generated_Code/i2cCom1.h ../Generated_Code/i2cCom1.h
+ N:/Integracao/KDS/Generated_Code/i2cInertial.h \
+ N:/Integracao/KDS/Sources/rtos_main_task.h \
+ N:/Integracao/KDS/Sources/os_tasks.h \
+ N:\Sensores\acelerometro\publish\versao0/mpu6050.h \
+ N:\Sensores\acelerometro\publish\versao0/MPU6050config.h \
+ N:/Integracao/Prova_Conceito/Tarefas/inertialStateMachine.h
 
-N:/Integracao/KDS/Sources/Events.h:
+N:\Integracao\Prova_Conceito\Template/inertialStateMachine_port.h:
+
+N:/Integracao/KDS/Generated_Code/Cpu.h:
 
 N:/Integracao/KDS/SDK/platform/devices/fsl_device_registers.h:
 
@@ -87,16 +98,6 @@ N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4.h:
 N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h:
 
 N:/Integracao/KDS/SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h:
-
-N:/Integracao/KDS/Generated_Code/clockMan1.h:
-
-N:/Integracao/KDS/Generated_Code/osa1.h:
-
-N:/Integracao/KDS/Generated_Code/free_rtos.h:
-
-N:/Integracao/KDS/Generated_Code/MainTask.h:
-
-N:/Integracao/KDS/Generated_Code/Cpu.h:
 
 N:/Integracao/KDS/SDK/platform/system/inc/fsl_clock_manager.h:
 
@@ -146,9 +147,21 @@ N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/event_groups.h:
 
 N:/Integracao/KDS/SDK/rtos/FreeRTOS/include/timers.h:
 
+N:/Integracao/KDS/Generated_Code/osa1.h:
+
+N:/Integracao/KDS/Generated_Code/free_rtos.h:
+
+N:/Integracao/KDS/Generated_Code/MainTask.h:
+
+N:/Integracao/KDS/Generated_Code/Cpu.h:
+
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_rtc_hal.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_port_hal.h:
+
+N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
+
+N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_spi_hal.h:
 
@@ -157,10 +170,6 @@ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_master_driver.h:
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_slave_driver.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_spi_shared_function.h:
-
-N:/Integracao/KDS/SDK/platform/hal/inc/fsl_gpio_hal.h:
-
-N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_gpio_driver.h:
 
 N:/Integracao/KDS/SDK/platform/hal/inc/fsl_uart_hal.h:
 
@@ -176,6 +185,10 @@ N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_i2c_slave_driver.h:
 
 N:/Integracao/KDS/SDK/platform/drivers/inc/fsl_i2c_shared_function.h:
 
+N:/Integracao/KDS/Sources/Events.h:
+
+N:/Integracao/KDS/Generated_Code/clockMan1.h:
+
 N:/Integracao/KDS/Generated_Code/pin_init.h:
 
 N:/Integracao/KDS/Generated_Code/osa1.h:
@@ -188,6 +201,8 @@ N:/Integracao/KDS/Generated_Code/Radio.h:
 
 N:/Integracao/KDS/Generated_Code/tempSensor.h:
 
+N:/Integracao/KDS/Generated_Code/inertialTask.h:
+
 N:/Integracao/KDS/Generated_Code/spiRadioTemp.h:
 
 N:/Integracao/KDS/Generated_Code/clockMan1.h:
@@ -196,6 +211,14 @@ N:/Integracao/KDS/Generated_Code/gpio.h:
 
 N:/Integracao/KDS/Generated_Code/DbgCs1.h:
 
-N:/Integracao/KDS/Generated_Code/i2cCom1.h:
+N:/Integracao/KDS/Generated_Code/i2cInertial.h:
 
-../Generated_Code/i2cCom1.h:
+N:/Integracao/KDS/Sources/rtos_main_task.h:
+
+N:/Integracao/KDS/Sources/os_tasks.h:
+
+N:\Sensores\acelerometro\publish\versao0/mpu6050.h:
+
+N:\Sensores\acelerometro\publish\versao0/MPU6050config.h:
+
+N:/Integracao/Prova_Conceito/Tarefas/inertialStateMachine.h:

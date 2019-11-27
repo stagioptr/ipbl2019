@@ -39,10 +39,11 @@
 #include "MainTask.h"
 #include "Radio.h"
 #include "tempSensor.h"
+#include "inertialTask.h"
 #include "spiRadioTemp.h"
 #include "gpio.h"
 #include "DbgCs1.h"
-#include "i2cCom1.h"
+#include "i2cInertial.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -70,6 +71,17 @@ void tempSensor_task(os_task_param_t task_init_data);
 */
 void Radio_task(os_task_param_t task_init_data);
 
+
+/*
+** ===================================================================
+**     Callback    : inertialTask_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+void inertialTask_task(os_task_param_t task_init_data);
 
 /* END os_tasks */
 

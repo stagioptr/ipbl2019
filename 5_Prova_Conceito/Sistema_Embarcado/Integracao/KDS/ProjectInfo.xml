@@ -59,6 +59,7 @@
     <SourceCodePaths>
       <Path>N:\Integracao\KDS\Generated_Code\</Path>
       <Path>N:\Integracao\KDS\MAX6675\</Path>
+      <Path>N:\Integracao\KDS\MPU6050\</Path>
       <Path>N:\Integracao\KDS\Prova_Conceito\Tarefas\</Path>
       <Path>N:\Integracao\KDS\SCADE\</Path>
       <Path>N:\Integracao\KDS\SDK\platform\devices\MKL25Z4\startup\</Path>
@@ -100,12 +101,15 @@
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\hardware_init.c</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\i2cCom1.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\i2cInertial.c</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\inertialTask.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiRadioTemp.c</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.c</PathName>
       <PathName>N:\Integracao\KDS\MAX6675\MAX6675_API.c</PathName>
+      <PathName>N:\Integracao\KDS\MPU6050\mpu6050.c</PathName>
+      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\inertialStateMachine.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.c</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.c</PathName>
       <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.c</PathName>
@@ -178,15 +182,21 @@
       <PathName>N:\Integracao\KDS\Generated_Code\clockMan1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\free_rtos.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\gpio.h</PathName>
-      <PathName>N:\Integracao\KDS\Generated_Code\i2cCom1.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\i2cInertial.h</PathName>
+      <PathName>N:\Integracao\KDS\Generated_Code\inertialTask.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\osa1.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\pin_init.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\spiRadioTemp.h</PathName>
       <PathName>N:\Integracao\KDS\Generated_Code\tempSensor.h</PathName>
       <PathName>N:\Integracao\KDS\MAX6675\MAX6675_API.h</PathName>
       <PathName>N:\Integracao\KDS\MAX6675\Template\MAX6675_API_port.h</PathName>
+      <PathName>N:\Integracao\KDS\MPU6050\MPU6050config.h</PathName>
+      <PathName>N:\Integracao\KDS\MPU6050\Template\mpu6050_port.h</PathName>
+      <PathName>N:\Integracao\KDS\MPU6050\mpu6050.h</PathName>
+      <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\inertialStateMachine.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoRadio.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Tarefas\maquinaEstadoSensor.h</PathName>
+      <PathName>N:\Integracao\KDS\Prova_Conceito\Template\inertialStateMachine_port.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoRadio_port.h</PathName>
       <PathName>N:\Integracao\KDS\Prova_Conceito\Template\maquinaEstadoSensor_port.h</PathName>
       <PathName>N:\Integracao\KDS\SCADE\Integration_Integration.h</PathName>
@@ -256,6 +266,7 @@
       <PathName>N:\Integracao\KDS\SDK\rtos\FreeRTOS\port\gcc\portmacro.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\Events.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\MAX6675_API_port.h</PathName>
+      <PathName>N:\Integracao\KDS\Sources\mpu6050_port.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\nRF24L01_API_port.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\os_tasks.h</PathName>
       <PathName>N:\Integracao\KDS\Sources\rtos_main_task.h</PathName>

@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-18, 12:34, # CodeGen: 5
+**     Date/Time   : 2019-11-26, 13:03, # CodeGen: 10
 **     Abstract    :
 **
 **     Settings    :
@@ -998,6 +998,11 @@ void init_gpio_pins(uint32_t instance)
       /* Affects PORTC_PCR8 register */
       PORT_HAL_SetMuxMode(PORTC,8UL,kPortMuxAsGpio);
       break;
+    case GPIOD_IDX:                     /* GPIOD_IDX */
+      /* Affects PORTD_PCR4 register */
+      PORT_HAL_SetMuxMode(PORTD,4UL,kPortMuxAsGpio);
+      PORT_HAL_SetPullCmd(PORTD,4UL,true);
+      break;
     default:
       break;
   }
@@ -1018,6 +1023,9 @@ void deinit_gpio_pins(uint32_t instance)
     case GPIOC_IDX:                     /* GPIOC_IDX */
       PORT_HAL_SetMuxMode(PORTC,0UL,kPortPinDisabled);
       PORT_HAL_SetMuxMode(PORTC,8UL,kPortPinDisabled);
+      break;
+    case GPIOD_IDX:                     /* GPIOD_IDX */
+      PORT_HAL_SetMuxMode(PORTD,4UL,kPortPinDisabled);
       break;
     default:
       break;
@@ -1058,6 +1066,29 @@ void deinit_i2c_pins(uint32_t instance)
     default:
       break;
   }
+}
+
+/*FUNCTION**********************************************************************
+*
+* Function Name : init_llwu_pins
+* Description   : LLWU method sets registers according routing settings.
+* Call this method code to route desired pins.
+*END**************************************************************************/
+void init_llwu_pins(uint32_t instance)
+{
+  /* Affects PORTD_PCR4 register */
+  PORT_HAL_SetMuxMode(PORTD,4UL,kPortMuxAsGpio);
+  PORT_HAL_SetPullCmd(PORTD,4UL,true);
+}
+/*FUNCTION**********************************************************************
+*
+* Function Name : deinit_llwu_pins
+* Description   : LLWU method sets registers according routing settings.
+* Call this method code to disable routing of desired pins.
+*END**************************************************************************/
+void deinit_llwu_pins(uint32_t instance)
+{
+  PORT_HAL_SetMuxMode(PORTD,4UL,kPortPinDisabled);
 }
 
 /*FUNCTION**********************************************************************

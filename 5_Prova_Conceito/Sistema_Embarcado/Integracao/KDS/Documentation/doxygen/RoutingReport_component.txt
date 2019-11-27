@@ -369,9 +369,10 @@
 				<td></td><td></td><td></td><td></td>
 			</tr>
 			<tr>
-				<td>77</td><td>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td>J1_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td rowspan='2'>77</td><td rowspan='2'>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td rowspan='2'>J1_6</td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
+			<tr bgcolor='#EBD4BD'><td>LLWU</td><td>llwu_wakeup14</td><td>alt1</td><td>Input</td></tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
 				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb6</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>
@@ -1654,9 +1655,10 @@
 				<td></td><td></td><td></td><td></td>
 			</tr>
 			<tr>
-				<td>77</td><td>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td>J1_6</td>
-				<td></td><td></td><td></td><td></td>
+				<td rowspan='2'>77</td><td rowspan='2'>PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4</td><td rowspan='2'>J1_6</td>
+				<td bgcolor='#F7DCFF'>GPIOD</td><td bgcolor='#F7DCFF'>port4</td><td bgcolor='#F7DCFF'>alt1</td><td bgcolor='#F7DCFF'>Input</td>
 			</tr>
+			<tr bgcolor='#EBD4BD'><td>LLWU</td><td>llwu_wakeup14</td><td>alt1</td><td>Input</td></tr>
 			<tr>
 				<td>78</td><td>ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5</td><td>J2_4</td>
 				<td bgcolor='#F8FF9A'>ADC0</td><td bgcolor='#F8FF9A'>adc_seb6</td><td bgcolor='#F8FF9A'>alt0</td><td bgcolor='#F8FF9A'>Input</td>

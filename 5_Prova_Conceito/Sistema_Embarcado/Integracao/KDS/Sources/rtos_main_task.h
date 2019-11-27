@@ -38,10 +38,11 @@
 #include "MainTask.h"
 #include "Radio.h"
 #include "tempSensor.h"
+#include "inertialTask.h"
 #include "spiRadioTemp.h"
 #include "gpio.h"
 #include "DbgCs1.h"
-#include "i2cCom1.h"
+#include "i2cInertial.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -55,6 +55,7 @@ SDK/platform/devices/MKL25Z4/startup \
 SDK/platform/devices/MKL25Z4/startup/gcc \
 SCADE \
 Prova_Conceito/Tarefas \
+MPU6050 \
 MAX6675 \
 Generated_Code \
 

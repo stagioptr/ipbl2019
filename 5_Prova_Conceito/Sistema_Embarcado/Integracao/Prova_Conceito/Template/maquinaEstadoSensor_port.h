@@ -86,7 +86,7 @@ static SENSOR_RETORNO VERIFICA_TIPO_FALHA_PORT(void) {
 }
 
 static SENSOR_RETORNO DESCONFIGURA_SENSOR_PORT(void) {
-	tempratureSensor_reset_TemperatureSensor( &SCADEtemperature );
+//	tempratureSensor_reset_TemperatureSensor( &SCADEtemperature );
 
 	return SENSOR_DESCONFIGURACAO_OK;
 }

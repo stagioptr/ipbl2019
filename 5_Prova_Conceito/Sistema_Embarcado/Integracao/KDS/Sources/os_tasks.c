@@ -100,6 +100,35 @@ void Radio_task(os_task_param_t task_init_data)
 #endif
 }
 
+/*
+** ===================================================================
+**     Callback    : inertialTask_task
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+void inertialTask_task(os_task_param_t task_init_data)
+{
+  /* Write your local variable definition here */
+	inertiaSensorStateMachine();
+#ifdef PEX_USE_RTOS
+  while (1) {
+#endif
+    /* Write your code here ... */
+
+
+    OSA_TimeDelay(10);                 /* Example code (for task release) */
+
+
+
+
+#ifdef PEX_USE_RTOS
+  }
+#endif
+}
+
 /* END os_tasks */
 
 #ifdef __cplusplus

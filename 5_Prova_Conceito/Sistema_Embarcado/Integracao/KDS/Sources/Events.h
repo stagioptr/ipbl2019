@@ -38,10 +38,11 @@
 #include "MainTask.h"
 #include "Radio.h"
 #include "tempSensor.h"
+#include "inertialTask.h"
 #include "spiRadioTemp.h"
 #include "gpio.h"
 #include "DbgCs1.h"
-#include "i2cCom1.h"
+#include "i2cInertial.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -83,7 +84,7 @@ void SPI0_IRQHandler(void);
            modify it according to possible new request.
 #endif
 
-#ifdef i2cCom1_IDX
+#ifdef i2cInertial_IDX
 /*
 ** ===================================================================
 **     Interrupt handler : I2C1_IRQHandler
@@ -96,15 +97,27 @@ void SPI0_IRQHandler(void);
 */
 void I2C1_IRQHandler(void);
 #else
-  /* This IRQ handler is not used by i2cCom1 component. The purpose may be
+  /* This IRQ handler is not used by i2cInertial component. The purpose may be
    * that the component has been removed or disabled. It is recommended to 
    * remove this handler because Processor Expert cannot modify it according to 
    * possible new request (e.g. in case that another component uses this
    * interrupt vector). */
-  #warning This IRQ handler is not used by i2cCom1 component.\
+  #warning This IRQ handler is not used by i2cInertial component.\
            It is recommended to remove this because Processor Expert cannot\
            modify it according to possible new request.
 #endif
+
+/*
+** ===================================================================
+**     Interrupt handler : PORTD_IRQHandler
+**
+**     Description :
+**         User interrupt service routine. 
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void PORTD_IRQHandler(void);
 
 /* END Events */
 

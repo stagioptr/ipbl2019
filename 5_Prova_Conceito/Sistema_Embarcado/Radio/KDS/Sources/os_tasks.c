@@ -200,7 +200,7 @@ void TaskRadio1_task(os_task_param_t task_init_data) {
 			L01_Read_RX_Pload( receivePayload );
 			L01_Clear_IRQ( NRF24L01_RX_DR );
 
-			debug_printf("Start\n%d\n%5.2f\nX: %5.2f; Y: %5.2f; Z: %5.2f\nX: %5.2f; Y: %5.2f; Z: %5.2f\nEnd\n",
+			debug_printf("Start\n%d\n%5.3f\nX: %5.3f; Y: %5.3f; Z: %5.3f\nX: %5.3f; Y: %5.3f; Z: %5.3f\nEnd\n",
 					RECEIVE_STRUCT(receivePayload)->deviceID,
 					RECEIVE_STRUCT(receivePayload)->temperature,
 					RECEIVE_STRUCT(receivePayload)->acceletrometer_x,

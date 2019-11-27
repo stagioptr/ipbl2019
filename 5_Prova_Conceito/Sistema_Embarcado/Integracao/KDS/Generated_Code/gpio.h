@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-16, 20:40, # CodeGen: 4
+**     Date/Time   : 2019-11-26, 13:03, # CodeGen: 10
 **     Contents    :
 **         GPIO_DRV_Init            - void GPIO_DRV_Init(const gpio_input_pin_user_config_t * inputPins,const...
 **         GPIO_DRV_InputPinInit    - void GPIO_DRV_InputPinInit(const gpio_input_pin_user_config_t * inputPin);
@@ -81,6 +81,7 @@ extern const gpio_output_pin_user_config_t gpio_OutConfig0[];
 /*! @brief Pin names */
 enum _gpio_pinNames{
   Radio_IRQ = GPIO_MAKE_PIN(GPIOA_IDX, 5U),
+  Inertial_IRQ = GPIO_MAKE_PIN(GPIOD_IDX, 4U),
   Radio_CE = GPIO_MAKE_PIN(GPIOA_IDX, 4U),
   Radio_CSN = GPIO_MAKE_PIN(GPIOC_IDX, 8U),
   Temp_CSN = GPIO_MAKE_PIN(GPIOC_IDX, 0U),

@@ -17,6 +17,8 @@
 #include "nRF24L01_API.h"
 
 extern msg_queue_handler_t temperature_msg_queue_handler;
+extern msg_queue_handler_t inertial_msg_queue_handler;
+extern msg_queue_handler_t freeFall_msg_queue_handler;
 extern semaphore_t radioIRQ_semaphore;
 
 typedef enum {
@@ -42,7 +44,7 @@ struct {
 	float gyro_x;
 	float gyro_y;
 	float gyro_z;
-	uint32_t deviceID;
+	uint32_t freeFall;
 }sendPackage = {
 		.temperature = 0.0,
 		.acceletrometer_x = 0.0,
@@ -51,7 +53,7 @@ struct {
 		.gyro_x = 0.0,
 		.gyro_y = 0.0,
 		.gyro_z = 0.0,
-		.deviceID = 0
+		.freeFall = 0
 };
 
 static NRF24L01_transferSetupStruct_t transmitSetup = {
@@ -66,8 +68,6 @@ static NRF24L01_transferSetupStruct_t transmitSetup = {
 static RADIO_RETORNO CONFIGURA_RADIO_PORT(void) {
 	if( nRF24L01_Init() != NRF24L01_STATE_SUCCESS )
 		return RADIO_FALHA_CONFIGURACAO;
-
-	sendPackage.deviceID = SIM_UIDMH;
 
 	return RADIO_CONFIGURACAO_OK;
 }
@@ -86,15 +86,25 @@ static RADIO_RETORNO TRANSMITE_AMOSTRAS_PORT(void) {
 	uint8_t radio_status = 0;
 
 	if( OSA_MsgQGet( temperature_msg_queue_handler, &sendPackage.temperature, 2000 ) != kStatus_OSA_Success ) {
-		debug_printf("No data to send!\n\r");
+		debug_printf("Missing temperature data to send!\n\r");
+		return RADIO_FALHA_TRANSMISSAO;
+	}
+
+	if( OSA_MsgQGet( inertial_msg_queue_handler, &sendPackage.acceletrometer_x, 2000 ) != kStatus_OSA_Success ) {
+		debug_printf("Missing inertial data to send!\n\r");
+		return RADIO_FALHA_TRANSMISSAO;
+	}
+
+	if( OSA_MsgQGet( freeFall_msg_queue_handler, &sendPackage.freeFall, 2000 ) != kStatus_OSA_Success ) {
+		debug_printf("Missing inertial data to send!\n\r");
 		return RADIO_FALHA_TRANSMISSAO;
 	}
 
 #if DEBUG
-	debug_printf("%5.2f Celsius Degree\r\n", sendPackage.temperature );
-	debug_printf("X: %5.2f; Y: %5.2f; Z: %5.2f\r\n", sendPackage.acceletrometer_x, sendPackage.acceletrometer_y, sendPackage.acceletrometer_z );
-	debug_printf("X: %5.2f; Y: %5.2f; Z: %5.2f\r\n", sendPackage.gyro_x, sendPackage.gyro_y, sendPackage.gyro_z );
-	debug_printf("Device ID: %d\r\n\r\n", sendPackage.deviceID );
+	debug_printf("%5.3f Celsius Degree\r\n", sendPackage.temperature );
+	debug_printf("X: %5.3f; Y: %5.3f; Z: %5.3f\r\n", sendPackage.acceletrometer_x, sendPackage.acceletrometer_y, sendPackage.acceletrometer_z );
+	debug_printf("X: %5.3f; Y: %5.3f; Z: %5.3f\r\n", sendPackage.gyro_x, sendPackage.gyro_y, sendPackage.gyro_z );
+	debug_printf("Free Fall: %d\r\n\r\n", sendPackage.freeFall );
 #endif
 
 	if( nRF24L01_transmitPayload( &transmitSetup ) != NRF24L01_STATE_SUCCESS )

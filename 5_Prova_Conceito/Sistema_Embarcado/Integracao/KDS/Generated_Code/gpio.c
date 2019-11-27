@@ -7,7 +7,7 @@
 **     Version     : Component 1.3.0, Driver 01.00, CPU db: 3.00.000
 **     Repository  : KSDK 1.3.0
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2019-11-16, 20:40, # CodeGen: 4
+**     Date/Time   : 2019-11-26, 10:12, # CodeGen: 9
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -61,6 +61,12 @@ const gpio_input_pin_user_config_t gpio_InpConfig0[] = {
     .config.isPullEnable = true, 
     .config.isPassiveFilterEnabled = true,
     .config.interrupt = kPortIntFallingEdge
+  },
+  {
+    .pinName = Inertial_IRQ,
+    .config.isPullEnable = true, 
+    .config.isPassiveFilterEnabled = true,
+    .config.interrupt = kPortIntRisingEdge
   },
   {
     .pinName = GPIO_PINS_OUT_OF_RANGE,
